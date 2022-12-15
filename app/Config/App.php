@@ -24,7 +24,7 @@ class App extends BaseConfig
      *
      * @var string
      */
-    public $baseURL = 'http://localhost/followup-cbm/';
+    public $baseURL = 'http://localhost/pt-ppa/';
 
     /**
      * --------------------------------------------------------------------------
