@@ -14,15 +14,15 @@
         <main>
             <div class="container-fluid px-4">
                 <h1 class="mt-4">Input Follow Up</h1>
-<!--                <ol class="breadcrumb mb-4">
-                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-                    <li class="breadcrumb-item active">Input Follow Up</li>
-                </ol>
-                <div class="card mb-4">
-                    <div class="card-body">
-                        Masukkan data
-                    </div>
-                </div>-->
+                <!--                <ol class="breadcrumb mb-4">
+                                    <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                                    <li class="breadcrumb-item active">Input Follow Up</li>
+                                </ol>
+                                <div class="card mb-4">
+                                    <div class="card-body">
+                                        Masukkan data
+                                    </div>
+                                </div>-->
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
@@ -33,8 +33,13 @@
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <select class="form-control" id="inputModelUnit" name="inputModelUnit">
+                                        <select class="form-control" id="inputModelUnit" name="inputModelUnit" required="">
                                             <option value="">--Pilih--</option>
+                                            <?php foreach ($model_unit as $key => $value): ?>
+                                            
+                                            <option value="<?= $value->model_unit ?>"><?= $value->model_unit ?></option>
+                                            
+                                            <?php endforeach ?>
                                         </select>
                                         <label for="inputModelUnit">Model Unit</label>
                                     </div>
@@ -131,7 +136,7 @@
                                 </div>
                             </div>                            
                             <div class="mt-4 mb-0">
-                                <div class="d-grid"><a class="btn btn-primary btn-block" href="login.html"><span class="fa fa-floppy-disk"></span> Simpan</a></div>
+                                <div class="d-grid"><button type="submit" class="btn btn-primary btn-block"><span class="fa fa-floppy-disk"></span> Simpan</button></div>
                             </div>
                         </form>
                     </div>
