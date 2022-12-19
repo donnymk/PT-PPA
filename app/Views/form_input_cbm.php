@@ -33,12 +33,12 @@
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <select class="form-control" id="inputModelUnit" name="inputModelUnit" required="">
+                                        <select class="form-control" id="inputModelUnit" name="inputModelUnit" onchange="getCodeUnit()" required="">
                                             <option value="">--Pilih--</option>
                                             <?php foreach ($model_unit as $key => $value): ?>
-                                            
-                                            <option value="<?= $value->model_unit ?>"><?= $value->model_unit ?></option>
-                                            
+
+                                                <option value="<?= $value->model_unit ?>"><?= $value->model_unit ?></option>
+
                                             <?php endforeach ?>
                                         </select>
                                         <label for="inputModelUnit">Model Unit</label>
@@ -134,7 +134,7 @@
                                         <label for="inputPlanDate">Plan Date Follow Up</label>
                                     </div>
                                 </div>
-                            </div>                            
+                            </div>
                             <div class="mt-4 mb-0">
                                 <div class="d-grid"><button type="submit" class="btn btn-primary btn-block"><span class="fa fa-floppy-disk"></span> Simpan</button></div>
                             </div>
@@ -148,5 +148,26 @@
         <?= $this->include('footer') ?>
     </div>
 </div>
+
+<script>
+    function getCodeUnit() {
+        var modelunit = document.getElementById("inputModelUnit").value;
+        const data = {modelUnit: modelunit};
+
+        fetch("<?= base_url('followup-cbm/get_code_unit/') ?>", {
+            method: "get",
+            headers: {
+                "Content-Type": "application/json",
+                "X-Requested-With": "XMLHttpRequest"
+            },
+            body: JSON.stringify(data)
+        }).then((response) => {
+            console.log('Success:', response);
+        }).catch((error) => {
+            console.error('Error:', error);
+        });
+        document.getElementById("demo").innerHTML = "You selected: " + x;
+    }
+</script>
 
 <?= $this->endSection() ?>

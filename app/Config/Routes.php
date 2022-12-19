@@ -38,6 +38,7 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('login', 'Home::login');
 $routes->get('input', 'Admin::input');
+$routes->get('get_code_unit', 'Admin::get_code_unit');
 $routes->get('resume', 'Admin::resume');
 
 /*
