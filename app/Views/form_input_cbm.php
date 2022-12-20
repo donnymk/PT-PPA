@@ -29,7 +29,7 @@
                         Form Input Follow Up CBM
                     </div>
                     <div class="card-body">
-                        <form>
+                        <form method="post" action="<?= base_url('followup-cbm/input_cbm') ?>">
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
@@ -46,7 +46,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name">
+                                        <select class="form-control" id="inputCodeUnit" name="inputCodeUnit" required="">
+                                            <option value="">--Pilih dahulu Model Unit--</option>
+                                        </select>
                                         <label for="inputLastName">Code Unit</label>
                                     </div>
                                 </div>
@@ -98,13 +100,13 @@
                                 </div>
                             </div>
                             <div class="form-floating mb-3">
-                                <textarea class="form-control" id="inputDeskripsiProblem" name="inputDeskripsiProblem"></textarea>
+                                <textarea class="form-control" id="inputDeskripsiProblem" name="inputDeskripsiProblem" required=""></textarea>
                                 <label for="inputDeskripsiProblem">Dekripsi Problem</label>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-8">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <select class="form-control" id="inputRekomFollowUp" name="inputRekomFollowUp" required="">
+                                        <select class="form-control" id="selectRekomFollowUp" name="selectRekomFollowUp" onchange="switch_input()" required="">
                                             <option value="">--Pilih--</option>
                                             <option value="Resampling (Tanpa penggantian oli)">Resampling (Tanpa penggantian oli)</option>
                                             <option value="Cek apakah ada partikel logam kasar pada Drain magnetic plug">Cek apakah ada partikel logam kasar pada Drain magnetic plug</option>
@@ -125,12 +127,13 @@
                                             <option value="Ukur Ulang SOH/SOC, Ganti Terminal Battery Jika Rusak/Berjamur">Ukur Ulang SOH/SOC, Ganti Terminal Battery Jika Rusak/Berjamur</option>
                                             <option value="Lainnya">Lainnya</option>
                                         </select>
-                                        <label for="inputRekomFollowUp">Rekomendasi Follow Up</label>
+                                        <label for="selectRekomFollowUp">Rekomendasi Follow Up</label>
                                     </div>
+                                    <input type="text" class="form-control" id="inputRekomFollowUp" name="inputRekomFollowUp" placeholder="Isikan jika lainnya">
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <input class="form-control" type="date" id="inputPlanDate" name="inputPlanDate">
+                                        <input class="form-control" type="date" id="inputPlanDate" name="inputPlanDate" required="">
                                         <label for="inputPlanDate">Plan Date Follow Up</label>
                                     </div>
                                 </div>
@@ -152,22 +155,73 @@
 <script>
     function getCodeUnit() {
         var modelunit = document.getElementById("inputModelUnit").value;
-        const data = {modelUnit: modelunit};
+        const data = {"modelUnit": modelunit};
 
-        fetch("<?= base_url('followup-cbm/get_code_unit/') ?>", {
-            method: "get",
+        fetch("<?= base_url('followup-cbm/get_code_unit') ?>", {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "X-Requested-With": "XMLHttpRequest"
             },
             body: JSON.stringify(data)
-        }).then((response) => {
-            console.log('Success:', response);
-        }).catch((error) => {
-            console.error('Error:', error);
-        });
-        document.getElementById("demo").innerHTML = "You selected: " + x;
+        })
+                .then((response) => response.json())
+                .then((data) => {
+                    //console.log('Success:', data);
+                    drawCodeUnit(data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
     }
+
+    // draw option code unit to form
+    function drawCodeUnit(data) {
+        let optionCodeUnit = '';
+        let indeks;
+        for (indeks = 0; indeks < data.length; indeks++) {
+            optionCodeUnit += '<option value="' + data[indeks] + '">' + data[indeks] + '</option>';
+        }
+
+        document.getElementById("inputCodeUnit").innerHTML = optionCodeUnit;
+    }
+    
+    // jika select option yabg dipilih adalah 'Lainnya' maka tampilkan input manual
+    function switch_input(){
+        var rekom = document.getElementById("selectRekomFollowUp").value;
+        if(rekom !== 'Lainnya'){
+            document.getElementById("inputRekomFollowUp").style.display = "none";
+            document.getElementById("inputRekomFollowUp").removeAttribute("required"); 
+        }
+        else{
+            document.getElementById("inputRekomFollowUp").style.display = "block";
+            document.getElementById("inputRekomFollowUp").setAttribute("required", "required");
+        }
+    }
+
+    // tampilkan input manual dan sembunyikan input dari master
+    function show_input_manual() {
+        $('#namabangkom_from_master').removeAttr('required');
+        $('#namabangkom_from_master').selectpicker('hide');
+        // reset input dari master
+        $('#namabangkom_from_master').selectpicker('val', '');
+
+        $('#namabangkom_manual').attr('required', '');
+        $('#namabangkom_manual').show();
+    }
+
+    // sembunyikan input manual dan tampilkan input dari master
+    function hide_input_manual() {
+        $('#namabangkom_from_master').attr('required', '');
+        $('#namabangkom_from_master').selectpicker('show');
+
+        $('#namabangkom_manual').removeAttr('required');
+        $('#namabangkom_manual').hide();
+        // reset input manual
+        $('#namabangkom_manual').val('');
+
+    }
+
 </script>
 
 <?= $this->endSection() ?>

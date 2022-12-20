@@ -24,12 +24,20 @@ class FollowupModel extends Model {
     protected $skipValidation = false;
 
     // get model unit
-    public function get_model_unit() {
-        $model = new FollowupModel();
-        
+    public function getModelUnit() {
         // tampilkan data model unit dengan query builder
-        $builder = $model->builder();
+        $builder = $this->builder();
         $builder->groupBy('model_unit');
+        $query = $builder->get();
+        return $query->getResult();
+    }
+    
+    // get model unit
+    public function getCodeUnit($modelUnit) {
+        // tampilkan data model unit dengan query builder
+        $builder = $this->builder();
+        $builder->select('code_unit');
+        $builder->where('model_unit', $modelUnit);
         $query = $builder->get();
         return $query->getResult();
     }
