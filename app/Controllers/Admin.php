@@ -20,7 +20,7 @@ class Admin extends Controller {
 //        $query   = $builder->get();
 //        print_r($query->getResult());
 //        
-        // KONEKSI DB DAN QUERY MELALUI MODEL
+        // QUERY MELALUI MODEL
         $model = new FollowupModel();
         $data['model_unit'] = $model->getModelUnit();
 
@@ -36,7 +36,7 @@ class Admin extends Controller {
         // Check for AJAX request
         if ($this->request->isAJAX()) {
 
-            // KONEKSI DB DAN QUERY MELALUI MODEL
+            // QUERY MELALUI MODEL
             $model = new FollowupModel();
             $get_code_unit = $model->getCodeUnit($modelUnit);
 
@@ -47,11 +47,39 @@ class Admin extends Controller {
 
         echo json_encode($data_code_unit);
     }
-    
+
     // input CBM
-    public function input_cbm(){
+    public function input_cbm() {
         $inputModelUnit = $this->request->getPost('inputModelUnit');
-        echo $inputModelUnit;
+        $inputCodeUnit = $this->request->getPost('inputCodeUnit');
+        $inputKomponen = $this->request->getPost('inputKomponen');
+        $inputTemuanCbm = $this->request->getPost('inputTemuanCbm');
+        $inputDeskripsiProblem = $this->request->getPost('inputDeskripsiProblem');
+        $selectRekomFollowUp = $this->request->getPost('selectRekomFollowUp');
+        $inputRekomFollowUp = $this->request->getPost('inputRekomFollowUp');
+        $inputPlanDate = $this->request->getPost('inputPlanDate');
+
+        if ($selectRekomFollowUp == 'Lainnya') {
+            $selectRekomFollowUp = $inputRekomFollowUp;
+        }
+
+        $data = [
+            'code_unit' => $inputCodeUnit,
+            'model' => $inputModelUnit,
+            'komponen' => $inputKomponen,
+            'cbm' => $inputTemuanCbm,
+            'deskripsi_problem' => $inputDeskripsiProblem,
+            'rekomendasi_follow_up' => $selectRekomFollowUp,
+            'plan_date_follow_up' => $inputPlanDate
+        ];
+
+        // QUERY MELALUI MODEL
+        $model = new FollowupModel();
+        $insert = $model->insertFollowUp($data);
+        if ($insert) {
+            // Go to specific URI
+            return redirect()->to(base_url('followup-cbm/resume'));
+        }
     }
 
     public function resume() {

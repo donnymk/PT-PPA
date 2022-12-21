@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 14, 2022 at 01:11 AM
+-- Generation Time: Dec 21, 2022 at 03:49 AM
 -- Server version: 8.0.31
--- PHP Version: 8.0.26
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -172,10 +172,10 @@ CREATE TABLE IF NOT EXISTS `resume_follow_up_cbm` (
   `rekomendasi_follow_up` varchar(255) NOT NULL,
   `plan_date_follow_up` date NOT NULL,
   `input_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'waktu input',
-  `executed` tinyint(1) NOT NULL COMMENT '1 = yes, 0 = no',
-  `date_executed` date NOT NULL COMMENT 'date executed if yes',
-  `pic` varchar(32) NOT NULL COMMENT 'nama Person in Charge',
-  `follow_up_status` varchar(32) NOT NULL,
+  `executed` tinyint(1) DEFAULT NULL COMMENT '1 = yes, 0 = no',
+  `date_executed` date DEFAULT NULL COMMENT 'date executed if yes',
+  `pic` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'nama Person in Charge',
+  `follow_up_status` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `reason_if_cancelled` varchar(255) DEFAULT NULL COMMENT 'alasan (jika dibatalkan)',
   `input2_timestamp` timestamp NULL DEFAULT NULL COMMENT 'waktu input untuk data follow up CBM yang sudah dieksekusi',
   PRIMARY KEY (`no_follow_up`)

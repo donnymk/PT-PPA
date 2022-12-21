@@ -25,21 +25,28 @@ class FollowupModel extends Model {
 
     // get model unit
     public function getModelUnit() {
-        // tampilkan data model unit dengan query builder
+        // tampilkan data model unit menggunakan query builder
         $builder = $this->builder();
         $builder->groupBy('model_unit');
         $query = $builder->get();
         return $query->getResult();
     }
     
-    // get model unit
+    // get code unit
     public function getCodeUnit($modelUnit) {
-        // tampilkan data model unit dengan query builder
+        // tampilkan data code unit menggunakan query builder
         $builder = $this->builder();
         $builder->select('code_unit');
         $builder->where('model_unit', $modelUnit);
         $query = $builder->get();
         return $query->getResult();
+    }
+    
+    public function insertFollowUp($data){
+        // tentukan tabel
+        $builder = $this->builder('resume_follow_up_cbm');
+        // insert data
+        return $builder->insert($data);      
     }
 
 }
