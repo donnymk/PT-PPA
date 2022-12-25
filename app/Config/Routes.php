@@ -41,6 +41,8 @@ $routes->get('input', 'Admin::input');
 $routes->post('get_code_unit', 'Admin::get_code_unit');
 $routes->post('input_cbm', 'Admin::input_cbm');
 $routes->get('resume', 'Admin::resume');
+$routes->get('resume_data', 'Admin::data_cbm');
+$routes->get('followup/(:num)', 'Admin::followup/$1');
 
 /*
  * --------------------------------------------------------------------

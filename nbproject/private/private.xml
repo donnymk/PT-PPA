@@ -2,6 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/Git%20Repository/pt-ppa/js/datatables-simple-demo.js</file>
+            <file>file:/D:/Git%20Repository/pt-ppa/app/Config/Routes.php</file>
+            <file>file:/D:/Git%20Repository/pt-ppa/app/Views/default.php</file>
+            <file>file:/D:/Git%20Repository/pt-ppa/app/Models/FollowupModel.php</file>
+            <file>file:/D:/Git%20Repository/pt-ppa/app/Views/resume.php</file>
+            <file>file:/D:/Git%20Repository/pt-ppa/app/Controllers/Admin.php</file>
+            <file>file:/D:/Git%20Repository/pt-ppa/app/Views/form_input_cbm.php</file>
+        </group>
     </open-files>
 </project-private>

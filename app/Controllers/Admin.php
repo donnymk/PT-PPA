@@ -50,6 +50,7 @@ class Admin extends Controller {
 
     // input CBM
     public function input_cbm() {
+        // terima data dari form input
         $inputModelUnit = $this->request->getPost('inputModelUnit');
         $inputCodeUnit = $this->request->getPost('inputCodeUnit');
         $inputKomponen = $this->request->getPost('inputKomponen');
@@ -84,6 +85,50 @@ class Admin extends Controller {
 
     public function resume() {
         return view('resume');
+    }
+
+    public function data_cbm() {
+        $data_cbm = [];
+
+        // Check for AJAX request
+        if ($this->request->isAJAX()) {
+            // QUERY MELALUI MODEL
+            $model = new FollowupModel();
+            $get_data_cbm = $model->getdataCbm();
+
+            foreach ($get_data_cbm as $key => $value):
+                array_push($data_cbm,
+                        array($value->no_follow_up,
+                            $value->model,
+                            $value->code_unit,
+                            $value->komponen,
+                            $value->cbm,
+                            $value->deskripsi_problem,
+                            $value->rekomendasi_follow_up,
+                            $value->plan_date_follow_up,
+                            '<a class="btn btn-primary btn-sm" href="followup/'.$value->no_follow_up.'">follow up</a><br><a class="btn btn-secondary btn-sm" href="delete"><span class="fa fa-trash"></span></a>',
+                            $value->executed,
+                            $value->date_executed,
+                            $value->pic,
+                            $value->follow_up_status,
+                            $value->reason_if_cancelled)
+                );
+            endforeach;
+
+            $json_data = array(
+                "data" => $data_cbm
+            );
+        }
+        echo json_encode($json_data);
+    }
+    
+    public function followup($no_followup){
+        echo $no_followup;
+        // QUERY MELALUI MODEL
+//        $model = new FollowupModel();
+//        $data['model_unit'] = $model->getModelUnit($no_followup);
+//
+//        return view('form_input_cbm', $data);        
     }
 
 }

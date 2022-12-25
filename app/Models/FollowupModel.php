@@ -23,6 +23,14 @@ class FollowupModel extends Model {
     protected $validationMessages = [];
     protected $skipValidation = false;
 
+    // get data CBM
+    public function getDataCbm() {
+        // tampilkan data CBM menggunakan query builder
+        $builder = $this->builder('resume_follow_up_cbm');
+        $query = $builder->get();
+        return $query->getResult();
+    }    
+    
     // get model unit
     public function getModelUnit() {
         // tampilkan data model unit menggunakan query builder
@@ -42,6 +50,7 @@ class FollowupModel extends Model {
         return $query->getResult();
     }
     
+    // insert ke database
     public function insertFollowUp($data){
         // tentukan tabel
         $builder = $this->builder('resume_follow_up_cbm');
