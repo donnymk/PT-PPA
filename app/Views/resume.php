@@ -34,6 +34,11 @@
                         <table class="table table-bordered" id="datatablesSimple">
                             <thead>
                                 <tr>
+                                    <th class="dt-head-center" colspan="9">Data Follow Up</th>
+                                    <th class="dt-head-center" colspan="6">Ekseksusi Follow Up</th>
+                                    <th rowspan="2"></th>
+                                </tr>
+                                <tr>
                                     <th>No.</th>
                                     <th>Model Unit</th>
                                     <th>Code Unit</th>
@@ -42,12 +47,13 @@
                                     <th>Deskripsi Problem</th>
                                     <th>Rekomendasi Follow Up</th>
                                     <th>Plan Date Follow Up</th>
-                                    <th>Action</th>
+                                    <th>Cetak form</th>
                                     <th>Has Follow Up Executed?</th>
                                     <th>Date Executed (if yes)</th>
                                     <th>PIC</th>
                                     <th>Follow Up Status</th>
                                     <th>Reason if Cancelled</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>

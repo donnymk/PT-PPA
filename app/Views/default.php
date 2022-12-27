@@ -9,13 +9,13 @@
         <title>Follow Up CBM</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="<?= base_url('css/styles.css') ?>" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <link href="<?= base_url('DataTables-1.13.1/css/dataTables.bootstrap5.min.css') ?>" rel="stylesheet" type="text/css"/>
         <style>
             #inputRekomFollowUp {
                 display: none
-            }
-        </style>
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <link href="<?= base_url('DataTables-1.13.1/css/dataTables.bootstrap5.min.css') ?>" rel="stylesheet" type="text/css"/>
+            }          
+        </style>        
     </head>
     <body class="sb-nav-fixed">
         <!-- Include Isi Halaman dinamis -->
@@ -31,7 +31,8 @@
         <!--<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>-->
         <script src="<?= base_url('DataTables-1.13.1/js/jquery.dataTables.min.js') ?>" type="text/javascript"></script>
         <script src="<?= base_url('DataTables-1.13.1/js/dataTables.bootstrap5.min.js') ?>" type="text/javascript"></script>
-        <script src="<?= base_url('js/datatables-simple-demo.js') ?>"></script>
+        
+        <script src="<?= base_url('js/custom-script.js') ?>"></script>
         
     </body>
 </html>

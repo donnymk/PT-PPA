@@ -87,6 +87,7 @@ class Admin extends Controller {
         return view('resume');
     }
 
+    // get data follow up CBM
     public function data_cbm() {
         $data_cbm = [];
 
@@ -97,6 +98,14 @@ class Admin extends Controller {
             $get_data_cbm = $model->getdataCbm();
 
             foreach ($get_data_cbm as $key => $value):
+                $has_executed = 'no';
+                if ($value->executed == '1') {
+                    $has_executed = 'yes';
+                }
+                $date_executed = $value->date_executed;
+                $pic = $value->pic;
+                $status = $value->follow_up_status;
+                $reason_cancelled = $value->reason_if_cancelled;
                 array_push($data_cbm,
                         array($value->no_follow_up,
                             $value->model,
@@ -106,12 +115,14 @@ class Admin extends Controller {
                             $value->deskripsi_problem,
                             $value->rekomendasi_follow_up,
                             $value->plan_date_follow_up,
-                            '<a class="btn btn-primary btn-sm" href="followup/'.$value->no_follow_up.'">follow up</a><br><a class="btn btn-secondary btn-sm" href="delete"><span class="fa fa-trash"></span></a>',
-                            $value->executed,
-                            $value->date_executed,
-                            $value->pic,
-                            $value->follow_up_status,
-                            $value->reason_if_cancelled)
+                            '<a class="btn btn-primary" href="cetak_pdf"><span class="fa fa-2x fa-file-pdf"></span></a>',
+                            '<select class="form-control" id="has-executed"><option value="">no</option><option value="">yes</option></select>',
+                            '<input type="date" class="form-control" id="date-executed" value="'.$date_executed.'">',
+                            '<input type="text" class="form-control" id="pic" value="'.$pic.'">',
+                            '<select class="form-control" id="followup-status"><option value="open">Open</option><option value="close">Close</option><option value="Cancel">Cancel</option></select>',
+                           '<input type="text" class="form-control" id="reason-cancelled" value="'.$reason_cancelled.'">',
+                            '<a class="btn btn-primary btn-sm" href="followup/' . $value->no_follow_up . '">Update</a>',
+                            '<a class="btn btn-secondary btn-sm" href="delete"><span class="fa fa-trash"></span></a>')
                 );
             endforeach;
 
@@ -121,8 +132,8 @@ class Admin extends Controller {
         }
         echo json_encode($json_data);
     }
-    
-    public function followup($no_followup){
+
+    public function followup($no_followup) {
         echo $no_followup;
         // QUERY MELALUI MODEL
 //        $model = new FollowupModel();

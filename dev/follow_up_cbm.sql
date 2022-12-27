@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 21, 2022 at 03:49 AM
+-- Generation Time: Dec 27, 2022 at 06:30 AM
 -- Server version: 8.0.31
 -- PHP Version: 7.4.33
 
@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `resume_follow_up_cbm` (
   `rekomendasi_follow_up` varchar(255) NOT NULL,
   `plan_date_follow_up` date NOT NULL,
   `input_timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'waktu input',
-  `executed` tinyint(1) DEFAULT NULL COMMENT '1 = yes, 0 = no',
+  `executed` tinyint(1) DEFAULT '0' COMMENT '1 = yes, 0 = no',
   `date_executed` date DEFAULT NULL COMMENT 'date executed if yes',
   `pic` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL COMMENT 'nama Person in Charge',
   `follow_up_status` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,

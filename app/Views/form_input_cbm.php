@@ -185,15 +185,14 @@
 
         document.getElementById("inputCodeUnit").innerHTML = optionCodeUnit;
     }
-    
+
     // jika select option yabg dipilih adalah 'Lainnya' maka tampilkan input manual
-    function switch_input(){
+    function switch_input() {
         var rekom = document.getElementById("selectRekomFollowUp").value;
-        if(rekom !== 'Lainnya'){
+        if (rekom !== 'Lainnya') {
             document.getElementById("inputRekomFollowUp").style.display = "none";
-            document.getElementById("inputRekomFollowUp").removeAttribute("required"); 
-        }
-        else{
+            document.getElementById("inputRekomFollowUp").removeAttribute("required");
+        } else {
             document.getElementById("inputRekomFollowUp").style.display = "block";
             document.getElementById("inputRekomFollowUp").setAttribute("required", "required");
         }
