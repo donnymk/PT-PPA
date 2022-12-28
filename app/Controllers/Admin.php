@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\FollowupModel;
+use CodeIgniter\I18n\Time;
 
 class Admin extends Controller {
 
@@ -115,13 +116,13 @@ class Admin extends Controller {
                             $value->deskripsi_problem,
                             $value->rekomendasi_follow_up,
                             $value->plan_date_follow_up,
-                            '<a class="btn btn-primary" href="cetak_pdf"><span class="fa fa-2x fa-file-pdf"></span></a>',
+                            '<a class="btn btn-primary" href="cetak_form/' . $value->no_follow_up . '"><span class="fa fa-2x fa-file-pdf"></span></a>',
                             '<select class="form-control" id="has-executed"><option value="">no</option><option value="">yes</option></select>',
-                            '<input type="date" class="form-control" id="date-executed" value="'.$date_executed.'">',
-                            '<input type="text" class="form-control" id="pic" value="'.$pic.'">',
+                            '<input type="date" class="form-control" id="date-executed" value="' . $date_executed . '">',
+                            '<input type="text" class="form-control" id="pic" value="' . $pic . '">',
                             '<select class="form-control" id="followup-status"><option value="open">Open</option><option value="close">Close</option><option value="Cancel">Cancel</option></select>',
-                           '<input type="text" class="form-control" id="reason-cancelled" value="'.$reason_cancelled.'">',
-                            '<a class="btn btn-primary btn-sm" href="followup/' . $value->no_follow_up . '">Update</a>',
+                            '<input type="text" class="form-control" id="reason-cancelled" value="' . $reason_cancelled . '">',
+                            '<a class="btn btn-primary btn-sm" onclick="updateFollowUp(' . $value->no_follow_up . ')">Update</a>',
                             '<a class="btn btn-secondary btn-sm" href="delete"><span class="fa fa-trash"></span></a>')
                 );
             endforeach;
@@ -133,13 +134,43 @@ class Admin extends Controller {
         echo json_encode($json_data);
     }
 
-    public function followup($no_followup) {
+    public function cetak_form($no_followup) {
         echo $no_followup;
         // QUERY MELALUI MODEL
 //        $model = new FollowupModel();
 //        $data['model_unit'] = $model->getModelUnit($no_followup);
 //
 //        return view('form_input_cbm', $data);        
+    }
+
+    // update follow up
+    public function update_followup() {
+        // terima data dari form input
+        $noFollowup = $this->request->getPost('noFollowup');
+        $hasExecuted = $this->request->getPost('hasExecuted');
+        $dateExecuted = $this->request->getPost('dateExecuted');
+        $pic = $this->request->getPost('pic');
+        $followupStatus = $this->request->getPost('followupStatus');
+        $reasonCancelled = $this->request->getPost('reasonCancelled');
+
+        $data = [
+            'executed' => $hasExecuted,
+            'date_executed' => $dateExecuted,
+            'pic' => $pic,
+            'follow_up_status' => $followupStatus,
+            'reason_if_cancelled' => $reasonCancelled
+        ];
+
+        // QUERY MELALUI MODEL
+        $model = new FollowupModel();
+        $update = $model->updateFollowUp($data, $noFollowup);
+        
+        if ($update) {
+            $json_data = array(
+                "status_update" => 'ok'
+            );
+            echo json_encode($json_data);
+        }
     }
 
 }

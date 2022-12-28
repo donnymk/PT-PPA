@@ -42,7 +42,8 @@ $routes->post('get_code_unit', 'Admin::get_code_unit');
 $routes->post('input_cbm', 'Admin::input_cbm');
 $routes->get('resume', 'Admin::resume');
 $routes->get('resume_data', 'Admin::data_cbm');
-$routes->get('followup/(:num)', 'Admin::followup/$1');
+$routes->get('cetak_form/(:num)', 'Admin::cetak_form/$1');
+$routes->post('update_followup', 'Admin::update_followup');
 
 /*
  * --------------------------------------------------------------------
