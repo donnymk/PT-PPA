@@ -44,6 +44,7 @@ $routes->get('resume', 'Admin::resume');
 $routes->get('resume_data', 'Admin::data_cbm');
 $routes->get('cetak_form/(:num)', 'Admin::cetak_form/$1');
 $routes->post('update_followup', 'Admin::update_followup');
+$routes->get('delete/(:num)', 'Admin::delete_followup/$1');
 
 /*
  * --------------------------------------------------------------------

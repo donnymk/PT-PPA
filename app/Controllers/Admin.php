@@ -123,7 +123,7 @@ class Admin extends Controller {
                             $followup_status_option,
                             '<input type="text" class="form-control" id="reason-cancelled" value="' . $value->reason_if_cancelled . '">',
                             '<a class="btn btn-primary btn-sm" onclick="updateFollowUp(' . $value->no_follow_up . ')">Update</a>',
-                            '<a class="btn btn-secondary btn-sm" href="delete"><span class="fa fa-trash"></span></a>')
+                            '<a class="btn btn-secondary btn-sm" href="delete/' . $value->no_follow_up . '"><span class="fa fa-trash"></span></a>')
                 );
             endforeach;
 
@@ -171,6 +171,16 @@ class Admin extends Controller {
             );
             echo json_encode($json_data);
         }
+    }
+    
+    // delete data follow up
+    public function delete_followup($no_followup) {
+        echo $no_followup;
+        // QUERY MELALUI MODEL
+//        $model = new FollowupModel();
+//        $data['model_unit'] = $model->getModelUnit($no_followup);
+//
+//        return view('form_input_cbm', $data);        
     }
 
 }
