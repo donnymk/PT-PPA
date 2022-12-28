@@ -64,7 +64,9 @@ function updateFollowUp(noFollowup) {
             .then((data) => {
                 console.log('Success:', data);
                 if (data.statusUpdate === 'ok') {
-                    load_data_cbm();
+                    // refresh datatable
+                    $('#datatablesSimple').DataTable().ajax.reload();
+                    alert('Update data berhasil');
                 }
             })
             .catch((error) => {

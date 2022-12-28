@@ -63,9 +63,10 @@ class FollowupModel extends Model {
         // tentukan tabel
         $builder = $this->builder('resume_follow_up_cbm');
         // update data
+        $builder->set($data);
         $builder->set('input2_timestamp', 'now()', false);
         $builder->where('no_follow_up', $noFollowup);
-        return $builder->update($data);      
+        return $builder->update();
     }
 
 }

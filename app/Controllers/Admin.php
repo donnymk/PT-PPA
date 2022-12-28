@@ -99,14 +99,14 @@ class Admin extends Controller {
             $get_data_cbm = $model->getdataCbm();
 
             foreach ($get_data_cbm as $key => $value):
-                $has_executed = 'no';
-                if ($value->executed == '1') {
-                    $has_executed = 'yes';
-                }
-                $date_executed = $value->date_executed;
-                $pic = $value->pic;
+                $has_executed = $value->executed;
                 $status = $value->follow_up_status;
-                $reason_cancelled = $value->reason_if_cancelled;
+                
+                // select option sudah dieksekusi apa belum
+                $has_executed_option = '<select class="form-control" id="has-executed"><option value=0'.($has_executed === '0' ? ' selected' : '').'>no</option><option value=1'.($has_executed === '1' ? ' selected' : '').'>yes</option></select>';
+                // select option status follow up
+                $followup_status_option = '<select class="form-control" id="followup-status"><option value="open"'.($status === 'open' ? ' selected' : '').'>Open</option><option value="close"'.($status === 'close' ? ' selected' : '').'>Close</option><option value="cancel"'.($status === 'cancel' ? ' selected' : '').'>Cancel</option></select>';
+              
                 array_push($data_cbm,
                         array($value->no_follow_up,
                             $value->model,
@@ -117,11 +117,11 @@ class Admin extends Controller {
                             $value->rekomendasi_follow_up,
                             $value->plan_date_follow_up,
                             '<a class="btn btn-primary" href="cetak_form/' . $value->no_follow_up . '"><span class="fa fa-2x fa-file-pdf"></span></a>',
-                            '<select class="form-control" id="has-executed"><option value="">no</option><option value="">yes</option></select>',
-                            '<input type="date" class="form-control" id="date-executed" value="' . $date_executed . '">',
-                            '<input type="text" class="form-control" id="pic" value="' . $pic . '">',
-                            '<select class="form-control" id="followup-status"><option value="open">Open</option><option value="close">Close</option><option value="Cancel">Cancel</option></select>',
-                            '<input type="text" class="form-control" id="reason-cancelled" value="' . $reason_cancelled . '">',
+                            $has_executed_option,
+                            '<input type="date" class="form-control" id="date-executed" value="' . $value->date_executed . '">',
+                            '<input type="text" class="form-control" id="pic" value="' . $value->pic . '">',
+                            $followup_status_option,
+                            '<input type="text" class="form-control" id="reason-cancelled" value="' . $value->reason_if_cancelled . '">',
                             '<a class="btn btn-primary btn-sm" onclick="updateFollowUp(' . $value->no_follow_up . ')">Update</a>',
                             '<a class="btn btn-secondary btn-sm" href="delete"><span class="fa fa-trash"></span></a>')
                 );
@@ -145,13 +145,13 @@ class Admin extends Controller {
 
     // update follow up
     public function update_followup() {
-        // terima data dari form input
-        $noFollowup = $this->request->getPost('noFollowup');
-        $hasExecuted = $this->request->getPost('hasExecuted');
-        $dateExecuted = $this->request->getPost('dateExecuted');
-        $pic = $this->request->getPost('pic');
-        $followupStatus = $this->request->getPost('followupStatus');
-        $reasonCancelled = $this->request->getPost('reasonCancelled');
+        // data dari Ajax request
+        $noFollowup = $this->request->getVar('noFollowup');
+        $hasExecuted = $this->request->getVar('hasExecuted');
+        $dateExecuted = $this->request->getVar('dateExecuted');
+        $pic = $this->request->getVar('pic');
+        $followupStatus = $this->request->getVar('followupStatus');
+        $reasonCancelled = $this->request->getVar('reasonCancelled');
 
         $data = [
             'executed' => $hasExecuted,
@@ -164,10 +164,10 @@ class Admin extends Controller {
         // QUERY MELALUI MODEL
         $model = new FollowupModel();
         $update = $model->updateFollowUp($data, $noFollowup);
-        
+
         if ($update) {
             $json_data = array(
-                "status_update" => 'ok'
+                "statusUpdate" => 'ok'
             );
             echo json_encode($json_data);
         }
