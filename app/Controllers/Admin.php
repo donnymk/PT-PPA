@@ -104,8 +104,12 @@ class Admin extends Controller {
                 
                 // select option sudah dieksekusi apa belum
                 $has_executed_option = '<select class="form-control" id="has-executed"><option value=0'.($has_executed === '0' ? ' selected' : '').'>no</option><option value=1'.($has_executed === '1' ? ' selected' : '').'>yes</option></select>';
+                
                 // select option status follow up
                 $followup_status_option = '<select class="form-control" id="followup-status"><option value="open"'.($status === 'open' ? ' selected' : '').'>Open</option><option value="close"'.($status === 'close' ? ' selected' : '').'>Close</option><option value="cancel"'.($status === 'cancel' ? ' selected' : '').'>Cancel</option></select>';
+                
+                // button update
+                $update_button = '<a class="btn btn-primary btn-sm" href="update/' . $value->no_follow_up . '">Update</a>';
               
                 array_push($data_cbm,
                         array($value->no_follow_up,
@@ -122,7 +126,7 @@ class Admin extends Controller {
                             '<input type="text" class="form-control" id="pic" value="' . $value->pic . '">',
                             $followup_status_option,
                             '<input type="text" class="form-control" id="reason-cancelled" value="' . $value->reason_if_cancelled . '">',
-                            '<a class="btn btn-primary btn-sm" onclick="updateFollowUp(' . $value->no_follow_up . ')">Update</a>',
+                            $update_button,
                             '<a class="btn btn-secondary btn-sm" href="delete/' . $value->no_follow_up . '"><span class="fa fa-trash"></span></a>')
                 );
             endforeach;
@@ -142,6 +146,23 @@ class Admin extends Controller {
 //
 //        return view('form_input_cbm', $data);        
     }
+    
+    // form update
+    public function update($noFollowUp) {
+        // GET DATA FOLLOW UP UNIT UNTUK DITAMPILKAN DI FORM UPDATE
+        //
+        // KONEKSI DB DAN QUERY SECARA LANGSUNG
+//        $db = \Config\Database::connect();
+//        $builder = $db->table('populasi');
+//        $query   = $builder->get();
+//        print_r($query->getResult());
+//        
+        // QUERY MELALUI MODEL
+        $model = new FollowupModel();
+        $data['followup'] = $model->getDataCbmById($noFollowUp);
+
+        return view('form_update', $data);
+    }    
 
     // update follow up
     public function update_followup() {

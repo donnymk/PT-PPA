@@ -29,7 +29,16 @@ class FollowupModel extends Model {
         $builder = $this->builder('resume_follow_up_cbm');
         $query = $builder->get();
         return $query->getResult();
-    }    
+    }
+    
+    // get data CBM by ID
+    public function getDataCbmById($noFollowUp) {
+        // tampilkan data CBM by ID menggunakan query builder
+        $builder = $this->builder('resume_follow_up_cbm');
+        $builder->where('no_follow_up', $noFollowUp);
+        $query = $builder->get();
+        return $query->getResult();
+    }
     
     // get model unit
     public function getModelUnit() {
