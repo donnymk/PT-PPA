@@ -49,6 +49,14 @@ class FollowupModel extends Model {
         return $query->getResult();
     }
     
+    // get rekomendasi followup
+    public function getRekomendasiFollowup() {
+        // tampilkan data rekomendasi follow up menggunakan query builder
+        $builder = $this->builder('rekomendasi_follow_up');
+        $query = $builder->get();
+        return $query->getResult();
+    }
+    
     // get code unit
     public function getCodeUnit($modelUnit) {
         // tampilkan data code unit menggunakan query builder

@@ -108,23 +108,11 @@
                                     <div class="form-floating mb-3 mb-md-0">
                                         <select class="form-control" id="selectRekomFollowUp" name="selectRekomFollowUp" onchange="switch_input()" required="">
                                             <option value="">--Pilih--</option>
-                                            <option value="Resampling (Tanpa penggantian oli)">Resampling (Tanpa penggantian oli)</option>
-                                            <option value="Cek apakah ada partikel logam kasar pada Drain magnetic plug">Cek apakah ada partikel logam kasar pada Drain magnetic plug</option>
-                                            <option value="Periksa Apakah ada Rembesan Pada Floating Seal">Periksa Apakah ada Rembesan Pada Floating Seal</option>
-                                            <option value="Periksa Apakah Ada Abnormal Noise">Periksa Apakah Ada Abnormal Noise</option>
-                                            <option value="Lakukan Cutting Filter & Analisa partikel pada elementnya">Lakukan Cutting Filter & Analisa partikel pada elementnya</option>
-                                            <option value="Lakukan penambahan Oli">Lakukan penambahan Oli</option>
-                                            <option value="Buka & Periksa Oil Pan">Buka & Periksa Oil Pan</option>
-                                            <option value="Check Oil Pressure">Check Oil Pressure</option>
-                                            <option value="Lakukan PPM">Lakukan PPM</option>
-                                            <option value="Lakukan penggantian Oli & Resampling">Lakukan penggantian Oli & Resampling</option>
-                                            <option value="Lakukan Adjustment">Lakukan Adjustment</option>
-                                            <option value="Lakukan Flushing">Lakukan Flushing</option>
-                                            <option value="Lakukan pemeriksaan pada Fuel System">Lakukan pemeriksaan pada Fuel System</option>
-                                            <option value="Cek Kebocoran Cooling System menggunakan Radiator Cap Tester">Cek Kebocoran Cooling System menggunakan Radiator Cap Tester</option>
-                                            <option value="Cek Floating Seal Dari Indikasi Kebocoran">Cek Floating Seal Dari Indikasi Kebocoran</option>
-                                            <option value="Buatkan TI sebagai data dan bukti dasar melakukan claim waranty">Buatkan TI sebagai data dan bukti dasar melakukan claim waranty</option>
-                                            <option value="Ukur Ulang SOH/SOC, Ganti Terminal Battery Jika Rusak/Berjamur">Ukur Ulang SOH/SOC, Ganti Terminal Battery Jika Rusak/Berjamur</option>
+                                            <?php foreach ($rekomendasi_followup as $key => $value): ?>
+
+                                                <option value="<?= $value->rekomendasi ?>"><?= $value->rekomendasi ?></option>
+
+                                            <?php endforeach ?>
                                             <option value="Lainnya">Lainnya</option>
                                         </select>
                                         <label for="selectRekomFollowUp">Rekomendasi Follow Up</label>

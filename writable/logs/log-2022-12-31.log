@@ -1,0 +1,149 @@
+CRITICAL - 2022-12-31 01:08:55 --> Undefined variable $model_unit
+in APPPATH\Views\form_update.php on line 54.
+ 1 APPPATH\Views\form_update.php(54): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $model_unit', 'APPPATH\\Views\\form_update.php', 54)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\form_update.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('form_update', [], true)
+ 5 APPPATH\Controllers\Admin.php(164): view('form_update', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 01:09:14 --> Undefined variable $model_unit
+in APPPATH\Views\form_update.php on line 56.
+ 1 APPPATH\Views\form_update.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $model_unit', 'APPPATH\\Views\\form_update.php', 56)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\form_update.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('form_update', [], true)
+ 5 APPPATH\Controllers\Admin.php(164): view('form_update', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 03:02:51 --> Undefined property: stdClass::$timestamp
+in APPPATH\Views\form_update.php on line 42.
+ 1 APPPATH\Views\form_update.php(42): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$timestamp', 'APPPATH\\Views\\form_update.php', 42)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\form_update.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('form_update', [], true)
+ 5 APPPATH\Controllers\Admin.php(164): view('form_update', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update('1')
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 03:31:13 --> Undefined constant "executed"
+in APPPATH\Views\form_update.php on line 105.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('form_update', [], true)
+ 4 APPPATH\Controllers\Admin.php(164): view('form_update', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->update('1')
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 06:17:42 --> Class "App\ThirdParty\FPDF" not found
+in APPPATH\Controllers\Admin.php on line 138.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->cetak_form('1')
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 06:17:44 --> Class "App\ThirdParty\FPDF" not found
+in APPPATH\Controllers\Admin.php on line 138.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->cetak_form('1')
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 06:17:48 --> Class "App\ThirdParty\FPDF" not found
+in APPPATH\Controllers\Admin.php on line 138.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->cetak_form('2')
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 08:59:09 --> Class "App\ThirdParty\fpdf185\Exception" not found
+in APPPATH\ThirdParty\fpdf185\fpdf.php on line 274.
+ 1 APPPATH\ThirdParty\fpdf185\fpdf.php(513): App\ThirdParty\fpdf185\FPDF->Error('Undefined font: calibri B')
+ 2 APPPATH\Controllers\Admin.php(170): App\ThirdParty\fpdf185\FPDF->SetFont('calibri', 'B', 11)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->cetak_form('1')
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 09:14:17 --> Class "App\ThirdParty\fpdf185\Exception" not found
+in APPPATH\ThirdParty\fpdf185\fpdf.php on line 274.
+ 1 APPPATH\ThirdParty\fpdf185\fpdf.php(881): App\ThirdParty\fpdf185\FPDF->Error('Image file has no extension and no type was specified: http://localhost/pt-ppa/assets/img/ptppa')
+ 2 APPPATH\Controllers\Admin.php(167): App\ThirdParty\fpdf185\FPDF->Image('http://localhost/pt-ppa/assets/img/ptppa', 152, 7, 24)
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->cetak_form('1')
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 13:25:41 --> Class "App\Controllers\Controller" not found
+in APPPATH\Controllers\PrintForm.php on line 5.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(282): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(259): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\PrintForm.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(237): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\PrintForm')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\PrintForm')
+ 5 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\PrintForm', true)
+ 6 SYSTEMPATH\CodeIgniter.php(469): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 13:29:40 --> Class "CodeIgniter\fpdf185\FPDF" not found
+in APPPATH\Controllers\PrintForm.php on line 35.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\PrintForm->index('1')
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\PrintForm))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 14:13:04 --> Call to undefined method App\Models\FollowupModel::getRekomendasiFollowup
+in SYSTEMPATH\Model.php on line 774.
+ 1 APPPATH\Controllers\Admin.php(27): CodeIgniter\Model->__call('getRekomendasiFollowup', [])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 14:14:26 --> Call to undefined method App\Models\FollowupModel::getRekomendasiFollowup
+in SYSTEMPATH\Model.php on line 774.
+ 1 APPPATH\Controllers\Admin.php(27): CodeIgniter\Model->__call('getRekomendasiFollowup', [])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 14:17:00 --> Call to undefined method App\Models\FollowupModel::getRekomendasiFollowup
+in SYSTEMPATH\Model.php on line 774.
+ 1 APPPATH\Controllers\Admin.php(27): CodeIgniter\Model->__call('getRekomendasiFollowup', [])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 14:18:49 --> Call to undefined method App\Models\FollowupModel::getRekomendasiFollowup
+in SYSTEMPATH\Model.php on line 774.
+ 1 APPPATH\Controllers\Admin.php(27): CodeIgniter\Model->__call('getRekomendasiFollowup', [])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 14:20:13 --> Call to undefined method App\Models\FollowupModel::getRekomendasiFollowup
+in SYSTEMPATH\Model.php on line 774.
+ 1 APPPATH\Controllers\Admin.php(27): CodeIgniter\Model->__call('getRekomendasiFollowup', [])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 14:20:15 --> Call to undefined method App\Models\FollowupModel::getRekomendasiFollowup
+in SYSTEMPATH\Model.php on line 774.
+ 1 APPPATH\Controllers\Admin.php(27): CodeIgniter\Model->__call('getRekomendasiFollowup', [])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 14:21:20 --> Call to undefined method App\Models\FollowupModel::getRekomendasiFollowup
+in SYSTEMPATH\Model.php on line 774.
+ 1 APPPATH\Controllers\Admin.php(27): CodeIgniter\Model->__call('getRekomendasiFollowup', [])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-31 14:21:44 --> Call to undefined method App\Models\FollowupModel::getRekomendasiFollowup
+in SYSTEMPATH\Model.php on line 774.
+ 1 APPPATH\Controllers\Admin.php(27): CodeIgniter\Model->__call('getRekomendasiFollowup', [])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

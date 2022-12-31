@@ -42,7 +42,7 @@ $routes->post('get_code_unit', 'Admin::get_code_unit');
 $routes->post('input_cbm', 'Admin::input_cbm');
 $routes->get('resume', 'Admin::resume');
 $routes->get('resume_data', 'Admin::data_cbm');
-$routes->get('cetak_form/(:num)', 'Admin::cetak_form/$1');
+$routes->get('cetak_form/(:num)', 'PrintForm::index/$1');
 $routes->get('update/(:num)', 'Admin::update/$1');
 $routes->post('update_followup', 'Admin::update_followup');
 $routes->get('delete/(:num)', 'Admin::delete_followup/$1');
