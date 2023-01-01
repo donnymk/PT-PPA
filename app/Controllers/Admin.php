@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use CodeIgniter\Controller;
 use App\Models\FollowupModel;
+
 //use CodeIgniter\I18n\Time;
 
 class Admin extends Controller {
@@ -102,6 +103,10 @@ class Admin extends Controller {
             foreach ($get_data_cbm as $key => $value):
                 // select option sudah dieksekusi apa belum
                 $has_executed = ($value->executed === '1' ? ' Yes' : 'No');
+                $follow_up_status = $value->follow_up_status;
+                if($follow_up_status ==''){
+                    $follow_up_status = 'Open';
+                }
 
                 // button update
                 $update_button = '<a class="btn btn-primary btn-sm" href="update/' . $value->no_follow_up . '">Update...</a>';
@@ -119,18 +124,19 @@ class Admin extends Controller {
                             $has_executed,
                             $value->date_executed,
                             $value->pic,
-                            $value->follow_up_status,
+                            $follow_up_status,
                             $value->reason_if_cancelled,
                             $update_button,
-                            '<a class="btn btn-secondary btn-sm" href="delete/' . $value->no_follow_up . '"><span class="fa fa-trash"></span></a>')
+                            '<a class="btn btn-secondary btn-sm" href="delete/' . $value->no_follow_up . '" onclick="return confirm_del(' . $value->no_follow_up . ')"><span class="fa fa-trash"></span></a>')
                 );
             endforeach;
 
             $json_data = array(
                 "data" => $data_cbm
             );
+            echo json_encode($json_data);
         }
-        echo json_encode($json_data);
+        return false;
     }
 
     // form update
@@ -180,12 +186,28 @@ class Admin extends Controller {
 
     // delete data follow up
     public function delete_followup($no_followup) {
-        echo $no_followup;
         // QUERY MELALUI MODEL
-//        $model = new FollowupModel();
-//        $data['model_unit'] = $model->getModelUnit($no_followup);
-//
-//        return view('form_input_cbm', $data);        
+        $model = new FollowupModel();
+        $del = $model->delFollowUp($no_followup);
+
+        if ($del) {
+            // Go to specific URI
+            return redirect()->to(base_url('followup-cbm/resume'));
+        }
+    }
+
+    // get jumlah follow up by CBM dengan status open
+    public function jumlah_followup_open() {
+        // Check for AJAX request
+        if ($this->request->isAJAX()) {
+            // QUERY MELALUI MODEL
+            $model = new FollowupModel();
+            //$get_data_cbm = $model->getdataCbm();
+            $get_jumlah_followup = $model->countFollowUpOpen();
+
+            echo json_encode($get_jumlah_followup);
+        }
+        return false;
     }
 
 }

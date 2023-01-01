@@ -2,15 +2,20 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
-{
-    public function index()
-    {
-        return view('dasbor');
+use App\Models\FollowupModel;
+
+class Home extends BaseController {
+
+    public function index() {
+        // QUERY MELALUI MODEL
+        $model = new FollowupModel();
+        
+        $data['countFollowUp'] = $model->countFollowUp();
+        return view('dasbor', $data);
     }
-    
-    public function login()
-    {
+
+    public function login() {
         return view('login');
-    }    
+    }
+
 }

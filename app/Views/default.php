@@ -39,8 +39,6 @@
         <script src="<?= base_url('js/scripts.js') ?>"></script>
         
         <!-- Chart Demo -->
-        <script src="<?= base_url('assets/demo/chart-area-demo.js') ?>"></script>
-        <script src="<?= base_url('assets/demo/chart-bar-demo.js') ?>"></script>
         
         <!-- Script used to some pages -->
         <script src="<?= base_url('js/custom-script.js') ?>"></script>

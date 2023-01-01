@@ -46,6 +46,7 @@ $routes->get('cetak_form/(:num)', 'PrintForm::index/$1');
 $routes->get('update/(:num)', 'Admin::update/$1');
 $routes->post('update_followup', 'Admin::update_followup');
 $routes->get('delete/(:num)', 'Admin::delete_followup/$1');
+$routes->get('jumlah_followup_open', 'Admin::jumlah_followup_open');
 
 /*
  * --------------------------------------------------------------------

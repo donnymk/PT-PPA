@@ -69,4 +69,10 @@
     </div>
 </div>
 
+<script>
+function confirm_del(id){
+    return confirm('Apakah Anda yakin ingin menghapus data dengan no. follow up '+id+'?');
+}
+</script>
+
 <?= $this->endSection() ?>

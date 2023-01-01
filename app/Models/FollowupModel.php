@@ -30,7 +30,7 @@ class FollowupModel extends Model {
         $query = $builder->get();
         return $query->getResult();
     }
-    
+
     // get data CBM by ID
     public function getDataCbmById($noFollowUp) {
         // tampilkan data CBM by ID menggunakan query builder
@@ -39,7 +39,7 @@ class FollowupModel extends Model {
         $query = $builder->get();
         return $query->getResult();
     }
-    
+
     // get model unit
     public function getModelUnit() {
         // tampilkan data model unit menggunakan query builder
@@ -48,15 +48,7 @@ class FollowupModel extends Model {
         $query = $builder->get();
         return $query->getResult();
     }
-    
-    // get rekomendasi followup
-    public function getRekomendasiFollowup() {
-        // tampilkan data rekomendasi follow up menggunakan query builder
-        $builder = $this->builder('rekomendasi_follow_up');
-        $query = $builder->get();
-        return $query->getResult();
-    }
-    
+
     // get code unit
     public function getCodeUnit($modelUnit) {
         // tampilkan data code unit menggunakan query builder
@@ -66,17 +58,25 @@ class FollowupModel extends Model {
         $query = $builder->get();
         return $query->getResult();
     }
-    
+
+    // get rekomendasi followup
+    public function getRekomendasiFollowup() {
+        // tampilkan data rekomendasi follow up menggunakan query builder
+        $builder = $this->builder('rekomendasi_follow_up');
+        $query = $builder->get();
+        return $query->getResult();
+    }
+
     // insert ke database
-    public function insertFollowUp($data){
+    public function insertFollowUp($data) {
         // tentukan tabel
         $builder = $this->builder('resume_follow_up_cbm');
         // insert data
-        return $builder->insert($data);      
+        return $builder->insert($data);
     }
-    
+
     // update data follow up
-    public function updateFollowUp($data, $noFollowup){
+    public function updateFollowUp($data, $noFollowup) {
         // tentukan tabel
         $builder = $this->builder('resume_follow_up_cbm');
         // update data
@@ -84,6 +84,36 @@ class FollowupModel extends Model {
         $builder->set('input2_timestamp', 'now()', false);
         $builder->where('no_follow_up', $noFollowup);
         return $builder->update();
+    }
+
+    // delete data by ID
+    public function delFollowUp($noFollowup) {
+        // tentukan tabel
+        $builder = $this->builder('resume_follow_up_cbm');
+        $builder->where('no_follow_up', $noFollowup);
+        return $builder->delete();
+    }
+
+    // count data followup by status
+    public function countFollowUp() {
+        // tentukan tabel
+        $builder = $this->builder('resume_follow_up_cbm');
+        $builder->select('COUNT(*) countAll, (SELECT COUNT(*) FROM resume_follow_up_cbm WHERE follow_up_status is NULL OR follow_up_status = \'Open\') countOpen, (SELECT COUNT(*) FROM resume_follow_up_cbm WHERE follow_up_status = \'Close\') countClose, (SELECT COUNT(*) FROM resume_follow_up_cbm WHERE follow_up_status = \'Cancel\') countCancel');
+        //echo $builder->getCompiledSelect();
+        $query = $builder->get();
+        return $query->getResult();
+    }
+
+    // count data followup by status
+    public function countFollowUpOpen() {
+        // tentukan tabel
+        $builder = $this->builder('resume_follow_up_cbm');
+        $builder->select('DISTINCT(cbm), COUNT(no_follow_up) as jumlahdata');
+        $where = "follow_up_status='Open' OR follow_up_status IS null";
+        $builder->where($where);
+        $builder->groupBy('cbm');
+        $query = $builder->get();
+        return $query->getResult();
     }
 
 }

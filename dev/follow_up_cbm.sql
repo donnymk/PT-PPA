@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 27, 2022 at 06:30 AM
+-- Generation Time: Jan 01, 2023 at 02:20 PM
 -- Server version: 8.0.31
--- PHP Version: 7.4.33
+-- PHP Version: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -158,6 +158,42 @@ INSERT INTO `populasi` (`id`, `model_unit`, `code_unit`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `rekomendasi_follow_up`
+--
+
+DROP TABLE IF EXISTS `rekomendasi_follow_up`;
+CREATE TABLE IF NOT EXISTS `rekomendasi_follow_up` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `rekomendasi` varchar(128) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `rekomendasi_follow_up`
+--
+
+INSERT INTO `rekomendasi_follow_up` (`id`, `rekomendasi`) VALUES
+(1, 'Resampling (Tanpa penggantian oli)'),
+(2, 'Cek apakah ada partikel logam kasar pada Drain magnetic plug'),
+(3, 'Periksa Apakah ada Rembesan Pada Floating Seal'),
+(4, 'Periksa Apakah Ada Abnormal Noise'),
+(5, 'Lakukan Cutting Filter & Analisa partikel pada elementnya'),
+(6, 'Lakukan penambahan Oli'),
+(7, 'Buka & Periksa Oil Pan'),
+(8, 'Check Oil Pressure'),
+(9, 'Lakukan PPM'),
+(10, 'Lakukan penggantian Oli & Resampling'),
+(11, 'Lakukan Adjustment'),
+(12, 'Lakukan Flushing'),
+(13, 'Lakukan pemeriksaan pada Fuel System'),
+(14, 'Cek Kebocoran Cooling System menggunakan Radiator Cap Tester'),
+(15, 'Cek Floating Seal Dari Indikasi Kebocoran'),
+(16, 'Buatkan TI sebagai data dan bukti dasar melakukan claim waranty'),
+(17, 'Ukur Ulang SOH/SOC, Ganti Terminal Battery Jika Rusak/Berjamur');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `resume_follow_up_cbm`
 --
 
@@ -179,7 +215,16 @@ CREATE TABLE IF NOT EXISTS `resume_follow_up_cbm` (
   `reason_if_cancelled` varchar(255) DEFAULT NULL COMMENT 'alasan (jika dibatalkan)',
   `input2_timestamp` timestamp NULL DEFAULT NULL COMMENT 'waktu input untuk data follow up CBM yang sudah dieksekusi',
   PRIMARY KEY (`no_follow_up`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `resume_follow_up_cbm`
+--
+
+INSERT INTO `resume_follow_up_cbm` (`no_follow_up`, `code_unit`, `model`, `komponen`, `cbm`, `deskripsi_problem`, `rekomendasi_follow_up`, `plan_date_follow_up`, `input_timestamp`, `executed`, `date_executed`, `pic`, `follow_up_status`, `reason_if_cancelled`, `input2_timestamp`) VALUES
+(1, 'E427', 'PC400LC-8R', 'Swing Machinery', 'Visual Inspection', 'Mengirim dokumen ke tujuan yang ditentukan: browser, file atau string. Dalam hal dikirim ke browser, plug-in dapat digunakan (jika ada) atau download (kotak dialog \"Save as\") dapat ditampilkan.\r\nMetode ini akan memanggil Close() terlebih dahulu jika perlu untuk mengakhiri dokumen.', 'bersihkan yaa', '2022-12-27', '2022-12-27 10:49:14', 1, '2022-12-28', 'donny malik kurniawan', 'Close', '-', '2022-12-31 04:20:48'),
+(3, 'CP54', 'XAHS400 PACE CUD WUX', 'All Axle (Diff & Final Drive)', 'PPE', 'deskripsinya apa', 'Cek apakah ada partikel logam kasar pada Drain magnetic plug', '2023-01-02', '2023-01-01 08:04:28', 0, '0000-00-00', '', 'Open', '', '2023-01-01 10:40:56'),
+(5, 'DA40048', 'AROCS 4040K (6X4) A/T', 'Brake Cooling', 'Visual Inspection', 'ada kerikil', 'Lakukan Adjustment', '2023-01-02', '2023-01-01 13:42:49', 0, NULL, NULL, NULL, NULL, NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

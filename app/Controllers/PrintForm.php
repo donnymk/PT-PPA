@@ -14,7 +14,7 @@ class PrintForm extends Controller {
         $data_followup = $model->getDataCbmById($no_followup);
         $rekomendasi_followup = $model->getRekomendasiFollowup();
         $counter = 0;
-        $rekomendasi_lainnya = 0;
+        $rekomendasi_lainnya = true;
 
         // get data followup
         foreach ($data_followup as $row) {
@@ -23,7 +23,7 @@ class PrintForm extends Controller {
             $komponen = $row->komponen;
             $cbm = $row->cbm;
             $deskripsi_problem = $row->deskripsi_problem;
-            $rekomendasi_follow_up = $row->rekomendasi_follow_up;
+            $rekom_followup = $row->rekomendasi_follow_up;
             //$input_timestamp = $row->input_timestamp;
             $plan_date_follow_up = $row->plan_date_follow_up;
 //            $executed = $row->executed;
@@ -36,7 +36,7 @@ class PrintForm extends Controller {
 
         $pdf = new FPDF('P', 'cm', 'A4');
         $pdf->AliasNbPages();
-        //$pdf->SetAutoPageBreak(1, 13);
+        $pdf->SetAutoPageBreak(true, 1.4);
         $pdf->AddPage('P', 'A4');
         $pdf->SetFont('Arial', '', 10);
         $pdf->SetLineWidth(0.08);
@@ -44,7 +44,7 @@ class PrintForm extends Controller {
         $pdf->Image(base_url('assets/img/ptppa.jpg'), 1, 1.5, 1.5);
         $pdf->Cell(14, 0.4, '', 0, 0, 'C');
         $pdf->Cell(0, 0.4, 'No. Follow Up: ', 0, 0, 'C');
-        $pdf->ln();
+        $pdf->Ln();
         $pdf->SetFont('Helvetica', 'B', 11);
         $pdf->Cell(1.7, 0.66, '', 0, 0, 'L');
         $pdf->Cell(5.2, 0.66, 'PT. Putra Perkasa Abadi', 0, 0, 'L');
@@ -53,33 +53,33 @@ class PrintForm extends Controller {
         $pdf->SetFont('Arial', '', 10);
         $pdf->SetLineWidth(0.02);
         $pdf->Cell(0, 0.66, $no_followup, 1, 0, 'C');
-        $pdf->ln(0.5);
+        $pdf->Ln(0.5);
         $pdf->SetFont('Helvetica', 'B', 11);
         $pdf->Cell(1.7, 0.66, '', 0, 0, 'L');
         $pdf->Cell(5.2, 0.66, 'Plant Departement', 0, 0, 'L');
         $pdf->SetFont('Arial', 'B', 10);
         $pdf->Cell(7, 0.66, 'Follow Up', 0, 0, 'C');
         $pdf->Cell(0, 0.66, '', 0, 0, 'C');
-        $pdf->ln(0.5);
+        $pdf->Ln(0.5);
         $pdf->SetFont('Helvetica', 'B', 11);
         $pdf->Cell(1.7, 0.66, '', 0, 0, 'L');
         $pdf->Cell(5.2, 0.66, 'MIP-Lahat', 0, 0, 'L');
-        $pdf->ln(1);
+        $pdf->Ln(1);
         $pdf->SetFont('Arial', '', 10);
         $pdf->Cell(3.5, 0.5, 'CODE UNIT', 'LTB', 0, 'L');
-        $pdf->Cell(5.5, 0.5, ': ' . $code_unit, 'RTB', 0, 'L');
-        $pdf->ln();
+        $pdf->Cell(5, 0.5, ': ' . $code_unit, 'RTB', 0, 'L');
+        $pdf->Ln();
         $pdf->Cell(3.5, 0.5, 'MODEL', 'LTB', 0, 'L');
-        $pdf->Cell(5.5, 0.5, ': ' . $model_unit, 'RTB', 0, 'L');
-        $pdf->ln();
+        $pdf->Cell(5, 0.5, ': ' . $model_unit, 'RTB', 0, 'L');
+        $pdf->Ln();
         $pdf->Cell(3.5, 0.5, 'KOMPONEN', 'LTB', 0, 'L');
-        $pdf->Cell(5.5, 0.5, ': ' . $komponen, 'RTB', 0, 'L');
-        $pdf->ln();
+        $pdf->Cell(5, 0.5, ': ' . $komponen, 'RTB', 0, 'L');
+        $pdf->Ln();
         $pdf->Cell(3.5, 0.5, 'TEMUAB CBM APA?', 'LTB', 0, 'L');
-        $pdf->Cell(5.5, 0.5, ': ' . $cbm, 'RTB', 0, 'L');
-        $pdf->ln();
+        $pdf->Cell(5, 0.5, ': ' . $cbm, 'RTB', 0, 'L');
+        $pdf->Ln();
         $pdf->Cell(3.5, 0.5, 'PLAN DATE F.U', 'LTB', 0, 'L');
-        $pdf->Cell(5.5, 0.5, ': ' . $plan_date_follow_up, 'RTB', 0, 'L');
+        $pdf->Cell(5, 0.5, ': ' . $plan_date_follow_up, 'RTB', 0, 'L');
         // kembali ke posisi kanan atas untuk kolom HASIL ANALISA
         $pdf->SetXY(15, 2.5);
         $pdf->SetFont('Arial', 'B', 10);
@@ -107,43 +107,67 @@ class PrintForm extends Controller {
         $pdf->SetXY(1, 6.7);
         $pdf->SetFont('Arial', 'B', 10);
         $pdf->Cell(0, 0.5, 'INDIKASI ABNORMAL DARI CBM:', 0, 0, 'L');
-        $pdf->ln();
+        $pdf->Ln();
         $pdf->SetFont('Arial', '', 10);
         $pdf->MultiCell(0, 0.5, $deskripsi_problem, 0, 'L');
-        $pdf->ln(0.4);
+        $pdf->Ln(0.4);
         $pdf->SetFont('Arial', 'B', 10);
         $pdf->Cell(14, 0.6, 'REKOMENDASI (LINGKARI/CHECK PADA DAFTAR REKOMENDASI BERIKUT)', 1, 0, 'C');
         $pdf->Cell(2.5, 0.6, 'FOLLOW UP', 1, 0, 'C');
         $pdf->Cell(2.5, 0.6, 'EXECUTED', 1, 0, 'C');
-        $pdf->ln();
+        $pdf->Ln();
         $pdf->SetFont('Arial', '', 10);
         $pdf->SetFillColor(51, 102, 204);
 
         foreach ($rekomendasi_followup as $row) {
             $pdf->Cell(14, 0.5, ($counter + 1) . '. ' . $row->rekomendasi, 1, 0, 'L');
-            // jika rekomendasi follow up adalah 'Lainnya'
-            if ($rekomendasi_follow_up != $row->rekomendasi) {
-                $pdf->Cell(2.5, 0.5, '', 1, 0, 'C');
-                $rekomendasi_lainnya = ($rekomendasi_lainnya + 1);
-            }
-            // jika rekomendasi follow up tidak 'Lainnya'
-            else {
+            // jika rekomendasi follow up sama dengan salah satu yang ada di database
+            // maka blok (arsir) cell
+            // dan tandai bahwa tidak menggunakan rekomendasi lainnya
+            if ($rekom_followup == $row->rekomendasi) {
                 $pdf->Cell(2.5, 0.5, '', 1, 0, 'C', 1);
+                $rekomendasi_lainnya = false;
+            }
+            // jika rekomendasi follow up tidak sama dengan salah satu yang ada di database
+            // maka tampilan cell kosong
+            else {
+                $pdf->Cell(2.5, 0.5, '', 1, 0, 'C');
             }
             $pdf->Cell(2.5, 0.5, '', 1, 0, 'C');
             $pdf->Ln();
             $counter++;
         }
         // baris untuk menampilkan rekomendasi lainnya
-        if ($rekomendasi_lainnya == 0) {
+        if ($rekomendasi_lainnya != true) {
             $pdf->Cell(14, 0.5, ($counter + 1) . '. Lainnya: ...............', 1, 0, 'L');
             $pdf->Cell(2.5, 0.5, '', 1, 0, 'C');
         } else {
-            $pdf->Cell(14, 0.5, ($counter + 1) . '. Lainnya: ' . $rekomendasi_follow_up, 1, 0, 'L');
+            $pdf->Cell(14, 0.5, ($counter + 1) . '. Lainnya: ' . $rekom_followup, 1, 0, 'L');
             $pdf->Cell(2.5, 0.5, '', 1, 0, 'C', 1);
         }
         $pdf->Cell(2.5, 0.5, '', 1, 0, 'C');
-
+        $pdf->Ln();
+        $pdf->Cell(0, 0.5, 'Keterangan:', 0, 0, 'L');
+        $pdf->Ln();
+        $pdf->Cell(1, 0.5, 'V', 1, 0, 'C');
+        $pdf->Cell(1, 0.5, 'Tanda "V" pada kotak apabila follow up sudah dilaksanakan', 0, 0, 'L');
+        $pdf->Ln(1);
+        $pdf->SetFont('Arial', 'B', 10);
+        $pdf->Cell(0, 0.5, 'KESIMPULAN DAN SARAN', 0, 0, 'L');
+        $pdf->Ln();
+        $pdf->SetFont('Arial', '', 10);
+        $pdf->Cell(0, 3, '', 1, 0, 'L');        
+        $pdf->Ln();
+        $pdf->Cell(2, 2, 'TANGGAL', 1, 0, 'C');
+        $pdf->Cell(4.3, 2, '', 1, 0, 'L');
+        $pdf->Cell(2, 2, 'PIC', 1, 0, 'C');
+        $pdf->Cell(4.5, 2, '', 1, 0, 'L');
+        $pdf->Cell(2, 2, 'TTD', 1, 0, 'C');
+        $pdf->Cell(4.2, 2, '', 1, 0, 'L');
+        $pdf->Ln();
+        $pdf->SetFont('Times', 'B', 12);
+        $pdf->Cell(0, 2, '"SEGERA KUMPULKAN SAMPLE OLI SETELAH DIAMBIL"', 0, 0, 'C');         
+        
         $this->response->setHeader('Content-Type', 'application/pdf');
         $pdf->Output('form_follow_up_' . $no_followup . '.pdf', 'I');
     }
