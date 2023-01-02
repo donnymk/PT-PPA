@@ -75,7 +75,7 @@ class PrintForm extends Controller {
         $pdf->Cell(3.5, 0.5, 'KOMPONEN', 'LTB', 0, 'L');
         $pdf->Cell(5, 0.5, ': ' . $komponen, 'RTB', 0, 'L');
         $pdf->Ln();
-        $pdf->Cell(3.5, 0.5, 'TEMUAB CBM APA?', 'LTB', 0, 'L');
+        $pdf->Cell(3.5, 0.5, 'TEMUAN CBM APA?', 'LTB', 0, 'L');
         $pdf->Cell(5, 0.5, ': ' . $cbm, 'RTB', 0, 'L');
         $pdf->Ln();
         $pdf->Cell(3.5, 0.5, 'PLAN DATE F.U', 'LTB', 0, 'L');
