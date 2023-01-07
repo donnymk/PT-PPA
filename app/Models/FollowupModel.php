@@ -39,11 +39,20 @@ class FollowupModel extends Model {
         $query = $builder->get();
         return $query->getResult();
     }
+    
+    // get all model unit dan code unit
+    public function getAllModelUnit() {
+        // tampilkan menggunakan query builder
+        $builder = $this->builder();
+        $query = $builder->get();
+        return $query->getResult();
+    }    
 
-    // get model unit
+    // get model unit group by model unit
     public function getModelUnit() {
         // tampilkan data model unit menggunakan query builder
         $builder = $this->builder();
+        $builder->select('model_unit');
         $builder->groupBy('model_unit');
         $query = $builder->get();
         return $query->getResult();
@@ -67,7 +76,15 @@ class FollowupModel extends Model {
         return $query->getResult();
     }
 
-    // insert ke database
+    // insert data populasi
+    public function insertPopulasi($data) {
+        // tentukan tabel
+        $builder = $this->builder('populasi');
+        // insert data
+        return $builder->insert($data);
+    }    
+    
+    // insert data follow up
     public function insertFollowUp($data) {
         // tentukan tabel
         $builder = $this->builder('resume_follow_up_cbm');
@@ -86,11 +103,19 @@ class FollowupModel extends Model {
         return $builder->update();
     }
 
-    // delete data by ID
+    // delete data follow up by ID
     public function delFollowUp($noFollowup) {
         // tentukan tabel
         $builder = $this->builder('resume_follow_up_cbm');
         $builder->where('no_follow_up', $noFollowup);
+        return $builder->delete();
+    }
+    
+    // delete data Populasi by ID
+    public function delPopulasi($no) {
+        // tentukan tabel
+        $builder = $this->builder();
+        $builder->where('id', $no);
         return $builder->delete();
     }
 

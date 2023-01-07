@@ -7,7 +7,7 @@
 //        new simpleDatatables.DataTable(datatablesSimple);
 //    }
 //});
-// load data
+// load data cbm
 function load_data_cbm() {
     $('#datatablesSimple').dataTable({
         processing: true,
@@ -17,6 +17,11 @@ function load_data_cbm() {
         //    lengthMenu: [[5, 10], [5, 10]],
         //    pageLength: 5
     });
+}
+
+// load data populasi
+function load_data_populasi() {
+    $('#dataPopulasi').DataTable();
 }
 
 // tamppilkan grafik jumlah follow up yang berstatus "Open"
@@ -112,32 +117,9 @@ function chart_bar_followup_open() {
             });
 }
 
-
-//function follow_up_cbm() {
-//    var modelunit = document.getElementById("inputModelUnit").value;
-//    const data = {"modelUnit": modelunit};
-//
-//    fetch("<?= base_url('followup-cbm/get_code_unit') ?>", {
-//        method: "POST",
-//        headers: {
-//            "Content-Type": "application/json",
-//            "X-Requested-With": "XMLHttpRequest"
-//        },
-//        body: JSON.stringify(data)
-//    })
-//            .then((response) => response.json())
-//            .then((data) => {
-//                //console.log('Success:', data);
-//                drawCodeUnit(data);
-//            })
-//            .catch((error) => {
-//                console.error('Error:', error);
-//            });
-//}
-
-
 $(document).ready(function () {
     load_data_cbm();
+    load_data_populasi();
     chart_bar_followup_open();
 });
 

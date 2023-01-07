@@ -1,0 +1,22 @@
+CRITICAL - 2023-01-07 06:25:14 --> Undefined property: stdClass::$model_unit
+in APPPATH\Views\form_input_cbm.php on line 40.
+ 1 APPPATH\Views\form_input_cbm.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$model_unit', 'APPPATH\\Views\\form_input_cbm.php', 40)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\form_input_cbm.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('form_input_cbm', [], true)
+ 5 APPPATH\Controllers\Admin.php(34): view('form_input_cbm', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-07 06:59:14 --> Undefined property: stdClass::$no_follow_up
+in APPPATH\Views\data_model_unit.php on line 53.
+ 1 APPPATH\Views\data_model_unit.php(53): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: stdClass::$no_follow_up', 'APPPATH\\Views\\data_model_unit.php', 53)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\data_model_unit.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('data_model_unit', [], true)
+ 5 APPPATH\Controllers\Admin.php(21): view('data_model_unit', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->data_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

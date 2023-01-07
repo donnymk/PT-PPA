@@ -8,6 +8,18 @@
                     Dashboard
                 </a>
                 <div class="sb-sidenav-menu-heading">Admin</div>
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                    <div class="sb-nav-link-icon"><i class="fas fa-database"></i></div>
+                    Master
+                    <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                    <nav class="sb-sidenav-menu-nested nav">
+                        <a class="nav-link" href="<?= base_url('followup-cbm/data_model_unit') ?>">Populasi</a>
+                        <a class="nav-link" href="<?= base_url('followup-cbm/data_komponen') ?>">Komponen</a>
+                        <a class="nav-link" href="<?= base_url('followup-cbm/data_rekomendasi') ?>">Rekomendasi</a>
+                    </nav>
+                </div>                
                 <a class="nav-link" href="<?= base_url('followup-cbm/input') ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-edit"></i></div>
                     Input Follow Up

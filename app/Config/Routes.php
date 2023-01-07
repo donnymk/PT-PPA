@@ -37,8 +37,12 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('login', 'Home::login');
+$routes->get('data_model_unit', 'Admin::data_model_unit');
+$routes->get('data_komponen', 'Admin::data_komponen');
+$routes->get('data_rekomendasi', 'Admin::data_rekomendasi');
 $routes->get('input', 'Admin::input');
 $routes->post('get_code_unit', 'Admin::get_code_unit');
+$routes->post('input_populasi', 'Admin::input_populasi');
 $routes->post('input_cbm', 'Admin::input_cbm');
 $routes->get('resume', 'Admin::resume');
 $routes->get('resume_data', 'Admin::data_cbm');
@@ -46,6 +50,7 @@ $routes->get('cetak_form/(:num)', 'PrintForm::index/$1');
 $routes->get('update/(:num)', 'Admin::update/$1');
 $routes->post('update_followup', 'Admin::update_followup');
 $routes->get('delete/(:num)', 'Admin::delete_followup/$1');
+$routes->get('delete_populasi/(:num)', 'Admin::delete_populasi/$1');
 $routes->get('jumlah_followup_open', 'Admin::jumlah_followup_open');
 
 /*

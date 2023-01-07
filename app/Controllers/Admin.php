@@ -12,6 +12,14 @@ class Admin extends Controller {
     public function index() {
         return view('dasbor');
     }
+    
+    public function data_model_unit() {
+        // QUERY MELALUI MODEL
+        $model = new FollowupModel();
+        $data['populasi'] = $model->getAllModelUnit();
+        
+        return view('data_model_unit', $data);
+    }    
 
     public function input() {
         // GET MODEL UNIT UNTUK DITAMPILKAN DI SELECT INPUT
@@ -51,6 +59,27 @@ class Admin extends Controller {
         echo json_encode($data_code_unit);
     }
 
+    // input populasi
+    public function input_populasi() {
+        // terima data dari form input
+        $inputModelUnit = $this->request->getPost('inputModelUnit');
+        $inputCodeUnit = $this->request->getPost('inputCodeUnit');
+
+
+        $data = [
+            'model_unit' => $inputModelUnit,
+            'code_unit' => $inputCodeUnit
+        ];
+
+        // QUERY MELALUI MODEL
+        $model = new FollowupModel();
+        $insert = $model->insertPopulasi($data);
+        if ($insert) {
+            // Go to specific URI
+            return redirect()->to(base_url('followup-cbm/data_model_unit'));
+        }
+    }    
+    
     // input CBM
     public function input_cbm() {
         // terima data dari form input
@@ -195,6 +224,18 @@ class Admin extends Controller {
             return redirect()->to(base_url('followup-cbm/resume'));
         }
     }
+    
+    // delete data populasi
+    public function delete_populasi($no) {
+        // QUERY MELALUI MODEL
+        $model = new FollowupModel();
+        $del = $model->delPopulasi($no);
+
+        if ($del) {
+            // Go to specific URI
+            return redirect()->to(base_url('followup-cbm/data_model_unit'));
+        }
+    }    
 
     // get jumlah follow up by CBM dengan status open
     public function jumlah_followup_open() {
