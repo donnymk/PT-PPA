@@ -39,18 +39,18 @@ class FollowupModel extends Model {
         $query = $builder->get();
         return $query->getResult();
     }
-    
+
     // get all model unit dan code unit
     public function getAllModelUnit() {
         // tampilkan menggunakan query builder
         $builder = $this->builder();
         $query = $builder->get();
         return $query->getResult();
-    }    
+    }
 
     // get model unit group by model unit
     public function getModelUnit() {
-        // tampilkan data model unit menggunakan query builder
+        // tampilkan menggunakan query builder
         $builder = $this->builder();
         $builder->select('model_unit');
         $builder->groupBy('model_unit');
@@ -58,7 +58,23 @@ class FollowupModel extends Model {
         return $query->getResult();
     }
 
-    // get code unit
+    // get all komponen
+    public function getKomponen() {
+        // tampilkan menggunakan query builder
+        $builder = $this->builder('komponen');
+        $query = $builder->get();
+        return $query->getResult();
+    }
+    
+    // get all rekomendasi
+    public function getRekomendasi() {
+        // tampilkan menggunakan query builder
+        $builder = $this->builder('rekomendasi_follow_up');
+        $query = $builder->get();
+        return $query->getResult();
+    }    
+
+    // get code unit berdasarkan model unit
     public function getCodeUnit($modelUnit) {
         // tampilkan data code unit menggunakan query builder
         $builder = $this->builder();
@@ -79,11 +95,27 @@ class FollowupModel extends Model {
     // insert data populasi
     public function insertPopulasi($data) {
         // tentukan tabel
-        $builder = $this->builder('populasi');
+        $builder = $this->builder();
         // insert data
         return $builder->insert($data);
-    }    
+    }
     
+    // insert data komponen
+    public function insertKomponen($data) {
+        // tentukan tabel
+        $builder = $this->builder('komponen');
+        // insert data
+        return $builder->insert($data);
+    }
+    
+    // insert data rekomendasi
+    public function insertRekomendasi($data) {
+        // tentukan tabel
+        $builder = $this->builder('rekomendasi_follow_up');
+        // insert data
+        return $builder->insert($data);
+    }
+
     // insert data follow up
     public function insertFollowUp($data) {
         // tentukan tabel
@@ -110,11 +142,27 @@ class FollowupModel extends Model {
         $builder->where('no_follow_up', $noFollowup);
         return $builder->delete();
     }
-    
+
     // delete data Populasi by ID
     public function delPopulasi($no) {
         // tentukan tabel
         $builder = $this->builder();
+        $builder->where('id', $no);
+        return $builder->delete();
+    }
+    
+    // delete data Komponen by ID
+    public function delKomponen($no) {
+        // tentukan tabel
+        $builder = $this->builder('komponen');
+        $builder->where('id', $no);
+        return $builder->delete();
+    }
+    
+    // delete data Rekomendasi by ID
+    public function delRekomendasi($no) {
+        // tentukan tabel
+        $builder = $this->builder('rekomendasi_follow_up');
         $builder->where('id', $no);
         return $builder->delete();
     }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 01, 2023 at 02:20 PM
+-- Generation Time: Jan 08, 2023 at 09:56 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -24,6 +24,49 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `komponen`
+--
+
+DROP TABLE IF EXISTS `komponen`;
+CREATE TABLE IF NOT EXISTS `komponen` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nama_komponen` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `nama_komponen` (`nama_komponen`)
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `komponen`
+--
+
+INSERT INTO `komponen` (`id`, `nama_komponen`) VALUES
+(18, 'All Axle (Diff & Final Drive)'),
+(19, 'Battery'),
+(5, 'Brake Cooling'),
+(14, 'Circle'),
+(3, 'Damper'),
+(9, 'Differential'),
+(1, 'Engine'),
+(10, 'Front Differential'),
+(21, 'Front Suspension LH'),
+(20, 'Front Suspension RH'),
+(6, 'Front Swing Machinery'),
+(8, 'Left Final Drive'),
+(2, 'Power Take Off'),
+(15, 'Rear Differential'),
+(16, 'Rear Left Final Drive'),
+(23, 'Rear Suspension LH'),
+(22, 'Rear Suspension RH'),
+(11, 'Rear Swing Machinery'),
+(12, 'Right Final Drive'),
+(17, 'Right Right Final Drive'),
+(13, 'Right Tandem'),
+(7, 'Swing Machinery'),
+(4, 'Transmission');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `populasi`
 --
 
@@ -33,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `populasi` (
   `model_unit` varchar(48) NOT NULL,
   `code_unit` varchar(48) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `populasi`
@@ -165,30 +208,31 @@ DROP TABLE IF EXISTS `rekomendasi_follow_up`;
 CREATE TABLE IF NOT EXISTS `rekomendasi_follow_up` (
   `id` int NOT NULL AUTO_INCREMENT,
   `rekomendasi` varchar(128) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `rekomendasi` (`rekomendasi`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `rekomendasi_follow_up`
 --
 
 INSERT INTO `rekomendasi_follow_up` (`id`, `rekomendasi`) VALUES
-(1, 'Resampling (Tanpa penggantian oli)'),
-(2, 'Cek apakah ada partikel logam kasar pada Drain magnetic plug'),
-(3, 'Periksa Apakah ada Rembesan Pada Floating Seal'),
-(4, 'Periksa Apakah Ada Abnormal Noise'),
-(5, 'Lakukan Cutting Filter & Analisa partikel pada elementnya'),
-(6, 'Lakukan penambahan Oli'),
+(16, 'Buatkan TI sebagai data dan bukti dasar melakukan claim waranty'),
 (7, 'Buka & Periksa Oil Pan'),
+(2, 'Cek apakah ada partikel logam kasar pada Drain magnetic plug'),
+(15, 'Cek Floating Seal Dari Indikasi Kebocoran'),
+(14, 'Cek Kebocoran Cooling System menggunakan Radiator Cap Tester'),
 (8, 'Check Oil Pressure'),
-(9, 'Lakukan PPM'),
-(10, 'Lakukan penggantian Oli & Resampling'),
 (11, 'Lakukan Adjustment'),
+(5, 'Lakukan Cutting Filter & Analisa partikel pada elementnya'),
 (12, 'Lakukan Flushing'),
 (13, 'Lakukan pemeriksaan pada Fuel System'),
-(14, 'Cek Kebocoran Cooling System menggunakan Radiator Cap Tester'),
-(15, 'Cek Floating Seal Dari Indikasi Kebocoran'),
-(16, 'Buatkan TI sebagai data dan bukti dasar melakukan claim waranty'),
+(6, 'Lakukan penambahan Oli'),
+(10, 'Lakukan penggantian Oli & Resampling'),
+(9, 'Lakukan PPM'),
+(4, 'Periksa Apakah Ada Abnormal Noise'),
+(3, 'Periksa Apakah ada Rembesan Pada Floating Seal'),
+(1, 'Resampling (Tanpa penggantian oli)'),
 (17, 'Ukur Ulang SOH/SOC, Ganti Terminal Battery Jika Rusak/Berjamur');
 
 -- --------------------------------------------------------
@@ -215,16 +259,7 @@ CREATE TABLE IF NOT EXISTS `resume_follow_up_cbm` (
   `reason_if_cancelled` varchar(255) DEFAULT NULL COMMENT 'alasan (jika dibatalkan)',
   `input2_timestamp` timestamp NULL DEFAULT NULL COMMENT 'waktu input untuk data follow up CBM yang sudah dieksekusi',
   PRIMARY KEY (`no_follow_up`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `resume_follow_up_cbm`
---
-
-INSERT INTO `resume_follow_up_cbm` (`no_follow_up`, `code_unit`, `model`, `komponen`, `cbm`, `deskripsi_problem`, `rekomendasi_follow_up`, `plan_date_follow_up`, `input_timestamp`, `executed`, `date_executed`, `pic`, `follow_up_status`, `reason_if_cancelled`, `input2_timestamp`) VALUES
-(1, 'E427', 'PC400LC-8R', 'Swing Machinery', 'Visual Inspection', 'Mengirim dokumen ke tujuan yang ditentukan: browser, file atau string. Dalam hal dikirim ke browser, plug-in dapat digunakan (jika ada) atau download (kotak dialog \"Save as\") dapat ditampilkan.\r\nMetode ini akan memanggil Close() terlebih dahulu jika perlu untuk mengakhiri dokumen.', 'bersihkan yaa', '2022-12-27', '2022-12-27 10:49:14', 1, '2022-12-28', 'donny malik kurniawan', 'Close', '-', '2022-12-31 04:20:48'),
-(3, 'CP54', 'XAHS400 PACE CUD WUX', 'All Axle (Diff & Final Drive)', 'PPE', 'deskripsinya apa', 'Cek apakah ada partikel logam kasar pada Drain magnetic plug', '2023-01-02', '2023-01-01 08:04:28', 0, '0000-00-00', '', 'Open', '', '2023-01-01 10:40:56'),
-(5, 'DA40048', 'AROCS 4040K (6X4) A/T', 'Brake Cooling', 'Visual Inspection', 'ada kerikil', 'Lakukan Adjustment', '2023-01-02', '2023-01-01 13:42:49', 0, NULL, NULL, NULL, NULL, NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -12,15 +12,35 @@ class Admin extends Controller {
     public function index() {
         return view('dasbor');
     }
-    
+
+    // tampilkan semua data model unit
     public function data_model_unit() {
         // QUERY MELALUI MODEL
         $model = new FollowupModel();
         $data['populasi'] = $model->getAllModelUnit();
-        
-        return view('data_model_unit', $data);
-    }    
 
+        return view('data_model_unit', $data);
+    }
+
+    // tampilkan semua data komponen
+    public function data_komponen() {
+        // QUERY MELALUI MODEL
+        $model = new FollowupModel();
+        $data['komponen'] = $model->getKomponen();
+
+        return view('data_komponen', $data);
+    }
+    
+    // tampilkan semua data rekomendasi
+    public function data_rekomendasi() {
+        // QUERY MELALUI MODEL
+        $model = new FollowupModel();
+        $data['rekomendasi'] = $model->getRekomendasi();
+
+        return view('data_rekomendasi', $data);
+    }
+
+    // form input
     public function input() {
         // GET MODEL UNIT UNTUK DITAMPILKAN DI SELECT INPUT
         //
@@ -29,10 +49,11 @@ class Admin extends Controller {
 //        $builder = $db->table('populasi');
 //        $query   = $builder->get();
 //        print_r($query->getResult());
-//        
+//
         // QUERY MELALUI MODEL
         $model = new FollowupModel();
         $data['model_unit'] = $model->getModelUnit();
+        $data['komponen'] = $model->getKomponen();
         $data['rekomendasi_followup'] = $model->getRekomendasiFollowup();
 
         return view('form_input_cbm', $data);
@@ -78,8 +99,44 @@ class Admin extends Controller {
             // Go to specific URI
             return redirect()->to(base_url('followup-cbm/data_model_unit'));
         }
-    }    
+    }
     
+    // input komponen
+    public function input_komponen() {
+        // terima data dari form input
+        $inputKomponen = $this->request->getPost('inputKomponen');
+
+        $data = [
+            'nama_komponen' => $inputKomponen
+        ];
+
+        // QUERY MELALUI MODEL
+        $model = new FollowupModel();
+        $insert = $model->insertKomponen($data);
+        if ($insert) {
+            // Go to specific URI
+            return redirect()->to(base_url('followup-cbm/data_komponen'));
+        }
+    }
+    
+    // input rekomendasi
+    public function input_rekomendasi() {
+        // terima data dari form input
+        $inputRekomendasi = $this->request->getPost('inputRekomendasi');
+
+        $data = [
+            'rekomendasi' => $inputRekomendasi
+        ];
+
+        // QUERY MELALUI MODEL
+        $model = new FollowupModel();
+        $insert = $model->insertRekomendasi($data);
+        if ($insert) {
+            // Go to specific URI
+            return redirect()->to(base_url('followup-cbm/data_rekomendasi'));
+        }
+    }
+
     // input CBM
     public function input_cbm() {
         // terima data dari form input
@@ -177,7 +234,7 @@ class Admin extends Controller {
 //        $builder = $db->table('populasi');
 //        $query   = $builder->get();
 //        print_r($query->getResult());
-//        
+//
         // QUERY MELALUI MODEL
         $model = new FollowupModel();
         $data['followup'] = $model->getDataCbmById($noFollowUp);
@@ -224,7 +281,7 @@ class Admin extends Controller {
             return redirect()->to(base_url('followup-cbm/resume'));
         }
     }
-    
+
     // delete data populasi
     public function delete_populasi($no) {
         // QUERY MELALUI MODEL
@@ -235,7 +292,31 @@ class Admin extends Controller {
             // Go to specific URI
             return redirect()->to(base_url('followup-cbm/data_model_unit'));
         }
-    }    
+    }
+    
+    // delete data komponen
+    public function delete_komponen($no) {
+        // QUERY MELALUI MODEL
+        $model = new FollowupModel();
+        $del = $model->delKomponen($no);
+
+        if ($del) {
+            // Go to specific URI
+            return redirect()->to(base_url('followup-cbm/data_komponen'));
+        }
+    }
+    
+    // delete data rekomendasi
+    public function delete_rekomendasi($no) {
+        // QUERY MELALUI MODEL
+        $model = new FollowupModel();
+        $del = $model->delRekomendasi($no);
+
+        if ($del) {
+            // Go to specific URI
+            return redirect()->to(base_url('followup-cbm/data_rekomendasi'));
+        }
+    }
 
     // get jumlah follow up by CBM dengan status open
     public function jumlah_followup_open() {

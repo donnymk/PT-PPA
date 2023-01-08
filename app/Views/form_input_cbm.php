@@ -58,29 +58,11 @@
                                     <div class="form-floating mb-3 mb-md-0">
                                         <select class="form-control" id="inputKomponen" name="inputKomponen" required="">
                                             <option value="">--Pilih--</option>
-                                            <option value="Engine">Engine</option>
-                                            <option value="Power Take Off">Power Take Off</option>
-                                            <option value="Damper">Damper</option>
-                                            <option value="Transmission">Transmission</option>
-                                            <option value="Brake Cooling">Brake Cooling</option>
-                                            <option value="Front Swing Machinery">Front Swing Machinery</option>
-                                            <option value="Swing Machinery">Swing Machinery</option>
-                                            <option value="Left Final Drive">Left Final Drive</option>
-                                            <option value="Differential">Differential</option>
-                                            <option value="Front Differential">Front Differential</option>
-                                            <option value="Rear Swing Machinery">Rear Swing Machinery</option>
-                                            <option value="Right Final Drive">Right Final Drive</option>
-                                            <option value="Right Tandem">Right Tandem</option>
-                                            <option value="Circle">Circle</option>
-                                            <option value="Rear Differential">Rear Differential</option>
-                                            <option value="Rear Left Final Drive">Rear Left Final Drive</option>
-                                            <option value="Right Right Final Drive">Right Right Final Drive</option>
-                                            <option value="All Axle (Diff & Final Drive)">All Axle (Diff & Final Drive)</option>
-                                            <option value="Battery">Battery</option>
-                                            <option value="Front Suspension RH">Front Suspension RH</option>
-                                            <option value="Front Suspension LH">Front Suspension LH</option>
-                                            <option value="Rear Suspension RH">Rear Suspension RH</option>
-                                            <option value="Rear Suspension LH">Rear Suspension LH</option>
+                                            <?php foreach ($komponen as $value): ?>
+
+                                                <option value="<?= $value->nama_komponen ?>"><?= $value->nama_komponen ?></option>
+
+                                            <?php endforeach ?>
                                         </select>
                                         <label for="inputKomponen">Komponen</label>
                                     </div>
@@ -108,7 +90,7 @@
                                     <div class="form-floating mb-3 mb-md-0">
                                         <select class="form-control" id="selectRekomFollowUp" name="selectRekomFollowUp" onchange="switch_input()" required="">
                                             <option value="">--Pilih--</option>
-                                            <?php foreach ($rekomendasi_followup as $key => $value): ?>
+                                            <?php foreach ($rekomendasi_followup as $value): ?>
 
                                                 <option value="<?= $value->rekomendasi ?>"><?= $value->rekomendasi ?></option>
 
