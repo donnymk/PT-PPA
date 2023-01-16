@@ -3,11 +3,30 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\ResponseInterface;
+//use CodeIgniter\I18n\Time;
+use Psr\Log\LoggerInterface;
+
 use App\Models\FollowupModel;
 
-//use CodeIgniter\I18n\Time;
-
 class Admin extends Controller {
+    
+    public function initController(
+            RequestInterface $request,
+            ResponseInterface $response,
+            LoggerInterface $logger
+    ) {
+        parent::initController($request, $response, $logger);
+
+        // initialize the session
+        $session = \Config\Services::session();
+        // jika belum login
+        if(!$session->has('logged_in')){
+            echo 'Anda harus login. Klik <a href="'. base_url('followup-cbm/login').'">di sini</a> untuk login';
+            exit();
+        }
+    }    
 
     public function index() {
         return view('dasbor');
@@ -30,7 +49,7 @@ class Admin extends Controller {
 
         return view('data_komponen', $data);
     }
-    
+
     // tampilkan semua data rekomendasi
     public function data_rekomendasi() {
         // QUERY MELALUI MODEL
@@ -50,6 +69,16 @@ class Admin extends Controller {
 //        $query   = $builder->get();
 //        print_r($query->getResult());
 //
+        // initialize the session
+        $session = \Config\Services::session();
+        // default value
+        $data['username'] = null;
+        // cek session login
+        if ($session->has('username')) {
+            $data['username'] = $session->username;
+            $data['role'] = $session->role;
+        }
+
         // QUERY MELALUI MODEL
         $model = new FollowupModel();
         $data['model_unit'] = $model->getModelUnit();
@@ -86,7 +115,6 @@ class Admin extends Controller {
         $inputModelUnit = $this->request->getPost('inputModelUnit');
         $inputCodeUnit = $this->request->getPost('inputCodeUnit');
 
-
         $data = [
             'model_unit' => $inputModelUnit,
             'code_unit' => $inputCodeUnit
@@ -100,7 +128,7 @@ class Admin extends Controller {
             return redirect()->to(base_url('followup-cbm/data_model_unit'));
         }
     }
-    
+
     // input komponen
     public function input_komponen() {
         // terima data dari form input
@@ -118,7 +146,7 @@ class Admin extends Controller {
             return redirect()->to(base_url('followup-cbm/data_komponen'));
         }
     }
-    
+
     // input rekomendasi
     public function input_rekomendasi() {
         // terima data dari form input
@@ -190,7 +218,7 @@ class Admin extends Controller {
                 // select option sudah dieksekusi apa belum
                 $has_executed = ($value->executed === '1' ? ' Yes' : 'No');
                 $follow_up_status = $value->follow_up_status;
-                if($follow_up_status ==''){
+                if ($follow_up_status == '') {
                     $follow_up_status = 'Open';
                 }
 
@@ -293,7 +321,7 @@ class Admin extends Controller {
             return redirect()->to(base_url('followup-cbm/data_model_unit'));
         }
     }
-    
+
     // delete data komponen
     public function delete_komponen($no) {
         // QUERY MELALUI MODEL
@@ -305,7 +333,7 @@ class Admin extends Controller {
             return redirect()->to(base_url('followup-cbm/data_komponen'));
         }
     }
-    
+
     // delete data rekomendasi
     public function delete_rekomendasi($no) {
         // QUERY MELALUI MODEL

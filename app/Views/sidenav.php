@@ -19,7 +19,7 @@
                         <a class="nav-link" href="<?= base_url('followup-cbm/data_komponen') ?>">Komponen</a>
                         <a class="nav-link" href="<?= base_url('followup-cbm/data_rekomendasi') ?>">Rekomendasi</a>
                     </nav>
-                </div>                
+                </div>
                 <a class="nav-link" href="<?= base_url('followup-cbm/input') ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-edit"></i></div>
                     Input Follow Up
@@ -30,9 +30,15 @@
                 </a>
             </div>
         </div>
+        <?php
+        if($username != null){
+        ?>
         <div class="sb-sidenav-footer">
             <div class="small">Logged in as:</div>
-            Start Bootstrap
+            <?= $username.' ('.$role.')' ?>
         </div>
+        <?php
+        }
+        ?>
     </nav>
 </div>

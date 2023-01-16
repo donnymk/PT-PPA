@@ -57,6 +57,7 @@ $routes->get('delete_populasi/(:num)', 'Admin::delete_populasi/$1');
 $routes->get('delete_komponen/(:num)', 'Admin::delete_komponen/$1');
 $routes->get('delete_rekomendasi/(:num)', 'Admin::delete_rekomendasi/$1');
 $routes->get('jumlah_followup_open', 'Admin::jumlah_followup_open');
+$routes->get('logout', 'Home::logout');
 
 /*
  * --------------------------------------------------------------------
