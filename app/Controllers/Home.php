@@ -2,23 +2,10 @@
 
 namespace App\Controllers;
 
-use CodeIgniter\HTTP\RequestInterface;
-use CodeIgniter\HTTP\ResponseInterface;
-use Psr\Log\LoggerInterface;
 use App\Models\FollowupModel;
 use App\Models\LoginModel;
 
 class Home extends BaseController {
-
-    public function initController(
-            RequestInterface $request,
-            ResponseInterface $response,
-            LoggerInterface $logger
-    ) {
-        parent::initController($request, $response, $logger);
-
-        // Add your code here.
-    }
 
     public function index() {
         // initialize the session
@@ -39,7 +26,9 @@ class Home extends BaseController {
     }
 
     public function login() {
-        return view('login');
+        // initialize the session
+        $data['session'] = \Config\Services::session();        
+        return view('login', $data);
     }
 
     // proses login
@@ -78,7 +67,9 @@ class Home extends BaseController {
             // Go to specific URI
             return redirect()->to(base_url('followup-cbm/'));
         } else {
-            echo 'Invalid password.';
+            $session->setFlashdata('login_gagal', 'Username atau Password salah');
+            // Go to specific URI
+            return redirect()->to(base_url('followup-cbm/login'));
         }
     }
 

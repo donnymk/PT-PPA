@@ -3,10 +3,31 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\ResponseInterface;
+use Psr\Log\LoggerInterface;
+
 use App\Models\FollowupModel;
 use App\ThirdParty\fpdf185\FPDF;
 
 class PrintForm extends Controller {
+    
+    public function initController(
+            RequestInterface $request,
+            ResponseInterface $response,
+            LoggerInterface $logger
+    ) {
+        parent::initController($request, $response, $logger);
+
+        // initialize the session
+        $session = \Config\Services::session();       
+        
+        // jika belum login
+        if(!$session->has('logged_in')){
+            echo 'Anda harus login. Klik <a href="'. base_url('followup-cbm/login').'">di sini</a> untuk login';
+            exit();
+        }
+    }    
 
     public function index($no_followup) {
         // QUERY MELALUI MODEL
