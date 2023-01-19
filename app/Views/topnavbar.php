@@ -17,7 +17,7 @@
         <?php
         if($username != null){
         ?>
-            <li><a class="dropdown-item" href="<?= base_url('followup-cbm/ubahpwd') ?>">Ubah password</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('followup-cbm/changepwd') ?>">Ubah password</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="<?= base_url('followup-cbm/logout') ?>">Logout</a></li>
         <?php

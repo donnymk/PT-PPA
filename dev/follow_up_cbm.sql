@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 08, 2023 at 09:56 AM
+-- Generation Time: Jan 19, 2023 at 02:24 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -20,6 +20,29 @@ SET time_zone = "+00:00";
 --
 -- Database: `follow_up_cbm`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `auth`
+--
+
+DROP TABLE IF EXISTS `auth`;
+CREATE TABLE IF NOT EXISTS `auth` (
+  `id_user` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `role` varchar(16) NOT NULL,
+  PRIMARY KEY (`id_user`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `auth`
+--
+
+INSERT INTO `auth` (`id_user`, `username`, `password`, `role`) VALUES
+(1, 'superadmin', '$2y$10$wkniPy6vINCl8OfWsB6u0Ombhz4/.BOMqq38kSghKPqupsHeoFEMi', 'owner'),
+(2, 'admin', '$2y$10$77P4Rlj/HypzPEOCKHHcv.C11t0b4uq..eCSOSzFNpQ8FNaECv00G', 'worker');
 
 -- --------------------------------------------------------
 
@@ -76,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `populasi` (
   `model_unit` varchar(48) NOT NULL,
   `code_unit` varchar(48) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=118 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=119 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `populasi`
@@ -210,7 +233,7 @@ CREATE TABLE IF NOT EXISTS `rekomendasi_follow_up` (
   `rekomendasi` varchar(128) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `rekomendasi` (`rekomendasi`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `rekomendasi_follow_up`

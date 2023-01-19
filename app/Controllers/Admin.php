@@ -12,11 +12,8 @@ use App\Models\FollowupModel;
 
 class Admin extends Controller {
 
-    public function initController(
-            RequestInterface $request,
-            ResponseInterface $response,
-            LoggerInterface $logger
-    ) {
+    // fungsi yang pertama kali dan selalu dijalankan
+    public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger) {
         parent::initController($request, $response, $logger);
 
         // initialize the session
@@ -181,7 +178,7 @@ class Admin extends Controller {
         }
     }
 
-    // input rekomendasi
+    // insert rekomendasi
     public function input_rekomendasi() {
         // terima data dari form input
         $inputRekomendasi = $this->request->getPost('inputRekomendasi');
@@ -199,7 +196,7 @@ class Admin extends Controller {
         }
     }
 
-    // input CBM
+    // insert data follow up CBM
     public function input_cbm() {
         // terima data dari form input
         $inputModelUnit = $this->request->getPost('inputModelUnit');
@@ -400,5 +397,41 @@ class Admin extends Controller {
             return redirect()->to(base_url('followup-cbm/data_rekomendasi'));
         }
     }
+    
+    // change password
+    public function changepwd() {
+        // initialize the session
+        $session = \Config\Services::session();
+        // default value
+        $data['username'] = null;
+        // cek session login
+        if ($session->has('username')) {
+            $data['username'] = $session->username;
+            $data['role'] = $session->role;
+        }
+
+        return view('form_changepwd', $data);
+    }
+    
+    // update password
+    public function submit_changepwd() {
+        // terima data dari form update
+        $inputOldPassword = $this->request->getPost('inputOldPassword');
+        $inputNewPassword = $this->request->getPost('inputNewPassword');
+        $inputNewPassword2 = $this->request->getPost('inputNewPassword2');
+
+        $data = [
+            'model_unit' => $inputModelUnit,
+            'code_unit' => $inputCodeUnit
+        ];
+
+        // QUERY MELALUI MODEL
+        $model = new FollowupModel();
+        $insert = $model->updatePassword($data);
+        if ($insert) {
+            // Go to specific URI
+            return redirect()->to(base_url('followup-cbm/data_model_unit'));
+        }
+    }    
 
 }
