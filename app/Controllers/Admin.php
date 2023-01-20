@@ -9,6 +9,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
 use App\Models\FollowupModel;
+use App\Models\LoginModel;
 
 class Admin extends Controller {
 
@@ -17,8 +18,8 @@ class Admin extends Controller {
         parent::initController($request, $response, $logger);
 
         // initialize the session
-        $session = \Config\Services::session();       
-        
+        $session = \Config\Services::session();
+
         // jika belum login
         if(!$session->has('logged_in')){
             echo 'Anda harus login. Klik <a href="'. base_url('followup-cbm/login').'">di sini</a> untuk login';
@@ -34,7 +35,7 @@ class Admin extends Controller {
     public function data_model_unit() {
         // initialize the session
         $session = \Config\Services::session();
-        
+
         // default value
         $data['username'] = null;
         // cek session login
@@ -42,7 +43,7 @@ class Admin extends Controller {
             $data['username'] = $session->username;
             $data['role'] = $session->role;
         }
-        
+
         // QUERY MELALUI MODEL
         $model = new FollowupModel();
         $data['populasi'] = $model->getAllModelUnit();
@@ -54,15 +55,15 @@ class Admin extends Controller {
     public function data_komponen() {
         // initialize the session
         $session = \Config\Services::session();
-        
+
         // default value
         $data['username'] = null;
         // cek session login
         if ($session->has('username')) {
             $data['username'] = $session->username;
             $data['role'] = $session->role;
-        }        
-        
+        }
+
         // QUERY MELALUI MODEL
         $model = new FollowupModel();
         $data['komponen'] = $model->getKomponen();
@@ -74,15 +75,15 @@ class Admin extends Controller {
     public function data_rekomendasi() {
         // initialize the session
         $session = \Config\Services::session();
-        
+
         // default value
         $data['username'] = null;
         // cek session login
         if ($session->has('username')) {
             $data['username'] = $session->username;
             $data['role'] = $session->role;
-        }        
-        
+        }
+
         // QUERY MELALUI MODEL
         $model = new FollowupModel();
         $data['rekomendasi'] = $model->getRekomendasi();
@@ -241,7 +242,7 @@ class Admin extends Controller {
             $data['username'] = $session->username;
             $data['role'] = $session->role;
         }
-        
+
         return view('resume', $data);
     }
 
@@ -298,15 +299,15 @@ class Admin extends Controller {
     public function update($noFollowUp) {
         // initialize the session
         $session = \Config\Services::session();
-        
+
         // default value
         $data['username'] = null;
         // cek session login
         if ($session->has('username')) {
             $data['username'] = $session->username;
             $data['role'] = $session->role;
-        }        
-        
+        }
+
         // GET DATA FOLLOW UP BY ID UNTUK DITAMPILKAN DI FORM UPDATE
         //
         // KONEKSI DB DAN QUERY SECARA LANGSUNG
@@ -397,7 +398,7 @@ class Admin extends Controller {
             return redirect()->to(base_url('followup-cbm/data_rekomendasi'));
         }
     }
-    
+
     // change password
     public function changepwd() {
         // initialize the session
@@ -412,7 +413,7 @@ class Admin extends Controller {
 
         return view('form_changepwd', $data);
     }
-    
+
     // update password
     public function submit_changepwd() {
         // terima data dari form update
@@ -420,10 +421,12 @@ class Admin extends Controller {
         $inputNewPassword = $this->request->getPost('inputNewPassword');
         $inputNewPassword2 = $this->request->getPost('inputNewPassword2');
 
-        $data = [
-            'model_unit' => $inputModelUnit,
-            'code_unit' => $inputCodeUnit
-        ];
+        // initialize the session
+        $session = \Config\Services::session();
+
+        // QUERY MELALUI MODEL
+        $model = new LoginModel();
+        $select_admin = $model->authAdmin($inputUsername);
 
         // QUERY MELALUI MODEL
         $model = new FollowupModel();
@@ -432,6 +435,6 @@ class Admin extends Controller {
             // Go to specific URI
             return redirect()->to(base_url('followup-cbm/data_model_unit'));
         }
-    }    
+    }
 
 }
