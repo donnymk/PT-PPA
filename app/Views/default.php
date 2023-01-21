@@ -14,7 +14,7 @@
         <style>
             #inputRekomFollowUp {
                 display: none
-            }          
+            }
         </style>        
     </head>
     <body class="sb-nav-fixed">
@@ -23,22 +23,22 @@
 
         <!-- jQuery -->
         <script src="<?= base_url('js/jquery.1.11.1.js') ?>" type="text/javascript"></script>
-        
+
         <!-- Bootstrap Bundle -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        
+
         <!-- DataTables library -->
         <!--<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>-->
         <script src="<?= base_url('DataTables-1.13.1/js/jquery.dataTables.min.js') ?>" type="text/javascript"></script>
         <script src="<?= base_url('DataTables-1.13.1/js/dataTables.bootstrap5.min.js') ?>" type="text/javascript"></script>
-        
+
         <!-- Sidebar Navigasi -->
         <script src="<?= base_url('js/scripts.js') ?>"></script>
-        
+
         <!-- Chart Demo -->
-        
+
         <!-- Script used to some pages -->
         <script src="<?= base_url('js/custom-script.js') ?>"></script>
-        
+
     </body>
 </html>

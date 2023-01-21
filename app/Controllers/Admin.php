@@ -7,7 +7,6 @@ use CodeIgniter\Controller;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
-
 use App\Models\FollowupModel;
 use App\Models\LoginModel;
 
@@ -21,8 +20,8 @@ class Admin extends Controller {
         $session = \Config\Services::session();
 
         // jika belum login
-        if(!$session->has('logged_in')){
-            echo 'Anda harus login. Klik <a href="'. base_url('followup-cbm/login').'">di sini</a> untuk login';
+        if (!$session->has('logged_in')) {
+            echo 'Anda harus login. Klik <a href="' . base_url('followup-cbm/login') . '">di sini</a> untuk login';
             exit();
         }
     }
@@ -110,7 +109,6 @@ class Admin extends Controller {
 //        $builder = $db->table('populasi');
 //        $query   = $builder->get();
 //        print_r($query->getResult());
-
         // QUERY MELALUI MODEL
         $model = new FollowupModel();
         $data['model_unit'] = $model->getModelUnit();
@@ -409,6 +407,7 @@ class Admin extends Controller {
         if ($session->has('username')) {
             $data['username'] = $session->username;
             $data['role'] = $session->role;
+            $data['session'] = $session;
         }
 
         return view('form_changepwd', $data);
@@ -424,17 +423,35 @@ class Admin extends Controller {
         // initialize the session
         $session = \Config\Services::session();
 
-        // QUERY MELALUI MODEL
-        $model = new LoginModel();
-        $select_admin = $model->authAdmin($inputUsername);
+        $username = $session->username;
 
         // QUERY MELALUI MODEL
-        $model = new FollowupModel();
-        $insert = $model->updatePassword($data);
-        if ($insert) {
-            // Go to specific URI
-            return redirect()->to(base_url('followup-cbm/data_model_unit'));
+        $modelLogin = new LoginModel();
+        $select_admin = $modelLogin->authAdmin($username);
+
+        // jika data ditemukan
+        foreach ($select_admin as $value):
+            $password_db = $value->password;
+        endforeach;
+
+        // jika password lama benar
+        if (password_verify($inputOldPassword, $password_db)) {
+            // dan password baru yang diketikkan dua kali benar
+            if ($inputNewPassword == $inputNewPassword2) {
+                $session->setFlashdata('changePasswordStatus', 'Ubah Password baru berhasil');
+            }
+            // tapi password baru yang diketikkan dua kali tidak sama
+            else {
+                $session->setFlashdata('changePasswordStatus', 'Password baru yang diketikkan dua kali tidak sama');
+            }
         }
+        // jika password lama salah
+        else {
+            $session->setFlashdata('changePasswordStatus', 'Password lama tidak sesuai');
+        }
+
+        // go to previous page
+        return redirect()->to(base_url('followup-cbm/changepwd'));
     }
 
 }
