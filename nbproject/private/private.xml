@@ -4,7 +4,6 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Git%20Repository/pt-ppa/app/Controllers/Home.php</file>
-            <file>file:/D:/Git%20Repository/pt-ppa/app/Controllers/PrintForm.php</file>
             <file>file:/D:/Git%20Repository/pt-ppa/app/Config/Routes.php</file>
             <file>file:/D:/Git%20Repository/pt-ppa/app/Views/default.php</file>
             <file>file:/D:/Git%20Repository/pt-ppa/app/Models/FollowupModel.php</file>
@@ -12,9 +11,9 @@
             <file>file:/D:/Git%20Repository/pt-ppa/app/Controllers/Admin.php</file>
             <file>file:/D:/Git%20Repository/pt-ppa/app/Models/LoginModel.php</file>
             <file>file:/D:/Git%20Repository/pt-ppa/app/Views/topnavbar.php</file>
-            <file>file:/D:/Git%20Repository/pt-ppa/app/Views/dasbor.php</file>
-            <file>file:/D:/Git%20Repository/pt-ppa/app/Controllers/Ajax.php</file>
+            <file>file:/D:/Git%20Repository/pt-ppa/app/Views/login.php</file>
             <file>file:/D:/Git%20Repository/pt-ppa/js/custom-script.js</file>
+            <file>file:/D:/Git%20Repository/pt-ppa/js/scripts.js</file>
         </group>
     </open-files>
 </project-private>

@@ -118,27 +118,6 @@ class Admin extends Controller {
         return view('form_input_cbm', $data);
     }
 
-    public function get_code_unit() {
-        $data_code_unit = [];
-
-        // data dari Ajax request
-        $modelUnit = $this->request->getVar('modelUnit');
-
-        // Check for AJAX request
-        if ($this->request->isAJAX()) {
-
-            // QUERY MELALUI MODEL
-            $model = new FollowupModel();
-            $get_code_unit = $model->getCodeUnit($modelUnit);
-
-            foreach ($get_code_unit as $key => $value):
-                array_push($data_code_unit, $value->code_unit);
-            endforeach;
-        }
-
-        echo json_encode($data_code_unit);
-    }
-
     // input populasi
     public function input_populasi() {
         // terima data dari form input
@@ -242,55 +221,6 @@ class Admin extends Controller {
         }
 
         return view('resume', $data);
-    }
-
-    // get data follow up CBM
-    public function data_cbm() {
-        $data_cbm = [];
-
-        // Check for AJAX request
-        if ($this->request->isAJAX()) {
-            // QUERY MELALUI MODEL
-            $model = new FollowupModel();
-            $get_data_cbm = $model->getdataCbm();
-
-            foreach ($get_data_cbm as $key => $value):
-                // select option sudah dieksekusi apa belum
-                $has_executed = ($value->executed === '1' ? ' Yes' : 'No');
-                $follow_up_status = $value->follow_up_status;
-                if ($follow_up_status == '') {
-                    $follow_up_status = 'Open';
-                }
-
-                // button update
-                $update_button = '<a class="btn btn-primary btn-sm" href="update/' . $value->no_follow_up . '">Update...</a>';
-
-                array_push($data_cbm,
-                        array($value->no_follow_up,
-                            $value->model,
-                            $value->code_unit,
-                            $value->komponen,
-                            $value->cbm,
-                            $value->deskripsi_problem,
-                            $value->rekomendasi_follow_up,
-                            $value->plan_date_follow_up,
-                            '<a class="btn btn-primary" href="cetak_form/' . $value->no_follow_up . '" target="_blank"><span class="fa fa-2x fa-file-pdf"></span></a>',
-                            $has_executed,
-                            $value->date_executed,
-                            $value->pic,
-                            $follow_up_status,
-                            $value->reason_if_cancelled,
-                            $update_button,
-                            '<a class="btn btn-secondary btn-sm" href="delete/' . $value->no_follow_up . '" onclick="return confirm_del(' . $value->no_follow_up . ')"><span class="fa fa-trash"></span></a>')
-                );
-            endforeach;
-
-            $json_data = array(
-                "data" => $data_cbm
-            );
-            echo json_encode($json_data);
-        }
-        return false;
     }
 
     // form update
