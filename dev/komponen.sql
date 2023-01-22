@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `komponen` (
   `nama_komponen` varchar(64) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nama_komponen` (`nama_komponen`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `komponen`

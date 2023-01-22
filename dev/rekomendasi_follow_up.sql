@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `rekomendasi_follow_up` (
   `rekomendasi` varchar(128) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `rekomendasi` (`rekomendasi`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `rekomendasi_follow_up`

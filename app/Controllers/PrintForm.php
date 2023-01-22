@@ -8,7 +8,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
 use App\Models\FollowupModel;
-use App\ThirdParty\fpdf185\FPDF;
+use App\ThirdParty\fpdf185\fpdf;
 
 class PrintForm extends Controller {
     
