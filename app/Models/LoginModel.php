@@ -22,14 +22,27 @@ class LoginModel extends Model {
     protected $validationRules = [];
     protected $validationMessages = [];
     protected $skipValidation = false;
- 
+
     // cek username
     public function authAdmin($username) {
-        // tampilkan data code unit menggunakan query builder
         $builder = $this->builder();
         $builder->where('username', $username);
         $query = $builder->get();
         return $query->getResult();
+    }
+
+    // update password
+    public function updatePassword($username, $newPassword) {
+        $options = [
+            'cost' => 10,
+        ];
+        $password_hash = password_hash($newPassword, PASSWORD_DEFAULT, $options);
+
+        $builder = $this->builder();
+        $builder->set('password', $password_hash);
+        $builder->where('username', $username);
+        $query = $builder->update();
+        return $query;
     }
 
 }

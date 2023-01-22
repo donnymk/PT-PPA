@@ -423,11 +423,11 @@ class Admin extends Controller {
         // initialize the session
         $session = \Config\Services::session();
 
+        // CEK USERNAME
         $username = $session->username;
-
         // QUERY MELALUI MODEL
-        $modelLogin = new LoginModel();
-        $select_admin = $modelLogin->authAdmin($username);
+        $model = new LoginModel();
+        $select_admin = $model->authAdmin($username);
 
         // jika data ditemukan
         foreach ($select_admin as $value):
@@ -438,16 +438,25 @@ class Admin extends Controller {
         if (password_verify($inputOldPassword, $password_db)) {
             // dan password baru yang diketikkan dua kali benar
             if ($inputNewPassword == $inputNewPassword2) {
+                // update password baru di database
+                $model->updatePassword($username, $inputNewPassword);
+
                 $session->setFlashdata('changePasswordStatus', 'Ubah Password baru berhasil');
             }
             // tapi password baru yang diketikkan dua kali tidak sama
             else {
                 $session->setFlashdata('changePasswordStatus', 'Password baru yang diketikkan dua kali tidak sama');
+                $session->setFlashdata('oldPassword', $inputOldPassword);
+                $session->setFlashdata('newPassword', $inputNewPassword);
+                $session->setFlashdata('newPassword2', $inputNewPassword2);
             }
         }
         // jika password lama salah
         else {
             $session->setFlashdata('changePasswordStatus', 'Password lama tidak sesuai');
+            $session->setFlashdata('oldPassword', $inputOldPassword);
+            $session->setFlashdata('newPassword', $inputNewPassword);
+            $session->setFlashdata('newPassword2', $inputNewPassword2);
         }
 
         // go to previous page

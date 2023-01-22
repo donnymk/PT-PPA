@@ -21,18 +21,22 @@
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login Follow Up CBM System</h3></div>
                                     <div class="card-body">
                                         <form method="post" action="<?= base_url('followup-cbm/loginproses') ?>">
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputUsername" name="inputUsername" type="text" placeholder="Username" required="" />
-                                                <label for="inputUsername">Username</label>
+                                            <label for="inputUsername" class="form-label">Username</label>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" id="inputUsername" type="text" name="inputUsername" required="">
                                             </div>
-                                            <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" name="inputPassword" type="password" placeholder="Password" required="" />
-                                                <label for="inputPassword">Password</label>
+                                            <label for="inputPassword" class="form-label">Password</label>
+                                            <div class="input-group mb-3">
+                                                <input class="form-control" id="inputPassword" type="password" name="inputPassword" required="" aria-label="Input Password" aria-describedby="basic-addon1">
+                                                <span class="input-group-text" id="basic-addon1" onclick="password_login_show_hide();">
+                                                    <i class="fas fa-eye" id="show_eye"></i>
+                                                    <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
+                                                </span>
                                             </div>
-<!--                                            <div class="form-check mb-3">
-                                                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
-                                                <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
-                                            </div>-->
+                                            <!--                                            <div class="form-check mb-3">
+                                                                                            <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
+                                                                                            <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
+                                                                                        </div>-->
                                             <?= $session->getFlashdata('login_gagal'); ?>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <a class="small" href="<?= base_url('followup-cbm') ?>">Kembali ke halaman utama</a>
@@ -40,9 +44,9 @@
                                             </div>
                                         </form>
                                     </div>
-<!--                                    <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
-                                    </div>-->
+                                    <!--                                    <div class="card-footer text-center py-3">
+                                                                            <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
+                                                                        </div>-->
                                 </div>
                             </div>
                         </div>
