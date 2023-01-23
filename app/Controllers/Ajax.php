@@ -36,14 +36,9 @@ class Ajax extends BaseController {
                     $follow_up_status = 'Open';
                 }
                 
-                 $update_button = '';
-                 $delete_button = '';
-                // jika yang login statusnya owner ada tombol update
-                if($role == 'owner'){
-                // button update
+                // button update dan delete
                 $update_button = '<a class="btn btn-primary btn-sm" href="update/' . $value->no_follow_up . '">Update...</a>';
                 $delete_button = '<a class="btn btn-secondary btn-sm" href="delete/' . $value->no_follow_up . '" onclick="return confirm_del(' . $value->no_follow_up . ')"><span class="fa fa-trash"></span></a>';
-                }
 
                 array_push($data_cbm,
                         array($value->no_follow_up,
