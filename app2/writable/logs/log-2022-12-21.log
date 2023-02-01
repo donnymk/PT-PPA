@@ -1,0 +1,26 @@
+ERROR - 2022-12-21 04:01:35 --> mysqli_sql_exception: Unknown column 'model' in 'field list' in D:\Git Repo\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repo\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `po...', 0)
+#1 D:\Git Repo\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `po...')
+#2 D:\Git Repo\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `po...')
+#3 D:\Git Repo\pt-ppa\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `po...', Array, false)
+#4 D:\Git Repo\pt-ppa\app\Models\FollowupModel.php(48): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 D:\Git Repo\pt-ppa\app\Controllers\Admin.php(78): App\Models\FollowupModel->insertFollowUp(Array)
+#6 D:\Git Repo\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input_cbm()
+#7 D:\Git Repo\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repo\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repo\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-12-21 04:02:05 --> mysqli_sql_exception: Unknown column 'model' in 'field list' in D:\Git Repo\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repo\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `po...', 0)
+#1 D:\Git Repo\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `po...')
+#2 D:\Git Repo\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `po...')
+#3 D:\Git Repo\pt-ppa\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `po...', Array, false)
+#4 D:\Git Repo\pt-ppa\app\Models\FollowupModel.php(48): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 D:\Git Repo\pt-ppa\app\Controllers\Admin.php(78): App\Models\FollowupModel->insertFollowUp(Array)
+#6 D:\Git Repo\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input_cbm()
+#7 D:\Git Repo\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repo\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repo\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}

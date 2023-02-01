@@ -1,0 +1,239 @@
+ERROR - 2023-01-08 04:23:25 --> mysqli_sql_exception: Table 'follow_up_cbm.rekomendasi' doesn't exist in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `re...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `re...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `re...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `re...', Array, false)
+#4 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(116): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(133): App\Models\FollowupModel->insertRekomendasi(Array)
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input_rekomendasi()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-01-08 07:27:57 --> mysqli_sql_exception: Duplicate entry 'Differential' for key 'komponen.nama_komponen' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `ko...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ko...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ko...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ko...', Array, false)
+#4 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(108): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(115): App\Models\FollowupModel->insertKomponen(Array)
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input_komponen()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-08 07:28:59 --> Undefined variable $values
+in APPPATH\Views\data_rekomendasi.php on line 52.
+ 1 APPPATH\Views\data_rekomendasi.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $values', 'APPPATH\\Views\\data_rekomendasi.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\data_rekomendasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('data_rekomendasi', [], true)
+ 5 APPPATH\Controllers\Admin.php(40): view('data_rekomendasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->data_rekomendasi()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-08 07:29:01 --> Undefined variable $values
+in APPPATH\Views\data_rekomendasi.php on line 52.
+ 1 APPPATH\Views\data_rekomendasi.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $values', 'APPPATH\\Views\\data_rekomendasi.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\data_rekomendasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('data_rekomendasi', [], true)
+ 5 APPPATH\Controllers\Admin.php(40): view('data_rekomendasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->data_rekomendasi()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-08 07:33:11 --> Undefined variable $values
+in APPPATH\Views\data_rekomendasi.php on line 52.
+ 1 APPPATH\Views\data_rekomendasi.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $values', 'APPPATH\\Views\\data_rekomendasi.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\data_rekomendasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('data_rekomendasi', [], true)
+ 5 APPPATH\Controllers\Admin.php(40): view('data_rekomendasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->data_rekomendasi()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-08 07:33:51 --> Undefined variable $values
+in APPPATH\Views\data_rekomendasi.php on line 52.
+ 1 APPPATH\Views\data_rekomendasi.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $values', 'APPPATH\\Views\\data_rekomendasi.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\data_rekomendasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('data_rekomendasi', [], true)
+ 5 APPPATH\Controllers\Admin.php(40): view('data_rekomendasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->data_rekomendasi()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-08 07:33:52 --> Undefined variable $values
+in APPPATH\Views\data_rekomendasi.php on line 52.
+ 1 APPPATH\Views\data_rekomendasi.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $values', 'APPPATH\\Views\\data_rekomendasi.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\data_rekomendasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('data_rekomendasi', [], true)
+ 5 APPPATH\Controllers\Admin.php(40): view('data_rekomendasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->data_rekomendasi()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-08 07:33:53 --> Undefined variable $values
+in APPPATH\Views\data_rekomendasi.php on line 52.
+ 1 APPPATH\Views\data_rekomendasi.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $values', 'APPPATH\\Views\\data_rekomendasi.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\data_rekomendasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('data_rekomendasi', [], true)
+ 5 APPPATH\Controllers\Admin.php(40): view('data_rekomendasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->data_rekomendasi()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-08 07:33:53 --> Undefined variable $values
+in APPPATH\Views\data_rekomendasi.php on line 52.
+ 1 APPPATH\Views\data_rekomendasi.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $values', 'APPPATH\\Views\\data_rekomendasi.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\data_rekomendasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('data_rekomendasi', [], true)
+ 5 APPPATH\Controllers\Admin.php(40): view('data_rekomendasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->data_rekomendasi()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-08 07:33:54 --> Undefined variable $values
+in APPPATH\Views\data_rekomendasi.php on line 52.
+ 1 APPPATH\Views\data_rekomendasi.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $values', 'APPPATH\\Views\\data_rekomendasi.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\data_rekomendasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('data_rekomendasi', [], true)
+ 5 APPPATH\Controllers\Admin.php(40): view('data_rekomendasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->data_rekomendasi()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-08 07:34:21 --> Undefined variable $values
+in APPPATH\Views\data_rekomendasi.php on line 52.
+ 1 APPPATH\Views\data_rekomendasi.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $values', 'APPPATH\\Views\\data_rekomendasi.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\data_rekomendasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('data_rekomendasi', [], true)
+ 5 APPPATH\Controllers\Admin.php(40): view('data_rekomendasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->data_rekomendasi()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-08 07:34:23 --> Undefined variable $values
+in APPPATH\Views\data_rekomendasi.php on line 52.
+ 1 APPPATH\Views\data_rekomendasi.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $values', 'APPPATH\\Views\\data_rekomendasi.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\data_rekomendasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('data_rekomendasi', [], true)
+ 5 APPPATH\Controllers\Admin.php(40): view('data_rekomendasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->data_rekomendasi()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-08 07:34:24 --> Undefined variable $values
+in APPPATH\Views\data_rekomendasi.php on line 52.
+ 1 APPPATH\Views\data_rekomendasi.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $values', 'APPPATH\\Views\\data_rekomendasi.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\data_rekomendasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('data_rekomendasi', [], true)
+ 5 APPPATH\Controllers\Admin.php(40): view('data_rekomendasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->data_rekomendasi()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-08 07:39:39 --> Undefined variable $values
+in APPPATH\Views\data_rekomendasi.php on line 52.
+ 1 APPPATH\Views\data_rekomendasi.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $values', 'APPPATH\\Views\\data_rekomendasi.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\data_rekomendasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('data_rekomendasi', [], true)
+ 5 APPPATH\Controllers\Admin.php(40): view('data_rekomendasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->data_rekomendasi()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-08 07:39:54 --> Undefined variable $values
+in APPPATH\Views\data_rekomendasi.php on line 52.
+ 1 APPPATH\Views\data_rekomendasi.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $values', 'APPPATH\\Views\\data_rekomendasi.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\data_rekomendasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('data_rekomendasi', [], true)
+ 5 APPPATH\Controllers\Admin.php(40): view('data_rekomendasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->data_rekomendasi()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-08 07:41:15 --> Undefined variable $values
+in APPPATH\Views\data_rekomendasi.php on line 52.
+ 1 APPPATH\Views\data_rekomendasi.php(52): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $values', 'APPPATH\\Views\\data_rekomendasi.php', 52)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\data_rekomendasi.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('data_rekomendasi', [], true)
+ 5 APPPATH\Controllers\Admin.php(40): view('data_rekomendasi', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->data_rekomendasi()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-08 07:41:50 --> mysqli_sql_exception: Duplicate entry 'Engine' for key 'komponen.nama_komponen' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `ko...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ko...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ko...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ko...', Array, false)
+#4 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(108): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(115): App\Models\FollowupModel->insertKomponen(Array)
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input_komponen()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-01-08 07:41:54 --> mysqli_sql_exception: Duplicate entry 'Engine' for key 'komponen.nama_komponen' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `ko...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ko...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ko...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ko...', Array, false)
+#4 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(108): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(115): App\Models\FollowupModel->insertKomponen(Array)
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input_komponen()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2023-01-08 07:46:39 --> mysqli_sql_exception: Duplicate entry 'Engine' for key 'komponen.nama_komponen' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `ko...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ko...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ko...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ko...', Array, false)
+#4 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(108): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(115): App\Models\FollowupModel->insertKomponen(Array)
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input_komponen()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-08 07:46:39 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::error()
+in APPPATH\Models\FollowupModel.php on line 109.
+ 1 APPPATH\Controllers\Admin.php(115): App\Models\FollowupModel->insertKomponen([...])
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input_komponen()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-08 07:48:56 --> mysqli_sql_exception: Duplicate entry 'Engine' for key 'komponen.nama_komponen' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `ko...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ko...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ko...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ko...', Array, false)
+#4 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(108): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(115): App\Models\FollowupModel->insertKomponen(Array)
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input_komponen()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}

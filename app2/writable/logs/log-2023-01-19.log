@@ -1,0 +1,15 @@
+CRITICAL - 2023-01-19 14:04:49 --> Undefined variable $username
+in APPPATH\Views\topnavbar.php on line 18.
+ 1 APPPATH\Views\topnavbar.php(18): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $username', 'APPPATH\\Views\\topnavbar.php', 18)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\topnavbar.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\View\View.php(431): CodeIgniter\View\View->render('topnavbar', null, true)
+ 5 APPPATH\Views\form_changepwd.php(7): CodeIgniter\View\View->include('topnavbar')
+ 6 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\form_changepwd.php')
+ 7 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 8 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('form_changepwd', [], true)
+ 9 APPPATH\Controllers\Admin.php(413): view('form_changepwd')
+10 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->changepwd()
+11 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+12 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

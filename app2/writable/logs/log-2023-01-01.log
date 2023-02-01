@@ -1,0 +1,284 @@
+CRITICAL - 2023-01-01 10:03:50 --> The subquery cannot be the same object as the main query object.
+in SYSTEMPATH\Database\BaseBuilder.php on line 2949.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(466): CodeIgniter\Database\BaseBuilder->buildSubquery(Object(CodeIgniter\Database\MySQLi\Builder), true, 'countOpen')
+ 2 APPPATH\Models\FollowupModel.php(103): CodeIgniter\Database\BaseBuilder->selectSubquery(Object(CodeIgniter\Database\MySQLi\Builder), 'countOpen')
+ 3 APPPATH\Controllers\Home.php(13): App\Models\FollowupModel->countFollowUp()
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-01 10:05:19 --> The subquery cannot be the same object as the main query object.
+in SYSTEMPATH\Database\BaseBuilder.php on line 2949.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(466): CodeIgniter\Database\BaseBuilder->buildSubquery(Object(CodeIgniter\Database\MySQLi\Builder), true, 'countOpen')
+ 2 APPPATH\Models\FollowupModel.php(103): CodeIgniter\Database\BaseBuilder->selectSubquery(Object(CodeIgniter\Database\MySQLi\Builder), 'countOpen')
+ 3 APPPATH\Controllers\Home.php(13): App\Models\FollowupModel->countFollowUp()
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-01 10:06:34 --> CodeIgniter\Database\BaseBuilder::selectSubquery(): Argument #1 ($subquery) must be of type CodeIgniter\Database\BaseBuilder, string given, called in D:\Git Repository\pt-ppa\app\Models\FollowupModel.php on line 104
+in SYSTEMPATH\Database\BaseBuilder.php on line 464.
+ 1 APPPATH\Models\FollowupModel.php(104): CodeIgniter\Database\BaseBuilder->selectSubquery('SELECT nama FROM adi', 'countOpen')
+ 2 APPPATH\Controllers\Home.php(13): App\Models\FollowupModel->countFollowUp()
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Home->index()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-01 10:08:18 --> The subquery cannot be the same object as the main query object.
+in SYSTEMPATH\Database\BaseBuilder.php on line 2949.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(466): CodeIgniter\Database\BaseBuilder->buildSubquery(Object(CodeIgniter\Database\MySQLi\Builder), true, 'countOpen')
+ 2 APPPATH\Models\FollowupModel.php(103): CodeIgniter\Database\BaseBuilder->selectSubquery(Object(CodeIgniter\Database\MySQLi\Builder), 'countOpen')
+ 3 APPPATH\Controllers\Home.php(13): App\Models\FollowupModel->countFollowUp()
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-01 10:09:03 --> The subquery cannot be the same object as the main query object.
+in SYSTEMPATH\Database\BaseBuilder.php on line 2949.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(466): CodeIgniter\Database\BaseBuilder->buildSubquery(Object(CodeIgniter\Database\MySQLi\Builder), true, 'countOpen')
+ 2 APPPATH\Models\FollowupModel.php(103): CodeIgniter\Database\BaseBuilder->selectSubquery(Object(CodeIgniter\Database\MySQLi\Builder), 'countOpen')
+ 3 APPPATH\Controllers\Home.php(13): App\Models\FollowupModel->countFollowUp()
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-01 10:12:44 --> The subquery cannot be the same object as the main query object.
+in SYSTEMPATH\Database\BaseBuilder.php on line 2949.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(466): CodeIgniter\Database\BaseBuilder->buildSubquery(Object(CodeIgniter\Database\MySQLi\Builder), true, 'countOpen')
+ 2 APPPATH\Models\FollowupModel.php(103): CodeIgniter\Database\BaseBuilder->selectSubquery(Object(CodeIgniter\Database\MySQLi\Builder), 'countOpen')
+ 3 APPPATH\Controllers\Home.php(13): App\Models\FollowupModel->countFollowUp()
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-01 10:18:53 --> The subquery cannot be the same object as the main query object.
+in SYSTEMPATH\Database\BaseBuilder.php on line 2949.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(466): CodeIgniter\Database\BaseBuilder->buildSubquery(Object(CodeIgniter\Database\MySQLi\Builder), true, 'countOpen')
+ 2 APPPATH\Models\FollowupModel.php(103): CodeIgniter\Database\BaseBuilder->selectSubquery(Object(CodeIgniter\Database\MySQLi\Builder), 'countOpen')
+ 3 APPPATH\Controllers\Home.php(13): App\Models\FollowupModel->countFollowUp()
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-01 10:19:09 --> The subquery cannot be the same object as the main query object.
+in SYSTEMPATH\Database\BaseBuilder.php on line 2949.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(466): CodeIgniter\Database\BaseBuilder->buildSubquery(Object(CodeIgniter\Database\MySQLi\Builder), true, 'countOpen')
+ 2 APPPATH\Models\FollowupModel.php(103): CodeIgniter\Database\BaseBuilder->selectSubquery(Object(CodeIgniter\Database\MySQLi\Builder), 'countOpen')
+ 3 APPPATH\Controllers\Home.php(13): App\Models\FollowupModel->countFollowUp()
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-01 10:29:58 --> Undefined variable $data
+in APPPATH\Controllers\Home.php on line 14.
+ 1 APPPATH\Controllers\Home.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Controllers\\Home.php', 14)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Home->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-01 10:33:39 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getResult()
+in APPPATH\Models\FollowupModel.php on line 104.
+ 1 APPPATH\Controllers\Home.php(13): App\Models\FollowupModel->countFollowUp()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Home->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-01 10:36:36 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getResult()
+in APPPATH\Models\FollowupModel.php on line 104.
+ 1 APPPATH\Controllers\Home.php(13): App\Models\FollowupModel->countFollowUp()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Home->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-01 10:37:03 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getResult()
+in APPPATH\Models\FollowupModel.php on line 104.
+ 1 APPPATH\Controllers\Home.php(13): App\Models\FollowupModel->countFollowUp()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Home->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-01 10:37:10 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getResult()
+in APPPATH\Models\FollowupModel.php on line 104.
+ 1 APPPATH\Controllers\Home.php(13): App\Models\FollowupModel->countFollowUp()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Home->index()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-01 10:39:03 --> Undefined variable $countall
+in APPPATH\Views\dasbor.php on line 31.
+ 1 APPPATH\Views\dasbor.php(31): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $countall', 'APPPATH\\Views\\dasbor.php', 31)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\dasbor.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('dasbor', [], true)
+ 5 APPPATH\Controllers\Home.php(14): view('dasbor', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-01 13:25:12 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT DISTINCT(cbm), COUNT(no_follow_up) as jumlahdata FROM resume_follow_up_cb' at line 1 in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT SELECT D...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SELECT D...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SELECT D...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT SELECT D...', Array, false)
+#4 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(112): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(201): App\Models\FollowupModel->countFollowUpOpen()
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->jumlah_followup_open()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-01 13:25:12 --> Call to a member function getResult() on bool
+in APPPATH\Models\FollowupModel.php on line 113.
+ 1 APPPATH\Controllers\Admin.php(201): App\Models\FollowupModel->countFollowUpOpen()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->jumlah_followup_open()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-01 13:25:41 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT DISTINCT(cbm), COUNT(no_follow_up) as jumlahdata FROM resume_follow_up_cb' at line 1 in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT SELECT D...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SELECT D...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SELECT D...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT SELECT D...', Array, false)
+#4 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(112): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(201): App\Models\FollowupModel->countFollowUpOpen()
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->jumlah_followup_open()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-01 13:25:41 --> Call to a member function getResult() on bool
+in APPPATH\Models\FollowupModel.php on line 113.
+ 1 APPPATH\Controllers\Admin.php(201): App\Models\FollowupModel->countFollowUpOpen()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->jumlah_followup_open()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-01 13:26:12 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT DISTINCT(cbm), COUNT(no_follow_up) as jumlahdata FROM resume_follow_up_cb' at line 1 in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT SELECT D...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SELECT D...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SELECT D...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT SELECT D...', Array, false)
+#4 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(112): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(201): App\Models\FollowupModel->countFollowUpOpen()
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->jumlah_followup_open()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-01 13:26:12 --> Call to a member function getResult() on bool
+in APPPATH\Models\FollowupModel.php on line 113.
+ 1 APPPATH\Controllers\Admin.php(201): App\Models\FollowupModel->countFollowUpOpen()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->jumlah_followup_open()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-01 13:28:21 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT DISTINCT(cbm), COUNT(no_follow_up) as jumlahdata FROM resume_follow_up_cb' at line 1 in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT SELECT D...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SELECT D...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SELECT D...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT SELECT D...', Array, false)
+#4 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(112): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(201): App\Models\FollowupModel->countFollowUpOpen()
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->jumlah_followup_open()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-01 13:28:21 --> Call to a member function getResult() on bool
+in APPPATH\Models\FollowupModel.php on line 113.
+ 1 APPPATH\Controllers\Admin.php(201): App\Models\FollowupModel->countFollowUpOpen()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->jumlah_followup_open()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-01 13:28:22 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT DISTINCT(cbm), COUNT(no_follow_up) as jumlahdata FROM resume_follow_up_cb' at line 1 in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT SELECT D...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SELECT D...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SELECT D...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT SELECT D...', Array, false)
+#4 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(112): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(201): App\Models\FollowupModel->countFollowUpOpen()
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->jumlah_followup_open()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-01 13:28:22 --> Call to a member function getResult() on bool
+in APPPATH\Models\FollowupModel.php on line 113.
+ 1 APPPATH\Controllers\Admin.php(201): App\Models\FollowupModel->countFollowUpOpen()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->jumlah_followup_open()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-01 13:29:54 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT DISTINCT(cbm), COUNT(no_follow_up) as jumlahdata FROM resume_follow_up_cb' at line 1 in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT SELECT D...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SELECT D...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SELECT D...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT SELECT D...', Array, false)
+#4 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(112): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(201): App\Models\FollowupModel->countFollowUpOpen()
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->jumlah_followup_open()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-01 13:29:54 --> Call to a member function getResult() on bool
+in APPPATH\Models\FollowupModel.php on line 113.
+ 1 APPPATH\Controllers\Admin.php(201): App\Models\FollowupModel->countFollowUpOpen()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->jumlah_followup_open()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-01 13:32:22 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT DISTINCT(cbm), COUNT(no_follow_up) as jumlahdata FROM resume_follow_up_cb' at line 1 in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT SELECT D...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SELECT D...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SELECT D...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT SELECT D...', Array, false)
+#4 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(112): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(201): App\Models\FollowupModel->countFollowUpOpen()
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->jumlah_followup_open()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-01 13:32:22 --> Call to a member function getResult() on bool
+in APPPATH\Models\FollowupModel.php on line 113.
+ 1 APPPATH\Controllers\Admin.php(201): App\Models\FollowupModel->countFollowUpOpen()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->jumlah_followup_open()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-01-01 13:34:46 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT DISTINCT(cbm), COUNT(no_follow_up) as jumlahdata FROM resume_follow_up_cb' at line 1 in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT SELECT D...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT SELECT D...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT SELECT D...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT SELECT D...', Array, false)
+#4 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(112): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(202): App\Models\FollowupModel->countFollowUpOpen()
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->jumlah_followup_open()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-01-01 13:34:46 --> Call to a member function getResult() on bool
+in APPPATH\Models\FollowupModel.php on line 113.
+ 1 APPPATH\Controllers\Admin.php(202): App\Models\FollowupModel->countFollowUpOpen()
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->jumlah_followup_open()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-01-01 14:16:54 --> Undefined variable $json_data
+in APPPATH\Controllers\Admin.php on line 134.
+ 1 APPPATH\Controllers\Admin.php(134): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $json_data', 'APPPATH\\Controllers\\Admin.php', 134)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->data_cbm()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

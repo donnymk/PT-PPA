@@ -1,0 +1,56 @@
+CRITICAL - 2022-12-15 02:19:56 --> Invalid file: form_input_cbm.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('form_input_cbm.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('form_input_cbm', [], true)
+ 3 APPPATH\Controllers\Admin.php(12): view('form_input_cbm')
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-15 03:11:02 --> Argument 1 passed to CodeIgniter\View\View::extend() must be of the type string, null given, called in D:\Git Repo\pt-ppa\app\Views\layout_dasbor.php on line 1
+in SYSTEMPATH\View\View.php on line 365.
+ 1 APPPATH\Views\layout_dasbor.php(1): CodeIgniter\View\View->extend(null)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\layout_dasbor.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('layout_dasbor', [], true)
+ 5 APPPATH\Controllers\Home.php(10): view('layout_dasbor', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Home->index()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-15 03:26:50 --> Invalid file: form_input_cbm.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('form_input_cbm.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('form_input_cbm', [], true)
+ 3 APPPATH\Controllers\Admin.php(12): view('form_input_cbm')
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-15 04:05:51 --> Invalid file: dasbors.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('dasbors.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('dasbors', [], true)
+ 3 APPPATH\Controllers\Home.php(9): view('dasbors')
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Home->index()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-15 04:22:31 --> Invalid file: layout_halaman.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('layout_halaman.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('layout_halaman', [], true)
+ 3 APPPATH\Controllers\Admin.php(17): view('layout_halaman', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->resume()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-15 04:23:49 --> Invalid file: form_input_cbm.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('form_input_cbm.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('form_input_cbm', [], true)
+ 3 APPPATH\Controllers\Admin.php(12): view('form_input_cbm')
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

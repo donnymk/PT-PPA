@@ -1,0 +1,1207 @@
+ERROR - 2022-12-18 10:33:18 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 10:33:18 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`
+WHERE `populasi`.`deleted_at` IS NULL', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 10:33:19 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 10:33:19 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`
+WHERE `populasi`.`deleted_at` IS NULL', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-18 10:33:33 --> Undefined variable $data
+in APPPATH\Controllers\Admin.php on line 17.
+ 1 APPPATH\Controllers\Admin.php(17): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Controllers\\Admin.php', 17)
+ 2 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 3 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 4 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 10:36:14 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 10:36:14 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`
+WHERE `populasi`.`deleted_at` IS NULL', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 12:52:20 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 12:52:20 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`
+WHERE `populasi`.`deleted_at` IS NULL', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 12:52:41 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 12:52:41 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 12:52:42 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 12:52:42 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 12:52:42 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 12:52:42 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 12:52:43 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 12:52:43 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 12:52:43 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 12:52:43 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 12:52:43 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 12:52:43 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 12:53:20 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 12:53:20 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 12:53:20 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 12:53:20 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 12:53:21 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 12:53:21 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 12:55:37 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 12:55:37 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 12:55:37 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 12:55:37 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 12:55:38 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 12:55:38 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(16): App\Models\FollowupModel->get_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 13:00:45 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): App\Models\FollowupModel->get_model_unit()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 13:00:45 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Models\FollowupModel.php(31): CodeIgniter\BaseModel->findAll()
+ 6 APPPATH\Controllers\Admin.php(17): App\Models\FollowupModel->get_model_unit()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 13:12:23 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-18 13:12:23 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 13:12:49 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-18 13:12:49 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`
+WHERE `populasi`.`deleted_at` IS NULL', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 13:13:51 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-18 13:13:51 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`
+WHERE `populasi`.`deleted_at` IS NULL', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 13:13:52 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:171
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(171): mysqli->real_connect('localhost', 'root', 'l117k117', 'followup_cbm', 3306, '', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'followup_cbm' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:215
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(382): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+#2 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#4 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#5 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-12-18 13:13:52 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'followup_cbm'
+in SYSTEMPATH\Database\BaseConnection.php on line 418.
+ 1 SYSTEMPATH\Database\BaseConnection.php(561): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `populasi`
+WHERE `populasi`.`deleted_at` IS NULL', [], false)
+ 3 SYSTEMPATH\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 13:14:59 --> mysqli_sql_exception: Unknown column 'populasi.deleted_at' in 'where clause' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 13:14:59 --> Call to a member function getResult() on bool
+in SYSTEMPATH\Model.php on line 224.
+ 1 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 2 APPPATH\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 13:15:01 --> mysqli_sql_exception: Unknown column 'populasi.deleted_at' in 'where clause' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 13:15:01 --> Call to a member function getResult() on bool
+in SYSTEMPATH\Model.php on line 224.
+ 1 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 2 APPPATH\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 13:16:06 --> mysqli_sql_exception: Unknown column 'populasi.deleted_at' in 'where clause' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 13:16:06 --> Call to a member function getResult() on bool
+in SYSTEMPATH\Model.php on line 224.
+ 1 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 2 APPPATH\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 13:16:08 --> mysqli_sql_exception: Unknown column 'populasi.deleted_at' in 'where clause' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 13:16:08 --> Call to a member function getResult() on bool
+in SYSTEMPATH\Model.php on line 224.
+ 1 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 2 APPPATH\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 13:16:09 --> mysqli_sql_exception: Unknown column 'populasi.deleted_at' in 'where clause' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 13:16:09 --> Call to a member function getResult() on bool
+in SYSTEMPATH\Model.php on line 224.
+ 1 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 2 APPPATH\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 13:16:55 --> mysqli_sql_exception: Unknown column 'populasi.deleted_at' in 'where clause' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 13:16:55 --> Call to a member function getResult() on bool
+in SYSTEMPATH\Model.php on line 224.
+ 1 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 2 APPPATH\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 13:18:15 --> mysqli_sql_exception: Unknown column 'populasi.deleted_at' in 'where clause' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 13:18:15 --> Call to a member function getResult() on bool
+in SYSTEMPATH\Model.php on line 224.
+ 1 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 2 APPPATH\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 13:19:42 --> mysqli_sql_exception: Unknown column 'populasi.deleted_at' in 'where clause' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 13:19:42 --> Call to a member function getResult() on bool
+in SYSTEMPATH\Model.php on line 224.
+ 1 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 2 APPPATH\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 13:19:43 --> mysqli_sql_exception: Unknown column 'populasi.deleted_at' in 'where clause' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+CRITICAL - 2022-12-18 13:19:43 --> Call to a member function getResult() on bool
+in SYSTEMPATH\Model.php on line 224.
+ 1 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 2 APPPATH\Controllers\Admin.php(17): CodeIgniter\BaseModel->findAll()
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 13:37:34 --> mysqli_sql_exception: Unknown column 'populasi.deleted_at' in 'where clause' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(29): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(15): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2022-12-18 13:37:34 --> Call to a member function getResult() on bool
+in SYSTEMPATH\Model.php on line 224.
+ 1 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 2 APPPATH\Models\FollowupModel.php(29): CodeIgniter\BaseModel->findAll()
+ 3 APPPATH\Controllers\Admin.php(15): App\Models\FollowupModel->get_model_unit()
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2022-12-18 13:38:21 --> mysqli_sql_exception: Unknown column 'populasi.deleted_at' in 'where clause' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 D:\Git Repository\pt-ppa\system\Model.php(223): CodeIgniter\Database\BaseBuilder->get()
+#5 D:\Git Repository\pt-ppa\system\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+#6 D:\Git Repository\pt-ppa\app\Models\FollowupModel.php(29): CodeIgniter\BaseModel->findAll()
+#7 D:\Git Repository\pt-ppa\app\Controllers\Admin.php(15): App\Models\FollowupModel->get_model_unit()
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input()
+#9 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#10 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 D:\Git Repository\pt-ppa\followup-cbm\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2022-12-18 13:38:21 --> Call to a member function getResult() on bool
+in SYSTEMPATH\Model.php on line 224.
+ 1 SYSTEMPATH\BaseModel.php(585): CodeIgniter\Model->doFindAll(0, 0)
+ 2 APPPATH\Models\FollowupModel.php(29): CodeIgniter\BaseModel->findAll()
+ 3 APPPATH\Controllers\Admin.php(15): App\Models\FollowupModel->get_model_unit()
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-18 13:49:51 --> Undefined variable $data_model_unit
+in APPPATH\Models\FollowupModel.php on line 35.
+ 1 APPPATH\Models\FollowupModel.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data_model_unit', 'APPPATH\\Models\\FollowupModel.php', 35)
+ 2 APPPATH\Controllers\Admin.php(15): App\Models\FollowupModel->get_model_unit()
+ 3 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 4 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 5 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-18 13:54:07 --> Undefined variable $data
+in APPPATH\Views\form_input_cbm.php on line 39.
+ 1 APPPATH\Views\form_input_cbm.php(39): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'APPPATH\\Views\\form_input_cbm.php', 39)
+ 2 SYSTEMPATH\View\View.php(213): include('APPPATH\\Views\\form_input_cbm.php')
+ 3 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('form_input_cbm', [], true)
+ 5 APPPATH\Controllers\Admin.php(16): view('form_input_cbm', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 7 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 8 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-18 13:59:01 --> Object of class mysqli could not be converted to string
+in APPPATH\Views\form_input_cbm.php on line 40.
+ 1 SYSTEMPATH\View\View.php(213): include()
+ 2 SYSTEMPATH\View\View.php(216): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('form_input_cbm', [], true)
+ 4 APPPATH\Controllers\Admin.php(16): view('form_input_cbm', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 6 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2022-12-18 14:02:57 --> Object of class CodeIgniter\Database\MySQLi\Result could not be converted to string
+in APPPATH\Controllers\Admin.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

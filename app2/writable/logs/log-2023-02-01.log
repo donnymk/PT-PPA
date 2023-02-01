@@ -1,0 +1,32 @@
+CRITICAL - 2023-02-01 04:14:07 --> Class "App2\Controllers\BaseController" not found
+in APPPATH\Controllers\Home.php on line 8.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(282): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(259): CodeIgniter\Autoloader\Autoloader->includeFile('APPPATH\\Controllers\\Home.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(237): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Home')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Home')
+ 5 SYSTEMPATH\CodeIgniter.php(877): class_exists('\\App\\Controllers\\Home', true)
+ 6 SYSTEMPATH\CodeIgniter.php(469): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-02-01 07:19:10 --> mysqli_sql_exception: Duplicate entry 'BA' for key 'job_site.job_site' in D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 D:\Git Repository\pt-ppa\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `jo...', 0)
+#1 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `jo...')
+#2 D:\Git Repository\pt-ppa\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `jo...')
+#3 D:\Git Repository\pt-ppa\system\Database\BaseBuilder.php(1916): CodeIgniter\Database\BaseConnection->query('INSERT INTO `jo...', Array, false)
+#4 D:\Git Repository\pt-ppa\app2\app\Models\JobsiteModel.php(38): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 D:\Git Repository\pt-ppa\app2\app\Controllers\Admin.php(44): App\Models\JobsiteModel->insertJobsite(Array)
+#6 D:\Git Repository\pt-ppa\system\CodeIgniter.php(927): App\Controllers\Admin->input_jobsite()
+#7 D:\Git Repository\pt-ppa\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+#8 D:\Git Repository\pt-ppa\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 D:\Git Repository\pt-ppa\claim-warranty\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-02-01 14:32:50 --> Invalid file: form_input_cbm.php
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 33.
+ 1 SYSTEMPATH\View\View.php(201): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('form_input_cbm.php')
+ 2 SYSTEMPATH\Common.php(1134): CodeIgniter\View\View->render('form_input_cbm', [], true)
+ 3 APPPATH\Controllers\Admin.php(198): view('form_input_cbm')
+ 4 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Admin->input()
+ 5 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Admin))
+ 6 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
