@@ -31,6 +31,16 @@ class PopulasiModel extends Model {
         return $query->getResult();
     }
     
+    // get brand unit (machine maker)
+    public function getBrandUnit() {
+        // tampilkan menggunakan query builder
+        $builder = $this->builder();
+        $builder->select('machine_maker');
+        $builder->groupBy('machine_maker');
+        $query = $builder->get();
+        return $query->getResult();
+    }
+    
     // insert data
     public function insertPopulasi($data) {
         $builder = $this->builder();

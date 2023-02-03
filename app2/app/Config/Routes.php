@@ -50,6 +50,7 @@ $routes->get('resume', 'Admin::resume');
 
 $routes->get('changepwd', 'Admin::changepwd');
 $routes->post('submit_changepwd', 'Admin::submit_changepwd');
+$routes->get('logout', 'Home::logout');
 
 /*
  * --------------------------------------------------------------------
