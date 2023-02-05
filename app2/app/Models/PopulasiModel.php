@@ -31,16 +31,6 @@ class PopulasiModel extends Model {
         return $query->getResult();
     }
     
-    // get brand unit (machine maker)
-    public function getBrandUnit() {
-        // tampilkan menggunakan query builder
-        $builder = $this->builder();
-        $builder->select('machine_maker');
-        $builder->groupBy('machine_maker');
-        $query = $builder->get();
-        return $query->getResult();
-    }
-    
     // insert data
     public function insertPopulasi($data) {
         $builder = $this->builder();
@@ -53,6 +43,41 @@ class PopulasiModel extends Model {
         $builder = $this->builder();
         $builder->where('id', $no);
         return $builder->delete();
+    }
+    
+    // get brand unit (machine maker)
+    public function getBrandUnit() {
+        // tampilkan menggunakan query builder
+        $builder = $this->builder();
+        $builder->select('machine_maker');
+        //$builder->groupBy('machine_maker');
+        $builder->distinct();
+        $query = $builder->get();
+        return $query->getResult();
+    }
+    
+    // get model unit by brand unit (machine maker)
+    public function getModelUnitbyBrandUnit($brandUnit) {
+        // tampilkan menggunakan query builder
+        $builder = $this->builder();
+        $builder->select('model_unit');
+        $builder->where('machine_maker', $brandUnit);
+        //$builder->groupBy('model_unit');
+        $builder->distinct();
+        $query = $builder->get();
+        return $query->getResult();
+    }
+    
+    // get code unit by model unit
+    public function getCodeUnitbyModelUnit($modelUnit) {
+        // tampilkan menggunakan query builder
+        $builder = $this->builder();
+        $builder->select('code_unit');
+        $builder->where('model_unit', $modelUnit);
+        //$builder->groupBy('model_unit');
+//        $builder->distinct();
+        $query = $builder->get();
+        return $query->getResult();
     }
 
 }

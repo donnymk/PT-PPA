@@ -15,6 +15,10 @@
             #inputRekomFollowUp {
                 display: none
             }
+            .wajib-diisi {
+                color:#ff0000;
+                font-weight: bold
+            }            
         </style>        
     </head>
     <body class="sb-nav-fixed">

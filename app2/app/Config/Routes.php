@@ -52,6 +52,11 @@ $routes->get('changepwd', 'Admin::changepwd');
 $routes->post('submit_changepwd', 'Admin::submit_changepwd');
 $routes->get('logout', 'Home::logout');
 
+$routes->post('get_model_unit', 'AjaxCWP::get_model_unit');
+$routes->post('get_code_unit', 'AjaxCWP::get_code_unit');
+$routes->get('resume_data', 'AjaxCWP::data_cbm');
+$routes->get('jumlah_followup_open', 'AjaxCWP::jumlah_followup_open');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
