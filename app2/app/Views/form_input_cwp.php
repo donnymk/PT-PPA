@@ -30,7 +30,7 @@
                     </div>
                     <div class="card-body">
                         <p class="breadcrumb-item active">Tanda bintang (<span class="wajib-diisi">*</span>) wajib diisi</p>
-                        <form method="post" action="<?= base_url('claim-warranty/input_cwp') ?>">
+                            <?= form_open_multipart(base_url('claim-warranty/submit_cwp')) ?>
                             <!-- Claim identification -->
                             <div class="row mb-1">
                                 <div class="col-md-4">

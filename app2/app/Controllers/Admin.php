@@ -196,6 +196,8 @@ class Admin extends BaseController {
 
     // form input
     public function input_cwp() {
+        // load the form helper
+        helper('form');
         // initialize the session
         $session = \Config\Services::session();
         // default value
@@ -206,8 +208,6 @@ class Admin extends BaseController {
             $data['role'] = $session->role;
         }
 
-        // GET MODEL UNIT UNTUK DITAMPILKAN DI SELECT INPUT
-        //
         // KONEKSI DB DAN QUERY SECARA LANGSUNG
 //        $db = \Config\Database::connect();
 //        $builder = $db->table('populasi');
@@ -220,6 +220,40 @@ class Admin extends BaseController {
         $data['brand_unit'] = $model2->getBrandUnit();
 
         return view('form_input_cwp', $data);
+    }
+    
+    public function submit_cwp(){
+        $validationRule = [
+            'userfile' => [
+                'label' => 'Image File',
+                'rules' => [
+                    'uploaded[fotoUnitDepan]',
+                    'is_image[fotoUnitDepan]',
+                    'mime_in[fotoUnitDepan,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
+                    'max_size[fotoUnitDepan,2000]',
+                    'max_dims[fotoUnitDepan,4000,3000]',
+                ],
+            ],
+        ];
+        if (! $this->validate($validationRule)) {
+            $data = ['errors' => $this->validator->getErrors()];
+
+            return view('form_input_cwp', $data);
+        }
+
+        $img = $this->request->getFile('fotoUnitDepan');
+
+        if (! $img->hasMoved()) {
+            $filepath = WRITEPATH . 'uploads/' . $img->store();
+
+            $data = ['uploaded_fileinfo' => new File($filepath)];
+
+            return view('upload_success', $data);
+        }
+
+        $data = ['errors' => 'The file has already been moved.'];
+
+        return view('upload_form', $data);
     }
 
     public function resume() {
