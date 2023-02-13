@@ -6,7 +6,11 @@ use App\Models\JobsiteModel;
 use App\Models\PopulasiModel;
 use App\Models\CWAModel;
 
+use CodeIgniter\Files\File;
+
 class Admin extends BaseController {
+    
+    protected $helpers = ['form'];
 
     public function index() {
         return view('dasbor');
@@ -37,7 +41,7 @@ class Admin extends BaseController {
     public function input_jobsite() {
         // terima data dari form input
         $inputJobsite = $this->request->getPost('inputJobsite');
-        
+
         // initialize the session
         $session = \Config\Services::session();
 
@@ -56,7 +60,7 @@ class Admin extends BaseController {
         }
     }
 
-     // delete jobsite
+    // delete jobsite
     public function delete_jobsite($no) {
         // QUERY MELALUI MODEL
         $model = new JobsiteModel();
@@ -95,7 +99,7 @@ class Admin extends BaseController {
         $inputMachineMaker = $this->request->getPost('inputMachineMaker');
         $inputModelUnit = $this->request->getPost('inputModelUnit');
         $inputCodeUnit = $this->request->getPost('inputCodeUnit');
-        
+
         // initialize the session
         $session = \Config\Services::session();
 
@@ -143,7 +147,7 @@ class Admin extends BaseController {
 
         return view('form_changepwd', $data);
     }
-    
+
     // update password
     public function changepwd_submit() {
         // terima data dari form update
@@ -192,7 +196,7 @@ class Admin extends BaseController {
 
         // go to previous page
         return redirect()->to(base_url('claim-warranty/changepwd'));
-    }    
+    }
 
     // form input
     public function input_cwp() {
@@ -221,8 +225,11 @@ class Admin extends BaseController {
 
         return view('form_input_cwp', $data);
     }
-    
-    public function submit_cwp(){
+
+    public function submit_cwp() {
+        // initialize the session
+        $session = \Config\Services::session();
+
         $validationRule = [
             'userfile' => [
                 'label' => 'Image File',
@@ -235,25 +242,25 @@ class Admin extends BaseController {
                 ],
             ],
         ];
-        if (! $this->validate($validationRule)) {
-            $data = ['errors' => $this->validator->getErrors()];
-
-            return view('form_input_cwp', $data);
+        // jika yang diupload tidak sesuai rule
+        if (!$this->validate($validationRule)) {
+            $errors = $this->validator->getErrors();
+            var_dump($errors);
         }
 
         $img = $this->request->getFile('fotoUnitDepan');
-
-        if (! $img->hasMoved()) {
+        // jika upload berhasil
+        if (!$img->hasMoved()) {
             $filepath = WRITEPATH . 'uploads/' . $img->store();
 
             $data = ['uploaded_fileinfo' => new File($filepath)];
-
             return view('upload_success', $data);
+
+            //return redirect()->to(base_url('claim-warranty/resume'));
         }
 
-        $data = ['errors' => 'The file has already been moved.'];
-
-        return view('upload_form', $data);
+        $errors = 'The file has already been moved.';
+        echo esc($errors);
     }
 
     public function resume() {
