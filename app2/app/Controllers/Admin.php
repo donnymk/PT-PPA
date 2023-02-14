@@ -5,11 +5,10 @@ namespace App\Controllers;
 use App\Models\JobsiteModel;
 use App\Models\PopulasiModel;
 use App\Models\CWAModel;
-
 use CodeIgniter\Files\File;
 
 class Admin extends BaseController {
-    
+
     protected $helpers = ['form'];
 
     public function index() {
@@ -228,10 +227,43 @@ class Admin extends BaseController {
 
     public function submit_cwp() {
         // initialize the session
-        $session = \Config\Services::session();
+        //$session = \Config\Services::session();
+        //
+        // terima data dari form input
+        $inputJobsite = $this->request->getPost('inputJobsite');
+        $inputClaimDate = $this->request->getPost('inputClaimDate');
+        $inputClaimTo = $this->request->getPost('inputClaimTo');
+        $inputWarrantyDecision = $this->request->getPost('inputWarrantyDecision');
+        $inputClosingDate = $this->request->getPost('inputClosingDate');
+        $inputBrandUnit = $this->request->getPost('inputBrandUnit');
+        $inputModelUnit = $this->request->getPost('inputModelUnit');
+        $inputCodeUnit = $this->request->getPost('inputCodeUnit');
+        $inputSNUnit = $this->request->getPost('inputSNUnit');
+        $inputMajorComp = $this->request->getPost('inputMajorComp');
+        $inputSNComp = $this->request->getPost('inputSNComp');
+        $inputStatusUnit = $this->request->getPost('inputStatusUnit');
+        $inputAmountPart = $this->request->getPost('inputAmountPart');
+        $inputFinalAmount = $this->request->getPost('inputFinalAmount');
+        $inputComponent = $this->request->getPost('inputComponent');
+        $inputPartNumber = $this->request->getPost('inputPartNumber');
+        $inputFitmentDate = $this->request->getPost('inputFitmentDate');
+        $inputHmKmFitment = $this->request->getPost('inputHmKmFitment');
+        $inputSubComponent = $this->request->getPost('inputSubComponent');
+        $inputQty = $this->request->getPost('inputQty');
+        $inputTroubleDate = $this->request->getPost('inputTroubleDate');
+        $inputHmKmTrouble = $this->request->getPost('inputHmKmTrouble');
+        $inputLifetime = $this->request->getPost('inputLifetime');
+        $inputDeskripsiProblem = $this->request->getPost('inputDeskripsiProblem');
+        $inputComments = $this->request->getPost('inputComments');
+        $inputSchedule = $this->request->getPost('inputSchedule');
+        $inputRemarkProgress = $this->request->getPost('inputRemarkProgress');
+        $inputCreatedBy = $this->request->getPost('inputCreatedBy');
+        $inputApprovedBy = $this->request->getPost('inputApprovedBy');
+        $inputApprovedBy2 = $this->request->getPost('inputApprovedBy2');
+        $inputFollowupBy = $this->request->getPost('inputFollowupBy');
 
         $validationRule = [
-            'userfile' => [
+            'fotoUnitDepan' => [
                 'label' => 'Image File',
                 'rules' => [
                     'uploaded[fotoUnitDepan]',
@@ -248,10 +280,15 @@ class Admin extends BaseController {
             var_dump($errors);
         }
 
-        $img = $this->request->getFile('fotoUnitDepan');
+        $foto1 = $this->request->getFile('fotoUnitDepan');
+        $foto2 = $this->request->getFile('fotoUnitSamping');
+        $foto3 = $this->request->getFile('fotoSnUnit');
+        $foto4 = $this->request->getFile('fotoHmKmUnit');
+        $foto5 = $this->request->getFile('fotoKomponenRusak');
+        
         // jika upload berhasil
-        if (!$img->hasMoved()) {
-            $filepath = WRITEPATH . 'uploads/' . $img->store();
+        if (!$foto1->hasMoved()) {
+            $filepath = WRITEPATH . 'uploads/' . $foto1->store();
 
             $data = ['uploaded_fileinfo' => new File($filepath)];
             return view('upload_success', $data);

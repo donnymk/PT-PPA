@@ -244,6 +244,39 @@
                             <textarea class="form-control" id="inputRemarkProgress" name="inputRemarkProgress"></textarea>
                             <label for="inputRemarkProgress">Remark Progress</label>
                         </div>
+
+                        <!-- Approval -->
+                        <div class="mt-4 mb-1">
+                            <div class="d-grid text-center badge bg-light text-dark">Approval</div>
+                        </div>
+                        <div class="row mb-1">
+                            <div class="col-md-3">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input type="text" class="form-control" id="inputCreatedBy" name="inputCreatedBy">
+                                    <label for="inputCreatedBy">Created By</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input type="text" class="form-control" id="inputApprovedBy" name="inputApprovedBy">
+                                    <label for="inputApprovedBy">Approved By</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input type="text" class="form-control" id="inputApprovedBy2" name="inputApprovedBy2">
+                                    <label for="inputApprovedBy2">Approved By</label>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input type="text" class="form-control" id="inputFollowupBy" name="inputFollowupBy">
+                                    <label for="inputFollowupBy">Follow Up By</label>
+                                </div>
+                            </div>
+                        </div>                        
+
+                        <!-- Lampiran Foto -->
                         <div class="mt-4 mb-1">
                             <div class="d-grid text-center badge bg-light text-dark">Lampiran</div>
                         </div>
