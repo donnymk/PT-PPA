@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Models\JobsiteModel;
 use App\Models\PopulasiModel;
-use App\Models\CWAModel;
+use App\Models\CWPModel;
 use CodeIgniter\Files\File;
 
 class Admin extends BaseController {
@@ -227,8 +227,8 @@ class Admin extends BaseController {
 
     public function submit_cwp() {
         // initialize the session
-        //$session = \Config\Services::session();
-        //
+        $session = \Config\Services::session();
+
         // terima data dari form input
         $inputJobsite = $this->request->getPost('inputJobsite');
         $inputClaimDate = $this->request->getPost('inputClaimDate');
@@ -262,46 +262,190 @@ class Admin extends BaseController {
         $inputApprovedBy2 = $this->request->getPost('inputApprovedBy2');
         $inputFollowupBy = $this->request->getPost('inputFollowupBy');
 
+        $foto1 = $this->request->getFile('fotoUnitDepan');
+        $foto2 = $this->request->getFile('fotoUnitSamping');
+        $foto3 = $this->request->getFile('fotoSnUnit');
+        $foto4 = $this->request->getFile('fotoHmKmUnit');
+        $foto5 = $this->request->getFile('fotoKomponenRusak');
+
+        // aturan file upload (salah satunya foto tidak wajib diupload)
         $validationRule = [
             'fotoUnitDepan' => [
                 'label' => 'Image File',
                 'rules' => [
-                    'uploaded[fotoUnitDepan]',
+                    //'uploaded[fotoUnitDepan]',
                     'is_image[fotoUnitDepan]',
                     'mime_in[fotoUnitDepan,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
                     'max_size[fotoUnitDepan,2000]',
                     'max_dims[fotoUnitDepan,4000,3000]',
                 ],
             ],
+            'fotoUnitSamping' => [
+                'label' => 'Image File',
+                'rules' => [
+                    //'uploaded[fotoUnitSamping]',
+                    'is_image[fotoUnitSamping]',
+                    'mime_in[fotoUnitSamping,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
+                    'max_size[fotoUnitSamping,2000]',
+                    'max_dims[fotoUnitSamping,4000,3000]',
+                ],
+            ],
+            'fotoSnUnit' => [
+                'label' => 'Image File',
+                'rules' => [
+                    //'uploaded[fotoSnUnit]',
+                    'is_image[fotoSnUnit]',
+                    'mime_in[fotoSnUnit,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
+                    'max_size[fotoSnUnit,2000]',
+                    'max_dims[fotoSnUnit,4000,3000]',
+                ],
+            ],
+            'fotoHmKmUnit' => [
+                'label' => 'Image File',
+                'rules' => [
+                    //'uploaded[fotoHmKmUnit]',
+                    'is_image[fotoHmKmUnit]',
+                    'mime_in[fotoHmKmUnit,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
+                    'max_size[fotoHmKmUnit,2000]',
+                    'max_dims[fotoHmKmUnit,4000,3000]',
+                ],
+            ],
+            'fotoKomponenRusak' => [
+                'label' => 'Image File',
+                'rules' => [
+                    //'uploaded[fotoKomponenRusak]',
+                    'is_image[fotoKomponenRusak]',
+                    'mime_in[fotoKomponenRusak,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
+                    'max_size[fotoKomponenRusak,2000]',
+                    'max_dims[fotoKomponenRusak,4000,3000]',
+                ],
+            ],
         ];
+
         // jika yang diupload tidak sesuai rule
         if (!$this->validate($validationRule)) {
             $errors = $this->validator->getErrors();
-            var_dump($errors);
+            return var_dump($errors);
         }
 
-        $foto1 = $this->request->getFile('fotoUnitDepan');
-        $foto2 = $this->request->getFile('fotoUnitSamping');
-        $foto3 = $this->request->getFile('fotoSnUnit');
-        $foto4 = $this->request->getFile('fotoHmKmUnit');
-        $foto5 = $this->request->getFile('fotoKomponenRusak');
-        
-        // jika upload berhasil
-        if (!$foto1->hasMoved()) {
-            $filepath = WRITEPATH . 'uploads/' . $foto1->store();
+        // JIKA FILE TIDAK DIUPLOAD = ERROR CODE 4
+        // 
+        // jika foto1 tidak diupload
+        if ($foto1->getError() == 4) {
+            $nama_foto1 = '';
+            //echo 'foto1 tidak diupload';
+        }
+        // jika foto1 diupload dan berhasil
+        elseif (!$foto1->hasMoved()) {
+            $nama_foto1 = 'uploads/' . $foto1->store();
+            //echo $nama_foto1;
+            //$filepath1 = WRITEPATH . 'uploads/' . $foto1->store();
+            //$data = ['uploaded_fileinfo' => new File($filepath1)];
+        }
 
-            $data = ['uploaded_fileinfo' => new File($filepath)];
-            return view('upload_success', $data);
+        // jika foto2 tidak diupload
+        if ($foto2->getError() == 4) {
+            $nama_foto2 = '';
+        }
+        // jika foto2 diupload dan berhasil
+        elseif (!$foto2->hasMoved()) {
+            $nama_foto2 = 'uploads/' . $foto2->store();
+        }
 
-            //return redirect()->to(base_url('claim-warranty/resume'));
+        // jika foto3 tidak diupload
+        if ($foto3->getError() == 4) {
+            $nama_foto3 = '';
+        }
+        // jika foto3 diupload dan berhasil
+        elseif (!$foto3->hasMoved()) {
+            $nama_foto3 = 'uploads/' . $foto3->store();
+        }
+
+        // jika foto4 tidak diupload
+        if ($foto4->getError() == 4) {
+            $nama_foto4 = '';
+        }
+        // jika foto4 diupload dan berhasil
+        elseif (!$foto4->hasMoved()) {
+            $nama_foto4 = 'uploads/' . $foto4->store();
+        }
+
+        // jika foto5 tidak diupload
+        if ($foto5->getError() == 4) {
+            $nama_foto5 = '';
+        }
+        // jika foto5 diupload dan berhasil
+        elseif (!$foto5->hasMoved()) {
+            $nama_foto5 = 'uploads/' . $foto5->store();
+        }
+
+        $data = [
+            'jobsite' => $inputJobsite,
+            'claim_date' => $inputClaimDate,
+            'claim_to' => $inputClaimTo,
+            'warranty_decision' => $inputWarrantyDecision,
+            'closing_date' => $inputClosingDate,
+            'brand_unit' => $inputBrandUnit,
+            'model_unit' => $inputModelUnit,
+            'code_unit' => $inputCodeUnit,
+            'sn_unit' => $inputSNUnit,
+            'major_component' => $inputMajorComp,
+            'sn_component' => $inputSNComp,
+            'status_unit' => $inputStatusUnit,
+            'amount_part' => $inputAmountPart,
+            'final_amount' => $inputFinalAmount,
+            'component' => $inputComponent,
+            'sub_component' => $inputSubComponent,
+            'part_number' => $inputPartNumber,
+            'qty' => $inputQty,
+            'fitment_date' => $inputFitmentDate,
+            'trouble_date' => $inputTroubleDate,
+            'hm/km_fitment' => $inputHmKmFitment,
+            'hm/km_trouble' => $inputHmKmTrouble,
+            'lifetime' => $inputLifetime,
+            'problem_issue' => $inputDeskripsiProblem,
+            'supporting_comments' => $inputComments,
+            'schedule_follow_up' => $inputSchedule,
+            'remark_progress' => $inputRemarkProgress,
+            'created_by' => $inputCreatedBy,
+            'approved_by1' => $inputApprovedBy,
+            'approved_by2' => $inputApprovedBy2,
+            'follow_up_by' => $inputFollowupBy,
+            'foto_unit_depan' => $nama_foto1,
+            'foto_unit_samping' => $nama_foto2,
+            'foto_sn_unit' => $nama_foto3,
+            'foto_hm/km_unit' => $nama_foto4,
+            'foto_komponen_rusak' => $nama_foto5
+        ];
+
+        // QUERY MELALUI MODEL
+        $model = new CWPModel();
+        $insert = $model->insertCWP($data);
+        //var_dump($data); exit();
+        if ($insert) {
+            // set flash data
+            $session->setFlashdata('inputCWPStatus', 'Claim Warranty Proposal berhasil ditambahkan');
+            // Go to specific URI
+            return redirect()->to(base_url('claim-warranty/resume'));
         }
 
         $errors = 'The file has already been moved.';
-        echo esc($errors);
+        return var_dump($errors);
     }
 
     public function resume() {
-        return view('resume');
+        // initialize the session
+        $session = \Config\Services::session();
+        $data['session'] = $session;
+
+        // default value
+        $data['username'] = null;
+        // cek session login
+        if ($session->has('username')) {
+            $data['username'] = $session->username;
+            $data['role'] = $session->role;
+        }
+        return view('resume', $data);
     }
 
 }

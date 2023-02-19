@@ -61,7 +61,7 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-floating mb-3 mb-md-0">
-                                    <input class="form-control" type="text" id="inputClaimTo" name="inputClaimTo" required="">
+                                    <input class="form-control" type="text" id="inputClaimTo" name="inputClaimTo" oninput="fill_inputFollowupBy()" required="">
                                     <label for="inputClaimTo">Claim To <span class="wajib-diisi">*</span></label>
                                 </div>
                             </div>
@@ -270,7 +270,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-floating mb-3 mb-md-0">
-                                    <input type="text" class="form-control" id="inputFollowupBy" name="inputFollowupBy">
+                                    <input type="text" class="form-control" id="inputFollowupBy" name="inputFollowupBy" readonly="">
                                     <label for="inputFollowupBy">Follow Up By</label>
                                 </div>
                             </div>
@@ -417,6 +417,12 @@
 
         document.getElementById("inputLifetime").value = lifetime;
     }
+
+// auto isi inputan Follow Up By
+function fill_inputFollowupBy() {
+  let text = document.getElementById("inputClaimTo").value;
+  document.getElementById("inputFollowupBy").value = text;
+}
 
     function validasiFoto(idFoto, idPratinjau) {
         var inputFoto = document.getElementById(idFoto);

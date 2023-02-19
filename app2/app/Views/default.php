@@ -42,7 +42,7 @@
         <!-- Chart Demo -->
 
         <!-- Script used to some pages -->
-        <script src="<?= base_url('js/custom-script.js') ?>"></script>
+        <script src="<?= base_url('js/cwp-script.js') ?>"></script>
 
     </body>
 </html>

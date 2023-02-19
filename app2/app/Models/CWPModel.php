@@ -13,7 +13,43 @@ class CWPModel extends Model {
     protected $useAutoIncrement = true;
     protected $returnType = 'array';
     //protected $useSoftDeletes = true;
-    protected $allowedFields = ['model_unit', 'code_unit'];
+    protected $allowedFields = ['id',
+        'jobsite',
+        'claim_date',
+        'claim_to',
+        'warranty_decision',
+        'closing_date',
+        'brand_unit',
+        'model_unit',
+        'code_unit',
+        'sn_unit',
+        'major_component',
+        'sn_component',
+        'status_unit',
+        'amount_part',
+        'final_amount',
+        'component',
+        'sub_component',
+        'part_number',
+        'qty',
+        'fitment_date',
+        'trouble_date',
+        'hm/km_fitment',
+        'hm/km_trouble',
+        'lifetime',
+        'problem_issue',
+        'supporting_comments',
+        'schedule_follow_up',
+        'remark_progress',
+        'created_by',
+        'approved_by1',
+        'approved_by2',
+        'follow_up_by',
+        'foto_unit_depan',
+        'foto_unit_samping',
+        'foto_sn_unit',
+        'foto_hm/km_unit',
+        'foto_komponen_rusak'];
 //protected $useTimestamps = true;
 //    protected $createdField  = 'created_at';
 //    protected $updatedField  = 'updated_at';
@@ -23,100 +59,23 @@ class CWPModel extends Model {
     protected $validationMessages = [];
     protected $skipValidation = false;
 
-    // get data CBM
-    public function getDataCbm() {
-        // tampilkan data CBM menggunakan query builder
-        $builder = $this->builder('resume_follow_up_cbm');
-        $query = $builder->get();
-        return $query->getResult();
-    }
-
-    // get data CBM by ID
-    public function getDataCbmById($noFollowUp) {
-        // tampilkan data CBM by ID menggunakan query builder
-        $builder = $this->builder('resume_follow_up_cbm');
-        $builder->where('no_follow_up', $noFollowUp);
-        $query = $builder->get();
-        return $query->getResult();
-    }
-
-    // get all model unit dan code unit
-    public function getAllModelUnit() {
-        // tampilkan menggunakan query builder
+    // get data CWP
+    public function getDataCWP() {
+        // tampilkan data CWP menggunakan query builder
         $builder = $this->builder();
         $query = $builder->get();
         return $query->getResult();
     }
 
-    // get model unit group by model unit
-    public function getModelUnit() {
-        // tampilkan menggunakan query builder
-        $builder = $this->builder();
-        $builder->select('model_unit');
-        $builder->groupBy('model_unit');
-        $query = $builder->get();
-        return $query->getResult();
-    }
-    
-    // get all rekomendasi
-    public function getRekomendasi() {
-        // tampilkan menggunakan query builder
-        $builder = $this->builder('rekomendasi_follow_up');
-        $query = $builder->get();
-        return $query->getResult();
-    }    
-
-    // get code unit berdasarkan model unit
-    public function getCodeUnit($modelUnit) {
-        // tampilkan data code unit menggunakan query builder
-        $builder = $this->builder();
-        $builder->select('code_unit');
-        $builder->where('model_unit', $modelUnit);
-        $query = $builder->get();
-        return $query->getResult();
-    }
-
-    // get rekomendasi followup
-    public function getRekomendasiFollowup() {
-        // tampilkan data rekomendasi follow up menggunakan query builder
-        $builder = $this->builder('rekomendasi_follow_up');
-        $query = $builder->get();
-        return $query->getResult();
-    }
-
-    // insert data populasi
-    public function insertPopulasi($data) {
+    // insert data
+    public function insertCWP($data) {
         // tentukan tabel
         $builder = $this->builder();
         // insert data
         return $builder->insert($data);
     }
-    
-    // insert data komponen
-    public function insertKomponen($data) {
-        // tentukan tabel
-        $builder = $this->builder('komponen');
-        // insert data
-        return $builder->insert($data);
-    }
-    
-    // insert data rekomendasi
-    public function insertRekomendasi($data) {
-        // tentukan tabel
-        $builder = $this->builder('rekomendasi_follow_up');
-        // insert data
-        return $builder->insert($data);
-    }
 
-    // insert data follow up
-    public function insertFollowUp($data) {
-        // tentukan tabel
-        $builder = $this->builder('resume_follow_up_cbm');
-        // insert data
-        return $builder->insert($data);
-    }
-
-    // update data follow up
+    // update data
     public function updateFollowUp($data, $noFollowup) {
         // tentukan tabel
         $builder = $this->builder('resume_follow_up_cbm');
@@ -127,35 +86,11 @@ class CWPModel extends Model {
         return $builder->update();
     }
 
-    // delete data follow up by ID
+    // delete data by ID
     public function delFollowUp($noFollowup) {
         // tentukan tabel
         $builder = $this->builder('resume_follow_up_cbm');
         $builder->where('no_follow_up', $noFollowup);
-        return $builder->delete();
-    }
-
-    // delete data Populasi by ID
-    public function delPopulasi($no) {
-        // tentukan tabel
-        $builder = $this->builder();
-        $builder->where('id', $no);
-        return $builder->delete();
-    }
-    
-    // delete data Komponen by ID
-    public function delKomponen($no) {
-        // tentukan tabel
-        $builder = $this->builder('komponen');
-        $builder->where('id', $no);
-        return $builder->delete();
-    }
-    
-    // delete data Rekomendasi by ID
-    public function delRekomendasi($no) {
-        // tentukan tabel
-        $builder = $this->builder('rekomendasi_follow_up');
-        $builder->where('id', $no);
         return $builder->delete();
     }
 

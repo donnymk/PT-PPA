@@ -55,7 +55,7 @@ $routes->get('logout', 'Home::logout');
 
 $routes->post('get_model_unit', 'AjaxCWP::get_model_unit');
 $routes->post('get_code_unit', 'AjaxCWP::get_code_unit');
-$routes->get('resume_data', 'AjaxCWP::data_cbm');
+$routes->get('resume_data', 'AjaxCWP::data_cwp');
 $routes->get('jumlah_followup_open', 'AjaxCWP::jumlah_followup_open');
 
 /*

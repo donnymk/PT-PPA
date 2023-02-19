@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\PopulasiModel;
+use App\Models\CWPModel;
 
 class AjaxCWP extends BaseController {
 
@@ -10,58 +11,74 @@ class AjaxCWP extends BaseController {
         echo 'hai';
     }
 
-    // get data follow up CBM
-    public function data_cbm() {
+    // get data CWP
+    public function data_cwp() {
         // initialize the session
         $session = \Config\Services::session();
 
         // cek session login untuk mengetahui role access
-        if ($session->has('username')) {
-            $role = $session->role;
-        }        
+//        if ($session->has('username')) {
+//            $role = $session->role;
+//        }        
         
-        $data_cbm = [];
+        $data_cwp = [];
 
         // Check for AJAX request
         if ($this->request->isAJAX()) {
             // QUERY MELALUI MODEL
-            $model = new FollowupModel();
-            $get_data_cbm = $model->getdataCbm();
+                $model = new CWPModel();
+            $get_data_cwp = $model->getDataCWP();
 
-            foreach ($get_data_cbm as $key => $value):
-                // select option sudah dieksekusi apa belum
-                $has_executed = ($value->executed === '1' ? ' Yes' : 'No');
-                $follow_up_status = $value->follow_up_status;
-                if ($follow_up_status == '') {
-                    $follow_up_status = 'Open';
-                }
+            foreach ($get_data_cwp as $key => $value):
+//                // select option sudah dieksekusi apa belum
+//                $has_executed = ($value->executed === '1' ? ' Yes' : 'No');
+//                $follow_up_status = $value->follow_up_status;
+//                if ($follow_up_status == '') {
+//                    $follow_up_status = 'Open';
+//                }
                 
-                // button update dan delete
-                $update_button = '<a class="btn btn-primary btn-sm" href="update/' . $value->no_follow_up . '">Update...</a>';
-                $delete_button = '<a class="btn btn-secondary btn-sm" href="delete/' . $value->no_follow_up . '" onclick="return confirm_del(' . $value->no_follow_up . ')"><span class="fa fa-trash"></span></a>';
+                // button action
+                $exportpdf_button = '<a class="btn btn-primary" href="cetak_form/' . $value->id . '" title="Export PDF" target="_blank"><span class="fa fa-2x fa-file-pdf"></span></a>';
+                $update_button = '<a class="btn btn-secondary btn-sm" href="update/' . $value->id . '">Edit data...</a>';
+                $delete_button = '<a class="btn btn-secondary btn-sm" href="delete/' . $value->id . '" title="Hapus" onclick="return confirm_del(' . $value->id . ')"><span class="fa fa-trash"></span></a>';
 
-                array_push($data_cbm,
-                        array($value->no_follow_up,
-                            $value->model,
+                array_push($data_cwp,
+                        array($exportpdf_button.$update_button.$delete_button,
+                            $value->id,
+                            $value->jobsite,
+                            $value->claim_date,
+                            $value->claim_to,
+                            //$value->brand_unit,
+                            $value->model_unit,
                             $value->code_unit,
-                            $value->komponen,
-                            $value->cbm,
-                            $value->deskripsi_problem,
-                            $value->rekomendasi_follow_up,
-                            $value->plan_date_follow_up,
-                            '<a class="btn btn-primary" href="cetak_form/' . $value->no_follow_up . '" target="_blank"><span class="fa fa-2x fa-file-pdf"></span></a>',
-                            $has_executed,
-                            $value->date_executed,
-                            $value->pic,
-                            $follow_up_status,
-                            $value->reason_if_cancelled,
-                            $update_button,
-                            $delete_button)
+                            //$value->sn_unit,
+                            //$value->major_component,
+                            //$value->sn_component,
+                            //$value->status_unit,
+                            //$value->schedule_folow_up,
+                            $value->component,
+                            $value->sub_component,
+                            $value->fitment_date,
+                            $value->{'hm/km_fitment'},
+                            $value->trouble_date,
+                            $value->{'hm/km_trouble'},
+                            $value->lifetime,
+                            $value->problem_issue,
+                            $value->supporting_comments,                            
+                            $value->part_number,
+                            $value->qty,
+                            $value->amount_part,
+                            $value->warranty_decision,
+                            $value->final_amount,
+                            $value->closing_date,
+                            $value->remark_progress,
+                            'leadtime_warranty'
+                            )
                 );
             endforeach;
 
             $json_data = array(
-                "data" => $data_cbm
+                "data" => $data_cwp
             );
             echo json_encode($json_data);
         }
@@ -118,7 +135,7 @@ class AjaxCWP extends BaseController {
         if ($this->request->isAJAX()) {
             // QUERY MELALUI MODEL
             $model = new FollowupModel();
-            //$get_data_cbm = $model->getdataCbm();
+            //$get_data_cwp = $model->getdataCbm();
             $get_jumlah_followup = $model->countFollowUpOpen();
 
             echo json_encode($get_jumlah_followup);
