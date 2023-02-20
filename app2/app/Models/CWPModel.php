@@ -67,6 +67,15 @@ class CWPModel extends Model {
         return $query->getResult();
     }
 
+    // get data CWP by ID
+    public function getDataCWPById($id) {
+        // tampilkan data by ID menggunakan query builder
+        $builder = $this->builder();
+        $builder->where('id', $id);
+        $query = $builder->get();
+        return $query->getResult();
+    }
+
     // insert data
     public function insertCWP($data) {
         // tentukan tabel

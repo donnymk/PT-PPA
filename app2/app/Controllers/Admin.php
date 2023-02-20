@@ -448,4 +448,36 @@ class Admin extends BaseController {
         return view('resume', $data);
     }
 
+    // form update
+    public function update($id) {
+        // initialize the session
+        $session = \Config\Services::session();
+
+        // default value
+        $data['username'] = null;
+        // cek session login
+        if ($session->has('username')) {
+            $data['username'] = $session->username;
+            $data['role'] = $session->role;
+        }
+
+        // GET DATA FOLLOW UP BY ID UNTUK DITAMPILKAN DI FORM UPDATE
+        //
+        // KONEKSI DB DAN QUERY SECARA LANGSUNG
+//        $db = \Config\Database::connect();
+//        $builder = $db->table('populasi');
+//        $query   = $builder->get();
+//        print_r($query->getResult());
+//
+        // QUERY MELALUI MODEL
+        $model = new JobsiteModel();
+        $model2 = new PopulasiModel();
+        $model3 = new CWPModel();
+        $data['jobsite_master'] = $model->getJobsite();
+        $data['brand_unit_master'] = $model2->getBrandUnit();
+        $data['cwp'] = $model3->getDataCWPById($id);
+
+        return view('form_update', $data);
+    }
+
 }

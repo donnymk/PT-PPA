@@ -47,6 +47,7 @@ $routes->get('delete_populasi/(:num)', 'Admin::delete_populasi/$1');
 
 $routes->get('input_cwp', 'Admin::input_cwp');
 $routes->post('submit_cwp', 'Admin::submit_cwp');
+$routes->get('update/(:num)', 'Admin::update/$1');
 $routes->get('resume', 'Admin::resume');
 
 $routes->get('changepwd', 'Admin::changepwd');
