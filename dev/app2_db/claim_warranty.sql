@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 29, 2023 at 02:13 PM
+-- Generation Time: Feb 20, 2023 at 03:47 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -24,6 +24,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `auth`
+--
+
+DROP TABLE IF EXISTS `auth`;
+CREATE TABLE IF NOT EXISTS `auth` (
+  `id_user` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `role` varchar(16) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id_user`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `auth`
+--
+
+INSERT INTO `auth` (`id_user`, `username`, `password`, `role`) VALUES
+(1, 'superadmin', '$2y$10$ZmOSQ3vPAStDSWFLyBhdmOCsZw1LP.9uFhUXbSOg6jLQv.NHrmcZm', 'owner'),
+(2, 'admin', '$2y$10$77P4Rlj/HypzPEOCKHHcv.C11t0b4uq..eCSOSzFNpQ8FNaECv00G', 'worker');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `job_site`
 --
 
@@ -33,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `job_site` (
   `job_site` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `job_site` (`job_site`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `job_site`
@@ -45,7 +69,7 @@ INSERT INTO `job_site` (`id`, `job_site`) VALUES
 (2, 'BA'),
 (6, 'BIB'),
 (7, 'HO'),
-(11, 'HSM'),
+(16, 'HSM'),
 (8, 'KJB'),
 (9, 'MHU'),
 (1, 'MIP'),
@@ -65,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `populasi` (
   `model_unit` varchar(48) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `code_unit` varchar(48) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=117 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `populasi`
@@ -199,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `warranty_proposal` (
   `jobsite` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `claim_date` date NOT NULL,
   `claim_to` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `warranty_decision` varchar(24) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `closing_date` date DEFAULT NULL,
   `brand_unit` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -234,8 +258,16 @@ CREATE TABLE IF NOT EXISTS `warranty_proposal` (
   `foto_hm/km_unit` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `foto_komponen_rusak` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_update` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `warranty_proposal`
+--
+
+INSERT INTO `warranty_proposal` (`id`, `jobsite`, `claim_date`, `claim_to`, `address`, `warranty_decision`, `closing_date`, `brand_unit`, `model_unit`, `code_unit`, `sn_unit`, `major_component`, `sn_component`, `status_unit`, `amount_part`, `final_amount`, `component`, `sub_component`, `part_number`, `qty`, `fitment_date`, `trouble_date`, `hm/km_fitment`, `hm/km_trouble`, `lifetime`, `problem_issue`, `supporting_comments`, `schedule_follow_up`, `remark_progress`, `created_by`, `approved_by1`, `approved_by2`, `follow_up_by`, `foto_unit_depan`, `foto_unit_samping`, `foto_sn_unit`, `foto_hm/km_unit`, `foto_komponen_rusak`, `timestamp`, `last_update`) VALUES
+(1, 'ADW', '2023-02-20', 'donny', NULL, 'Prorate', '0000-00-00', 'KOMATSU', 'PC210-10M0', 'E2139', '', 'ssd', '', 'Operasi', 0, 0, '', '', '', 0, '2023-02-14', '2023-02-15', 2, 7, 5, 'issue\'', 'on\'', '\\\'ffy', '', '', '', '', 'donny', 'uploads/20230219/1676792843_ffd31ac4aff328602590.jpg', '', 'uploads/20230219/1676792843_5e75e7894994379f0b64.jpeg', 'uploads/20230219/1676792843_35a2bea5e8625439af20.png', '', '2023-02-19 07:47:23', NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
