@@ -1,4 +1,5 @@
 writable/*
 app1/writable/*
 app2/writable/*
+app2/writable/session/*
 claim-warranty/*
