@@ -85,13 +85,13 @@ class CWPModel extends Model {
     }
 
     // update data
-    public function updateFollowUp($data, $noFollowup) {
+    public function updateCWP($data, $id) {
         // tentukan tabel
-        $builder = $this->builder('resume_follow_up_cbm');
+        $builder = $this->builder();
         // update data
         $builder->set($data);
-        $builder->set('input2_timestamp', 'now()', false);
-        $builder->where('no_follow_up', $noFollowup);
+        $builder->set('last_update', 'now()', false);
+        $builder->where('id', $id);
         return $builder->update();
     }
 

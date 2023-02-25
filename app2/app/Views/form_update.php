@@ -11,6 +11,47 @@
     <?= $this->include('sidenav') ?>
 
     <div id="layoutSidenav_content">
+        <?php
+        foreach ($cwp as $row) {
+            $id = $row->id;
+            $jobsite = $row->jobsite;
+            $claim_date = $row->claim_date;
+            $claim_to = $row->claim_to;
+            $warranty_decision = $row->warranty_decision;
+            $closing_date = $row->closing_date;
+            $brand_unit = $row->brand_unit;
+            $model_unit = $row->model_unit;
+            $code_unit = $row->code_unit;
+            $sn_unit = $row->sn_unit;
+            $major_component = $row->major_component;
+            $sn_component = $row->sn_component;
+            $status_unit = $row->status_unit;
+            $amount_part = $row->amount_part;
+            $final_amount = $row->final_amount;
+            $komponen = $row->component;
+            $sub_component = $row->sub_component;
+            $part_number = $row->part_number;
+            $qty = $row->qty;
+            $fitment_date = $row->fitment_date;
+            $trouble_date = $row->trouble_date;
+            $hmkm_fitment = $row->{'hm/km_fitment'};
+            $hmkm_trouble = $row->{'hm/km_trouble'};
+            $lifetime = $row->lifetime;
+            $problem_issue = $row->problem_issue;
+            $supporting_comments = $row->supporting_comments;
+            $schedule_follow_up = $row->schedule_follow_up;
+            $remark_progress = $row->remark_progress;
+            $created_by = $row->created_by;
+            $approved_by1 = $row->approved_by1;
+            $approved_by2 = $row->approved_by2;
+            $follow_up_by = $row->follow_up_by;
+            $foto_unit_depan = $row->foto_unit_depan;
+            $foto_unit_samping = $row->foto_unit_samping;
+            $foto_sn_unit = $row->foto_sn_unit;
+            $foto_hmkm_unit = $row->{'foto_hm/km_unit'};
+            $foto_komponen_rusak = $row->foto_komponen_rusak;
+        }
+        ?>        
         <main>
             <div class="container-fluid px-4">
                 <h1 class="mt-4">Update Data CWP</h1>
@@ -18,6 +59,7 @@
                     <li class="breadcrumb-item"><a href="<?= base_url('claim-warranty') ?>">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="<?= base_url('claim-warranty/resume') ?>">Resume CWP</a></li>
                     <li class="breadcrumb-item active">Edit data CWP</li>
+                    <li class="breadcrumb-item active">No. <?= $id ?></li>
                 </ol>
                 <!--                                <div class="card mb-4">
                                                     <div class="card-body">
@@ -30,52 +72,12 @@
                         Form Edit Data CWP
                     </div>
                     <div class="card-body">
-                        <?php
-                        foreach ($cwp as $row) {
-                            $id = $row->id;
-                            $jobsite = $row->jobsite;
-                            $claim_date = $row->claim_date;
-                            $claim_to = $row->claim_to;
-                            $warranty_decision = $row->warranty_decision;
-                            $closing_date = $row->closing_date;
-                            $brand_unit = $row->brand_unit;
-                            $model_unit = $row->model_unit;
-                            $code_unit = $row->code_unit;
-                            $sn_unit = $row->sn_unit;
-                            $major_component = $row->major_component;
-                            $sn_component = $row->sn_component;
-                            $status_unit = $row->status_unit;
-                            $amount_part = $row->amount_part;
-                            $final_amount = $row->final_amount;
-                            $komponen = $row->component;
-                            $sub_component = $row->sub_component;
-                            $part_number = $row->part_number;
-                            $qty = $row->qty;
-                            $fitment_date = $row->fitment_date;
-                            $trouble_date = $row->trouble_date;
-                            $hmkm_fitment = $row->{'hm/km_fitment'};
-                            $hmkm_trouble = $row->{'hm/km_trouble'};
-                            $lifetime = $row->lifetime;
-                            $problem_issue = $row->problem_issue;
-                            $supporting_comments = $row->supporting_comments;
-                            $schedule_follow_up = $row->schedule_follow_up;
-                            $remark_progress = $row->remark_progress;
-                            $created_by = $row->created_by;
-                            $approved_by1 = $row->approved_by1;
-                            $approved_by2 = $row->approved_by2;
-                            $follow_up_by = $row->follow_up_by;
-                            $foto_unit_depan = $row->foto_unit_depan;
-                            $foto_unit_samping = $row->foto_unit_samping;
-                            $foto_sn_unit = $row->foto_sn_unit;
-                            $foto_hmkm_unit = $row->{'foto_hm/km_unit'};
-                            $foto_komponen_rusak = $row->foto_komponen_rusak;
-                        }
-                        ?>
                         <?= form_open_multipart(base_url('claim-warranty/update_cwp')) ?>
                         <!-- Claim identification -->
                         <div class="row mb-1">
                             <div class="col-md-4">
                                 <div class="form-floating mb-3 mb-md-0">
+                                    <input type="hidden" name="inputId" value="<?= $id ?>">
                                     <select class="form-control" id="inputJobsite" name="inputJobsite" required="">
                                         <option value="">--Pilih--</option>
                                         <?php foreach ($jobsite_master as $value): ?>
@@ -105,11 +107,11 @@
                                 <div class="form-floating mb-3 mb-md-0">
                                     <select class="form-control" id="inputWarrantyDecision" name="inputWarrantyDecision" required="">
                                         <option value="">--Pilih--</option>
-                                        <option value="Accepted">Accepted</option>
-                                        <option value="Prorate">Prorate</option>
-                                        <option value="Rejected">Rejected</option>
-                                        <option value="Open">Open</option>
-                                        <option value="Cancel">Cancel</option>
+                                        <option value="Accepted" <?= ($warranty_decision == 'Accepted' ? 'selected' : '') ?>>Accepted</option>
+                                        <option value="Prorate" <?= ($warranty_decision == 'Prorate' ? 'selected' : '') ?>>Prorate</option>
+                                        <option value="Rejected" <?= ($warranty_decision == 'Rejected' ? 'selected' : '') ?>>Rejected</option>
+                                        <option value="Open" <?= ($warranty_decision == 'Open' ? 'selected' : '') ?>>Open</option>
+                                        <option value="Cancel" <?= ($warranty_decision == 'Cancel' ? 'selected' : '') ?>>Cancel</option>
                                     </select>
                                     <label for="inputWarrantyDecision">Warranty Decision <span class="wajib-diisi">*</span></label>
                                 </div>
@@ -140,7 +142,12 @@
                             <div class="col-md-4">
                                 <div class="form-floating mb-3 mb-md-0">
                                     <select class="form-control" id="inputModelUnit" name="inputModelUnit" onchange="getCodeUnit()" required="">
-                                        <option value="">--Pilih dahulu Brand Unit--</option>
+                                        <option value="">--Pilih--</option>
+                                        <?php foreach ($get_model_unit as $key => $value): ?>
+
+                                            <option value="<?= $value->model_unit ?>" <?= ($value->model_unit == $model_unit ? 'selected' : '') ?>><?= $value->model_unit ?></option>
+
+                                        <?php endforeach ?>
                                     </select>
                                     <label for="inputModelUnit">Model Unit <span class="wajib-diisi">*</span></label>
                                 </div>
@@ -148,7 +155,12 @@
                             <div class="col-md-4">
                                 <div class="form-floating mb-3 mb-md-0">
                                     <select class="form-control" id="inputCodeUnit" name="inputCodeUnit" required="">
-                                        <option value="">--Pilih dahulu Model Unit--</option>
+                                        <option value="">--Pilih--</option>
+                                        <?php foreach ($get_code_unit as $key => $value): ?>
+
+                                            <option value="<?= $value->code_unit ?>" <?= ($value->code_unit == $code_unit ? 'selected' : '') ?>><?= $value->code_unit ?></option>
+
+                                        <?php endforeach ?>
                                     </select>
                                     <label for="inputCodeUnit">Code Unit <span class="wajib-diisi">*</span></label>
                                 </div>
@@ -179,8 +191,8 @@
                                 <div class="form-floating mb-3 mb-md-0">
                                     <select class="form-control" id="inputStatusUnit" name="inputStatusUnit" required="">
                                         <option value="">--Pilih--</option>
-                                        <option value="Operasi">Operasi</option>
-                                        <option value="Breakdown">Breakdown</option>
+                                        <option value="Operasi" <?= ($status_unit == 'Operasi' ? 'selected' : '') ?>>Operasi</option>
+                                        <option value="Breakdown" <?= ($status_unit == 'Breakdown' ? 'selected' : '') ?>>Breakdown</option>
                                     </select>
                                     <label for="inputStatusUnit">Status Unit <span class="wajib-diisi">*</span></label>
                                 </div>
@@ -308,7 +320,7 @@
                                     <label for="inputFollowupBy">Follow Up By</label>
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
 
                         <!-- Lampiran Foto -->
                         <div class="mt-4 mb-1">
@@ -317,40 +329,94 @@
                         <div class="row mb-1">
                             <div class="col-md-4">
                                 <div class="form-floating mb-3 mb-md-0">
+                                    <input type="hidden" name="fotoUnitDepan_lama" value="<?= $foto_unit_depan ?>">
                                     <input type="file" class="form-control" id="fotoUnitDepan" name="fotoUnitDepan" accept="image/*" onchange="return validasiFoto('fotoUnitDepan', 'pratinjauFoto1')">
                                     <label for="fotoUnitDepan">Foto Unit Tampak Depan</label>
                                 </div>
-                                Foto saat ini: <a href="<?= base_url().'/app2/writable/'.$foto_unit_depan ?>" target="_blank"><?= $foto_unit_depan ?></a>
+                                Foto yang diunggah:
+                                <?php
+                                if ($foto_unit_depan != "") {
+                                    ?>
+                                    <a href="<?= base_url() . '/claim-warranty/uploads/' . $foto_unit_depan ?>" target="_blank"><?= $foto_unit_depan ?></a>
+                                    <?php
+                                } else {
+                                    echo "-";
+                                }
+                                ?>                      
                                 <div id="pratinjauFoto1"></div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-floating mb-3 mb-md-0">
+                                    <input type="hidden" name="fotoUnitSamping_lama" value="<?= $foto_unit_samping ?>">
                                     <input type="file" class="form-control" id="fotoUnitSamping" name="fotoUnitSamping" accept="image/*" onchange="return validasiFoto('fotoUnitSamping', 'pratinjauFoto2')">
                                     <label for="fotoUnitSamping">Foto Unit Tampak Samping</label>
                                 </div>
+                                Foto yang diunggah:
+                                <?php
+                                if ($foto_unit_samping != "") {
+                                    ?>
+                                    <a href="<?= base_url() . '/claim-warranty/uploads/' . $foto_unit_samping ?>" target="_blank"><?= $foto_unit_samping ?></a>
+                                    <?php
+                                } else {
+                                    echo "-";
+                                }
+                                ?>                                 
                                 <div id="pratinjauFoto2"></div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-floating mb-3 mb-md-0">
+                                    <input type="hidden" name="fotoSnUnit_lama" value="<?= $foto_sn_unit ?>">
                                     <input type="file" class="form-control" id="fotoSnUnit" name="fotoSnUnit" accept="image/*" onchange="return validasiFoto('fotoSnUnit', 'pratinjauFoto3')">
                                     <label for="fotoSnUnit">Foto SN Unit/Komponen</label>
                                 </div>
+                                Foto yang diunggah:
+<?php
+if ($foto_sn_unit != "") {
+    ?>
+                                    <a href="<?= base_url() . '/claim-warranty/uploads/' . $foto_sn_unit ?>" target="_blank"><?= $foto_sn_unit ?></a>
+                                    <?php
+                                } else {
+                                    echo "-";
+                                }
+                                ?>                                 
                                 <div id="pratinjauFoto3"></div>
                             </div>
                         </div>
                         <div class="row mb-1">
                             <div class="col-md-4">
                                 <div class="form-floating mb-3 mb-md-0">
+                                    <input type="hidden" name="fotoHmKmUnit_lama" value="<?= $foto_hmkm_unit ?>">
                                     <input type="file" class="form-control" id="fotoHmKmUnit" name="fotoHmKmUnit" accept="image/*" onchange="return validasiFoto('fotoHmKmUnit', 'pratinjauFoto4')">
                                     <label for="fotoHmKmUnit">Foto HM/KM Unit</label>
                                 </div>
+                                Foto yang diunggah:
+<?php
+if ($foto_hmkm_unit != "") {
+    ?>
+                                    <a href="<?= base_url() . '/claim-warranty/uploads/' . $foto_hmkm_unit ?>" target="_blank"><?= $foto_hmkm_unit ?></a>
+                                    <?php
+                                } else {
+                                    echo "-";
+                                }
+                                ?>                                 
                                 <div id="pratinjauFoto4"></div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-floating mb-3 mb-md-0">
+                                    <input type="hidden" name="fotoKomponenRusak_lama" value="<?= $foto_komponen_rusak ?>">
                                     <input type="file" class="form-control" id="fotoKomponenRusak" name="fotoKomponenRusak" accept="image/*" onchange="return validasiFoto('fotoKomponenRusak', 'pratinjauFoto5')">
                                     <label for="fotoKomponenRusak">Foto Komponen yang Rusak</label>
                                 </div>
+                                Foto yang diunggah:
+<?php
+if ($foto_komponen_rusak != "") {
+    ?>
+                                    <a href="<?= base_url() . '/claim-warranty/uploads/' . $foto_komponen_rusak ?>" target="_blank"><?= $foto_komponen_rusak ?></a>
+                                    <?php
+                                } else {
+                                    echo "-";
+                                }
+                                ?>                                 
                                 <div id="pratinjauFoto5"></div>
                             </div>
                         </div>
@@ -366,14 +432,14 @@
                                 </div>
                             </div>
                         </div>
-                        <?= form_close() ?>
+<?= form_close() ?>
                     </div>
                 </div>
             </div>
         </main>
 
         <!-- Include footer -->
-        <?= $this->include('footer') ?>
+<?= $this->include('footer') ?>
     </div>
 </div>
 

@@ -225,6 +225,30 @@ class Admin extends BaseController {
         return view('form_input_cwp', $data);
     }
 
+    public function buat_folder_tanggal() {
+        // WIB
+        date_default_timezone_set('Asia/Jakarta');
+
+        //Year in YYYY format.
+        $year = date("Y");
+        //Month in mm format, with leading zeros.
+        $month = date("m");
+        //Day in dd format, with leading zeros.
+        $day = date("d");
+
+        //The folder name for our file should be YYYYMMDD
+        $foldername = "$year$month$day";
+        $directory = "uploads/" . $foldername;
+
+        //If the directory doesn't already exists.
+        if (!is_dir($directory)) {
+            //Create our directory
+            mkdir($directory, 755, true);
+        }
+
+        return $foldername;
+    }
+
     public function submit_cwp() {
         // initialize the session
         $session = \Config\Services::session();
@@ -329,54 +353,72 @@ class Admin extends BaseController {
         }
 
         // JIKA FILE TIDAK DIUPLOAD = ERROR CODE 4
-        // 
+        //
         // jika foto1 tidak diupload
         if ($foto1->getError() == 4) {
-            $nama_foto1 = '';
-            //echo 'foto1 tidak diupload';
+            $direktori_foto1 = '';
         }
-        // jika foto1 diupload dan berhasil
+        // jika foto1 berhasil diupload dan masih ada di temporary folder
         elseif (!$foto1->hasMoved()) {
-            $nama_foto1 = 'uploads/' . $foto1->store();
-            //echo $nama_foto1;
+            $nama_folder = $this->buat_folder_tanggal();
+            $nama_foto = $foto1->getRandomName();
+            $direktori_foto1 = $nama_folder . '/' . $nama_foto;
+
+            $foto1->move('uploads/' . $nama_folder, $nama_foto);
             //$filepath1 = WRITEPATH . 'uploads/' . $foto1->store();
             //$data = ['uploaded_fileinfo' => new File($filepath1)];
         }
 
         // jika foto2 tidak diupload
         if ($foto2->getError() == 4) {
-            $nama_foto2 = '';
+            $direktori_foto2 = '';
         }
         // jika foto2 diupload dan berhasil
         elseif (!$foto2->hasMoved()) {
-            $nama_foto2 = 'uploads/' . $foto2->store();
+            $nama_folder = $this->buat_folder_tanggal();
+            $nama_foto = $foto2->getRandomName();
+            $direktori_foto2 = $nama_folder . '/' . $nama_foto;
+
+            $foto2->move('uploads/' . $nama_folder, $nama_foto);
         }
 
         // jika foto3 tidak diupload
         if ($foto3->getError() == 4) {
-            $nama_foto3 = '';
+            $direktori_foto3 = '';
         }
         // jika foto3 diupload dan berhasil
         elseif (!$foto3->hasMoved()) {
-            $nama_foto3 = 'uploads/' . $foto3->store();
+            $nama_folder = $this->buat_folder_tanggal();
+            $nama_foto = $foto3->getRandomName();
+            $direktori_foto3 = $nama_folder . '/' . $nama_foto;
+
+            $foto3->move('uploads/' . $nama_folder, $nama_foto);
         }
 
         // jika foto4 tidak diupload
         if ($foto4->getError() == 4) {
-            $nama_foto4 = '';
+            $direktori_foto4 = '';
         }
         // jika foto4 diupload dan berhasil
         elseif (!$foto4->hasMoved()) {
-            $nama_foto4 = 'uploads/' . $foto4->store();
+            $nama_folder = $this->buat_folder_tanggal();
+            $nama_foto = $foto4->getRandomName();
+            $direktori_foto4 = $nama_folder . '/' . $nama_foto;
+
+            $foto4->move('uploads/' . $nama_folder, $nama_foto);
         }
 
         // jika foto5 tidak diupload
         if ($foto5->getError() == 4) {
-            $nama_foto5 = '';
+            $direktori_foto5 = '';
         }
         // jika foto5 diupload dan berhasil
         elseif (!$foto5->hasMoved()) {
-            $nama_foto5 = 'uploads/' . $foto5->store();
+            $nama_folder = $this->buat_folder_tanggal();
+            $nama_foto = $foto5->getRandomName();
+            $direktori_foto5 = $nama_folder . '/' . $nama_foto;
+
+            $foto5->move('uploads/' . $nama_folder, $nama_foto);
         }
 
         $data = [
@@ -411,11 +453,11 @@ class Admin extends BaseController {
             'approved_by1' => $inputApprovedBy,
             'approved_by2' => $inputApprovedBy2,
             'follow_up_by' => $inputFollowupBy,
-            'foto_unit_depan' => $nama_foto1,
-            'foto_unit_samping' => $nama_foto2,
-            'foto_sn_unit' => $nama_foto3,
-            'foto_hm/km_unit' => $nama_foto4,
-            'foto_komponen_rusak' => $nama_foto5
+            'foto_unit_depan' => $direktori_foto1,
+            'foto_unit_samping' => $direktori_foto2,
+            'foto_sn_unit' => $direktori_foto3,
+            'foto_hm/km_unit' => $direktori_foto4,
+            'foto_komponen_rusak' => $direktori_foto5
         ];
 
         // QUERY MELALUI MODEL
@@ -452,7 +494,7 @@ class Admin extends BaseController {
     public function update($id) {
         // initialize the session
         $session = \Config\Services::session();
-
+        //helper('html');
         // default value
         $data['username'] = null;
         // cek session login
@@ -461,23 +503,357 @@ class Admin extends BaseController {
             $data['role'] = $session->role;
         }
 
-        // GET DATA FOLLOW UP BY ID UNTUK DITAMPILKAN DI FORM UPDATE
-        //
-        // KONEKSI DB DAN QUERY SECARA LANGSUNG
-//        $db = \Config\Database::connect();
-//        $builder = $db->table('populasi');
-//        $query   = $builder->get();
-//        print_r($query->getResult());
-//
+        // GET DATA UNTUK DITAMPILKAN DI FORM UPDATE
         // QUERY MELALUI MODEL
-        $model = new JobsiteModel();
-        $model2 = new PopulasiModel();
-        $model3 = new CWPModel();
-        $data['jobsite_master'] = $model->getJobsite();
-        $data['brand_unit_master'] = $model2->getBrandUnit();
-        $data['cwp'] = $model3->getDataCWPById($id);
+        $JobsiteModel = new JobsiteModel();
+        $PopulasiModel = new PopulasiModel();
+        $CWPModel = new CWPModel();
+        $data['jobsite_master'] = $JobsiteModel->getJobsite();
+        $data['brand_unit_master'] = $PopulasiModel->getBrandUnit();
+
+        // get current data
+        // untuk ditampilkan di form edit
+        $dataCWP = $CWPModel->getDataCWPById($id);
+        $data['cwp'] = $dataCWP;
+
+        $brandUnit = $dataCWP[0]->brand_unit;
+        $modelUnit = $dataCWP[0]->model_unit;
+        // menampilkan data Model Unit sesuai Brand Unit di select option
+        $data['get_model_unit'] = $PopulasiModel->getModelUnitbyBrandUnit($brandUnit);
+        // menampilkan data Code Unit sesuai Model Unit di select option
+        $data['get_code_unit'] = $PopulasiModel->getCodeUnitbyModelUnit($modelUnit);
 
         return view('form_update', $data);
+    }
+
+    public function update_cwp() {
+        // initialize the session
+        $session = \Config\Services::session();
+
+        // terima data dari form input
+        $inputId = $this->request->getPost('inputId');
+        $inputJobsite = $this->request->getPost('inputJobsite');
+        $inputClaimDate = $this->request->getPost('inputClaimDate');
+        $inputClaimTo = $this->request->getPost('inputClaimTo');
+        $inputWarrantyDecision = $this->request->getPost('inputWarrantyDecision');
+        $inputClosingDate = $this->request->getPost('inputClosingDate');
+        $inputBrandUnit = $this->request->getPost('inputBrandUnit');
+        $inputModelUnit = $this->request->getPost('inputModelUnit');
+        $inputCodeUnit = $this->request->getPost('inputCodeUnit');
+        $inputSNUnit = $this->request->getPost('inputSNUnit');
+        $inputMajorComp = $this->request->getPost('inputMajorComp');
+        $inputSNComp = $this->request->getPost('inputSNComp');
+        $inputStatusUnit = $this->request->getPost('inputStatusUnit');
+        $inputAmountPart = $this->request->getPost('inputAmountPart');
+        $inputFinalAmount = $this->request->getPost('inputFinalAmount');
+        $inputComponent = $this->request->getPost('inputComponent');
+        $inputPartNumber = $this->request->getPost('inputPartNumber');
+        $inputFitmentDate = $this->request->getPost('inputFitmentDate');
+        $inputHmKmFitment = $this->request->getPost('inputHmKmFitment');
+        $inputSubComponent = $this->request->getPost('inputSubComponent');
+        $inputQty = $this->request->getPost('inputQty');
+        $inputTroubleDate = $this->request->getPost('inputTroubleDate');
+        $inputHmKmTrouble = $this->request->getPost('inputHmKmTrouble');
+        $inputLifetime = $this->request->getPost('inputLifetime');
+        $inputDeskripsiProblem = $this->request->getPost('inputDeskripsiProblem');
+        $inputComments = $this->request->getPost('inputComments');
+        $inputSchedule = $this->request->getPost('inputSchedule');
+        $inputRemarkProgress = $this->request->getPost('inputRemarkProgress');
+        $inputCreatedBy = $this->request->getPost('inputCreatedBy');
+        $inputApprovedBy = $this->request->getPost('inputApprovedBy');
+        $inputApprovedBy2 = $this->request->getPost('inputApprovedBy2');
+        $inputFollowupBy = $this->request->getPost('inputFollowupBy');
+
+        $foto1_lama = $this->request->getPost('fotoUnitDepan_lama');
+        $foto2_lama = $this->request->getPost('fotoUnitSamping_lama');
+        $foto3_lama = $this->request->getPost('fotoSnUnit_lama');
+        $foto4_lama = $this->request->getPost('fotoHmKmUnit_lama');
+        $foto5_lama = $this->request->getPost('fotoKomponenRusak_lama');
+
+        $foto1 = $this->request->getFile('fotoUnitDepan');
+        $foto2 = $this->request->getFile('fotoUnitSamping');
+        $foto3 = $this->request->getFile('fotoSnUnit');
+        $foto4 = $this->request->getFile('fotoHmKmUnit');
+        $foto5 = $this->request->getFile('fotoKomponenRusak');
+
+        // aturan file upload (salah satunya foto tidak wajib diupload)
+        $validationRule = [
+            'fotoUnitDepan' => [
+                'label' => 'Image File',
+                'rules' => [
+                    //'uploaded[fotoUnitDepan]',
+                    'is_image[fotoUnitDepan]',
+                    'mime_in[fotoUnitDepan,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
+                    'max_size[fotoUnitDepan,2000]',
+                    'max_dims[fotoUnitDepan,4000,3000]',
+                ],
+            ],
+            'fotoUnitSamping' => [
+                'label' => 'Image File',
+                'rules' => [
+                    //'uploaded[fotoUnitSamping]',
+                    'is_image[fotoUnitSamping]',
+                    'mime_in[fotoUnitSamping,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
+                    'max_size[fotoUnitSamping,2000]',
+                    'max_dims[fotoUnitSamping,4000,3000]',
+                ],
+            ],
+            'fotoSnUnit' => [
+                'label' => 'Image File',
+                'rules' => [
+                    //'uploaded[fotoSnUnit]',
+                    'is_image[fotoSnUnit]',
+                    'mime_in[fotoSnUnit,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
+                    'max_size[fotoSnUnit,2000]',
+                    'max_dims[fotoSnUnit,4000,3000]',
+                ],
+            ],
+            'fotoHmKmUnit' => [
+                'label' => 'Image File',
+                'rules' => [
+                    //'uploaded[fotoHmKmUnit]',
+                    'is_image[fotoHmKmUnit]',
+                    'mime_in[fotoHmKmUnit,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
+                    'max_size[fotoHmKmUnit,2000]',
+                    'max_dims[fotoHmKmUnit,4000,3000]',
+                ],
+            ],
+            'fotoKomponenRusak' => [
+                'label' => 'Image File',
+                'rules' => [
+                    //'uploaded[fotoKomponenRusak]',
+                    'is_image[fotoKomponenRusak]',
+                    'mime_in[fotoKomponenRusak,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
+                    'max_size[fotoKomponenRusak,2000]',
+                    'max_dims[fotoKomponenRusak,4000,3000]',
+                ],
+            ],
+        ];
+
+        // jika yang diupload tidak sesuai rule
+        if (!$this->validate($validationRule)) {
+            $errors = $this->validator->getErrors();
+            return var_dump($errors);
+        }
+
+        // JIKA FILE TIDAK DIUPLOAD = ERROR CODE 4
+        //
+        // jika foto1 tidak diupload dan foto lama tidak diupload sebelumnya
+        if ($foto1->getError() == 4 && $foto1_lama == '') {
+            $direktori_foto1 = '';
+        }
+        // jika foto1 tidak diupload dan foto lama diupload sebelumnya
+        elseif ($foto1->getError() == 4 && $foto1_lama != '') {
+            $direktori_foto1 = $foto1_lama;
+        }
+        // jika foto1 berhasil diupload, masih di temporary folder
+        // dan foto lama tidak diupload sebelumnya
+        elseif (!$foto1->hasMoved() && $foto1_lama == '') {
+            $nama_folder = $this->buat_folder_tanggal();
+            $nama_foto = $foto1->getRandomName();
+            $direktori_foto1 = $nama_folder . '/' . $nama_foto;
+
+            $foto1->move('uploads/' . $nama_folder, $nama_foto);
+        }
+        // jika foto1 berhasil diupload, masih di temporary folder
+        // dan foto lama diupload sebelumnya
+        elseif (!$foto1->hasMoved() && $foto1_lama != '') {
+            // hapus foto lama
+            if (file_exists('uploads/' . $foto1_lama)) {
+                unlink('uploads/' . $foto1_lama);
+            }
+
+            $nama_folder = $this->buat_folder_tanggal();
+            $nama_foto = $foto1->getRandomName();
+            $direktori_foto1 = $nama_folder . '/' . $nama_foto;
+
+            $foto1->move('uploads/' . $nama_folder, $nama_foto);
+        }
+        
+
+        // jika foto2 tidak diupload dan foto lama tidak diupload sebelumnya
+        if ($foto2->getError() == 4 && $foto2_lama == '') {
+            $direktori_foto2 = '';
+        }
+        // jika foto2 tidak diupload dan foto lama diupload sebelumnya
+        elseif ($foto2->getError() == 4 && $foto2_lama != '') {
+            $direktori_foto2 = $foto2_lama;
+        }
+        // jika foto2 berhasil diupload, masih di temporary folder
+        // dan foto lama tidak diupload sebelumnya
+        elseif (!$foto2->hasMoved() && $foto2_lama == '') {
+            $nama_folder = $this->buat_folder_tanggal();
+            $nama_foto = $foto2->getRandomName();
+            $direktori_foto2 = $nama_folder . '/' . $nama_foto;
+
+            $foto2->move('uploads/' . $nama_folder, $nama_foto);
+        }
+        // jika foto2 berhasil diupload, masih di temporary folder
+        // dan foto lama diupload sebelumnya
+        elseif (!$foto2->hasMoved() && $foto1_lama != '') {
+            // hapus foto lama
+            if (file_exists('uploads/' . $foto2_lama)) {
+                unlink('uploads/' . $foto2_lama);
+            }
+
+            $nama_folder = $this->buat_folder_tanggal();
+            $nama_foto = $foto2->getRandomName();
+            $direktori_foto2 = $nama_folder . '/' . $nama_foto;
+
+            $foto2->move('uploads/' . $nama_folder, $nama_foto);
+        }
+
+        
+        // jika foto3 tidak diupload dan foto lama tidak diupload sebelumnya
+        if ($foto3->getError() == 4 && $foto3_lama == '') {
+            $direktori_foto3 = '';
+        }
+        // jika foto3 tidak diupload dan foto lama diupload sebelumnya
+        elseif ($foto3->getError() == 4 && $foto3_lama != '') {
+            $direktori_foto3 = $foto3_lama;
+        }
+        // jika foto3 berhasil diupload, masih di temporary folder
+        // dan foto lama tidak diupload sebelumnya
+        elseif (!$foto3->hasMoved() && $foto3_lama == '') {
+            $nama_folder = $this->buat_folder_tanggal();
+            $nama_foto = $foto3->getRandomName();
+            $direktori_foto3 = $nama_folder . '/' . $nama_foto;
+
+            $foto3->move('uploads/' . $nama_folder, $nama_foto);
+        }
+        // jika foto3 berhasil diupload, masih di temporary folder
+        // dan foto lama diupload sebelumnya
+        elseif (!$foto3->hasMoved() && $foto3_lama != '') {
+            // hapus foto lama
+            if (file_exists('uploads/' . $foto3_lama)) {
+                unlink('uploads/' . $foto3_lama);
+            }
+
+            $nama_folder = $this->buat_folder_tanggal();
+            $nama_foto = $foto3->getRandomName();
+            $direktori_foto3 = $nama_folder . '/' . $nama_foto;
+
+            $foto3->move('uploads/' . $nama_folder, $nama_foto);
+        }
+        
+
+        // jika foto4 tidak diupload dan foto lama tidak diupload sebelumnya
+        if ($foto4->getError() == 4 && $foto4_lama == '') {
+            $direktori_foto4 = '';
+        }
+        // jika foto4 tidak diupload dan foto lama diupload sebelumnya
+        elseif ($foto4->getError() == 4 && $foto4_lama != '') {
+            $direktori_foto4 = $foto4_lama;
+        }
+        // jika foto4 berhasil diupload, masih di temporary folder
+        // dan foto lama tidak diupload sebelumnya
+        elseif (!$foto4->hasMoved() && $foto4_lama == '') {
+            $nama_folder = $this->buat_folder_tanggal();
+            $nama_foto = $foto4->getRandomName();
+            $direktori_foto4 = $nama_folder . '/' . $nama_foto;
+
+            $foto4->move('uploads/' . $nama_folder, $nama_foto);
+        }
+        // jika foto4 berhasil diupload, masih di temporary folder
+        // dan foto lama diupload sebelumnya
+        elseif (!$foto4->hasMoved() && $foto4_lama != '') {
+            // hapus foto lama
+            if (file_exists('uploads/' . $foto4_lama)) {
+                unlink('uploads/' . $foto4_lama);
+            }
+
+            $nama_folder = $this->buat_folder_tanggal();
+            $nama_foto = $foto4->getRandomName();
+            $direktori_foto4 = $nama_folder . '/' . $nama_foto;
+
+            $foto4->move('uploads/' . $nama_folder, $nama_foto);
+        }
+
+        // jika foto5 tidak diupload dan foto lama tidak diupload sebelumnya
+        if ($foto5->getError() == 4 && $foto5_lama == '') {
+            $direktori_foto5 = '';
+        }
+        // jika foto5 tidak diupload dan foto lama diupload sebelumnya
+        elseif ($foto5->getError() == 4 && $foto5_lama != '') {
+            $direktori_foto5 = $foto1_lama;
+        }
+        // jika foto5 berhasil diupload, masih di temporary folder
+        // dan foto lama tidak diupload sebelumnya
+        elseif (!$foto5->hasMoved() && $foto5_lama == '') {
+            $nama_folder = $this->buat_folder_tanggal();
+            $nama_foto = $foto5->getRandomName();
+            $direktori_foto5 = $nama_folder . '/' . $nama_foto;
+
+            $foto5->move('uploads/' . $nama_folder, $nama_foto);
+        }
+        // jika foto5 berhasil diupload, masih di temporary folder
+        // dan foto lama diupload sebelumnya
+        elseif (!$foto5->hasMoved() && $foto5_lama != '') {
+            // hapus foto lama
+            if (file_exists('uploads/' . $foto5_lama)) {
+                unlink('uploads/' . $foto5_lama);
+            }
+
+            $nama_folder = $this->buat_folder_tanggal();
+            $nama_foto = $foto5->getRandomName();
+            $direktori_foto5 = $nama_folder . '/' . $nama_foto;
+
+            $foto5->move('uploads/' . $nama_folder, $nama_foto);
+        }
+        
+
+        $data = [
+            'jobsite' => $inputJobsite,
+            'claim_date' => $inputClaimDate,
+            'claim_to' => $inputClaimTo,
+            'warranty_decision' => $inputWarrantyDecision,
+            'closing_date' => $inputClosingDate,
+            'brand_unit' => $inputBrandUnit,
+            'model_unit' => $inputModelUnit,
+            'code_unit' => $inputCodeUnit,
+            'sn_unit' => $inputSNUnit,
+            'major_component' => $inputMajorComp,
+            'sn_component' => $inputSNComp,
+            'status_unit' => $inputStatusUnit,
+            'amount_part' => $inputAmountPart,
+            'final_amount' => $inputFinalAmount,
+            'component' => $inputComponent,
+            'sub_component' => $inputSubComponent,
+            'part_number' => $inputPartNumber,
+            'qty' => $inputQty,
+            'fitment_date' => $inputFitmentDate,
+            'trouble_date' => $inputTroubleDate,
+            'hm/km_fitment' => $inputHmKmFitment,
+            'hm/km_trouble' => $inputHmKmTrouble,
+            'lifetime' => $inputLifetime,
+            'problem_issue' => $inputDeskripsiProblem,
+            'supporting_comments' => $inputComments,
+            'schedule_follow_up' => $inputSchedule,
+            'remark_progress' => $inputRemarkProgress,
+            'created_by' => $inputCreatedBy,
+            'approved_by1' => $inputApprovedBy,
+            'approved_by2' => $inputApprovedBy2,
+            'follow_up_by' => $inputFollowupBy,
+            'foto_unit_depan' => $direktori_foto1,
+            'foto_unit_samping' => $direktori_foto2,
+            'foto_sn_unit' => $direktori_foto3,
+            'foto_hm/km_unit' => $direktori_foto4,
+            'foto_komponen_rusak' => $direktori_foto5
+        ];
+
+        // QUERY MELALUI MODEL
+        $model = new CWPModel();
+        $insert = $model->updateCWP($data, $inputId);
+        //var_dump($data); exit();
+        if ($insert) {
+            // set flash data
+            $session->setFlashdata('editCWPStatus', 'Claim Warranty Proposal berhasil diedit');
+            // Go to specific URI
+            return redirect()->to(base_url('claim-warranty/resume'));
+        }
+
+        $errors = 'The file has already been moved.';
+        return var_dump($errors);
     }
 
 }

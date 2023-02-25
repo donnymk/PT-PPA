@@ -44,12 +44,12 @@ $routes->get('delete_jobsite/(:num)', 'Admin::delete_jobsite/$1');
 $routes->get('data_populasi', 'Admin::data_populasi');
 $routes->post('input_populasi', 'Admin::input_populasi');
 $routes->get('delete_populasi/(:num)', 'Admin::delete_populasi/$1');
-
+//$routes->get('buat_folder_tanggal', 'Admin::buat_folder_tanggal');
 $routes->get('input_cwp', 'Admin::input_cwp');
 $routes->post('submit_cwp', 'Admin::submit_cwp');
 $routes->get('update/(:num)', 'Admin::update/$1');
+$routes->post('update_cwp', 'Admin::update_cwp');
 $routes->get('resume', 'Admin::resume');
-
 $routes->get('changepwd', 'Admin::changepwd');
 $routes->post('submit_changepwd', 'Admin::submit_changepwd');
 $routes->get('logout', 'Home::logout');
@@ -58,6 +58,8 @@ $routes->post('get_model_unit', 'AjaxCWP::get_model_unit');
 $routes->post('get_code_unit', 'AjaxCWP::get_code_unit');
 $routes->get('resume_data', 'AjaxCWP::data_cwp');
 $routes->get('jumlah_followup_open', 'AjaxCWP::jumlah_followup_open');
+
+$routes->get('cetak_form/(:num)', 'PrintCWP::index/$1');
 
 /*
  * --------------------------------------------------------------------
