@@ -7,11 +7,11 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
-use App\Models\FollowupModel;
+use App\Models\CWPModel;
 use App\ThirdParty\fpdf185\FPDF;
 
 class PrintCWP extends Controller {
-    
+
     public function initController(
             RequestInterface $request,
             ResponseInterface $response,
@@ -20,177 +20,308 @@ class PrintCWP extends Controller {
         parent::initController($request, $response, $logger);
 
         // initialize the session
-        $session = \Config\Services::session();       
-        
+        $session = \Config\Services::session();
+
         // jika belum login
         if(!$session->has('logged_in')){
             echo 'Anda harus login. Klik <a href="'. base_url('claim-warranty/login').'">di sini</a> untuk login';
             exit();
         }
-    }    
+    }
 
     public function index($id_cwp) {
         // QUERY MELALUI MODEL
-        $model = new FollowupModel();
-        $data_followup = $model->getDataCbmById($id_cwp);
-        $rekomendasi_followup = $model->getRekomendasiFollowup();
+        $model = new CWPModel();
+        $data_cwp = $model->getDataCWPById($id_cwp);
+//        $rekomendasi_followup = $model->getRekomendasiFollowup();
         $counter = 0;
-        $rekomendasi_lainnya = true;
+//        $rekomendasi_lainnya = true;
 
         // get data followup
-        foreach ($data_followup as $row) {
+        foreach ($data_cwp as $row) {
+            //$id = $row->id;
+            $jobsite = $row->jobsite;
+            $claim_date = $row->claim_date;
+            $claim_to = $row->claim_to;
+            $warranty_decision = $row->warranty_decision;
+            $closing_date = $row->closing_date;
+            $brand_unit = $row->brand_unit;
+            $model_unit = $row->model_unit;
             $code_unit = $row->code_unit;
-            $model_unit = $row->model;
-            $komponen = $row->komponen;
-            $cbm = $row->cbm;
-            $deskripsi_problem = $row->deskripsi_problem;
-            $rekom_followup = $row->rekomendasi_follow_up;
-            //$input_timestamp = $row->input_timestamp;
-            $plan_date_follow_up = $row->plan_date_follow_up;
-//            $executed = $row->executed;
-//            $date_executed = $row->date_executed;
-//            $pic = $row->pic;
-//            $follow_up_status = $row->follow_up_status;
-//            $reason_if_cancelled = $row->reason_if_cancelled;
-//            $input2_timestamp = $row->input2_timestamp;
+            $sn_unit = $row->sn_unit;
+            $major_component = $row->major_component;
+            $sn_component = $row->sn_component;
+            $status_unit = $row->status_unit;
+            $amount_part = $row->amount_part;
+            $final_amount = $row->final_amount;
+            $komponen = $row->component;
+            $sub_component = $row->sub_component;
+            $part_number = $row->part_number;
+            $qty = $row->qty;
+            $fitment_date = $row->fitment_date;
+            $trouble_date = $row->trouble_date;
+            $hmkm_fitment = $row->{'hm/km_fitment'};
+            $hmkm_trouble = $row->{'hm/km_trouble'};
+            $lifetime = $row->lifetime;
+            $problem_issue = $row->problem_issue;
+            $supporting_comments = $row->supporting_comments;
+            $schedule_follow_up = $row->schedule_follow_up;
+            $remark_progress = $row->remark_progress;
+            $created_by = $row->created_by;
+            $approved_by1 = $row->approved_by1;
+            $approved_by2 = $row->approved_by2;
+            $follow_up_by = $row->follow_up_by;
+            $foto_unit_depan = $row->foto_unit_depan;
+            $foto_unit_samping = $row->foto_unit_samping;
+            $foto_sn_unit = $row->foto_sn_unit;
+            $foto_hmkm_unit = $row->{'foto_hm/km_unit'};
+            $foto_komponen_rusak = $row->foto_komponen_rusak;
         }
 
-        $pdf = new FPDF('P', 'cm', 'A4');
+        $pdf = new FPDF('P', 'mm', 'A4');
         $pdf->AliasNbPages();
         $pdf->SetAutoPageBreak(true, 1.4);
         $pdf->AddPage('P', 'A4');
-        $pdf->SetFont('Arial', '', 10);
-        $pdf->SetLineWidth(0.08);
-        $pdf->Rect(0.8, 0.8, 19.4, 27.8);
-        $pdf->Image(base_url('assets/img/ptppa.jpg'), 1, 1.5, 1.5);
-        $pdf->Cell(14, 0.4, '', 0, 0, 'C');
-        $pdf->Cell(0, 0.4, 'No. Follow Up: ', 0, 0, 'C');
-        $pdf->Ln();
-        $pdf->SetFont('Helvetica', 'B', 11);
-        $pdf->Cell(1.7, 0.66, '', 0, 0, 'L');
-        $pdf->Cell(5.2, 0.66, 'PT. Putra Perkasa Abadi', 0, 0, 'L');
-        $pdf->SetFont('Arial', 'B', 10);
-        $pdf->Cell(7, 0.66, 'CONDITION BASED MONITORING', 0, 0, 'C');
-        $pdf->SetFont('Arial', '', 10);
-        $pdf->SetLineWidth(0.02);
-        $pdf->Cell(0, 0.66, $id_cwp, 1, 0, 'C');
-        $pdf->Ln(0.5);
-        $pdf->SetFont('Helvetica', 'B', 11);
-        $pdf->Cell(1.7, 0.66, '', 0, 0, 'L');
-        $pdf->Cell(5.2, 0.66, 'Plant Departement', 0, 0, 'L');
-        $pdf->SetFont('Arial', 'B', 10);
-        $pdf->Cell(7, 0.66, 'Follow Up', 0, 0, 'C');
-        $pdf->Cell(0, 0.66, '', 0, 0, 'C');
-        $pdf->Ln(0.5);
-        $pdf->SetFont('Helvetica', 'B', 11);
-        $pdf->Cell(1.7, 0.66, '', 0, 0, 'L');
-        $pdf->Cell(5.2, 0.66, 'MIP-Lahat', 0, 0, 'L');
-        $pdf->Ln(1);
-        $pdf->SetFont('Arial', '', 10);
-        $pdf->Cell(3.5, 0.5, 'CODE UNIT', 'LTB', 0, 'L');
-        $pdf->Cell(5, 0.5, ': ' . $code_unit, 'RTB', 0, 'L');
-        $pdf->Ln();
-        $pdf->Cell(3.5, 0.5, 'MODEL', 'LTB', 0, 'L');
-        $pdf->Cell(5, 0.5, ': ' . $model_unit, 'RTB', 0, 'L');
-        $pdf->Ln();
-        $pdf->Cell(3.5, 0.5, 'KOMPONEN', 'LTB', 0, 'L');
-        $pdf->Cell(5, 0.5, ': ' . $komponen, 'RTB', 0, 'L');
-        $pdf->Ln();
-        $pdf->Cell(3.5, 0.5, 'TEMUAN CBM APA?', 'LTB', 0, 'L');
-        $pdf->Cell(5, 0.5, ': ' . $cbm, 'RTB', 0, 'L');
-        $pdf->Ln();
-        $pdf->Cell(3.5, 0.5, 'PLAN DATE F.U', 'LTB', 0, 'L');
-        $pdf->Cell(5, 0.5, ': ' . $plan_date_follow_up, 'RTB', 0, 'L');
-        // kembali ke posisi kanan atas untuk kolom HASIL ANALISA
-        $pdf->SetXY(15, 2.5);
-        $pdf->SetFont('Arial', 'B', 10);
-        $pdf->Cell(5, 0.5, 'HASIL ANALISA', 1, 0, 'C');
-        $pdf->SetXY(15, 3);
-        $pdf->SetFont('Arial', 'B', 22);
-        $pdf->SetTextColor(255, 0, 0);
-        $pdf->Cell(2.45, 1.1, 'D', 'LR', 0, 'C');
-        $pdf->Cell(2.55, 1.1, '', 'LR', 0, 'C');
-        $pdf->SetXY(15, 4.1);
-        $pdf->SetFont('Arial', '', 10);
-        $pdf->SetTextColor(0, 0, 0);
-        $pdf->Cell(2.45, 0.5, 'Danger', 'LBR', 0, 'C');
-        $pdf->Cell(2.55, 0.5, '', 'LBR', 0, 'C');
-        $pdf->SetXY(15, 4.6);
-        $pdf->SetFont('Arial', 'B', 22);
-        $pdf->SetTextColor(255, 204, 0);
-        $pdf->Cell(2.45, 1.1, 'C', 'LR', 0, 'C');
-        $pdf->Cell(2.55, 1.1, '', 'LR', 0, 'C');
-        $pdf->SetXY(15, 5.7);
-        $pdf->SetFont('Arial', '', 10);
-        $pdf->SetTextColor(0, 0, 0);
-        $pdf->Cell(2.45, 0.5, 'Problem', 'LBR', 0, 'C');
-        $pdf->Cell(2.55, 0.5, '', 'LBR', 0, 'C');
-        $pdf->SetXY(1, 6.7);
-        $pdf->SetFont('Arial', 'B', 10);
-        $pdf->Cell(0, 0.5, 'INDIKASI ABNORMAL DARI CBM:', 0, 0, 'L');
-        $pdf->Ln();
-        $pdf->SetFont('Arial', '', 10);
-        $pdf->MultiCell(0, 0.5, $deskripsi_problem, 0, 'L');
-        $pdf->Ln(0.4);
-        $pdf->SetFont('Arial', 'B', 10);
-        $pdf->Cell(14, 0.6, 'REKOMENDASI (LINGKARI/CHECK PADA DAFTAR REKOMENDASI BERIKUT)', 1, 0, 'C');
-        $pdf->Cell(2.5, 0.6, 'FOLLOW UP', 1, 0, 'C');
-        $pdf->Cell(2.5, 0.6, 'EXECUTED', 1, 0, 'C');
-        $pdf->Ln();
-        $pdf->SetFont('Arial', '', 10);
-        $pdf->SetFillColor(51, 102, 204);
 
-        foreach ($rekomendasi_followup as $row) {
-            $pdf->Cell(14, 0.5, ($counter + 1) . '. ' . $row->rekomendasi, 1, 0, 'L');
-            // jika rekomendasi follow up sama dengan salah satu yang ada di database
-            // maka blok (arsir) cell
-            // dan tandai bahwa tidak menggunakan rekomendasi lainnya
-            if ($rekom_followup == $row->rekomendasi) {
-                $pdf->Cell(2.5, 0.5, '', 1, 0, 'C', 1);
-                $rekomendasi_lainnya = false;
-            }
-            // jika rekomendasi follow up tidak sama dengan salah satu yang ada di database
-            // maka tampilan cell kosong
-            else {
-                $pdf->Cell(2.5, 0.5, '', 1, 0, 'C');
-            }
-            $pdf->Cell(2.5, 0.5, '', 1, 0, 'C');
-            $pdf->Ln();
-            $counter++;
+        //$pdf->SetLineWidth(0.08);
+        $pdf->Rect(8, 8, 194, 12);
+        $pdf->Rect(8.6, 8.6, 192.8, 10.8);
+        $pdf->Image(base_url('assets/img/ptppa.jpg'), 56, 8.8, 10);
+        $pdf->Ln(3);
+        $pdf->SetFont('Arial', 'B', 17);
+        $pdf->Cell(0, 4, 'PUTRA PERKASA ABADI', 0, 0, 'C');
+        $pdf->Ln(10);
+        $pdf->SetFont('Arial', 'B', 10.5);
+        $pdf->Cell(28, 6.6, 'CLAIM TO:', 1, 0, 'C');
+        $pdf->Cell(55, 6.6, $claim_to, 1, 0, 'C');
+        $pdf->Cell(7, 6.6, '', 0, 0, 'C');
+        $pdf->Cell(28, 6.6, 'CLAIM NO:', 1, 0, 'C');
+        $pdf->Cell(72, 6.6, $id_cwp, 1, 0, 'C');
+        $pdf->Ln(17);
+        $pdf->SetFont('Arial', 'BU', 13);
+        //$pdf->SetLineWidth(0.2);
+        $pdf->Cell(0, 6.6, 'WARRANTY/POLICY CLAIM FORM', 0, 0, 'C');
+        $pdf->Ln(10);
+
+        $pdf->SetFont('Helvetica', 'B', 9);
+
+        $pdf->Cell(28, 5, '', 0, 0, 'L');
+        $pdf->Cell(5, 5, '', 1, 0, 'C');
+        $pdf->Cell(37, 5, 'COMPONENT / PART', 0, 0, 'L');
+        $pdf->Cell(9, 5, '', 0, 0, 'L');
+        $pdf->Cell(5, 5, '', 1, 0, 'C');
+        $pdf->Cell(0, 5, 'COMMON (PAP, PPM, VHMS, MAGPLUG, FLUID CONSUMPTION, DLL)', 0, 0, 'L');
+        $pdf->Line(10, 60, 200, 60);
+        $pdf->Line(10, 60.6, 200, 60.6);
+        $pdf->Ln(14);
+
+        $pdf->Cell(22, 6, 'CLAIM DATE', 0, 0, 'L');
+        $pdf->Cell(3, 6, ': ', 0, 0, 'L');
+        $pdf->Cell(50, 6, $claim_date, 'B', 0, 'L');
+        $pdf->Cell(15, 6, '', 0, 0, 'L');
+        $pdf->Cell(28, 6, 'ENGINE MODEL', 0, 0, 'L');
+        $pdf->Cell(3, 6, ': ', 0, 0, 'L');
+        $pdf->Cell(69, 6, '', 'B', 0, 'L');
+        $pdf->Ln();
+        $pdf->Cell(22, 6, 'CODE UNIT', 0, 0, 'L');
+        $pdf->Cell(3, 6, ': ', 0, 0, 'L');
+        $pdf->Cell(50, 6, $code_unit, 'B', 0, 'L');
+        $pdf->Cell(15, 6, '', 0, 0, 'L');
+        $pdf->Cell(28, 6, 'HM FAILURE', 0, 0, 'L');
+        $pdf->Cell(3, 6, ': ', 0, 0, 'L');
+        $pdf->Cell(69, 6, $hmkm_trouble, 'B', 0, 'L');
+        $pdf->Ln();
+        $pdf->Cell(22, 6, 'MODEL UNIT', 0, 0, 'L');
+        $pdf->Cell(3, 6, ': ', 0, 0, 'L');
+        $pdf->Cell(50, 6, $model_unit, 'B', 0, 'L');
+        $pdf->Cell(15, 6, '', 0, 0, 'L');
+        $pdf->Cell(28, 6, 'LOCATION UNIT', 0, 0, 'L');
+        $pdf->Cell(3, 6, ': ', 0, 0, 'L');
+        $pdf->Cell(69, 6, $jobsite, 'B', 0, 'L');
+        $pdf->Ln();
+        $pdf->Cell(22, 6, 'SN UNIT', 0, 0, 'L');
+        $pdf->Cell(3, 6, ': ', 0, 0, 'L');
+        $pdf->Cell(50, 6, $sn_unit, 'B', 0, 'L');
+        $pdf->Cell(15, 6, '', 0, 0, 'L');
+        $pdf->Cell(28, 6, 'STATUS UNIT', 0, 0, 'L');
+        $pdf->Cell(3, 6, ': ', 0, 0, 'L');
+        $pdf->Ln();
+
+        // ke posisi XY untuk kolom isian STATUS UNIT
+        $pdf->SetXY(132, 84);
+        if($status_unit == 'Operasi'){
+            $pdf->Cell(6, 5, 'X', 1, 0, 'C');
         }
+        else{
+            $pdf->Cell(6, 5, '', 1, 0, 'C');
+        }
+        $pdf->Cell(25.5, 5, 'Operasi', 0, 0, 'L');
+        $pdf->SetXY(132, 89);
+        if($status_unit == 'Breakdown'){
+            $pdf->Cell(6, 5, 'X', 1, 0, 'C');
+        }
+        else{
+            $pdf->Cell(6, 5, '', 1, 0, 'C');
+        }
+        $pdf->Cell(25.5, 5, 'Breakdown', 0, 0, 'L');
+        $pdf->Ln(8);
+
+//        $pdf->SetFillColor(105, 105, 105);
+//        $pdf->SetDrawColor(105, 105, 105);
+        $pdf->SetTextColor(255, 255, 255);
+        $pdf->Cell(0, 5, 'PROBLEM ISSUE', 1, 0, 'C', 1);
+        $pdf->Ln();
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->SetFont('Arial', 'B', 9);
+        $pdf->MultiCell(0, 5, $problem_issue, 1, 'L');
+        $pdf->Ln();
+
+        $pdf->SetFont('Helvetica', 'B', 9);
+        $pdf->SetTextColor(255, 255, 255);
+        $pdf->Cell(0, 5, 'SUPPORTING COMMENTS', 1, 0, 'C', 1);
+        $pdf->Ln();
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->SetFont('Arial', 'B', 9);
+        $pdf->MultiCell(0, 5, $supporting_comments, 1, 'L');
+        $pdf->Ln();
+
+        $pdf->SetFont('Helvetica', 'B', 9);
+        $pdf->SetTextColor(255, 255, 255);
+        $pdf->Cell(0, 5, 'FAILED COMPONENT INFORMATION', 1, 0, 'C', 1);
+        $pdf->Ln();
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->Cell(28, 6, 'COMPONENT', 0, 0, 'L');
+        $pdf->Cell(3, 6, ': ', 0, 0, 'L');
+        $pdf->Cell(50, 6, $komponen, 'B', 0, 'L');
+        $pdf->Cell(9, 6, '', 0, 0, 'L');
+        $pdf->Cell(28, 6, 'SUB COMPONENT', 0, 0, 'L');
+        $pdf->Cell(3, 6, ': ', 0, 0, 'L');
+        $pdf->Cell(69, 6, $sub_component, 'B', 0, 'L');
+        $pdf->Ln();
+        $pdf->Cell(28, 6, 'PART NUMBER', 0, 0, 'L');
+        $pdf->Cell(3, 6, ': ', 0, 0, 'L');
+        $pdf->Cell(50, 6, $part_number, 'B', 0, 'L');
+        $pdf->Cell(9, 6, '', 0, 0, 'L');
+        $pdf->Cell(28, 6, 'QTY', 0, 0, 'L');
+        $pdf->Cell(3, 6, ': ', 0, 0, 'L');
+        $pdf->Cell(69, 6, $qty, 'B', 0, 'L');
+        $pdf->Ln();
+        $pdf->Cell(28, 6, 'HM/KM FITMENT', 0, 0, 'L');
+        $pdf->Cell(3, 6, ': ', 0, 0, 'L');
+        $pdf->Cell(50, 6, $hmkm_fitment, 'B', 0, 'L');
+        $pdf->Cell(9, 6, '', 0, 0, 'L');
+        $pdf->Cell(28, 6, 'HM/KM TROUBLE', 0, 0, 'L');
+        $pdf->Cell(3, 6, ': ', 0, 0, 'L');
+        $pdf->Cell(69, 6, $hmkm_trouble, 'B', 0, 'L');
+        $pdf->Ln();
+        $pdf->Cell(28, 6, 'FITMENT DATE', 0, 0, 'L');
+        $pdf->Cell(3, 6, ': ', 0, 0, 'L');
+        $pdf->Cell(50, 6, $fitment_date, 'B', 0, 'L');
+        $pdf->Cell(9, 6, '', 0, 0, 'L');
+        $pdf->Cell(28, 6, 'TROUBLE DATA', 0, 0, 'L');
+        $pdf->Cell(3, 6, ': ', 0, 0, 'L');
+        $pdf->Cell(69, 6, $trouble_date, 'B', 0, 'L');
+        $pdf->Ln();
+        $pdf->Cell(28, 6, 'LIFETIME', 0, 0, 'L');
+        $pdf->Cell(3, 6, ': ', 0, 0, 'L');
+        $pdf->Cell(50, 6, $lifetime, 'B', 0, 'L');
+        $pdf->Ln(10);
+
+        $pdf->SetTextColor(255, 255, 255);
+        $pdf->Cell(0, 5, 'WARRANTY DECISION', 1, 0, 'C', 1);
+        $pdf->Ln(10);
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->Cell(40, 5, '', 0, 0, 'L');
+        if($warranty_decision == 'Accept'){
+            $pdf->Cell(5, 5, 'X', 1, 0, 'C');
+        }
+        else{
+            $pdf->Cell(5, 5, '', 1, 0, 'C');
+        }
+        $pdf->Cell(40, 5, 'ACCEPT', 0, 0, 'L');
+        if($warranty_decision == 'Prorate'){
+            $pdf->Cell(5, 5, 'X', 1, 0, 'C');
+        }
+        else{
+            $pdf->Cell(5, 5, '', 1, 0, 'C');
+        }
+        $pdf->Cell(40, 5, 'POLICY/PRORATE', 0, 0, 'L');
+        if($warranty_decision == 'Rejected'){
+            $pdf->Cell(5, 5, 'X', 1, 0, 'C');
+        }
+        else{
+            $pdf->Cell(5, 5, '', 1, 0, 'C');
+        }
+        $pdf->Cell(40, 5, 'REJECT', 0, 0, 'L');
+        $pdf->Line(10, 60, 200, 60);
+        $pdf->Line(10, 60.6, 200, 60.6);
+        $pdf->Ln(10);
+
+//        foreach ($rekomendasi_followup as $row) {
+//            $pdf->Cell(14, 5, ($counter + 1) . '. ' . $row->rekomendasi, 1, 0, 'L');
+//            // jika rekomendasi follow up sama dengan salah satu yang ada di database
+//            // maka blok (arsir) cell
+//            // dan tandai bahwa tidak menggunakan rekomendasi lainnya
+//            if ($rekom_followup == $row->rekomendasi) {
+//                $pdf->Cell(25, 5, '', 1, 0, 'C', 1);
+//                $rekomendasi_lainnya = false;
+//            }
+//            // jika rekomendasi follow up tidak sama dengan salah satu yang ada di database
+//            // maka tampilan cell kosong
+//            else {
+//                $pdf->Cell(25, 5, '', 1, 0, 'C');
+//            }
+//            $pdf->Cell(25, 5, '', 1, 0, 'C');
+//            $pdf->Ln();
+//            $counter++;
+//        }
         // baris untuk menampilkan rekomendasi lainnya
-        if ($rekomendasi_lainnya != true) {
-            $pdf->Cell(14, 0.5, ($counter + 1) . '. Lainnya: ...............', 1, 0, 'L');
-            $pdf->Cell(2.5, 0.5, '', 1, 0, 'C');
-        } else {
-            $pdf->Cell(14, 0.5, ($counter + 1) . '. Lainnya: ' . $rekom_followup, 1, 0, 'L');
-            $pdf->Cell(2.5, 0.5, '', 1, 0, 'C', 1);
-        }
-        $pdf->Cell(2.5, 0.5, '', 1, 0, 'C');
+//        if ($rekomendasi_lainnya != true) {
+//            $pdf->Cell(14, 5, ($counter + 1) . '. Lainnya: ...............', 1, 0, 'L');
+//            $pdf->Cell(25, 5, '', 1, 0, 'C');
+//        } else {
+//            $pdf->Cell(14, 5, ($counter + 1) . '. Lainnya: ' . $rekom_followup, 1, 0, 'L');
+//            $pdf->Cell(25, 5, '', 1, 0, 'C', 1);
+//        }
+        $pdf->Cell(0, 5, 'SCHEDULE FOLLOW UP', 0, 0, 'L');
         $pdf->Ln();
-        $pdf->Cell(0, 0.5, 'Keterangan:', 0, 0, 'L');
+        $pdf->SetFont('Arial', 'B', 9);
+        $pdf->MultiCell(0, 5, $schedule_follow_up, 1, 'L');
         $pdf->Ln();
-        $pdf->Cell(1, 0.5, 'V', 1, 0, 'C');
-        $pdf->Cell(1, 0.5, 'Tanda "V" pada kotak apabila follow up sudah dilaksanakan', 0, 0, 'L');
-        $pdf->Ln(1);
-        $pdf->SetFont('Arial', 'B', 10);
-        $pdf->Cell(0, 0.5, 'KESIMPULAN DAN SARAN', 0, 0, 'L');
+
+        $pdf->SetFont('Helvetica', 'B', 9);
+        $pdf->SetTextColor(255, 255, 255);
+        $pdf->Cell(0, 5, 'APPROVAL', 1, 0, 'C', 1);
+        $pdf->Ln(10);
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->Cell(38, 5, 'CREATED BY', 0, 0, 'C');
+        $pdf->Cell(10, 5, '', 0, 0, 'L');
+        $pdf->Cell(38, 5, 'APPROVED BY', 0, 0, 'C');
+        $pdf->Cell(10, 5, '', 0, 0, 'L');
+        $pdf->Cell(38, 5, 'APPROVE BY', 0, 0, 'C');
+        $pdf->Cell(10, 5, '', 0, 0, 'L');
+        $pdf->Cell(38, 5, 'FOLLOW UP BY', 0, 0, 'C');
+        $pdf->Ln(24);
+        $pdf->Cell(38, 5, $created_by, 0, 0, 'C');
+        $pdf->Cell(10, 5, '', 0, 0, 'L');
+        $pdf->Cell(38, 5, $approved_by1, 0, 0, 'C');
+        $pdf->Cell(10, 5, '', 0, 0, 'L');
+        $pdf->Cell(38, 5, $approved_by2, 0, 0, 'C');
+        $pdf->Cell(10, 5, '', 0, 0, 'L');
+        $pdf->Cell(38, 5, '(......................................)', 0, 0, 'C');
         $pdf->Ln();
-        $pdf->SetFont('Arial', '', 10);
-        $pdf->Cell(0, 3, '', 1, 0, 'L');        
-        $pdf->Ln();
-        $pdf->Cell(2, 2, 'TANGGAL', 1, 0, 'C');
-        $pdf->Cell(4.3, 2, '', 1, 0, 'L');
-        $pdf->Cell(2, 2, 'PIC', 1, 0, 'C');
-        $pdf->Cell(4.5, 2, '', 1, 0, 'L');
-        $pdf->Cell(2, 2, 'TTD', 1, 0, 'C');
-        $pdf->Cell(4.2, 2, '', 1, 0, 'L');
-        $pdf->Ln();
-        $pdf->SetFont('Times', 'B', 12);
-        $pdf->Cell(0, 2, '"SEGERA KUMPULKAN SAMPLE OLI SETELAH DIAMBIL"', 0, 0, 'C');         
-        
+        $pdf->Cell(38, 5, 'PLANT PLANNER', 0, 0, 'C');
+        $pdf->Cell(10, 5, '', 0, 0, 'L');
+        $pdf->Cell(38, 5, 'PLANT GROUP LEADER/PE', 0, 0, 'C');
+        $pdf->Cell(10, 5, '', 0, 0, 'L');
+        $pdf->Cell(38, 5, 'DEPT/SECTION HEAD PLANT', 0, 0, 'C');
+        $pdf->Cell(10, 5, '', 0, 0, 'L');
+        $pdf->Cell(38, 5, $follow_up_by, 0, 0, 'C');
+//        $pdf->SetFont('Times', 'B', 12);
+//        $pdf->Cell(0, 20, '"SEGERA KUMPULKAN SAMPLE OLI SETELAH DIAMBIL"', 0, 0, 'C');
+
         $this->response->setHeader('Content-Type', 'application/pdf');
-        $pdf->Output('form_cwp_' . $id_cwp . '.pdf', 'I');
+        $pdf->Output('FORM_CWP_' . $id_cwp . '.pdf', 'I');
     }
 
 }
