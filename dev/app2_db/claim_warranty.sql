@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 20, 2023 at 03:47 PM
+-- Generation Time: Mar 01, 2023 at 03:09 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -223,7 +223,6 @@ CREATE TABLE IF NOT EXISTS `warranty_proposal` (
   `jobsite` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `claim_date` date NOT NULL,
   `claim_to` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `warranty_decision` varchar(24) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `closing_date` date DEFAULT NULL,
   `brand_unit` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -231,6 +230,7 @@ CREATE TABLE IF NOT EXISTS `warranty_proposal` (
   `code_unit` varchar(48) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `sn_unit` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `major_component` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `component_model` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sn_component` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status_unit` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `amount_part` int DEFAULT NULL,
@@ -260,14 +260,7 @@ CREATE TABLE IF NOT EXISTS `warranty_proposal` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `last_update` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `warranty_proposal`
---
-
-INSERT INTO `warranty_proposal` (`id`, `jobsite`, `claim_date`, `claim_to`, `address`, `warranty_decision`, `closing_date`, `brand_unit`, `model_unit`, `code_unit`, `sn_unit`, `major_component`, `sn_component`, `status_unit`, `amount_part`, `final_amount`, `component`, `sub_component`, `part_number`, `qty`, `fitment_date`, `trouble_date`, `hm/km_fitment`, `hm/km_trouble`, `lifetime`, `problem_issue`, `supporting_comments`, `schedule_follow_up`, `remark_progress`, `created_by`, `approved_by1`, `approved_by2`, `follow_up_by`, `foto_unit_depan`, `foto_unit_samping`, `foto_sn_unit`, `foto_hm/km_unit`, `foto_komponen_rusak`, `timestamp`, `last_update`) VALUES
-(1, 'ADW', '2023-02-20', 'donny', NULL, 'Prorate', '0000-00-00', 'KOMATSU', 'PC210-10M0', 'E2139', '', 'ssd', '', 'Operasi', 0, 0, '', '', '', 0, '2023-02-14', '2023-02-15', 2, 7, 5, 'issue\'', 'on\'', '\\\'ffy', '', '', '', '', 'donny', 'uploads/20230219/1676792843_ffd31ac4aff328602590.jpg', '', 'uploads/20230219/1676792843_5e75e7894994379f0b64.jpeg', 'uploads/20230219/1676792843_35a2bea5e8625439af20.png', '', '2023-02-19 07:47:23', NULL);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
