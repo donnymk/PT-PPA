@@ -33,7 +33,7 @@
                                         <div class="card bg-primary text-white mb-4">
                                             <div class="card-body text-center"><h3><?= '1' ?></h3></div>
                                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                                <a class="small text-white stretched-link" href="<?= base_url('followup-cbm/resume') ?>">Jumlah Follow Up</a>
+                                                <a class="small text-white stretched-link" href="<?= base_url('claim-warranty/resume') ?>">Jumlah CWP</a>
                                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                             </div>
                                         </div>
