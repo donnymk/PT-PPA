@@ -6,7 +6,6 @@ use CodeIgniter\Controller;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
-
 use App\Models\CWPModel;
 use App\ThirdParty\fpdf185\FPDF;
 
@@ -23,8 +22,8 @@ class PrintCWP extends Controller {
         $session = \Config\Services::session();
 
         // jika belum login
-        if(!$session->has('logged_in')){
-            echo 'Anda harus login. Klik <a href="'. base_url('claim-warranty/login').'">di sini</a> untuk login';
+        if (!$session->has('logged_in')) {
+            echo 'Anda harus login. Klik <a href="' . base_url('claim-warranty/login') . '">di sini</a> untuk login';
             exit();
         }
     }
@@ -36,24 +35,32 @@ class PrintCWP extends Controller {
 //        $rekomendasi_followup = $model->getRekomendasiFollowup();
         $counter = 0;
 //        $rekomendasi_lainnya = true;
-
         // get data followup
         foreach ($data_cwp as $row) {
             //$id = $row->id;
+            // format nomor
+            if ($id_cwp < 10) {
+                $nomor_claim = '00' . $id_cwp;
+            } elseif ($id_cwp >= 10 && $id_cwp < 100) {
+                $nomor_claim = '0' . $id_cwp;
+            } else {
+                $nomor_claim = $id_cwp;
+            }
             $jobsite = $row->jobsite;
             $claim_date = $row->claim_date;
             $claim_to = $row->claim_to;
             $warranty_decision = $row->warranty_decision;
-            $closing_date = $row->closing_date;
-            $brand_unit = $row->brand_unit;
+            //$closing_date = $row->closing_date;
+            //$brand_unit = $row->brand_unit;
             $model_unit = $row->model_unit;
             $code_unit = $row->code_unit;
             $sn_unit = $row->sn_unit;
-            $major_component = $row->major_component;
-            $sn_component = $row->sn_component;
+            //$major_component = $row->major_component;
+            $component_model = $row->component_model;
+            //$sn_component = $row->sn_component;
             $status_unit = $row->status_unit;
-            $amount_part = $row->amount_part;
-            $final_amount = $row->final_amount;
+            //$amount_part = $row->amount_part;
+            //$final_amount = $row->final_amount;
             $komponen = $row->component;
             $sub_component = $row->sub_component;
             $part_number = $row->part_number;
@@ -66,7 +73,7 @@ class PrintCWP extends Controller {
             $problem_issue = $row->problem_issue;
             $supporting_comments = $row->supporting_comments;
             $schedule_follow_up = $row->schedule_follow_up;
-            $remark_progress = $row->remark_progress;
+            //$remark_progress = $row->remark_progress;
             $created_by = $row->created_by;
             $approved_by1 = $row->approved_by1;
             $approved_by2 = $row->approved_by2;
@@ -76,16 +83,19 @@ class PrintCWP extends Controller {
             $foto_sn_unit = $row->foto_sn_unit;
             $foto_hmkm_unit = $row->{'foto_hm/km_unit'};
             $foto_komponen_rusak = $row->foto_komponen_rusak;
+            $tahun_proposal = substr($claim_date, 0, 4);
         }
 
         $pdf = new FPDF('P', 'mm', 'A4');
         $pdf->AliasNbPages();
         $pdf->SetAutoPageBreak(true, 1.4);
+
+        // HALAMAN PERTAMA
         $pdf->AddPage('P', 'A4');
 
         //$pdf->SetLineWidth(0.08);
-        $pdf->Rect(8, 8, 194, 12);
-        $pdf->Rect(8.6, 8.6, 192.8, 10.8);
+        $pdf->Rect(8.4, 8, 193.6, 12);
+        $pdf->Rect(9, 8.6, 192.2, 10.8);
         $pdf->Image(base_url('assets/img/ptppa.jpg'), 56, 8.8, 10);
         $pdf->Ln(3);
         $pdf->SetFont('Arial', 'B', 17);
@@ -96,7 +106,7 @@ class PrintCWP extends Controller {
         $pdf->Cell(55, 6.6, $claim_to, 1, 0, 'C');
         $pdf->Cell(7, 6.6, '', 0, 0, 'C');
         $pdf->Cell(28, 6.6, 'CLAIM NO:', 1, 0, 'C');
-        $pdf->Cell(72, 6.6, $id_cwp, 1, 0, 'C');
+        $pdf->Cell(72, 6.6, $nomor_claim . ' / PLT-' . $jobsite . ' / CWR / ' . $tahun_proposal, 1, 0, 'C');
         $pdf->Ln(17);
         $pdf->SetFont('Arial', 'BU', 13);
         //$pdf->SetLineWidth(0.2);
@@ -119,9 +129,9 @@ class PrintCWP extends Controller {
         $pdf->Cell(3, 6, ': ', 0, 0, 'L');
         $pdf->Cell(50, 6, $claim_date, 'B', 0, 'L');
         $pdf->Cell(15, 6, '', 0, 0, 'L');
-        $pdf->Cell(28, 6, 'ENGINE MODEL', 0, 0, 'L');
+        $pdf->Cell(28, 6, 'COMP. MODEL', 0, 0, 'L');
         $pdf->Cell(3, 6, ': ', 0, 0, 'L');
-        $pdf->Cell(69, 6, '', 'B', 0, 'L');
+        $pdf->Cell(69, 6, $component_model, 'B', 0, 'L');
         $pdf->Ln();
         $pdf->Cell(22, 6, 'CODE UNIT', 0, 0, 'L');
         $pdf->Cell(3, 6, ': ', 0, 0, 'L');
@@ -149,18 +159,16 @@ class PrintCWP extends Controller {
 
         // ke posisi XY untuk kolom isian STATUS UNIT
         $pdf->SetXY(132, 84);
-        if($status_unit == 'Operasi'){
+        if ($status_unit == 'Operasi') {
             $pdf->Cell(6, 5, 'X', 1, 0, 'C');
-        }
-        else{
+        } else {
             $pdf->Cell(6, 5, '', 1, 0, 'C');
         }
         $pdf->Cell(25.5, 5, 'Operasi', 0, 0, 'L');
         $pdf->SetXY(132, 89);
-        if($status_unit == 'Breakdown'){
+        if ($status_unit == 'Breakdown') {
             $pdf->Cell(6, 5, 'X', 1, 0, 'C');
-        }
-        else{
+        } else {
             $pdf->Cell(6, 5, '', 1, 0, 'C');
         }
         $pdf->Cell(25.5, 5, 'Breakdown', 0, 0, 'L');
@@ -232,24 +240,21 @@ class PrintCWP extends Controller {
         $pdf->Ln(10);
         $pdf->SetTextColor(0, 0, 0);
         $pdf->Cell(40, 5, '', 0, 0, 'L');
-        if($warranty_decision == 'Accept'){
+        if ($warranty_decision == 'Accept') {
             $pdf->Cell(5, 5, 'X', 1, 0, 'C');
-        }
-        else{
+        } else {
             $pdf->Cell(5, 5, '', 1, 0, 'C');
         }
         $pdf->Cell(40, 5, 'ACCEPT', 0, 0, 'L');
-        if($warranty_decision == 'Prorate'){
+        if ($warranty_decision == 'Prorate') {
             $pdf->Cell(5, 5, 'X', 1, 0, 'C');
-        }
-        else{
+        } else {
             $pdf->Cell(5, 5, '', 1, 0, 'C');
         }
         $pdf->Cell(40, 5, 'POLICY/PRORATE', 0, 0, 'L');
-        if($warranty_decision == 'Rejected'){
+        if ($warranty_decision == 'Rejected') {
             $pdf->Cell(5, 5, 'X', 1, 0, 'C');
-        }
-        else{
+        } else {
             $pdf->Cell(5, 5, '', 1, 0, 'C');
         }
         $pdf->Cell(40, 5, 'REJECT', 0, 0, 'L');
@@ -319,7 +324,43 @@ class PrintCWP extends Controller {
         $pdf->Cell(38, 5, $follow_up_by, 0, 0, 'C');
 //        $pdf->SetFont('Times', 'B', 12);
 //        $pdf->Cell(0, 20, '"SEGERA KUMPULKAN SAMPLE OLI SETELAH DIAMBIL"', 0, 0, 'C');
+        // HALAMAN KEDUA
+        $pdf->AddPage('P', 'A4');
 
+        $pdf->Rect(8.4, 8, 193.6, 12);
+        $pdf->Rect(9, 8.6, 192.2, 10.8);
+        $pdf->Image(base_url('assets/img/ptppa.jpg'), 56, 8.8, 10);
+        $pdf->Ln(3);
+        $pdf->SetFont('Arial', 'B', 17);
+        $pdf->Cell(0, 4, 'PUTRA PERKASA ABADI', 0, 0, 'C');
+        $pdf->Ln(10);
+        $pdf->SetFont('Arial', 'B', 10.5);
+        $pdf->Cell(28, 6.6, 'CLAIM TO:', 1, 0, 'C');
+        $pdf->Cell(55, 6.6, $claim_to, 1, 0, 'C');
+        $pdf->Cell(7, 6.6, '', 0, 0, 'C');
+        $pdf->Cell(28, 6.6, 'CLAIM NO:', 1, 0, 'C');
+        $pdf->Cell(72, 6.6, $nomor_claim . ' / PLT-' . $jobsite . ' / CWR / ' . $tahun_proposal, 1, 0, 'C');
+        $pdf->Ln(10);
+        // foto 1
+        if ($foto_unit_depan != "") {
+            //$pdf->Image($file, $x, $y, $w, $h);
+            $pdf->Cell(90, 60, '', 1, 0, 'C');
+            $pdf->Image(base_url() . '/claim-warranty/uploads/' . $foto_unit_depan, 12, 37, 80);
+        } else {
+            $pdf->Cell(90, 60, 'TIDAK ADA FOTO UNIT DEPAN', 1, 0, 'C');
+        }
+        $pdf->Cell(10, 60, '', 0, 0, 'C');
+        // foto 2
+        if ($foto_unit_samping != "") {
+            //$pdf->Image($file, $x, $y, $w, $h);
+            $pdf->Cell(90, 60, '', 1, 0, 'C');
+            $pdf->Image(base_url() . '/claim-warranty/uploads/' . $foto_unit_samping, 100, 35, 85);
+        } else {
+            $pdf->Cell(90, 60, 'TIDAK ADA FOTO UNIT SAMPING', 1, 0, 'C');
+        }
+        
+
+        // RENDER
         $this->response->setHeader('Content-Type', 'application/pdf');
         $pdf->Output('FORM_CWP_' . $id_cwp . '.pdf', 'I');
     }

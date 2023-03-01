@@ -90,7 +90,7 @@
 
                         <!-- Unit identification -->
                         <div class="row mb-1">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-floating mb-3 mb-md-0">
                                     <select class="form-control" id="inputBrandUnit" name="inputBrandUnit" onchange="getModelUnit()" required="">
                                         <option value="">--Pilih--</option>
@@ -103,7 +103,7 @@
                                     <label for="inputBrandUnit">Brand Unit <span class="wajib-diisi">*</span></label>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-floating mb-3 mb-md-0">
                                     <select class="form-control" id="inputModelUnit" name="inputModelUnit" onchange="getCodeUnit()" required="">
                                         <option value="">--Pilih dahulu Brand Unit--</option>
@@ -111,7 +111,7 @@
                                     <label for="inputModelUnit">Model Unit <span class="wajib-diisi">*</span></label>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-floating mb-3 mb-md-0">
                                     <select class="form-control" id="inputCodeUnit" name="inputCodeUnit" required="">
                                         <option value="">--Pilih dahulu Model Unit--</option>
@@ -119,20 +119,26 @@
                                     <label for="inputCodeUnit">Code Unit <span class="wajib-diisi">*</span></label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row mb-1">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-floating mb-3 mb-md-0">
                                     <input type="text" class="form-control" id="inputSNUnit" name="inputSNUnit">
                                     <label for="inputSNUnit">S.N Unit</label>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row mb-1">
                             <div class="col-md-4">
                                 <div class="form-floating mb-3 mb-md-0">
                                     <input type="text" class="form-control" id="inputMajorComp" name="inputMajorComp" required="">
                                     <label for="inputMajorComp">Major Comp. <span class="wajib-diisi">*</span></label>
                                 </div>
                             </div>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input type="text" class="form-control" id="inputCompModel" name="inputCompModel">
+                                    <label for="inputCompModel">Comp. Model</label>
+                                </div>
+                            </div>                            
                             <div class="col-md-4">
                                 <div class="form-floating mb-3 mb-md-0">
                                     <input type="text" class="form-control" id="inputSNComp" name="inputSNComp">
@@ -327,7 +333,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary btn-block"><span class="fa fa-floppy-disk"></span> Simpan</button>
+                                    <button type="submit" class="btn btn-danger btn-block"><span class="fa fa-floppy-disk"></span> Simpan</button>
                                 </div>
                             </div>
                         </div>

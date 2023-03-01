@@ -264,6 +264,7 @@ class Admin extends BaseController {
         $inputCodeUnit = $this->request->getPost('inputCodeUnit');
         $inputSNUnit = $this->request->getPost('inputSNUnit');
         $inputMajorComp = $this->request->getPost('inputMajorComp');
+        $inputCompModel = $this->request->getPost('inputCompModel');
         $inputSNComp = $this->request->getPost('inputSNComp');
         $inputStatusUnit = $this->request->getPost('inputStatusUnit');
         $inputAmountPart = $this->request->getPost('inputAmountPart');
@@ -432,6 +433,7 @@ class Admin extends BaseController {
             'code_unit' => $inputCodeUnit,
             'sn_unit' => $inputSNUnit,
             'major_component' => $inputMajorComp,
+            'component_model' => $inputCompModel,
             'sn_component' => $inputSNComp,
             'status_unit' => $inputStatusUnit,
             'amount_part' => $inputAmountPart,
@@ -542,6 +544,7 @@ class Admin extends BaseController {
         $inputCodeUnit = $this->request->getPost('inputCodeUnit');
         $inputSNUnit = $this->request->getPost('inputSNUnit');
         $inputMajorComp = $this->request->getPost('inputMajorComp');
+        $inputCompModel = $this->request->getPost('inputCompModel');
         $inputSNComp = $this->request->getPost('inputSNComp');
         $inputStatusUnit = $this->request->getPost('inputStatusUnit');
         $inputAmountPart = $this->request->getPost('inputAmountPart');
@@ -813,6 +816,7 @@ class Admin extends BaseController {
             'code_unit' => $inputCodeUnit,
             'sn_unit' => $inputSNUnit,
             'major_component' => $inputMajorComp,
+            'component_model' => $inputCompModel,
             'sn_component' => $inputSNComp,
             'status_unit' => $inputStatusUnit,
             'amount_part' => $inputAmountPart,

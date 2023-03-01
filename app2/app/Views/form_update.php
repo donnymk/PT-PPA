@@ -24,6 +24,7 @@
             $code_unit = $row->code_unit;
             $sn_unit = $row->sn_unit;
             $major_component = $row->major_component;
+            $component_model = $row->component_model;
             $sn_component = $row->sn_component;
             $status_unit = $row->status_unit;
             $amount_part = $row->amount_part;
@@ -51,21 +52,21 @@
             $foto_hmkm_unit = $row->{'foto_hm/km_unit'};
             $foto_komponen_rusak = $row->foto_komponen_rusak;
         }
-        ?>        
+        ?>
         <main>
             <div class="container-fluid px-4">
-                <h1 class="mt-4">Update Data CWP</h1>
+                <h1 class="mt-4">Detail Data CWP</h1>
                 <ol class="breadcrumb mb-4">
                     <li class="breadcrumb-item"><a href="<?= base_url('claim-warranty') ?>">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="<?= base_url('claim-warranty/resume') ?>">Resume CWP</a></li>
-                    <li class="breadcrumb-item active">Edit data CWP</li>
+                    <li class="breadcrumb-item active">Detail data CWP</li>
                     <li class="breadcrumb-item active">No. <?= $id ?></li>
                 </ol>
-                <!--                                <div class="card mb-4">
+                                                <div class="card mb-4">
                                                     <div class="card-body">
-                                                        Masukkan data
+                                                        Jika ingin mengedit data, ubah data pada isian yang dimaksud kemudian klik Tombol <b>Simpan</b>.
                                                     </div>
-                                                </div>-->
+                                                </div>
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
@@ -126,7 +127,7 @@
 
                         <!-- Unit identification -->
                         <div class="row mb-1">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-floating mb-3 mb-md-0">
                                     <select class="form-control" id="inputBrandUnit" name="inputBrandUnit" onchange="getModelUnit()" required="">
                                         <option value="">--Pilih--</option>
@@ -139,7 +140,7 @@
                                     <label for="inputBrandUnit">Brand Unit <span class="wajib-diisi">*</span></label>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-floating mb-3 mb-md-0">
                                     <select class="form-control" id="inputModelUnit" name="inputModelUnit" onchange="getCodeUnit()" required="">
                                         <option value="">--Pilih--</option>
@@ -152,7 +153,7 @@
                                     <label for="inputModelUnit">Model Unit <span class="wajib-diisi">*</span></label>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-floating mb-3 mb-md-0">
                                     <select class="form-control" id="inputCodeUnit" name="inputCodeUnit" required="">
                                         <option value="">--Pilih--</option>
@@ -165,18 +166,24 @@
                                     <label for="inputCodeUnit">Code Unit <span class="wajib-diisi">*</span></label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row mb-1">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-floating mb-3 mb-md-0">
                                     <input type="text" class="form-control" id="inputSNUnit" name="inputSNUnit" value="<?= $sn_unit ?>">
                                     <label for="inputSNUnit">S.N Unit</label>
                                 </div>
                             </div>
+                        </div>
+                        <div class="row mb-1">
                             <div class="col-md-4">
                                 <div class="form-floating mb-3 mb-md-0">
                                     <input type="text" class="form-control" id="inputMajorComp" name="inputMajorComp" value="<?= $major_component ?>" required="">
                                     <label for="inputMajorComp">Major Comp. <span class="wajib-diisi">*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input type="text" class="form-control" id="inputCompModel" name="inputCompModel" value="<?= $component_model ?>">
+                                    <label for="inputCompModel">Comp. Model</label>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -342,7 +349,7 @@
                                 } else {
                                     echo "-";
                                 }
-                                ?>                      
+                                ?>
                                 <div id="pratinjauFoto1"></div>
                             </div>
                             <div class="col-md-4">
@@ -360,7 +367,7 @@
                                 } else {
                                     echo "-";
                                 }
-                                ?>                                 
+                                ?>
                                 <div id="pratinjauFoto2"></div>
                             </div>
                             <div class="col-md-4">
@@ -370,15 +377,15 @@
                                     <label for="fotoSnUnit">Foto SN Unit/Komponen</label>
                                 </div>
                                 Foto yang diunggah:
-<?php
-if ($foto_sn_unit != "") {
-    ?>
+                                <?php
+                                if ($foto_sn_unit != "") {
+                                    ?>
                                     <a href="<?= base_url() . '/claim-warranty/uploads/' . $foto_sn_unit ?>" target="_blank"><?= $foto_sn_unit ?></a>
                                     <?php
                                 } else {
                                     echo "-";
                                 }
-                                ?>                                 
+                                ?>
                                 <div id="pratinjauFoto3"></div>
                             </div>
                         </div>
@@ -390,15 +397,15 @@ if ($foto_sn_unit != "") {
                                     <label for="fotoHmKmUnit">Foto HM/KM Unit</label>
                                 </div>
                                 Foto yang diunggah:
-<?php
-if ($foto_hmkm_unit != "") {
-    ?>
+                                <?php
+                                if ($foto_hmkm_unit != "") {
+                                    ?>
                                     <a href="<?= base_url() . '/claim-warranty/uploads/' . $foto_hmkm_unit ?>" target="_blank"><?= $foto_hmkm_unit ?></a>
                                     <?php
                                 } else {
                                     echo "-";
                                 }
-                                ?>                                 
+                                ?>
                                 <div id="pratinjauFoto4"></div>
                             </div>
                             <div class="col-md-4">
@@ -408,38 +415,43 @@ if ($foto_hmkm_unit != "") {
                                     <label for="fotoKomponenRusak">Foto Komponen yang Rusak</label>
                                 </div>
                                 Foto yang diunggah:
-<?php
-if ($foto_komponen_rusak != "") {
-    ?>
+                                <?php
+                                if ($foto_komponen_rusak != "") {
+                                    ?>
                                     <a href="<?= base_url() . '/claim-warranty/uploads/' . $foto_komponen_rusak ?>" target="_blank"><?= $foto_komponen_rusak ?></a>
                                     <?php
                                 } else {
                                     echo "-";
                                 }
-                                ?>                                 
+                                ?>
                                 <div id="pratinjauFoto5"></div>
                             </div>
                         </div>
                         <div class="row mt-4 mb-0">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
+                                <div class="d-grid">
+                                    <a href="<?= base_url('claim-warranty/resume') ?>" class="btn btn-primary btn-block">Kembali ke resume data</a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
                                 <div class="d-grid">
                                     <button onclick="preview_cwp()" class="btn btn-secondary btn-block">Preview</button>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary btn-block"><span class="fa fa-floppy-disk"></span> Simpan</button>
+                                    <button type="submit" class="btn btn-danger btn-block"><span class="fa fa-floppy-disk"></span> Simpan</button>
                                 </div>
                             </div>
                         </div>
-<?= form_close() ?>
+                        <?= form_close() ?>
                     </div>
                 </div>
             </div>
         </main>
 
         <!-- Include footer -->
-<?= $this->include('footer') ?>
+        <?= $this->include('footer') ?>
     </div>
 </div>
 
