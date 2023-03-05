@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 01, 2023 at 03:09 PM
+-- Generation Time: Mar 04, 2023 at 11:00 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -220,6 +220,7 @@ INSERT INTO `populasi` (`id`, `machine_maker`, `model_unit`, `code_unit`) VALUES
 DROP TABLE IF EXISTS `warranty_proposal`;
 CREATE TABLE IF NOT EXISTS `warranty_proposal` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `what_is_claimed` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `jobsite` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `claim_date` date NOT NULL,
   `claim_to` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
