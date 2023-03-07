@@ -254,6 +254,7 @@ class Admin extends BaseController {
         $session = \Config\Services::session();
 
         // terima data dari form input
+        $inputClaimType = $this->request->getPost('inputClaimType');
         $inputJobsite = $this->request->getPost('inputJobsite');
         $inputClaimDate = $this->request->getPost('inputClaimDate');
         $inputClaimTo = $this->request->getPost('inputClaimTo');
@@ -424,6 +425,7 @@ class Admin extends BaseController {
 
         $data = [
             'jobsite' => $inputJobsite,
+            'what_is_claimed' => $inputClaimType,
             'claim_date' => $inputClaimDate,
             'claim_to' => $inputClaimTo,
             'warranty_decision' => $inputWarrantyDecision,
@@ -534,6 +536,7 @@ class Admin extends BaseController {
 
         // terima data dari form input
         $inputId = $this->request->getPost('inputId');
+        $inputClaimType = $this->request->getPost('inputClaimType');
         $inputJobsite = $this->request->getPost('inputJobsite');
         $inputClaimDate = $this->request->getPost('inputClaimDate');
         $inputClaimTo = $this->request->getPost('inputClaimTo');
@@ -806,6 +809,7 @@ class Admin extends BaseController {
         
 
         $data = [
+            'what_is_claimed' => $inputClaimType,
             'jobsite' => $inputJobsite,
             'claim_date' => $inputClaimDate,
             'claim_to' => $inputClaimTo,

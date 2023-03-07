@@ -42,6 +42,30 @@
                         <div class="row mb-1">
                             <div class="col-md-4">
                                 <div class="form-floating mb-3 mb-md-0">
+                                    <select class="form-control" id="inputClaimType" name="inputClaimType">
+                                        <option value="">--Pilih--</option>
+                                        <option value="Component/Part">Component/Part</option>
+                                        <option value="Conmon (PAP, PPM, VHMS, MAGPLUG, FLUID CONSUPMTION,DLL)">Conmon (PAP, PPM, VHMS, MAGPLUG, FLUID CONSUPMTION,DLL)</option>
+                                    </select>
+                                    <label for="inputClaimType">Claim Type</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input class="form-control" type="text" id="inputClaimTo" name="inputClaimTo" oninput="fill_inputFollowupBy()" required="">
+                                    <label for="inputClaimTo">Claim To <span class="wajib-diisi">*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input class="form-control" type="date" id="inputClaimDate" name="inputClaimDate" required="">
+                                    <label for="inputClaimDate">Claim Date <span class="wajib-diisi">*</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3 mb-md-0">
                                     <select class="form-control" id="inputJobsite" name="inputJobsite" required="">
                                         <option value="">--Pilih--</option>
                                         <?php foreach ($jobsite as $value): ?>
@@ -53,20 +77,6 @@
                                     <label for="inputJobsite">Jobsite <span class="wajib-diisi">*</span></label>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-floating mb-3 mb-md-0">
-                                    <input class="form-control" type="date" id="inputClaimDate" name="inputClaimDate" required="">
-                                    <label for="inputClaimDate">Claim Date <span class="wajib-diisi">*</span></label>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-floating mb-3 mb-md-0">
-                                    <input class="form-control" type="text" id="inputClaimTo" name="inputClaimTo" oninput="fill_inputFollowupBy()" required="">
-                                    <label for="inputClaimTo">Claim To <span class="wajib-diisi">*</span></label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
                             <div class="col-md-4">
                                 <div class="form-floating mb-3 mb-md-0">
                                     <select class="form-control" id="inputWarrantyDecision" name="inputWarrantyDecision" required="">
@@ -138,7 +148,7 @@
                                     <input type="text" class="form-control" id="inputCompModel" name="inputCompModel">
                                     <label for="inputCompModel">Comp. Model</label>
                                 </div>
-                            </div>                            
+                            </div>
                             <div class="col-md-4">
                                 <div class="form-floating mb-3 mb-md-0">
                                     <input type="text" class="form-control" id="inputSNComp" name="inputSNComp">

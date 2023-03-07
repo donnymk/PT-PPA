@@ -14,6 +14,7 @@
         <?php
         foreach ($cwp as $row) {
             $id = $row->id;
+            $what_is_claimed = $row->what_is_claimed;
             $jobsite = $row->jobsite;
             $claim_date = $row->claim_date;
             $claim_to = $row->claim_to;
@@ -62,11 +63,11 @@
                     <li class="breadcrumb-item active">Detail data CWP</li>
                     <li class="breadcrumb-item active">No. <?= $id ?></li>
                 </ol>
-                                                <div class="card mb-4">
-                                                    <div class="card-body">
-                                                        Jika ingin mengedit data, ubah data pada isian yang dimaksud kemudian klik Tombol <b>Simpan</b>.
-                                                    </div>
-                                                </div>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        Jika ingin mengedit data, ubah data pada isian yang dimaksud kemudian klik Tombol <b>Simpan</b>.
+                    </div>
+                </div>
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
@@ -76,6 +77,30 @@
                         <?= form_open_multipart(base_url('claim-warranty/update_cwp')) ?>
                         <!-- Claim identification -->
                         <div class="row mb-1">
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <select class="form-control" id="inputClaimType" name="inputClaimType">
+                                        <option value="">--Pilih--</option>
+                                        <option value="Component/Part" <?= ($what_is_claimed == 'Component/Part' ? 'selected' : '') ?>>Component/Part</option>
+                                        <option value="Conmon (PAP, PPM, VHMS, MAGPLUG, FLUID CONSUPMTION,DLL)" <?= ($what_is_claimed == 'Conmon (PAP, PPM, VHMS, MAGPLUG, FLUID CONSUPMTION,DLL)' ? 'selected' : '') ?>>Conmon (PAP, PPM, VHMS, MAGPLUG, FLUID CONSUPMTION,DLL)</option>
+                                    </select>
+                                    <label for="inputClaimType">Claim Type</label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input class="form-control" type="text" id="inputClaimTo" name="inputClaimTo" oninput="fill_inputFollowupBy()" value="<?= $claim_to ?>" required="">
+                                    <label for="inputClaimTo">Claim To <span class="wajib-diisi">*</span></label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-floating mb-3 mb-md-0">
+                                    <input class="form-control" type="date" id="inputClaimDate" name="inputClaimDate" value="<?= $claim_date ?>" required="">
+                                    <label for="inputClaimDate">Claim Date <span class="wajib-diisi">*</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
                             <div class="col-md-4">
                                 <div class="form-floating mb-3 mb-md-0">
                                     <input type="hidden" name="inputId" value="<?= $id ?>">
@@ -90,20 +115,6 @@
                                     <label for="inputJobsite">Jobsite <span class="wajib-diisi">*</span></label>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-floating mb-3 mb-md-0">
-                                    <input class="form-control" type="date" id="inputClaimDate" name="inputClaimDate" value="<?= $claim_date ?>" required="">
-                                    <label for="inputClaimDate">Claim Date <span class="wajib-diisi">*</span></label>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-floating mb-3 mb-md-0">
-                                    <input class="form-control" type="text" id="inputClaimTo" name="inputClaimTo" oninput="fill_inputFollowupBy()" value="<?= $claim_to ?>" required="">
-                                    <label for="inputClaimTo">Claim To <span class="wajib-diisi">*</span></label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mb-4">
                             <div class="col-md-4">
                                 <div class="form-floating mb-3 mb-md-0">
                                     <select class="form-control" id="inputWarrantyDecision" name="inputWarrantyDecision" required="">

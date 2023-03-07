@@ -46,6 +46,7 @@ class PrintCWP extends Controller {
             } else {
                 $nomor_claim = $id_cwp;
             }
+            $claim_type = $row->what_is_claimed;
             $jobsite = $row->jobsite;
             $claim_date = $row->claim_date;
             $claim_to = $row->claim_to;

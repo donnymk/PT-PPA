@@ -14,6 +14,7 @@ class CWPModel extends Model {
     protected $returnType = 'array';
     //protected $useSoftDeletes = true;
     protected $allowedFields = ['id',
+        'what_is_claimed',
         'jobsite',
         'claim_date',
         'claim_to',
