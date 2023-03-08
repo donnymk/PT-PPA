@@ -117,10 +117,18 @@ class PrintCWP extends Controller {
         $pdf->SetFont('Helvetica', 'B', 9);
 
         $pdf->Cell(28, 5, '', 0, 0, 'L');
-        $pdf->Cell(5, 5, '', 1, 0, 'C');
+        if ($claim_type == 'Component/Part') {
+            $pdf->Cell(5, 5, 'X', 1, 0, 'C');
+        } else {
+            $pdf->Cell(5, 5, '', 1, 0, 'C');
+        }
         $pdf->Cell(37, 5, 'COMPONENT / PART', 0, 0, 'L');
         $pdf->Cell(9, 5, '', 0, 0, 'L');
-        $pdf->Cell(5, 5, '', 1, 0, 'C');
+        if ($claim_type == 'Conmon (PAP, PPM, VHMS, MAGPLUG, FLUID CONSUPMTION,DLL)') {
+            $pdf->Cell(5, 5, 'X', 1, 0, 'C');
+        } else {
+            $pdf->Cell(5, 5, '', 1, 0, 'C');
+        }
         $pdf->Cell(0, 5, 'COMMON (PAP, PPM, VHMS, MAGPLUG, FLUID CONSUMPTION, DLL)', 0, 0, 'L');
         $pdf->Line(10, 60, 200, 60);
         $pdf->Line(10, 60.6, 200, 60.6);
@@ -342,24 +350,81 @@ class PrintCWP extends Controller {
         $pdf->Cell(28, 6.6, 'CLAIM NO:', 1, 0, 'C');
         $pdf->Cell(72, 6.6, $nomor_claim . ' / PLT-' . $jobsite . ' / CWR / ' . $tahun_proposal, 1, 0, 'C');
         $pdf->Ln(10);
+        
+        $pdf->SetFont('Arial', 'B', 9);
+
+        // header kotak
+        $pdf->Cell(90, 5, 'FOTO UNIT DEPAN', 1, 0, 'C');
+        $pdf->Cell(10, 60, '', 0, 0, 'C');
+        $pdf->Cell(90, 5, 'FOTO UNIT SAMPING', 1, 0, 'C');
+        $pdf->Ln(5);
+        
+        $pdf->SetFont('Arial', '', 10);
+
         // foto 1
         if ($foto_unit_depan != "") {
             //$pdf->Image($file, $x, $y, $w, $h);
             $pdf->Cell(90, 60, '', 1, 0, 'C');
-            $pdf->Image(base_url() . '/claim-warranty/uploads/' . $foto_unit_depan, 12, 37, 80);
+            $pdf->Image(base_url() . '/claim-warranty/uploads/' . $foto_unit_depan, 12, 40, 85);
         } else {
-            $pdf->Cell(90, 60, 'TIDAK ADA FOTO UNIT DEPAN', 1, 0, 'C');
+            $pdf->Cell(90, 60, 'Tidak ada foto', 1, 0, 'C');
         }
         $pdf->Cell(10, 60, '', 0, 0, 'C');
         // foto 2
         if ($foto_unit_samping != "") {
             //$pdf->Image($file, $x, $y, $w, $h);
             $pdf->Cell(90, 60, '', 1, 0, 'C');
-            $pdf->Image(base_url() . '/claim-warranty/uploads/' . $foto_unit_samping, 100, 35, 85);
+            $pdf->Image(base_url() . '/claim-warranty/uploads/' . $foto_unit_samping, 112, 40, 85);
         } else {
-            $pdf->Cell(90, 60, 'TIDAK ADA FOTO UNIT SAMPING', 1, 0, 'C');
+            $pdf->Cell(90, 60, 'Tidak ada foto', 1, 0, 'C');
         }
+        $pdf->Ln(65);
+
+        $pdf->SetFont('Arial', 'B', 9);
         
+        // header kotak
+        $pdf->Cell(90, 5, 'FOTO SN KOMPONEN/UNIT', 1, 0, 'C');
+        $pdf->Cell(10, 60, '', 0, 0, 'C');
+        $pdf->Cell(90, 5, 'FOTO HM/KM UNIT', 1, 0, 'C');
+        $pdf->Ln(5);
+        
+        $pdf->SetFont('Arial', '', 10);
+        
+        // foto 3
+        if ($foto_sn_unit!= "") {
+            //$pdf->Image($file, $x, $y, $w, $h);
+            $pdf->Cell(90, 60, '', 1, 0, 'C');
+            $pdf->Image(base_url() . '/claim-warranty/uploads/' . $foto_sn_unit, 12, 110, 85);
+        } else {
+            $pdf->Cell(90, 60, 'Tidak ada foto', 1, 0, 'C');
+        }
+        $pdf->Cell(10, 60, '', 0, 0, 'C');
+        // foto 4
+        if ($foto_hmkm_unit != "") {
+            //$pdf->Image($file, $x, $y, $w, $h);
+            $pdf->Cell(90, 60, '', 1, 0, 'C');
+            $pdf->Image(base_url() . '/claim-warranty/uploads/' . $foto_hmkm_unit, 112, 110, 85);
+        } else {
+            $pdf->Cell(90, 60, 'Tidak ada foto', 1, 0, 'C');
+        }
+        $pdf->Ln(65);
+        
+        $pdf->SetFont('Arial', 'B', 9);
+        
+        // header kotak
+        $pdf->Cell(0, 5, 'FOTO KOMPONEN YANG RUSAK', 1, 0, 'C');
+        $pdf->Ln(5);
+        
+        $pdf->SetFont('Arial', '', 10);
+        
+        // foto 5
+        if ($foto_komponen_rusak!= "") {
+            //$pdf->Image($file, $x, $y, $w, $h);
+            $pdf->Cell(0, 105, '', 1, 0, 'C');
+            $pdf->Image(base_url() . '/claim-warranty/uploads/' . $foto_komponen_rusak, 25, 180, 155);
+        } else {
+            $pdf->Cell(0, 105, 'Tidak ada foto', 1, 0, 'C');
+        }
 
         // RENDER
         $this->response->setHeader('Content-Type', 'application/pdf');

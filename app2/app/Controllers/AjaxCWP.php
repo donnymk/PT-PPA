@@ -40,7 +40,7 @@ class AjaxCWP extends BaseController {
                 // button action
                 $exportpdf_button = '<a class="btn btn-primary" href="cetak_form/' . $value->id . '" title="Export PDF" target="_blank"><span class="fa fa-2x fa-file-pdf"></span></a>';
                 $update_button = '<a class="btn btn-secondary btn-sm" href="update/' . $value->id . '" title="Detail dan Edit data"><span class="fa fa-2x fa-info"></span></a>';
-                $delete_button = '<a class="btn btn-secondary btn-sm" href="delete/' . $value->id . '" title="Hapus" onclick="return confirm_del(' . $value->id . ')"><span class="fa fa-trash"></span></a>';
+                $delete_button = '<a class="btn btn-secondary btn-sm" href="delete_cwp/' . $value->id . '" title="Hapus" onclick="return confirm_del(' . $value->id . ')"><span class="fa fa-trash"></span></a>';
 
                 array_push($data_cwp,
                         array($exportpdf_button.$update_button.$delete_button,

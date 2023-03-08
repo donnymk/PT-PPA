@@ -303,7 +303,7 @@ class Admin extends BaseController {
                     'is_image[fotoUnitDepan]',
                     'mime_in[fotoUnitDepan,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
                     'max_size[fotoUnitDepan,2000]',
-                    'max_dims[fotoUnitDepan,4000,3000]',
+                    'max_dims[fotoUnitDepan,8000,6000]',
                 ],
             ],
             'fotoUnitSamping' => [
@@ -313,7 +313,7 @@ class Admin extends BaseController {
                     'is_image[fotoUnitSamping]',
                     'mime_in[fotoUnitSamping,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
                     'max_size[fotoUnitSamping,2000]',
-                    'max_dims[fotoUnitSamping,4000,3000]',
+                    'max_dims[fotoUnitSamping,8000,6000]',
                 ],
             ],
             'fotoSnUnit' => [
@@ -323,7 +323,7 @@ class Admin extends BaseController {
                     'is_image[fotoSnUnit]',
                     'mime_in[fotoSnUnit,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
                     'max_size[fotoSnUnit,2000]',
-                    'max_dims[fotoSnUnit,4000,3000]',
+                    'max_dims[fotoSnUnit,8000,6000]',
                 ],
             ],
             'fotoHmKmUnit' => [
@@ -333,7 +333,7 @@ class Admin extends BaseController {
                     'is_image[fotoHmKmUnit]',
                     'mime_in[fotoHmKmUnit,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
                     'max_size[fotoHmKmUnit,2000]',
-                    'max_dims[fotoHmKmUnit,4000,3000]',
+                    'max_dims[fotoHmKmUnit,8000,6000]',
                 ],
             ],
             'fotoKomponenRusak' => [
@@ -343,7 +343,7 @@ class Admin extends BaseController {
                     'is_image[fotoKomponenRusak]',
                     'mime_in[fotoKomponenRusak,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
                     'max_size[fotoKomponenRusak,2000]',
-                    'max_dims[fotoKomponenRusak,4000,3000]',
+                    'max_dims[fotoKomponenRusak,8000,6000]',
                 ],
             ],
         ];
@@ -591,7 +591,7 @@ class Admin extends BaseController {
                     'is_image[fotoUnitDepan]',
                     'mime_in[fotoUnitDepan,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
                     'max_size[fotoUnitDepan,2000]',
-                    'max_dims[fotoUnitDepan,4000,3000]',
+                    'max_dims[fotoUnitDepan,8000,6000]',
                 ],
             ],
             'fotoUnitSamping' => [
@@ -601,7 +601,7 @@ class Admin extends BaseController {
                     'is_image[fotoUnitSamping]',
                     'mime_in[fotoUnitSamping,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
                     'max_size[fotoUnitSamping,2000]',
-                    'max_dims[fotoUnitSamping,4000,3000]',
+                    'max_dims[fotoUnitSamping,8000,6000]',
                 ],
             ],
             'fotoSnUnit' => [
@@ -611,7 +611,7 @@ class Admin extends BaseController {
                     'is_image[fotoSnUnit]',
                     'mime_in[fotoSnUnit,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
                     'max_size[fotoSnUnit,2000]',
-                    'max_dims[fotoSnUnit,4000,3000]',
+                    'max_dims[fotoSnUnit,8000,6000]',
                 ],
             ],
             'fotoHmKmUnit' => [
@@ -621,7 +621,7 @@ class Admin extends BaseController {
                     'is_image[fotoHmKmUnit]',
                     'mime_in[fotoHmKmUnit,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
                     'max_size[fotoHmKmUnit,2000]',
-                    'max_dims[fotoHmKmUnit,4000,3000]',
+                    'max_dims[fotoHmKmUnit,8000,6000]',
                 ],
             ],
             'fotoKomponenRusak' => [
@@ -631,7 +631,7 @@ class Admin extends BaseController {
                     'is_image[fotoKomponenRusak]',
                     'mime_in[fotoKomponenRusak,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
                     'max_size[fotoKomponenRusak,2000]',
-                    'max_dims[fotoKomponenRusak,4000,3000]',
+                    'max_dims[fotoKomponenRusak,8000,6000]',
                 ],
             ],
         ];
@@ -675,7 +675,7 @@ class Admin extends BaseController {
 
             $foto1->move('uploads/' . $nama_folder, $nama_foto);
         }
-        
+
 
         // jika foto2 tidak diupload dan foto lama tidak diupload sebelumnya
         if ($foto2->getError() == 4 && $foto2_lama == '') {
@@ -709,7 +709,7 @@ class Admin extends BaseController {
             $foto2->move('uploads/' . $nama_folder, $nama_foto);
         }
 
-        
+
         // jika foto3 tidak diupload dan foto lama tidak diupload sebelumnya
         if ($foto3->getError() == 4 && $foto3_lama == '') {
             $direktori_foto3 = '';
@@ -741,7 +741,7 @@ class Admin extends BaseController {
 
             $foto3->move('uploads/' . $nama_folder, $nama_foto);
         }
-        
+
 
         // jika foto4 tidak diupload dan foto lama tidak diupload sebelumnya
         if ($foto4->getError() == 4 && $foto4_lama == '') {
@@ -806,7 +806,7 @@ class Admin extends BaseController {
 
             $foto5->move('uploads/' . $nama_folder, $nama_foto);
         }
-        
+
 
         $data = [
             'what_is_claimed' => $inputClaimType,
@@ -862,6 +862,18 @@ class Admin extends BaseController {
 
         $errors = 'The file has already been moved.';
         return var_dump($errors);
+    }
+
+    // delete cwp
+    public function delete_cwp($no) {
+        // QUERY MELALUI MODEL
+        $model = new CWPModel();
+        $del = $model->delJobsite($no);
+
+        if ($del) {
+            // Go to specific URI
+            return redirect()->to(base_url('claim-warranty/data_jobsite'));
+        }
     }
 
 }

@@ -50,6 +50,7 @@ $routes->post('submit_cwp', 'Admin::submit_cwp');
 $routes->get('update/(:num)', 'Admin::update/$1');
 $routes->post('update_cwp', 'Admin::update_cwp');
 $routes->get('resume', 'Admin::resume');
+$routes->get('delete_cwp/(:num)', 'Admin::delete_cwp/$1');
 $routes->get('changepwd', 'Admin::changepwd');
 $routes->post('submit_changepwd', 'Admin::submit_changepwd');
 $routes->get('logout', 'Home::logout');
