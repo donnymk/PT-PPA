@@ -2,14 +2,20 @@
 
 namespace App\Controllers;
 
-//use App\Models\FollowupModel;
+use App\Models\CWPModel;
 use App\Models\LoginModel;
 
-class Home extends BaseController {
+class HomeCW extends BaseController {
 
-    public function index() {
+    public function index($jobsite) {
         // initialize the session
         $session = \Config\Services::session();
+
+        // get current url
+        $uri = current_url(true);
+        // Disable throwing exceptions
+        $uri->setSilent();
+        
         // default value
         $data['username'] = null;
         // cek session login
@@ -18,7 +24,13 @@ class Home extends BaseController {
             $data['role'] = $session->role;
         }
 
-        return view('dasbor', $data);
+        // QUERY MELALUI MODEL
+        $model = new CWPModel();
+        $data['jobsiteData'] = $model->getJobsiteData();
+        $data['currentJobsite'] = $uri->getSegment(4);
+        $data['countCWP'] = $model->countCWPByJobsite($jobsite);
+
+        return view('dasborcwp', $data);
     }
 
     public function login() {

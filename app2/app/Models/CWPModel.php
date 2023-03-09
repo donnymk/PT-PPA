@@ -60,7 +60,7 @@ class CWPModel extends Model {
     protected $validationMessages = [];
     protected $skipValidation = false;
 
-    // get data CWP
+    // get all data CWP
     public function getDataCWP() {
         // tampilkan data CWP menggunakan query builder
         $builder = $this->builder();
@@ -97,33 +97,48 @@ class CWPModel extends Model {
     }
 
     // delete data by ID
-    public function delFollowUp($noFollowup) {
+    public function delCWP($noCWP) {
         // tentukan tabel
-        $builder = $this->builder('resume_follow_up_cbm');
-        $builder->where('no_follow_up', $noFollowup);
+        $builder = $this->builder();
+        $builder->where('id', $noCWP);
         return $builder->delete();
     }
 
-    // count data followup by status
-    public function countFollowUp() {
-        // tentukan tabel
-        $builder = $this->builder('resume_follow_up_cbm');
-        $builder->select('COUNT(*) countAll, (SELECT COUNT(*) FROM resume_follow_up_cbm WHERE follow_up_status is NULL OR follow_up_status = \'Open\') countOpen, (SELECT COUNT(*) FROM resume_follow_up_cbm WHERE follow_up_status = \'Close\') countClose, (SELECT COUNT(*) FROM resume_follow_up_cbm WHERE follow_up_status = \'Cancel\') countCancel');
-        //echo $builder->getCompiledSelect();
-        $query = $builder->get();
-        return $query->getResult();
-    }
+    // count data CWP
+//    public function countCWP() {
+//        // tentukan tabel
+//        $builder = $this->builder();
+//        $builder->select('COUNT(*) countAll, (SELECT COUNT(*) FROM resume_follow_up_cbm WHERE follow_up_status is NULL OR follow_up_status = \'Open\') countOpen, (SELECT COUNT(*) FROM resume_follow_up_cbm WHERE follow_up_status = \'Close\') countClose, (SELECT COUNT(*) FROM resume_follow_up_cbm WHERE follow_up_status = \'Cancel\') countCancel');
+//        //echo $builder->getCompiledSelect();
+//        $query = $builder->get();
+//        return $query->getResult();
+//    }
 
     // count data followup by status
-    public function countFollowUpOpen() {
+    public function countCWPByJobsite($jobsite) {
         // tentukan tabel
-        $builder = $this->builder('resume_follow_up_cbm');
-        $builder->select('DISTINCT(cbm), COUNT(no_follow_up) as jumlahdata');
-        $where = "follow_up_status='Open' OR follow_up_status IS null";
-        $builder->where($where);
-        $builder->groupBy('cbm');
+        $builder = $this->builder();
+        $builder->select('warranty_decision, COUNT(*) AS jumlah_cwp');
+       
+        if($jobsite != 'All'){
+            $builder->where('jobsite', $jobsite);
+        }
+        $builder->groupBy('warranty_decision');
         $query = $builder->get();
+        
         return $query->getResult();
     }
+    
+    // get jobsite in CWP data
+    public function getJobsiteData() {
+        // tampilkan menggunakan query builder
+        $builder = $this->builder();
+        $builder->select('jobsite');
+        $builder->groupBy('jobsite');
+        
+        //return print_r($builder->getCompiledSelect());
+        $query = $builder->get();
+        return $query->getResult();
+    }    
 
 }

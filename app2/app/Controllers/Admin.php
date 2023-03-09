@@ -867,12 +867,43 @@ class Admin extends BaseController {
     // delete cwp
     public function delete_cwp($no) {
         // QUERY MELALUI MODEL
-        $model = new CWPModel();
-        $del = $model->delJobsite($no);
+        $CWPModel = new CWPModel();
+
+        // get current data
+        // untuk cek foto yang diupload
+        $dataCWP = $CWPModel->getDataCWPById($no);
+
+        foreach ($dataCWP as $row) {
+            $id = $row->id;
+            $follow_up_by = $row->follow_up_by;
+            $foto_unit_depan = $row->foto_unit_depan;
+            $foto_unit_samping = $row->foto_unit_samping;
+            $foto_sn_unit = $row->foto_sn_unit;
+            $foto_hmkm_unit = $row->{'foto_hm/km_unit'};
+            $foto_komponen_rusak = $row->foto_komponen_rusak;
+        }
+        // hapus foto lama
+        if (file_exists('uploads/' . $foto_unit_depan)) {
+            unlink('uploads/' . $foto_unit_depan);
+        }
+        if (file_exists('uploads/' . $foto_unit_samping)) {
+            unlink('uploads/' . $foto_unit_samping);
+        }
+        if (file_exists('uploads/' . $foto_sn_unit)) {
+            unlink('uploads/' . $foto_sn_unit);
+        }
+        if (file_exists('uploads/' . $foto_hmkm_unit)) {
+            unlink('uploads/' . $foto_hmkm_unit);
+        }
+        if (file_exists('uploads/' . $foto_komponen_rusak)) {
+            unlink('uploads/' . $foto_komponen_rusak);
+        }
+
+        $del = $CWPModel->delCWP($no);
 
         if ($del) {
             // Go to specific URI
-            return redirect()->to(base_url('claim-warranty/data_jobsite'));
+            return redirect()->to(base_url('claim-warranty/resume'));
         }
     }
 

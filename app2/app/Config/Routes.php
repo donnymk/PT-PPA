@@ -17,7 +17,7 @@ if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('HomeCW');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
@@ -35,9 +35,10 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
-$routes->get('login', 'Home::login');
-$routes->post('loginproses', 'Home::loginproses');
+$routes->get('/', 'HomeCW::index/All');
+$routes->get('/index/(:alphanum)', 'HomeCW::index/$1');
+$routes->get('login', 'HomeCW::login');
+$routes->post('loginproses', 'HomeCW::loginproses');
 $routes->get('data_jobsite', 'Admin::data_jobsite');
 $routes->post('input_jobsite', 'Admin::input_jobsite');
 $routes->get('delete_jobsite/(:num)', 'Admin::delete_jobsite/$1');
@@ -53,7 +54,7 @@ $routes->get('resume', 'Admin::resume');
 $routes->get('delete_cwp/(:num)', 'Admin::delete_cwp/$1');
 $routes->get('changepwd', 'Admin::changepwd');
 $routes->post('submit_changepwd', 'Admin::submit_changepwd');
-$routes->get('logout', 'Home::logout');
+$routes->get('logout', 'HomeCW::logout');
 
 $routes->post('get_model_unit', 'AjaxCWP::get_model_unit');
 $routes->post('get_code_unit', 'AjaxCWP::get_code_unit');
