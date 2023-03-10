@@ -49,6 +49,13 @@
                                         <th>Status</th><th>Jumlah</th><th>Achievement CWP</th>
                                     </tr>
                                     <?php
+                                    if(count($countCWP) == 0){
+                                        ?>
+                                        <tr>
+                                            <td colspan="3">Tidak ada data pada Jobsite <?= $currentJobsite ?></td>
+                                        </tr>
+                                        <?php                                        
+                                    }
                                     foreach ($countCWP as $row) {
                                         $warranty_decision = $row->warranty_decision;
                                         $jumlah_cwp = $row->jumlah_cwp;

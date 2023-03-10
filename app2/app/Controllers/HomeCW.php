@@ -15,7 +15,7 @@ class HomeCW extends BaseController {
         $uri = current_url(true);
         // Disable throwing exceptions
         $uri->setSilent();
-        
+
         // default value
         $data['username'] = null;
         // cek session login
@@ -28,7 +28,22 @@ class HomeCW extends BaseController {
         $model = new CWPModel();
         $data['jobsiteData'] = $model->getJobsiteData();
         $data['currentJobsite'] = $uri->getSegment(4);
-        $data['countCWP'] = $model->countCWPByJobsite($jobsite);
+        $countCWP = $model->countCWPByJobsite($jobsite);
+        $data['countCWP'] = $countCWP;
+
+        $rekap_cwp = [];
+        $total_cwp = 0;
+        foreach ($countCWP as $row) {
+            $baris = array();
+            $baris['warranty_decision'] = $row->warranty_decision;
+            $baris['jumlah_cwp'] = $row->jumlah_cwp;
+            // total
+            $total_cwp = $total_cwp + $row->jumlah_cwp;
+            $baris['total_cwp'] = $total_cwp;
+            
+            array_push($rekap_cwp, $baris);
+        }
+        var_dump($rekap_cwp); exit();
 
         return view('dasborcwp', $data);
     }
