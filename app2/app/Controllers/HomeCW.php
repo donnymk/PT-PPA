@@ -43,7 +43,7 @@ class HomeCW extends BaseController {
             
             array_push($rekap_cwp, $baris);
         }
-        var_dump($rekap_cwp); exit();
+        //var_dump($rekap_cwp); exit();
 
         return view('dasborcwp', $data);
     }
