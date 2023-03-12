@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Mar 04, 2023 at 11:00 AM
+-- Generation Time: Mar 12, 2023 at 02:17 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `claim_warranty`
 --
+CREATE DATABASE IF NOT EXISTS `claim_warranty` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE `claim_warranty`;
 
 -- --------------------------------------------------------
 
@@ -261,7 +263,7 @@ CREATE TABLE IF NOT EXISTS `warranty_proposal` (
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `last_update` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
