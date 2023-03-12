@@ -294,7 +294,7 @@
 
                         <!-- Lampiran Foto -->
                         <div class="mt-4 mb-1">
-                            <div class="d-grid text-center badge bg-light text-dark">Lampiran</div>
+                            <div class="d-grid text-center badge bg-light text-dark">Lampiran (foto harus orientasi landscape)</div>
                         </div>
                         <div class="row mb-1">
                             <div class="col-md-4">

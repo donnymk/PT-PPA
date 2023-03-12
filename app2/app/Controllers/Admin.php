@@ -665,7 +665,7 @@ class Admin extends BaseController {
         // dan foto lama diupload sebelumnya
         elseif (!$foto1->hasMoved() && $foto1_lama != '') {
             // hapus foto lama
-            if (file_exists('uploads/' . $foto1_lama)) {
+            if (file_exists('uploads/' . $foto1_lama) && is_file('uploads/' . $foto1_lama)) {
                 unlink('uploads/' . $foto1_lama);
             }
 
@@ -698,7 +698,7 @@ class Admin extends BaseController {
         // dan foto lama diupload sebelumnya
         elseif (!$foto2->hasMoved() && $foto1_lama != '') {
             // hapus foto lama
-            if (file_exists('uploads/' . $foto2_lama)) {
+            if (file_exists('uploads/' . $foto2_lama) && is_file('uploads/' . $foto2_lama)) {
                 unlink('uploads/' . $foto2_lama);
             }
 
@@ -731,7 +731,7 @@ class Admin extends BaseController {
         // dan foto lama diupload sebelumnya
         elseif (!$foto3->hasMoved() && $foto3_lama != '') {
             // hapus foto lama
-            if (file_exists('uploads/' . $foto3_lama)) {
+            if (file_exists('uploads/' . $foto3_lama) && is_file('uploads/' . $foto3_lama)) {
                 unlink('uploads/' . $foto3_lama);
             }
 
@@ -764,7 +764,7 @@ class Admin extends BaseController {
         // dan foto lama diupload sebelumnya
         elseif (!$foto4->hasMoved() && $foto4_lama != '') {
             // hapus foto lama
-            if (file_exists('uploads/' . $foto4_lama)) {
+            if (file_exists('uploads/' . $foto4_lama) && is_file('uploads/' . $foto4_lama)) {
                 unlink('uploads/' . $foto4_lama);
             }
 
@@ -796,7 +796,7 @@ class Admin extends BaseController {
         // dan foto lama diupload sebelumnya
         elseif (!$foto5->hasMoved() && $foto5_lama != '') {
             // hapus foto lama
-            if (file_exists('uploads/' . $foto5_lama)) {
+            if (file_exists('uploads/' . $foto5_lama) && is_file('uploads/' . $foto5_lama)) {
                 unlink('uploads/' . $foto5_lama);
             }
 
@@ -883,19 +883,19 @@ class Admin extends BaseController {
             $foto_komponen_rusak = $row->foto_komponen_rusak;
         }
         // hapus foto lama
-        if (file_exists('uploads/' . $foto_unit_depan)) {
+        if (file_exists('uploads/' . $foto_unit_depan) && is_file('uploads/' . $foto_unit_depan)) {
             unlink('uploads/' . $foto_unit_depan);
         }
-        if (file_exists('uploads/' . $foto_unit_samping)) {
+        if (file_exists('uploads/' . $foto_unit_samping) && is_file('uploads/' . $foto_unit_samping)) {
             unlink('uploads/' . $foto_unit_samping);
         }
-        if (file_exists('uploads/' . $foto_sn_unit)) {
+        if (file_exists('uploads/' . $foto_sn_unit) && is_file('uploads/' . $foto_sn_unit)) {
             unlink('uploads/' . $foto_sn_unit);
         }
-        if (file_exists('uploads/' . $foto_hmkm_unit)) {
+        if (file_exists('uploads/' . $foto_hmkm_unit) && is_file('uploads/' . $foto_hmkm_unit)) {
             unlink('uploads/' . $foto_hmkm_unit);
         }
-        if (file_exists('uploads/' . $foto_komponen_rusak)) {
+        if (file_exists('uploads/' . $foto_komponen_rusak) && is_file('uploads/' . $foto_komponen_rusak)) {
             unlink('uploads/' . $foto_komponen_rusak);
         }
 
