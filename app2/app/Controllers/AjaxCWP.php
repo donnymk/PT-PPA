@@ -20,30 +20,33 @@ class AjaxCWP extends BaseController {
 //        if ($session->has('username')) {
 //            $role = $session->role;
 //        }        
-        
+
         $data_cwp = [];
 
         // Check for AJAX request
         if ($this->request->isAJAX()) {
             // QUERY MELALUI MODEL
-                $model = new CWPModel();
+            $model = new CWPModel();
             $get_data_cwp = $model->getDataCWP();
 
             foreach ($get_data_cwp as $key => $value):
-//                // select option sudah dieksekusi apa belum
-//                $has_executed = ($value->executed === '1' ? ' Yes' : 'No');
-//                $follow_up_status = $value->follow_up_status;
-//                if ($follow_up_status == '') {
-//                    $follow_up_status = 'Open';
-//                }
-                
+
                 // button action
                 $exportpdf_button = '<a class="btn btn-primary" href="cetak_form/' . $value->id . '" title="Export PDF" target="_blank"><span class="fa fa-2x fa-file-pdf"></span></a>';
                 $update_button = '<a class="btn btn-secondary btn-sm" href="update/' . $value->id . '" title="Detail dan Edit data"><span class="fa fa-2x fa-info"></span></a>';
                 $delete_button = '<a class="btn btn-secondary btn-sm" href="delete_cwp/' . $value->id . '" title="Hapus" onclick="return confirm_del(' . $value->id . ')"><span class="fa fa-trash"></span></a>';
 
+                // leadtime warranty = closing date - claim date
+                $claim_date = date_create($value->claim_date);
+                $closing_date = date_create($value->closing_date);
+                $diff = date_diff($claim_date, $closing_date);
+                $leadtime_warranty = $diff->format("%R%a");
+                if($value->closing_date == '0000-00-00' || $value->closing_date == ''){
+                    $leadtime_warranty = null;
+                }
+
                 array_push($data_cwp,
-                        array($exportpdf_button.$update_button.$delete_button,
+                        array($exportpdf_button . $update_button . $delete_button,
                             $value->id,
                             $value->jobsite,
                             $value->claim_date,
@@ -64,7 +67,7 @@ class AjaxCWP extends BaseController {
                             $value->{'hm/km_trouble'},
                             $value->lifetime,
                             $value->problem_issue,
-                            $value->supporting_comments,                            
+                            $value->supporting_comments,
                             $value->part_number,
                             $value->qty,
                             $value->amount_part,
@@ -72,8 +75,8 @@ class AjaxCWP extends BaseController {
                             $value->final_amount,
                             $value->closing_date,
                             $value->remark_progress,
-                            'leadtime_warranty'
-                            )
+                            $leadtime_warranty
+                        )
                 );
             endforeach;
 
@@ -105,8 +108,8 @@ class AjaxCWP extends BaseController {
         }
 
         echo json_encode($data_model_unit);
-    }    
-    
+    }
+
     // get code unit berdasarkan model unit
     public function get_code_unit() {
         $data_code_unit = [];
@@ -142,4 +145,5 @@ class AjaxCWP extends BaseController {
         }
         return false;
     }
+
 }

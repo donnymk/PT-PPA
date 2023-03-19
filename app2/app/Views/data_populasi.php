@@ -2,7 +2,7 @@
 
 <?= $this->section('isiHalaman') ?>
 
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary">
     <!-- Isi top navigation -->
     <?= $this->include('topnavbar') ?>
 </nav>

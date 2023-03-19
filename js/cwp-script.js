@@ -7,8 +7,8 @@
 //        new simpleDatatables.DataTable(datatablesSimple);
 //    }
 //});
-// load data cbm
-function load_data_cbm() {
+// load data
+function load_data_cwp() {
     $('#datatablesSimple').dataTable({
         processing: true,
         ajax: "resume_data",
@@ -16,6 +16,10 @@ function load_data_cbm() {
         // ordering: false,
         //    lengthMenu: [[5, 10], [5, 10]],
         //    pageLength: 5
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
     });
 }
 
@@ -73,7 +77,7 @@ function password3_show_hide() {
 }
 
 $(document).ready(function () {
-    load_data_cbm();
+    load_data_cwp();
     load_data_master();
 
 });
