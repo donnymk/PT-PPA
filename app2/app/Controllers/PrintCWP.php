@@ -5,6 +5,7 @@ namespace App\Controllers;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\Files\File;
 use Psr\Log\LoggerInterface;
 use App\Models\CWPModel;
 use App\ThirdParty\fpdf185\FPDF;
@@ -350,7 +351,7 @@ class PrintCWP extends Controller {
         $pdf->Cell(28, 6.6, 'CLAIM NO:', 1, 0, 'C');
         $pdf->Cell(72, 6.6, $nomor_claim . ' / PLT-' . $jobsite . ' / CWR / ' . $tahun_proposal, 1, 0, 'C');
         $pdf->Ln(10);
-        
+
         $pdf->SetFont('Arial', 'B', 9);
 
         // header kotak
@@ -358,70 +359,134 @@ class PrintCWP extends Controller {
         $pdf->Cell(10, 60, '', 0, 0, 'C');
         $pdf->Cell(90, 5, 'FOTO UNIT SAMPING', 1, 0, 'C');
         $pdf->Ln(5);
-        
+
         $pdf->SetFont('Arial', '', 10);
 
         // foto 1
         if ($foto_unit_depan != "") {
-            //$pdf->Image($file, $x, $y, $w, $h);
             $pdf->Cell(90, 60, '', 1, 0, 'C');
-            $pdf->Image(base_url() . '/claim-warranty/uploads/' . $foto_unit_depan, 12, 40, 85);
-        } else {
+            // get data foto
+            $lokasi_foto = base_url() . '/claim-warranty/uploads/' . $foto_unit_depan;
+            $data_foto = getimagesize($lokasi_foto);
+            $width = $data_foto[0];
+            $height = $data_foto[1];
+            //$pdf->Image($file, $x, $y, $w, $h);
+            // jika orientasi portrait
+            if($height >= $width){
+                $pdf->Image($lokasi_foto, 25, 40, 0, 56);
+            }
+            //jika orientasi landscape
+            else{
+                $pdf->Image($lokasi_foto, 12, 40, 85);
+            }
+        }
+        // jika foto 1 tidak diupload
+        else {
             $pdf->Cell(90, 60, 'Tidak ada foto', 1, 0, 'C');
         }
+        
         $pdf->Cell(10, 60, '', 0, 0, 'C');
         // foto 2
         if ($foto_unit_samping != "") {
-            //$pdf->Image($file, $x, $y, $w, $h);
             $pdf->Cell(90, 60, '', 1, 0, 'C');
-            $pdf->Image(base_url() . '/claim-warranty/uploads/' . $foto_unit_samping, 112, 40, 85);
+            // get data foto
+            $lokasi_foto = base_url() . '/claim-warranty/uploads/' . $foto_unit_samping;
+            $data_foto = getimagesize($lokasi_foto);
+            $width = $data_foto[0];
+            $height = $data_foto[1];
+            //$pdf->Image($file, $x, $y, $w, $h);
+            // jika orientasi portrait
+            if($height >= $width){
+                $pdf->Image($lokasi_foto, 125, 40, 0, 56);
+            }
+            //jika orientasi landscape
+            else{
+                $pdf->Image($lokasi_foto, 112, 40, 85);
+            }
         } else {
             $pdf->Cell(90, 60, 'Tidak ada foto', 1, 0, 'C');
         }
         $pdf->Ln(65);
 
         $pdf->SetFont('Arial', 'B', 9);
-        
+
         // header kotak
         $pdf->Cell(90, 5, 'FOTO SN KOMPONEN/UNIT', 1, 0, 'C');
         $pdf->Cell(10, 60, '', 0, 0, 'C');
         $pdf->Cell(90, 5, 'FOTO HM/KM UNIT', 1, 0, 'C');
         $pdf->Ln(5);
-        
+
         $pdf->SetFont('Arial', '', 10);
-        
+
         // foto 3
-        if ($foto_sn_unit!= "") {
-            //$pdf->Image($file, $x, $y, $w, $h);
+        if ($foto_sn_unit != "") {
             $pdf->Cell(90, 60, '', 1, 0, 'C');
-            $pdf->Image(base_url() . '/claim-warranty/uploads/' . $foto_sn_unit, 12, 110, 85);
+            // get data foto
+            $lokasi_foto = base_url() . '/claim-warranty/uploads/' . $foto_sn_unit;
+            $data_foto = getimagesize($lokasi_foto);
+            $width = $data_foto[0];
+            $height = $data_foto[1];
+            //$pdf->Image($file, $x, $y, $w, $h);
+            // jika orientasi portrait
+            if($height >= $width){
+                $pdf->Image($lokasi_foto, 25, 110, 0, 56);
+            }
+            //jika orientasi landscape
+            else{
+                $pdf->Image($lokasi_foto, 12, 110, 85);
+            }
         } else {
             $pdf->Cell(90, 60, 'Tidak ada foto', 1, 0, 'C');
         }
+        
         $pdf->Cell(10, 60, '', 0, 0, 'C');
         // foto 4
         if ($foto_hmkm_unit != "") {
-            //$pdf->Image($file, $x, $y, $w, $h);
             $pdf->Cell(90, 60, '', 1, 0, 'C');
-            $pdf->Image(base_url() . '/claim-warranty/uploads/' . $foto_hmkm_unit, 112, 110, 85);
+            // get data foto
+            $lokasi_foto = base_url() . '/claim-warranty/uploads/' . $foto_hmkm_unit;
+            $data_foto = getimagesize($lokasi_foto);
+            $width = $data_foto[0];
+            $height = $data_foto[1];
+            //$pdf->Image($file, $x, $y, $w, $h);
+            // jika orientasi portrait
+            if($height >= $width){
+                $pdf->Image($lokasi_foto, 125, 110, 0, 56);
+            }
+            //jika orientasi landscape
+            else{
+                $pdf->Image($lokasi_foto, 112, 110, 85);
+            }
         } else {
             $pdf->Cell(90, 60, 'Tidak ada foto', 1, 0, 'C');
         }
         $pdf->Ln(65);
-        
+
         $pdf->SetFont('Arial', 'B', 9);
-        
+
         // header kotak
         $pdf->Cell(0, 5, 'FOTO KOMPONEN YANG RUSAK', 1, 0, 'C');
         $pdf->Ln(5);
-        
+
         $pdf->SetFont('Arial', '', 10);
-        
+
         // foto 5
-        if ($foto_komponen_rusak!= "") {
-            //$pdf->Image($file, $x, $y, $w, $h);
+        if ($foto_komponen_rusak != "") {
             $pdf->Cell(0, 105, '', 1, 0, 'C');
-            $pdf->Image(base_url() . '/claim-warranty/uploads/' . $foto_komponen_rusak, 25, 180, 155);
+            // get data foto
+            $lokasi_foto = base_url() . '/claim-warranty/uploads/' . $foto_komponen_rusak;
+            $data_foto = getimagesize($lokasi_foto);
+            $width = $data_foto[0];
+            $height = $data_foto[1];
+            //$pdf->Image($file, $x, $y, $w, $h);
+            // jika orientasi portrait
+            if($height >= $width){
+                $pdf->Image($lokasi_foto, 45, 180, 0, 100);
+            }
+            //jika orientasi landscape
+            else{
+                $pdf->Image($lokasi_foto, 12, 180, 155);
+            }
         } else {
             $pdf->Cell(0, 105, 'Tidak ada foto', 1, 0, 'C');
         }
