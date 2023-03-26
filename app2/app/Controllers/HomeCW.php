@@ -27,7 +27,15 @@ class HomeCW extends BaseController {
         // QUERY MELALUI MODEL
         $model = new CWPModel();
         $data['jobsiteData'] = $model->getJobsiteData();
-        $data['currentJobsite'] = $uri->getSegment(4);
+		
+		$totalSegments = $uri->getTotalSegments();
+        //$data['currentJobsite'] = $uri->getSegment(4); // static
+		$data['currentJobsite'] = $uri->getSegment($totalSegments); // dynamic menyesuaikan URL
+		if($data['currentJobsite'] == 'index.php'){
+			$data['currentJobsite'] = '';
+		}
+		//var_dump($data['currentJobsite']); exit();
+		
         $countCWP = $model->countCWPByJobsite($jobsite);
         $data['countCWP'] = $countCWP;
 
