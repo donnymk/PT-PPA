@@ -6,12 +6,9 @@
         <meta name="description" content="">
         <meta name="author" content="Donny Malik Kurniawan">
         <!--<meta name="generator" content="Hugo 0.84.0">-->
-        <title>Putra Perkasa Abadi</title>
-
+        <title>Putra Perkasa Abadi App</title>
+        <link rel="shortcut icon" href="assets/img/ptppa.ico" type="image/x-icon">
         <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/features/">
-
-
-
         <!-- Bootstrap core CSS -->
         <link href="css/styles.css" rel="stylesheet">
 
@@ -38,6 +35,12 @@
                     font-size: 3.5rem;
                 }
             }
+            .dash-card:hover {
+                transform: translateY(-4px);
+            }
+            .dash-card {
+                transition: all .3s ease-in;
+            }
         </style>
 
 
@@ -52,12 +55,12 @@
 
         <div class="container px-4 py-5" id="custom-cards" style="z-index: 2">
             <h2 class="pb-2 border-bottom" style="color: #ffffff">
-                <img src="assets/img/ptppa.jpg" width="40" alt=""/> PUTRA PERKASA ABADI
+                <img src="assets/img/ptppa.png" width="40" alt=""/> PUTRA PERKASA ABADI
             </h2>
 
             <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
 
-                <div class="col">
+                <div class="col dash-card">
                     <a class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('assets/img/menu-1.jpg');" href="followup-cbm" target="_blank">
                         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                             <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Follow Up CBM</h2>
@@ -78,7 +81,7 @@
                     </a>
                 </div>
 
-                <div class="col">
+                <div class="col dash-card">
                     <a class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('assets/img/menu-2.jpg');" href="claim-warranty" target="_blank">
                         <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                             <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Claim Warranty</h2>
@@ -86,7 +89,7 @@
                     </a>
                 </div>
 
-                <div class="col">
+                <div class="col dash-card">
                     <a class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('assets/img/menu-3.jpg');" href="#">
                         <div class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
                             <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Visual Inspection</h2>

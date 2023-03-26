@@ -22,7 +22,7 @@
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header">
-                                        <img src="<?= base_url() ?>/assets/img/ptppa.jpg"  style="display: block; margin-left: auto;margin-right: auto;" width="160" alt=""/> 
+                                        <img src="<?= base_url() ?>/assets/img/ptppa.png"  style="display: block; margin-left: auto;margin-right: auto;" width="160" alt=""/> 
                                         <h3 class="text-center font-weight-light my-4">Login Claim Warranty System</h3>
                                     </div>
                                     <div class="card-body">

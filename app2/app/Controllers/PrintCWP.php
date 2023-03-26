@@ -3,9 +3,9 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+//use CodeIgniter\Files\File;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
-use CodeIgniter\Files\File;
 use Psr\Log\LoggerInterface;
 use App\Models\CWPModel;
 use App\ThirdParty\fpdf185\FPDF;
@@ -18,15 +18,20 @@ class PrintCWP extends Controller {
             LoggerInterface $logger
     ) {
         parent::initController($request, $response, $logger);
-
+        
+        // cek login
+        $this->cek_login();
+    }
+    
+    public function cek_login(){
         // initialize the session
         $session = \Config\Services::session();
 
         // jika belum login
         if (!$session->has('logged_in')) {
-            echo 'Anda harus login. Klik <a href="' . base_url('claim-warranty/login') . '">di sini</a> untuk login';
+            echo '<script>window.location="' . base_url('claim-warranty/login') . '"</script>';
             exit();
-        }
+        }        
     }
 
     public function index($id_cwp) {
@@ -372,11 +377,11 @@ class PrintCWP extends Controller {
             $height = $data_foto[1];
             //$pdf->Image($file, $x, $y, $w, $h);
             // jika orientasi portrait
-            if($height >= $width){
+            if ($height >= $width) {
                 $pdf->Image($lokasi_foto, 25, 40, 0, 56);
             }
             //jika orientasi landscape
-            else{
+            else {
                 $pdf->Image($lokasi_foto, 12, 40, 85);
             }
         }
@@ -384,7 +389,7 @@ class PrintCWP extends Controller {
         else {
             $pdf->Cell(90, 60, 'Tidak ada foto', 1, 0, 'C');
         }
-        
+
         $pdf->Cell(10, 60, '', 0, 0, 'C');
         // foto 2
         if ($foto_unit_samping != "") {
@@ -396,11 +401,11 @@ class PrintCWP extends Controller {
             $height = $data_foto[1];
             //$pdf->Image($file, $x, $y, $w, $h);
             // jika orientasi portrait
-            if($height >= $width){
+            if ($height >= $width) {
                 $pdf->Image($lokasi_foto, 125, 40, 0, 56);
             }
             //jika orientasi landscape
-            else{
+            else {
                 $pdf->Image($lokasi_foto, 112, 40, 85);
             }
         } else {
@@ -428,17 +433,17 @@ class PrintCWP extends Controller {
             $height = $data_foto[1];
             //$pdf->Image($file, $x, $y, $w, $h);
             // jika orientasi portrait
-            if($height >= $width){
+            if ($height >= $width) {
                 $pdf->Image($lokasi_foto, 25, 110, 0, 56);
             }
             //jika orientasi landscape
-            else{
+            else {
                 $pdf->Image($lokasi_foto, 12, 110, 85);
             }
         } else {
             $pdf->Cell(90, 60, 'Tidak ada foto', 1, 0, 'C');
         }
-        
+
         $pdf->Cell(10, 60, '', 0, 0, 'C');
         // foto 4
         if ($foto_hmkm_unit != "") {
@@ -450,11 +455,11 @@ class PrintCWP extends Controller {
             $height = $data_foto[1];
             //$pdf->Image($file, $x, $y, $w, $h);
             // jika orientasi portrait
-            if($height >= $width){
+            if ($height >= $width) {
                 $pdf->Image($lokasi_foto, 125, 110, 0, 56);
             }
             //jika orientasi landscape
-            else{
+            else {
                 $pdf->Image($lokasi_foto, 112, 110, 85);
             }
         } else {
@@ -480,11 +485,11 @@ class PrintCWP extends Controller {
             $height = $data_foto[1];
             //$pdf->Image($file, $x, $y, $w, $h);
             // jika orientasi portrait
-            if($height >= $width){
+            if ($height >= $width) {
                 $pdf->Image($lokasi_foto, 45, 180, 0, 100);
             }
             //jika orientasi landscape
-            else{
+            else {
                 $pdf->Image($lokasi_foto, 12, 180, 155);
             }
         } else {

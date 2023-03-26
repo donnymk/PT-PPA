@@ -5,11 +5,36 @@ namespace App\Controllers;
 use App\Models\JobsiteModel;
 use App\Models\PopulasiModel;
 use App\Models\CWPModel;
-use CodeIgniter\Files\File;
+//use CodeIgniter\Files\File;
+use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\ResponseInterface;
+use Psr\Log\LoggerInterface;
 
 class Admin extends BaseController {
 
     protected $helpers = ['form'];
+    
+    public function initController(
+            RequestInterface $request,
+            ResponseInterface $response,
+            LoggerInterface $logger
+    ) {
+        parent::initController($request, $response, $logger);
+        
+        // cek login
+        $this->cek_login();
+    }
+    
+    public function cek_login(){
+        // initialize the session
+        $session = \Config\Services::session();
+
+        // jika belum login
+        if (!$session->has('logged_in')) {
+            echo '<script>window.location="' . base_url('claim-warranty/login') . '"</script>';
+            exit();
+        }        
+    }
 
     public function index() {
         return view('dasbor');

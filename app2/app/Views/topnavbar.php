@@ -1,6 +1,6 @@
 <!-- Navbar Brand-->
 <a class="navbar-brand ps-3" href="<?= base_url('claim-warranty') ?>">
-    <img src="<?= base_url() ?>/assets/img/ptppa.jpg" width="40" alt=""/> Claim Warranty
+    <img src="<?= base_url() ?>/assets/img/ptppa.png" width="40" alt=""/> Claim Warranty
 </a>
 <!-- Sidebar Toggle-->
 <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>

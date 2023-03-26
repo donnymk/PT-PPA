@@ -9,8 +9,16 @@
         <title>Follow Up CBM</title>
         <!--<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />-->
         <link href="<?= base_url('css/styles.css') ?>" rel="stylesheet" />
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-        <link href="<?= base_url('DataTables-1.13.1/css/dataTables.bootstrap5.min.css') ?>" rel="stylesheet" type="text/css"/>
+        <!-- Font Awesome -->
+        <link href="<?= base_url('fontawesome-free-6.1.0-web/css/fontawesome.min.css') ?>" rel="stylesheet" type="text/css"/>
+        <link href="<?= base_url('fontawesome-free-6.1.0-web/css/brands.min.css') ?>" rel="stylesheet" type="text/css"/>
+        <link href="<?= base_url('fontawesome-free-6.1.0-web/css/solid.min.css') ?>" rel="stylesheet" type="text/css"/>
+        
+        <!-- DataTables -->
+        <link href="<?= base_url('DataTables-1.13.4/css/dataTables.bootstrap5.min.css') ?>" rel="stylesheet" type="text/css"/>
+        <!-- Export library for DataTables -->
+        <link href="<?= base_url('DataTables-1.13.4/css/jquery.dataTables.min.css') ?>" rel="stylesheet" type="text/css"/>
+        <link href="<?= base_url('Buttons-2.3.6/css/buttons.bootstrap5.min.css') ?>" rel="stylesheet" type="text/css"/>
         <style>
             #inputRekomFollowUp {
                 display: none
@@ -28,9 +36,17 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
         <!-- DataTables library -->
-        <!--<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>-->
-        <script src="<?= base_url('DataTables-1.13.1/js/jquery.dataTables.min.js') ?>" type="text/javascript"></script>
-        <script src="<?= base_url('DataTables-1.13.1/js/dataTables.bootstrap5.min.js') ?>" type="text/javascript"></script>
+        <script src="<?= base_url('DataTables-1.13.4/js/jquery.dataTables.min.js') ?>" type="text/javascript"></script>
+        <script src="<?= base_url('DataTables-1.13.4/js/dataTables.bootstrap5.min.js') ?>" type="text/javascript"></script>
+        
+        <!-- Export Library -->
+        <script src="<?= base_url('Buttons-2.3.6/js/dataTables.buttons.min.js') ?>" type="text/javascript"></script>
+        <script src="<?= base_url('JSZip-2.5.0/jszip.min.js') ?>" type="text/javascript"></script>
+        <script src="<?= base_url('pdfmake-0.1.36/pdfmake.min.js') ?>" type="text/javascript"></script>
+        <script src="<?= base_url('pdfmake-0.1.36/vfs_fonts.js') ?>" type="text/javascript"></script>
+        <script src="<?= base_url('Buttons-2.3.6/js/buttons.html5.min.js') ?>" type="text/javascript"></script>
+        <script src="<?= base_url('Buttons-2.3.6/js/buttons.bootstrap5.min.js') ?>" type="text/javascript"></script>
+        <script src="<?= base_url('Buttons-2.3.6/js/buttons.print.min.js') ?>" type="text/javascript"></script>
 
         <!-- Sidebar Navigasi -->
         <script src="<?= base_url('js/scripts.js') ?>"></script>

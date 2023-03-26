@@ -7,6 +7,15 @@
 //        new simpleDatatables.DataTable(datatablesSimple);
 //    }
 //});
+function get_timestamp() {
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date + ' ' + time;
+
+    return dateTime;
+}
+
 // load data cbm
 function load_data_cbm() {
     $('#datatablesSimple').dataTable({
@@ -16,6 +25,18 @@ function load_data_cbm() {
         // ordering: false,
         //    lengthMenu: [[5, 10], [5, 10]],
         //    pageLength: 5
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: '<span class="fas fa-2x fa-file-excel"></span> Export Excel',
+                exportOptions: {
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13]
+                },
+                title: 'Resume Follow Up CBM',
+                messageBottom: 'Data ' + get_timestamp() + ' melalui App online PT. PPA'
+            }
+        ]
     });
 }
 

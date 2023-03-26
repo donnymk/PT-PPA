@@ -10,7 +10,7 @@
         <link href="<?= base_url('css/styles.css') ?>" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
-    <body class="bg-primary">
+    <body class="bg-dark">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
@@ -18,7 +18,10 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login Follow Up CBM System</h3></div>
+                                    <div class="card-header">
+                                        <img src="<?= base_url() ?>/assets/img/ptppa.png"  style="display: block; margin-left: auto;margin-right: auto;" width="160" alt=""/>
+                                        <h3 class="text-center font-weight-light my-4">Login Follow Up CBM System</h3>
+                                    </div>
                                     <div class="card-body">
                                         <form method="post" action="<?= base_url('followup-cbm/loginproses') ?>">
                                             <label for="inputUsername" class="form-label">Username</label>

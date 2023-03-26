@@ -7,6 +7,15 @@
 //        new simpleDatatables.DataTable(datatablesSimple);
 //    }
 //});
+function get_timestamp() {
+    var today = new Date();
+    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date + ' ' + time;
+
+    return dateTime;
+}
+
 // load data
 function load_data_cwp() {
     $('#datatablesSimple').dataTable({
@@ -18,7 +27,15 @@ function load_data_cwp() {
         //    pageLength: 5
         dom: 'Bfrtip',
         buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            {
+                extend: 'excelHtml5',
+                text: '<span class="fas fa-2x fa-file-excel"></span> Export Excel',
+                exportOptions: {
+                    columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+                },
+                title: 'Resume Claim Warranty Proposal',
+                messageBottom: 'Data ' + get_timestamp() + ' melalui App online PT. PPA'
+            }
         ]
     });
 }
