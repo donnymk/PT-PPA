@@ -39,7 +39,7 @@ $routes->get('/', 'AdminDashboard::index');
 $routes->get('/index/(:alphanum)', 'PublicDashboard::index/$1');
 $routes->get('login', 'PublicDashboard::login');
 $routes->post('loginproses', 'PublicDashboard::loginproses');
-//$routes->get('data_jobsite', 'AdminDashboard::data_jobsite');
+$routes->get('data_jobsite', 'AdminDashboard::data_jobsite');
 //$routes->post('input_jobsite', 'AdminDashboard::input_jobsite');
 //$routes->get('delete_jobsite/(:num)', 'AdminDashboard::delete_jobsite/$1');
 //$routes->get('data_populasi', 'AdminDashboard::data_populasi');

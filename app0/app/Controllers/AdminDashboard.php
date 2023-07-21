@@ -52,7 +52,7 @@ class AdminDashboard extends BaseController {
     }
 
     // tampilkan semua data jobsite
-/*    public function data_jobsite() {
+    public function data_jobsite() {
         // initialize the session
         $session = \Config\Services::session();
         $data['session'] = $session;
@@ -70,7 +70,7 @@ class AdminDashboard extends BaseController {
         $data['jobsite'] = $model->getJobsite();
 
         return view('data_jobsite', $data);
-    }*/
+    }
 
     // input jobsite
 /*    public function input_jobsite() {
