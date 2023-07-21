@@ -1,5 +1,7 @@
 writable/*
-app0/writable/*
+app0/writable/cache/*
+app0/writable/logs/*
+app0/writable/session/*
 app1/writable/*
 app2/writable/*
 app2/writable/session/*
