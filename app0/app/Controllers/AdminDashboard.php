@@ -8,23 +8,24 @@ use App\Models\DataUploadModel;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use App\ThirdParty\PhpSpreadsheet\IOFactory;
 
 class AdminDashboard extends BaseController {
 
     protected $helpers = ['form'];
-    
+
     public function initController(
             RequestInterface $request,
             ResponseInterface $response,
             LoggerInterface $logger
     ) {
         parent::initController($request, $response, $logger);
-        
+
         // cek login
         $this->cek_login();
     }
-    
-    public function cek_login(){
+
+    public function cek_login() {
         // initialize the session
         $session = \Config\Services::session();
 
@@ -32,13 +33,13 @@ class AdminDashboard extends BaseController {
         if (!$session->has('logged_in')) {
             echo '<script>window.location="' . base_url('dashboard/login') . '"</script>';
             exit();
-        }        
+        }
     }
 
     public function index() {
         // initialize the session
         $session = \Config\Services::session();
-        
+
         // default value
         $data['username'] = null;
         // cek session login
@@ -46,7 +47,7 @@ class AdminDashboard extends BaseController {
             $data['username'] = $session->username;
             $data['role'] = $session->role;
         }
-        
+
         return view('dashboard', $data);
     }
 
@@ -72,99 +73,99 @@ class AdminDashboard extends BaseController {
     }
 
     // input jobsite
-/*    public function input_jobsite() {
-        // terima data dari form input
-        $inputJobsite = $this->request->getPost('inputJobsite');
+    /*    public function input_jobsite() {
+      // terima data dari form input
+      $inputJobsite = $this->request->getPost('inputJobsite');
 
-        // initialize the session
-        $session = \Config\Services::session();
+      // initialize the session
+      $session = \Config\Services::session();
 
-        $data = [
-            'job_site' => $inputJobsite
-        ];
+      $data = [
+      'job_site' => $inputJobsite
+      ];
 
-        // QUERY MELALUI MODEL
-        $model = new DataUploadModel();
-        $insert = $model->insertJobsite($data);
-        if ($insert) {
-            // set flash data
-            $session->setFlashdata('inputJobsiteStatus', 'Jobsite berhasil ditambahkan');
-            // Go to specific URI
-            return redirect()->to(base_url('claim-warranty/data_jobsite'));
-        }
-    }*/
+      // QUERY MELALUI MODEL
+      $model = new DataUploadModel();
+      $insert = $model->insertJobsite($data);
+      if ($insert) {
+      // set flash data
+      $session->setFlashdata('inputJobsiteStatus', 'Jobsite berhasil ditambahkan');
+      // Go to specific URI
+      return redirect()->to(base_url('claim-warranty/data_jobsite'));
+      }
+      } */
 
     // delete jobsite
-/*    public function delete_jobsite($no) {
-        // QUERY MELALUI MODEL
-        $model = new DataUploadModel();
-        $del = $model->delJobsite($no);
+    /*    public function delete_jobsite($no) {
+      // QUERY MELALUI MODEL
+      $model = new DataUploadModel();
+      $del = $model->delJobsite($no);
 
-        if ($del) {
-            // Go to specific URI
-            return redirect()->to(base_url('claim-warranty/data_jobsite'));
-        }
-    }*/
+      if ($del) {
+      // Go to specific URI
+      return redirect()->to(base_url('claim-warranty/data_jobsite'));
+      }
+      } */
 
     // tampilkan semua data populasi
-/*    public function data_populasi() {
-        // initialize the session
-        $session = \Config\Services::session();
-        $data['session'] = $session;
+    /*    public function data_populasi() {
+      // initialize the session
+      $session = \Config\Services::session();
+      $data['session'] = $session;
 
-        // default value
-        $data['username'] = null;
-        // cek session login
-        if ($session->has('username')) {
-            $data['username'] = $session->username;
-            $data['role'] = $session->role;
-        }
+      // default value
+      $data['username'] = null;
+      // cek session login
+      if ($session->has('username')) {
+      $data['username'] = $session->username;
+      $data['role'] = $session->role;
+      }
 
-        // QUERY MELALUI MODEL
-        $model = new PopulasiModel();
-        $data['populasi'] = $model->getPopulasi();
+      // QUERY MELALUI MODEL
+      $model = new PopulasiModel();
+      $data['populasi'] = $model->getPopulasi();
 
-        return view('data_populasi', $data);
-    }*/
+      return view('data_populasi', $data);
+      } */
 
     // input populasi
-/*    public function input_populasi() {
-        // terima data dari form input
-        $inputMachineMaker = $this->request->getPost('inputMachineMaker');
-        $inputModelUnit = $this->request->getPost('inputModelUnit');
-        $inputCodeUnit = $this->request->getPost('inputCodeUnit');
+    /*    public function input_populasi() {
+      // terima data dari form input
+      $inputMachineMaker = $this->request->getPost('inputMachineMaker');
+      $inputModelUnit = $this->request->getPost('inputModelUnit');
+      $inputCodeUnit = $this->request->getPost('inputCodeUnit');
 
-        // initialize the session
-        $session = \Config\Services::session();
+      // initialize the session
+      $session = \Config\Services::session();
 
-        $data = [
-            'machine_maker' => $inputMachineMaker,
-            'model_unit' => $inputModelUnit,
-            'code_unit' => $inputCodeUnit
-        ];
+      $data = [
+      'machine_maker' => $inputMachineMaker,
+      'model_unit' => $inputModelUnit,
+      'code_unit' => $inputCodeUnit
+      ];
 
-        // QUERY MELALUI MODEL
-        $model = new PopulasiModel();
-        $insert = $model->insertPopulasi($data);
-        if ($insert) {
-            // set flash data
-            $session->setFlashdata('inputPopulasiStatus', 'Populasi berhasil ditambahkan');
-            // Go to specific URI
-            return redirect()->to(base_url('claim-warranty/data_populasi'));
-        }
-    }*/
+      // QUERY MELALUI MODEL
+      $model = new PopulasiModel();
+      $insert = $model->insertPopulasi($data);
+      if ($insert) {
+      // set flash data
+      $session->setFlashdata('inputPopulasiStatus', 'Populasi berhasil ditambahkan');
+      // Go to specific URI
+      return redirect()->to(base_url('claim-warranty/data_populasi'));
+      }
+      } */
 
     // delete data populasi
-/*    public function delete_populasi($no) {
-        // QUERY MELALUI MODEL
-        $model = new PopulasiModel();
-        $del = $model->delPopulasi($no);
+    /*    public function delete_populasi($no) {
+      // QUERY MELALUI MODEL
+      $model = new PopulasiModel();
+      $del = $model->delPopulasi($no);
 
-        if ($del) {
-            // Go to specific URI
-            return redirect()->to(base_url('claim-warranty/data_populasi'));
-        }
-    }*/
+      if ($del) {
+      // Go to specific URI
+      return redirect()->to(base_url('claim-warranty/data_populasi'));
+      }
+      } */
 
     // change password
     public function changepwd() {
@@ -256,14 +257,14 @@ class AdminDashboard extends BaseController {
         return $foldername;
     }
 
-    public function submit_cwp() {
+    public function submit_cbm() {
         // initialize the session
         $session = \Config\Services::session();
 
         // terima data dari form input
-        $inputClaimType = $this->request->getPost('inputClaimType');
-
+        //$inputClaimType = $this->request->getPost('inputClaimType');
         $fileExcel = $this->request->getFile('dataCbmExcel');
+        $ori_filename = $fileExcel->getName();
 
         // aturan file upload
         $validationRule = [
@@ -271,8 +272,7 @@ class AdminDashboard extends BaseController {
                 'label' => 'Excel File',
                 'rules' => [
                     'uploaded[dataCbmExcel]', // file wajib diupload
-                    //'mime_in[application/vnd.ms-excel]',
-                    'mime_in[application/vnd.openxmlformats-officedocument.spreadsheetml.sheet]',               
+                    'mime_in[dataCbmExcel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet]', // format file excel 2007 (.xlsx)           
                     'max_size[dataCbmExcel,9000]' // max 9 MB
                 ],
             ]
@@ -287,18 +287,27 @@ class AdminDashboard extends BaseController {
         // jika file excel berhasil diupload dan masih ada di temporary folder
         elseif (!$fileExcel->hasMoved()) {
             $nama_folder = $this->buat_folder_tanggal();
-            $nama_foto = $fileExcel->getRandomName();
-            $dir_file_excel = $nama_folder . '/' . $nama_foto;
+            $nama_file = $fileExcel->getRandomName();
+            $dir_file_excel = $nama_folder . '/' . $nama_file;
 
-            $fileExcel->move('uploads/' . $nama_folder, $nama_foto);
+            $fileExcel->move('uploads/' . $nama_folder, $nama_file);
             //$filepath1 = WRITEPATH . 'uploads/' . $fileExcel->store();
             //$data = ['uploaded_fileinfo' => new File($filepath1)];
         }
 
         $data = [
-            'ori_filename' => $inputClaimType,
-            'foto_unit_depan' => $dir_file_excel
+            'ori_filename' => $ori_filename, // get nama file original
+            'dir_file_excel' => $dir_file_excel
         ];
+        $inputFileName = $dir_file_excel;
+        //$helper->log('Loading file ' . /** @scrutinizer ignore-type */ pathinfo($inputFileName, PATHINFO_BASENAME) . ' using IOFactory to identify the format');
+        $spreadsheet = IOFactory::load($inputFileName);
+
+        $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+        //$helper->displayGrid($sheetData);
+        
+        var_dump($sheetData);
+        exit();
 
         // QUERY MELALUI MODEL
         $model = new DashboardModel();
@@ -331,46 +340,45 @@ class AdminDashboard extends BaseController {
     }
 
     // delete cwp
-/*    public function delete_cwp($no) {
-        // QUERY MELALUI MODEL
-        $DashboardModel = new DashboardModel();
+    /*    public function delete_cwp($no) {
+      // QUERY MELALUI MODEL
+      $DashboardModel = new DashboardModel();
 
-        // get current data
-        // untuk cek foto yang diupload
-        $dataCWP = $DashboardModel->getDataCWPById($no);
+      // get current data
+      // untuk cek foto yang diupload
+      $dataCWP = $DashboardModel->getDataCWPById($no);
 
-        foreach ($dataCWP as $row) {
-            $id = $row->id;
-            $follow_up_by = $row->follow_up_by;
-            $foto_unit_depan = $row->foto_unit_depan;
-            $foto_unit_samping = $row->foto_unit_samping;
-            $foto_sn_unit = $row->foto_sn_unit;
-            $foto_hmkm_unit = $row->{'foto_hm/km_unit'};
-            $foto_komponen_rusak = $row->foto_komponen_rusak;
-        }
-        // hapus foto lama
-        if (file_exists('uploads/' . $foto_unit_depan) && is_file('uploads/' . $foto_unit_depan)) {
-            unlink('uploads/' . $foto_unit_depan);
-        }
-        if (file_exists('uploads/' . $foto_unit_samping) && is_file('uploads/' . $foto_unit_samping)) {
-            unlink('uploads/' . $foto_unit_samping);
-        }
-        if (file_exists('uploads/' . $foto_sn_unit) && is_file('uploads/' . $foto_sn_unit)) {
-            unlink('uploads/' . $foto_sn_unit);
-        }
-        if (file_exists('uploads/' . $foto_hmkm_unit) && is_file('uploads/' . $foto_hmkm_unit)) {
-            unlink('uploads/' . $foto_hmkm_unit);
-        }
-        if (file_exists('uploads/' . $foto_komponen_rusak) && is_file('uploads/' . $foto_komponen_rusak)) {
-            unlink('uploads/' . $foto_komponen_rusak);
-        }
+      foreach ($dataCWP as $row) {
+      $id = $row->id;
+      $follow_up_by = $row->follow_up_by;
+      $foto_unit_depan = $row->foto_unit_depan;
+      $foto_unit_samping = $row->foto_unit_samping;
+      $foto_sn_unit = $row->foto_sn_unit;
+      $foto_hmkm_unit = $row->{'foto_hm/km_unit'};
+      $foto_komponen_rusak = $row->foto_komponen_rusak;
+      }
+      // hapus foto lama
+      if (file_exists('uploads/' . $foto_unit_depan) && is_file('uploads/' . $foto_unit_depan)) {
+      unlink('uploads/' . $foto_unit_depan);
+      }
+      if (file_exists('uploads/' . $foto_unit_samping) && is_file('uploads/' . $foto_unit_samping)) {
+      unlink('uploads/' . $foto_unit_samping);
+      }
+      if (file_exists('uploads/' . $foto_sn_unit) && is_file('uploads/' . $foto_sn_unit)) {
+      unlink('uploads/' . $foto_sn_unit);
+      }
+      if (file_exists('uploads/' . $foto_hmkm_unit) && is_file('uploads/' . $foto_hmkm_unit)) {
+      unlink('uploads/' . $foto_hmkm_unit);
+      }
+      if (file_exists('uploads/' . $foto_komponen_rusak) && is_file('uploads/' . $foto_komponen_rusak)) {
+      unlink('uploads/' . $foto_komponen_rusak);
+      }
 
-        $del = $DashboardModel->delCWP($no);
+      $del = $DashboardModel->delCWP($no);
 
-        if ($del) {
-            // Go to specific URI
-            return redirect()->to(base_url('claim-warranty/resume'));
-        }
-    } */
-
+      if ($del) {
+      // Go to specific URI
+      return redirect()->to(base_url('claim-warranty/resume'));
+      }
+      } */
 }
