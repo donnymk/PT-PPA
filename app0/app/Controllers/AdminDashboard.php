@@ -8,7 +8,6 @@ use App\Models\DataUploadModel;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
-use App\ThirdParty\PhpSpreadsheet\IOFactory;
 
 class AdminDashboard extends BaseController {
 
@@ -289,24 +288,33 @@ class AdminDashboard extends BaseController {
             $nama_folder = $this->buat_folder_tanggal();
             $nama_file = $fileExcel->getRandomName();
             $dir_file_excel = $nama_folder . '/' . $nama_file;
-
+            
+            // pindahkan file excel ke folder uploads/yyyymmdd/
             $fileExcel->move('uploads/' . $nama_folder, $nama_file);
-            //$filepath1 = WRITEPATH . 'uploads/' . $fileExcel->store();
-            //$data = ['uploaded_fileinfo' => new File($filepath1)];
         }
 
-        $data = [
+        $data_excel = [
             'ori_filename' => $ori_filename, // get nama file original
             'dir_file_excel' => $dir_file_excel
         ];
-        $inputFileName = $dir_file_excel;
-        //$helper->log('Loading file ' . /** @scrutinizer ignore-type */ pathinfo($inputFileName, PATHINFO_BASENAME) . ' using IOFactory to identify the format');
-        $spreadsheet = IOFactory::load($inputFileName);
 
-        $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
-        //$helper->displayGrid($sheetData);
-        
-        var_dump($sheetData);
+        // baca file excel
+        $render = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+        $spreadsheet = $render->load('uploads/'.$dir_file_excel);
+
+        $data = $spreadsheet->getActiveSheet()->toArray();
+        foreach ($data as $x => $row) {
+            if ($x == 0) {
+                continue;
+            }
+            // tentukan kolom
+            $Nis = $row[0];
+            $NamaSiswa = $row[1];
+            $Alamat = $row[2];
+            echo $Nis.' '.$NamaSiswa.' '.$Alamat;
+        }
+
+        //var_dump($sheetData);
         exit();
 
         // QUERY MELALUI MODEL
