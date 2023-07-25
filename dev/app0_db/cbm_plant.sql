@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Waktu pembuatan: 19 Jul 2023 pada 14.11
+-- Waktu pembuatan: 25 Jul 2023 pada 09.06
 -- Versi server: 8.0.31
--- Versi PHP: 8.0.26
+-- Versi PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `data_upload` (
   `id_upload` int NOT NULL,
   `nama_file_ori` varchar(255) NOT NULL,
   `lokasi` varchar(255) NOT NULL,
-  `timestamp` timestamp NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_upload`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='untuk mencatat waktu upload data yang dilakukan dengan cara import dari file Excel.';
 COMMIT;

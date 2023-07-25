@@ -8,49 +8,24 @@ class DashboardModel extends Model {
 
 //protected $DBGroup = 'default';
 
-    protected $table = 'warranty_proposal';
-    protected $primaryKey = 'id';
+    protected $table = 'cbm_item';
+    protected $primaryKey = 'idcbm_item';
     protected $useAutoIncrement = true;
     protected $returnType = 'array';
     //protected $useSoftDeletes = true;
-    protected $allowedFields = ['id',
-        'what_is_claimed',
-        'jobsite',
-        'claim_date',
-        'claim_to',
-        'warranty_decision',
-        'closing_date',
-        'brand_unit',
-        'model_unit',
-        'code_unit',
-        'sn_unit',
-        'major_component',
-        'sn_component',
-        'status_unit',
-        'amount_part',
-        'final_amount',
+    protected $allowedFields = ['idcbm_item',
+        'id_upload',
+        'jeniscbm',
+        'workgroup',
+        'unitcode',
+        'model',
         'component',
-        'sub_component',
-        'part_number',
-        'qty',
-        'fitment_date',
-        'trouble_date',
-        'hm/km_fitment',
-        'hm/km_trouble',
-        'lifetime',
-        'problem_issue',
-        'supporting_comments',
-        'schedule_follow_up',
-        'remark_progress',
-        'created_by',
-        'approved_by1',
-        'approved_by2',
-        'follow_up_by',
-        'foto_unit_depan',
-        'foto_unit_samping',
-        'foto_sn_unit',
-        'foto_hm/km_unit',
-        'foto_komponen_rusak'];
+        'date_pap',
+        'hm_pap',
+        'oil_change',
+        'sample_result',
+        'analysis_lab',
+        'rekomendasi_lab'];
 //protected $useTimestamps = true;
 //    protected $createdField  = 'created_at';
 //    protected $updatedField  = 'updated_at';
@@ -78,11 +53,11 @@ class DashboardModel extends Model {
     }
 
     // insert data
-    public function insertCWP($data) {
+    public function insertCBM($data) {
         // tentukan tabel
         $builder = $this->builder();
         // insert data
-        return $builder->insert($data);
+        return $builder->insert_batch($data);
     }
 
     // update data

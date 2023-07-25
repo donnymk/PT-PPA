@@ -31,7 +31,7 @@ class DataUploadModel extends Model {
         return $query;
     }
     
-    // insert data jobsite
+    // insert data CBM items
     public function insertDataUpload($data) {
         $builder = $this->builder();
         // insert data

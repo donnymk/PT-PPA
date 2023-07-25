@@ -293,39 +293,53 @@ class AdminDashboard extends BaseController {
             $fileExcel->move('uploads/' . $nama_folder, $nama_file);
         }
 
-        $data_excel = [
-            'ori_filename' => $ori_filename, // get nama file original
-            'dir_file_excel' => $dir_file_excel
-        ];
-
         // baca file excel
         $render = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
         $spreadsheet = $render->load('uploads/'.$dir_file_excel);
 
+        $data_cbm = [];
         $data = $spreadsheet->getActiveSheet()->toArray();
         foreach ($data as $x => $row) {
+            // skip first row
             if ($x == 0) {
                 continue;
             }
             // tentukan kolom
-            $Nis = $row[0];
-            $NamaSiswa = $row[1];
-            $Alamat = $row[2];
-            echo $Nis.' '.$NamaSiswa.' '.$Alamat;
+            //$no[$x-1] = $row[0];
+            $data_cbm[$x-1]['jenis_cbm'] = $row[1];
+            $data_cbm[$x-1]['workgroup'] = $row[2];
+            $data_cbm[$x-1]['unit_code'] = $row[3];
+            $data_cbm[$x-1]['model'] = $row[4];
+            $data_cbm[$x-1]['component'] = $row[5];
+            $data_cbm[$x-1]['sample_date'] = $row[6];
+            $data_cbm[$x-1]['hm_sample'] = $row[7];
+            $data_cbm[$x-1]['oil_change'] = $row[8];
+            $data_cbm[$x-1]['sample_result'] = $row[9];
+            $data_cbm[$x-1]['analysis_lab'] = $row[10];
+            $data_cbm[$x-1]['rekomendasi_lab'] = $row[11];
         }
+        //var_dump($data_cbm); exit();
+        
+        $data_excel = [
+            'nama_file_ori' => $ori_filename, // get nama file original
+            'lokasi' => $dir_file_excel
+        ];
+        // INSERT DATA FILE EXCEL
+        $dataUploadModel = new DataUploadModel();
+        $dataUploadModel->insertDataUpload($data_excel);
 
         //var_dump($sheetData);
-        exit();
+        //exit();
 
-        // QUERY MELALUI MODEL
-        $model = new DashboardModel();
-        $insert = $model->insertCWP($data);
+        // INSERT DATA CBM DI DALAM FILE EXCEL
+        $dashboardModel = new DashboardModel();
+        $insert = $dashboardModel->insertCBM($data_cbm);
         //var_dump($data); exit();
         if ($insert) {
             // set flash data
-            $session->setFlashdata('inputCWPStatus', 'Claim Warranty Proposal berhasil ditambahkan');
+            $session->setFlashdata('inputCBMStatus', 'Data CBM berhasil diimport');
             // Go to specific URI
-            return redirect()->to(base_url('claim-warranty/resume'));
+            return redirect()->to(base_url('dashboard'));
         }
 
         $errors = 'The file has already been moved.';
