@@ -13,8 +13,7 @@ class DashboardModel extends Model {
     protected $useAutoIncrement = true;
     protected $returnType = 'array';
     //protected $useSoftDeletes = true;
-    protected $allowedFields = ['idcbm_item',
-        'id_upload',
+    protected $allowedFields = ['id_upload',
         'jeniscbm',
         'workgroup',
         'unitcode',
@@ -57,7 +56,7 @@ class DashboardModel extends Model {
         // tentukan tabel
         $builder = $this->builder();
         // insert data
-        return $builder->insert_batch($data);
+        return $builder->insertBatch($data);
     }
 
     // update data

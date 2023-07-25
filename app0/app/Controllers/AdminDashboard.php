@@ -7,6 +7,7 @@ use App\Models\DataUploadModel;
 //use CodeIgniter\Files\File;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\Database\RawSql;
 use Psr\Log\LoggerInterface;
 
 class AdminDashboard extends BaseController {
@@ -45,6 +46,7 @@ class AdminDashboard extends BaseController {
         if ($session->has('username')) {
             $data['username'] = $session->username;
             $data['role'] = $session->role;
+            $data['session'] = $session;
         }
 
         return view('dashboard', $data);
@@ -318,23 +320,21 @@ class AdminDashboard extends BaseController {
             $data_cbm[$x-1]['analysis_lab'] = $row[10];
             $data_cbm[$x-1]['rekomendasi_lab'] = $row[11];
         }
-        //var_dump($data_cbm); exit();
+        //echo var_dump($data_cbm); exit();
         
         $data_excel = [
             'nama_file_ori' => $ori_filename, // get nama file original
-            'lokasi' => $dir_file_excel
+            'lokasi' => $dir_file_excel,
+            'timestamp' => new RawSql('CURRENT_TIMESTAMP()')
         ];
         // INSERT DATA FILE EXCEL
         $dataUploadModel = new DataUploadModel();
-        $dataUploadModel->insertDataUpload($data_excel);
+        $insertDataExcel = $dataUploadModel->insertDataUpload($data_excel);
 
-        //var_dump($sheetData);
-        //exit();
-
-        // INSERT DATA CBM DI DALAM FILE EXCEL
+        // INSERT DATA CBM YG ADA DI DALAM FILE EXCEL
         $dashboardModel = new DashboardModel();
         $insert = $dashboardModel->insertCBM($data_cbm);
-        //var_dump($data); exit();
+        var_dump($insertDataExcel); exit();
         if ($insert) {
             // set flash data
             $session->setFlashdata('inputCBMStatus', 'Data CBM berhasil diimport');

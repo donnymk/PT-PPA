@@ -19,6 +19,18 @@
                     <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard CBM</a></li>
                     <!--<li class="breadcrumb-item active">Sidenav Light</li>-->
                 </ol>
+                <?php
+                // cek flash data untuk memberitahu status import data CBM (jika baru saja diimport)
+                if (isset($_SESSION['inputCBMStatus'])) {
+                    ?>
+                    <div class="card text-white bg-success mb-3">
+                        <div class="card-body">
+                            <?= $session->getFlashdata('inputCBMStatus') ?>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
                 <div class="row">
                     <div class="col-xl-3 col-md-6">
                         <div class="card bg-dark text-white mb-4">
@@ -105,7 +117,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-xl-3 col-md-6">
                         <div class="card bg-dark text-white mb-4">
@@ -192,7 +204,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="row">
                     <div class="col-xl-3 col-md-6">
                         <div class="card bg-success text-white mb-4">
