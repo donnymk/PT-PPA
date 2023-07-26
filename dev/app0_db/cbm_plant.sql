@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Waktu pembuatan: 25 Jul 2023 pada 14.00
+-- Waktu pembuatan: 26 Jul 2023 pada 08.07
 -- Versi server: 8.0.31
--- Versi PHP: 8.0.26
+-- Versi PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -54,7 +54,6 @@ INSERT INTO `auth` (`id_user`, `username`, `password`, `role`) VALUES
 DROP TABLE IF EXISTS `cbm_item`;
 CREATE TABLE IF NOT EXISTS `cbm_item` (
   `idcbm_item` int NOT NULL AUTO_INCREMENT,
-  `id_upload` int NOT NULL,
   `jeniscbm` varchar(128) NOT NULL,
   `workgroup` varchar(64) NOT NULL,
   `unitcode` varchar(64) NOT NULL,
@@ -66,6 +65,7 @@ CREATE TABLE IF NOT EXISTS `cbm_item` (
   `sample_result` varchar(45) NOT NULL,
   `analysis_lab` text,
   `rekomendasi_lab` text,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`idcbm_item`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

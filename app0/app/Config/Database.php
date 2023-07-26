@@ -35,7 +35,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'claim_warranty',
+        'database' => 'cbm_plant',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

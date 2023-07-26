@@ -13,8 +13,7 @@ class DashboardModel extends Model {
     protected $useAutoIncrement = true;
     protected $returnType = 'array';
     //protected $useSoftDeletes = true;
-    protected $allowedFields = ['id_upload',
-        'jeniscbm',
+    protected $allowedFields = ['jeniscbm',
         'workgroup',
         'unitcode',
         'model',

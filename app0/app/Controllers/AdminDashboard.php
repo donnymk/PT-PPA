@@ -68,7 +68,7 @@ class AdminDashboard extends BaseController {
 
         // QUERY MELALUI MODEL
         $model = new DataUploadModel();
-        $data['data_excel'] = $model->getDataUpload();
+        $data['data_excel'] = $model->getDataUpload()->getResult();
 
         return view('form_import', $data);
     }
@@ -308,13 +308,13 @@ class AdminDashboard extends BaseController {
             }
             // tentukan kolom
             //$no[$x-1] = $row[0];
-            $data_cbm[$x-1]['jenis_cbm'] = $row[1];
+            $data_cbm[$x-1]['jeniscbm'] = $row[1];
             $data_cbm[$x-1]['workgroup'] = $row[2];
-            $data_cbm[$x-1]['unit_code'] = $row[3];
+            $data_cbm[$x-1]['unitcode'] = $row[3];
             $data_cbm[$x-1]['model'] = $row[4];
             $data_cbm[$x-1]['component'] = $row[5];
-            $data_cbm[$x-1]['sample_date'] = $row[6];
-            $data_cbm[$x-1]['hm_sample'] = $row[7];
+            $data_cbm[$x-1]['date_pap'] = $row[6];
+            $data_cbm[$x-1]['hm_pap'] = $row[7];
             $data_cbm[$x-1]['oil_change'] = $row[8];
             $data_cbm[$x-1]['sample_result'] = $row[9];
             $data_cbm[$x-1]['analysis_lab'] = $row[10];
@@ -325,24 +325,26 @@ class AdminDashboard extends BaseController {
         $data_excel = [
             'nama_file_ori' => $ori_filename, // get nama file original
             'lokasi' => $dir_file_excel,
-            'timestamp' => new RawSql('CURRENT_TIMESTAMP()')
+            //'timestamp' => new RawSql('CURRENT_TIMESTAMP()')
         ];
         // INSERT DATA FILE EXCEL
         $dataUploadModel = new DataUploadModel();
         $insertDataExcel = $dataUploadModel->insertDataUpload($data_excel);
-
+        //var_dump($insertDataExcel); exit();
+        
         // INSERT DATA CBM YG ADA DI DALAM FILE EXCEL
         $dashboardModel = new DashboardModel();
         $insert = $dashboardModel->insertCBM($data_cbm);
-        var_dump($insertDataExcel); exit();
-        if ($insert) {
+        //var_dump($data_excel); exit();
+        
+        if ($insertDataExcel && $insert) {
             // set flash data
             $session->setFlashdata('inputCBMStatus', 'Data CBM berhasil diimport');
             // Go to specific URI
             return redirect()->to(base_url('dashboard'));
         }
 
-        $errors = 'The file has already been moved.';
+        $errors = 'There was an error.';
         return var_dump($errors);
     }
 

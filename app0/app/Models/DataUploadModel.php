@@ -35,6 +35,7 @@ class DataUploadModel extends Model {
     public function insertDataUpload($data) {
         $builder = $this->builder();
         // insert data
+        //return $builder->set($data)->getCompiledInsert();
         return $builder->insert($data);
     }
     

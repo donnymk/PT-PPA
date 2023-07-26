@@ -23,11 +23,10 @@
                 // cek flash data untuk memberitahu status import data CBM (jika baru saja diimport)
                 if (isset($_SESSION['inputCBMStatus'])) {
                     ?>
-                    <div class="card text-white bg-success mb-3">
-                        <div class="card-body">
-                            <?= $session->getFlashdata('inputCBMStatus') ?>
-                        </div>
-                    </div>
+                    <div class="alert alert-light alert-dismissible border-success text-success fade show" role="alert">
+                        <?= $session->getFlashdata('inputCBMStatus') ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>                
                     <?php
                 }
                 ?>

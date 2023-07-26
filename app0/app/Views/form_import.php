@@ -19,24 +19,23 @@
                     <li class="breadcrumb-item"><a href="<?= base_url('dashboard') ?>">Dashboard</a></li>
                     <li class="breadcrumb-item active">Import Data CBM</li>
                 </ol>
-                <?php
-                // cek flash data untuk memberitahu status ubah password
-                if (isset($_SESSION['inputJobsiteStatus'])) {
-                    ?>
-                    <div class="card text-white bg-success mb-3">
-                        <div class="card-body">
-                            <?= $session->getFlashdata('inputJobsiteStatus') ?>
-                        </div>
-                    </div>
-                    <?php
-                }
-                ?>
                 <div class="card mb-4">
                     <div class="card-header">
                         <i class="fas fa-table me-1"></i>
                         Import Data CBM
                     </div>
                     <div class="card-body table-responsive">
+                        <?php
+                        foreach ($data_excel as $key => $value):
+                            ?>
+                            <h4>Terakhir upload data CBM</h4>
+                            Waktu: <?= $value->timestamp ?><br>
+                            File Excel: <a href="uploads/<?= $value->lokasi ?>"><?= $value->nama_file_ori ?></a>
+                            <?php
+                        endforeach
+                        ?>
+                        <br><br>
+                        <h4>Import data CBM baru</h4>
                         <form method="post" enctype="multipart/form-data" action="<?= base_url('dashboard/submit_cbm') ?>">
                             <div class="form-floating mb-3 mb-md-0">
                                 <input type="file" class="form-control" name="dataCbmExcel" required="">
