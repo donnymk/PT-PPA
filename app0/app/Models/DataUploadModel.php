@@ -27,6 +27,8 @@ class DataUploadModel extends Model {
     public function getDataUpload() {
         // tampilkan menggunakan query builder
         $builder = $this->builder();
+        $builder->orderBy('timestamp', 'DESC');
+        $builder->limit(1);
         $query = $builder->get();
         return $query;
     }
