@@ -29,10 +29,23 @@
                     </div>                
                     <?php
                 }
+                //var_dump($stat_dashboard);
+                foreach ($stat_dashboard as $key => $value):
+                    $pap_danger = $value->pap_danger;
+                    //$pap_danger = 0;
+                    $pap_urgent = $value->pap_urgent;
+                    //$pap_urgent = 0;
+                    $cfm_danger = $value->cfm_danger;
+                    $cfm_urgent = $value->cfm_urgent;
+                    $mpi_danger = $value->mpi_danger;
+                    $mpi_urgent = $value->mpi_urgent;
+                    
+                endforeach
                 ?>
                 <div class="row">
+                    <!--PAP Danger-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card bg-dark text-white mb-4">
+                        <div class="card <?= $pap_danger == '0' ? 'bg-light text-dark':'bg-dark text-white' ?> mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -47,13 +60,14 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">99 Issue(s)</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                <a class="small <?= $pap_danger == '0' ? 'text-dark':'text-white' ?> stretched-link" href="#"><?= $pap_danger ?> Issue(s)</a>
+                                <div class="small <?= $pap_danger == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
+                    <!--PAP Urgent-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card bg-danger text-white mb-4">
+                        <div class="card <?= $pap_urgent == '0' ? 'bg-light text-dark':'bg-danger text-white' ?> mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -68,18 +82,19 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">99 Issue(s)</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                <a class="small <?= $pap_urgent == '0' ? 'text-dark':'text-white' ?> stretched-link" href="#"><?= $pap_urgent ?> Issue(s)</a>
+                                <div class="small <?= $pap_urgent == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
+                    <!--CFM Danger-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card bg-dark text-white mb-4">
+                        <div class="card <?= $cfm_danger == '0' ? 'bg-light text-dark' : 'bg-danger text-white' ?> mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
                                         <td>
-                                            <img src="<?= base_url('assets/img/icons8-air-filter-99-white.png') ?>" height="50px" alt=""/>
+                                            <img src="<?= $cfm_danger == '0' ? base_url('assets/img/icons8-air-filter-99.png') : base_url('assets/img/icons8-air-filter-99-white.png') ?>" height="50px" alt=""/>
                                         </td>
                                         <td>
                                             &nbsp;CFM Danger<br>
@@ -89,18 +104,19 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">View Details</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                <a class="small <?= $cfm_danger == '0' ? 'text-dark':'text-white' ?> stretched-link" href="#"><?= $cfm_danger ?> Issue(s)</a>
+                                <div class="small <?= $cfm_danger == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
+                    <!--CFM Urgent-->
                     <div class="col-xl-3 col-md-6">
                         <div class="card bg-danger text-white mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
                                         <td>
-                                            <img src="<?= base_url('assets/img/icons8-air-filter-99-white.png') ?>" height="50px" alt=""/>
+                                            <img src="<?= $cfm_urgent == '0' ? base_url('assets/img/icons8-air-filter-99.png') : base_url('assets/img/icons8-air-filter-99-white.png') ?>" height="50px" alt=""/>
                                         </td>
                                         <td>
                                             &nbsp;CFM Urgent<br>
@@ -110,16 +126,17 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">View Details</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                <a class="small <?= $cfm_urgent == '0' ? 'text-dark':'text-white' ?> stretched-link" href="#"><?= $cfm_urgent ?> Issue(s)</a>
+                                <div class="small <?= $cfm_urgent == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
+                    <!--MagPlug Danger-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card bg-dark text-white mb-4">
+                        <div class="card <?= $mpi_danger == '0' ? 'bg-light text-dark' : 'bg-dark text-white' ?> mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -134,13 +151,14 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">99 Issue(s)</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                <a class="small <?= $mpi_danger == '0' ? 'text-dark':'text-white' ?> stretched-link" href="#"><?= $mpi_danger ?> Issue(s)</a>
+                                <div class="small  <?= $mpi_danger == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
+                    <!--MagPlug Urgent-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card bg-danger text-white mb-4">
+                        <div class="card <?= $mpi_urgent == '0' ? 'bg-light text-dark' : 'bg-danger text-white' ?> mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -155,11 +173,12 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">99 Issue(s)</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                <a class="small  <?= $mpi_urgent == '0' ? 'text-dark':'text-white' ?> stretched-link" href="#"><?= $mpi_urgent ?> Issue(s)</a>
+                                <div class="small  <?= $mpi_urgent == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
+                    <!--PPM Urgent-->
                     <div class="col-xl-3 col-md-6">
                         <div class="card bg-danger text-white mb-4">
                             <div class="card-body">
@@ -176,11 +195,12 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">View Details</a>
+                                <a class="small text-white stretched-link" href="#">XX Issue(s)</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
+                    <!--PPU Bad-->
                     <div class="col-xl-3 col-md-6">
                         <div class="card bg-warning text-white mb-4">
                             <div class="card-body">
@@ -197,7 +217,7 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">View Details</a>
+                                <a class="small text-white stretched-link" href="#">XX Issue(s)</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
@@ -205,6 +225,7 @@
                 </div>
 
                 <div class="row">
+                    <!--PAF Urgent-->
                     <div class="col-xl-3 col-md-6">
                         <div class="card bg-success text-white mb-4">
                             <div class="card-body">
@@ -221,11 +242,12 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">99 Issue(s)</a>
+                                <a class="small text-white stretched-link" href="#">XX Issue(s)</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
+                    <!--PAC Urgent-->
                     <div class="col-xl-3 col-md-6">
                         <div class="card bg-primary text-white mb-4">
                             <div class="card-body">
@@ -242,7 +264,7 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">99 Issue(s)</a>
+                                <a class="small text-white stretched-link" href="#">XX Issue(s)</a>
                                 <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>

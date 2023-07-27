@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+//use CodeIgniter\Database\RawSql;
 
 class DashboardModel extends Model {
 
@@ -34,18 +35,64 @@ class DashboardModel extends Model {
     protected $skipValidation = false;
 
     // get all data CWP
-    public function getDataCWP() {
-        // tampilkan data CWP menggunakan query builder
+    /*    public function getDataCWP() {
+      // tampilkan data CWP menggunakan query builder
+      $builder = $this->builder();
+      $query = $builder->get();
+      return $query->getResult();
+      } */
+    
+    // count data CBM by jenis
+    public function countCBMByJenis() {
+        // tentukan tabel
         $builder = $this->builder();
+       $builder->select('COUNT(*),
+    (SELECT 
+            COUNT(*)
+        FROM
+            cbm_item
+        WHERE
+            jeniscbm = \'PAP\' AND sample_result = \'D\') AS pap_danger,
+    (SELECT 
+            COUNT(*)
+        FROM
+            cbm_item
+        WHERE
+            jeniscbm = \'PAP\' AND sample_result = \'C\') AS pap_urgent,
+    (SELECT 
+            COUNT(*)
+        FROM
+            cbm_item
+        WHERE
+            jeniscbm = \'CFM\' AND sample_result = \'D\') AS cfm_danger,
+    (SELECT 
+            COUNT(*)
+        FROM
+            cbm_item
+        WHERE
+            jeniscbm = \'CFM\' AND sample_result = \'C\') AS cfm_urgent,
+    (SELECT 
+            COUNT(*)
+        FROM
+            cbm_item
+        WHERE
+            jeniscbm = \'MPI\' AND sample_result = \'D\') AS mpi_danger,
+    (SELECT 
+            COUNT(*)
+        FROM
+            cbm_item
+        WHERE
+            jeniscbm = \'MPI\' AND sample_result = \'C\') AS mpi_urgent');
         $query = $builder->get();
-        return $query->getResult();
+
+        return $query;
     }
 
-    // get data CWP by ID
-    public function getDataCWPById($id) {
+    // get data CBM by jenis
+    public function getCBMByJenis($item) {
         // tampilkan data by ID menggunakan query builder
         $builder = $this->builder();
-        $builder->where('id', $id);
+        $builder->where('jeniscbm', $item);
         $query = $builder->get();
         return $query->getResult();
     }
@@ -59,23 +106,23 @@ class DashboardModel extends Model {
     }
 
     // update data
-    public function updateCWP($data, $id) {
-        // tentukan tabel
-        $builder = $this->builder();
-        // update data
-        $builder->set($data);
-        $builder->set('last_update', 'now()', false);
-        $builder->where('id', $id);
-        return $builder->update();
-    }
+    /*    public function updateCWP($data, $id) {
+      // tentukan tabel
+      $builder = $this->builder();
+      // update data
+      $builder->set($data);
+      $builder->set('last_update', 'now()', false);
+      $builder->where('id', $id);
+      return $builder->update();
+      } */
 
     // delete data by ID
-    public function delCWP($noCWP) {
-        // tentukan tabel
-        $builder = $this->builder();
-        $builder->where('id', $noCWP);
-        return $builder->delete();
-    }
+    /*    public function delCWP($noCWP) {
+      // tentukan tabel
+      $builder = $this->builder();
+      $builder->where('id', $noCWP);
+      return $builder->delete();
+      } */
 
     // count data CWP
 //    public function countCWP() {
@@ -87,31 +134,15 @@ class DashboardModel extends Model {
 //        return $query->getResult();
 //    }
 
-    // count data followup by status
-    public function countCWPByJobsite($jobsite) {
-        // tentukan tabel
-        $builder = $this->builder();
-        $builder->select('warranty_decision, COUNT(*) AS jumlah_cwp');
-       
-        if($jobsite != 'All'){
-            $builder->where('jobsite', $jobsite);
-        }
-        $builder->groupBy('warranty_decision');
-        $query = $builder->get();
-        
-        return $query->getResult();
-    }
-    
     // get jobsite in CWP data
-    public function getJobsiteData() {
-        // tampilkan menggunakan query builder
-        $builder = $this->builder();
-        $builder->select('jobsite');
-        $builder->groupBy('jobsite');
-        
-        //return print_r($builder->getCompiledSelect());
-        $query = $builder->get();
-        return $query->getResult();
-    }    
+    /*    public function getJobsiteData() {
+      // tampilkan menggunakan query builder
+      $builder = $this->builder();
+      $builder->select('jobsite');
+      $builder->groupBy('jobsite');
 
+      //return print_r($builder->getCompiledSelect());
+      $query = $builder->get();
+      return $query->getResult();
+      } */
 }

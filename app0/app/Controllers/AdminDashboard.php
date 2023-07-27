@@ -7,7 +7,7 @@ use App\Models\DataUploadModel;
 //use CodeIgniter\Files\File;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
-use CodeIgniter\Database\RawSql;
+//use CodeIgniter\Database\RawSql;
 use Psr\Log\LoggerInterface;
 
 class AdminDashboard extends BaseController {
@@ -48,6 +48,10 @@ class AdminDashboard extends BaseController {
             $data['role'] = $session->role;
             $data['session'] = $session;
         }
+
+        // QUERY MELALUI MODEL
+        $model = new DashboardModel();
+        $data['stat_dashboard'] = $model->countCBMByJenis()->getResult();
 
         return view('dashboard', $data);
     }
@@ -109,25 +113,26 @@ class AdminDashboard extends BaseController {
       } */
 
     // tampilkan semua data populasi
-    /*    public function data_populasi() {
-      // initialize the session
-      $session = \Config\Services::session();
-      $data['session'] = $session;
+    public function viewcbm($jenis) {
+        // initialize the session
+        $session = \Config\Services::session();
+        $data['session'] = $session;
 
-      // default value
-      $data['username'] = null;
-      // cek session login
-      if ($session->has('username')) {
-      $data['username'] = $session->username;
-      $data['role'] = $session->role;
-      }
+        // default value
+        $data['username'] = null;
+        // cek session login
+        if ($session->has('username')) {
+            $data['username'] = $session->username;
+            $data['role'] = $session->role;
+        }
 
-      // QUERY MELALUI MODEL
-      $model = new PopulasiModel();
-      $data['populasi'] = $model->getPopulasi();
+        // QUERY MELALUI MODEL
+        $model = new DashboardModel;
+        $data['jenis_cbm'] = $jenis;
+        $data['cbm_item'] = $model->getCBMByJenis($jenis);
 
-      return view('data_populasi', $data);
-      } */
+        return view('data_cbm', $data);
+    }
 
     // input populasi
     /*    public function input_populasi() {
@@ -258,6 +263,7 @@ class AdminDashboard extends BaseController {
         return $foldername;
     }
 
+    // import data from Excel 2007 to MySQL
     public function submit_cbm() {
         // initialize the session
         $session = \Config\Services::session();
@@ -290,14 +296,14 @@ class AdminDashboard extends BaseController {
             $nama_folder = $this->buat_folder_tanggal();
             $nama_file = $fileExcel->getRandomName();
             $dir_file_excel = $nama_folder . '/' . $nama_file;
-            
+
             // pindahkan file excel ke folder uploads/yyyymmdd/
             $fileExcel->move('uploads/' . $nama_folder, $nama_file);
         }
 
         // baca file excel
         $render = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
-        $spreadsheet = $render->load('uploads/'.$dir_file_excel);
+        $spreadsheet = $render->load('uploads/' . $dir_file_excel);
 
         $data_cbm = [];
         $data = $spreadsheet->getActiveSheet()->toArray();
@@ -308,35 +314,34 @@ class AdminDashboard extends BaseController {
             }
             // tentukan kolom
             //$no[$x-1] = $row[0];
-            $data_cbm[$x-1]['jeniscbm'] = $row[1];
-            $data_cbm[$x-1]['workgroup'] = $row[2];
-            $data_cbm[$x-1]['unitcode'] = $row[3];
-            $data_cbm[$x-1]['model'] = $row[4];
-            $data_cbm[$x-1]['component'] = $row[5];
-            $data_cbm[$x-1]['date_pap'] = $row[6];
-            $data_cbm[$x-1]['hm_pap'] = $row[7];
-            $data_cbm[$x-1]['oil_change'] = $row[8];
-            $data_cbm[$x-1]['sample_result'] = $row[9];
-            $data_cbm[$x-1]['analysis_lab'] = $row[10];
-            $data_cbm[$x-1]['rekomendasi_lab'] = $row[11];
+            $data_cbm[$x - 1]['jeniscbm'] = $row[1];
+            $data_cbm[$x - 1]['workgroup'] = $row[2];
+            $data_cbm[$x - 1]['unitcode'] = $row[3];
+            $data_cbm[$x - 1]['model'] = $row[4];
+            $data_cbm[$x - 1]['component'] = $row[5];
+            $data_cbm[$x - 1]['date_pap'] = $row[6];
+            $data_cbm[$x - 1]['hm_pap'] = $row[7];
+            $data_cbm[$x - 1]['oil_change'] = $row[8];
+            $data_cbm[$x - 1]['sample_result'] = $row[9];
+            $data_cbm[$x - 1]['analysis_lab'] = $row[10];
+            $data_cbm[$x - 1]['rekomendasi_lab'] = $row[11];
         }
         //echo var_dump($data_cbm); exit();
-        
+
         $data_excel = [
             'nama_file_ori' => $ori_filename, // get nama file original
             'lokasi' => $dir_file_excel,
-            //'timestamp' => new RawSql('CURRENT_TIMESTAMP()')
+                //'timestamp' => new RawSql('CURRENT_TIMESTAMP()')
         ];
         // INSERT DATA FILE EXCEL
         $dataUploadModel = new DataUploadModel();
         $insertDataExcel = $dataUploadModel->insertDataUpload($data_excel);
         //var_dump($insertDataExcel); exit();
-        
         // INSERT DATA CBM YG ADA DI DALAM FILE EXCEL
         $dashboardModel = new DashboardModel();
         $insert = $dashboardModel->insertCBM($data_cbm);
         //var_dump($data_excel); exit();
-        
+
         if ($insertDataExcel && $insert) {
             // set flash data
             $session->setFlashdata('inputCBMStatus', 'Data CBM berhasil diimport');
@@ -348,20 +353,20 @@ class AdminDashboard extends BaseController {
         return var_dump($errors);
     }
 
-    public function resume() {
-        // initialize the session
-        $session = \Config\Services::session();
-        $data['session'] = $session;
+    /* public function resume() {
+      // initialize the session
+      $session = \Config\Services::session();
+      $data['session'] = $session;
 
-        // default value
-        $data['username'] = null;
-        // cek session login
-        if ($session->has('username')) {
-            $data['username'] = $session->username;
-            $data['role'] = $session->role;
-        }
-        return view('resume', $data);
-    }
+      // default value
+      $data['username'] = null;
+      // cek session login
+      if ($session->has('username')) {
+      $data['username'] = $session->username;
+      $data['role'] = $session->role;
+      }
+      return view('resume', $data);
+      } */
 
     // delete cwp
     /*    public function delete_cwp($no) {
