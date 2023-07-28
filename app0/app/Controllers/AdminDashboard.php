@@ -112,7 +112,7 @@ class AdminDashboard extends BaseController {
       }
       } */
 
-    // tampilkan semua data populasi
+    // tampilkan semua data CBM sesuai jenis
     public function viewcbm($jenis) {
         // initialize the session
         $session = \Config\Services::session();
@@ -129,8 +129,32 @@ class AdminDashboard extends BaseController {
         // QUERY MELALUI MODEL
         $model = new DashboardModel;
         $data['jenis_cbm'] = $jenis;
+        $data['result'] = 'All';
         $data['cbm_item'] = $model->getCBMByJenis($jenis);
 
+        return view('data_cbm', $data);
+    }
+    
+    // tampilkan data CBM sesuai jenis dan result
+    public function viewcbm_by_result($jenis, $result) {
+        // initialize the session
+        $session = \Config\Services::session();
+        $data['session'] = $session;
+
+        // default value
+        $data['username'] = null;
+        // cek session login
+        if ($session->has('username')) {
+            $data['username'] = $session->username;
+            $data['role'] = $session->role;
+        }
+
+        // QUERY MELALUI MODEL
+        $model = new DashboardModel;
+        $data['jenis_cbm'] = $jenis;
+        $data['result'] = $result;
+        $data['cbm_item'] = $model->getCBMByJenisnResult($jenis, $result);
+        //var_dump($data['cbm_item']); exit();
         return view('data_cbm', $data);
     }
 

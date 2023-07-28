@@ -60,7 +60,7 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small <?= $pap_danger == '0' ? 'text-dark':'text-white' ?> stretched-link" href="#"><?= $pap_danger ?> Issue(s)</a>
+                                <a class="small <?= $pap_danger == '0' ? 'text-dark':'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/PAP/D') ?>"><?= $pap_danger ?> Issue(s)</a>
                                 <div class="small <?= $pap_danger == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small <?= $pap_urgent == '0' ? 'text-dark':'text-white' ?> stretched-link" href="#"><?= $pap_urgent ?> Issue(s)</a>
+                                <a class="small <?= $pap_urgent == '0' ? 'text-dark':'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/PAP/C') ?>"><?= $pap_urgent ?> Issue(s)</a>
                                 <div class="small <?= $pap_urgent == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
@@ -104,7 +104,7 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small <?= $cfm_danger == '0' ? 'text-dark':'text-white' ?> stretched-link" href="#"><?= $cfm_danger ?> Issue(s)</a>
+                                <a class="small <?= $cfm_danger == '0' ? 'text-dark':'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/CFM/D') ?>"><?= $cfm_danger ?> Issue(s)</a>
                                 <div class="small <?= $cfm_danger == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small <?= $cfm_urgent == '0' ? 'text-dark':'text-white' ?> stretched-link" href="#"><?= $cfm_urgent ?> Issue(s)</a>
+                                <a class="small <?= $cfm_urgent == '0' ? 'text-dark':'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/CFM/C') ?>"><?= $cfm_urgent ?> Issue(s)</a>
                                 <div class="small <?= $cfm_urgent == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
@@ -151,7 +151,7 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small <?= $mpi_danger == '0' ? 'text-dark':'text-white' ?> stretched-link" href="#"><?= $mpi_danger ?> Issue(s)</a>
+                                <a class="small <?= $mpi_danger == '0' ? 'text-dark':'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/MPI/D') ?>"><?= $mpi_danger ?> Issue(s)</a>
                                 <div class="small  <?= $mpi_danger == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
@@ -173,7 +173,7 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small  <?= $mpi_urgent == '0' ? 'text-dark':'text-white' ?> stretched-link" href="#"><?= $mpi_urgent ?> Issue(s)</a>
+                                <a class="small  <?= $mpi_urgent == '0' ? 'text-dark':'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/MPI/C') ?>"><?= $mpi_urgent ?> Issue(s)</a>
                                 <div class="small  <?= $mpi_urgent == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>

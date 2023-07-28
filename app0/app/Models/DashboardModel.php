@@ -97,6 +97,17 @@ class DashboardModel extends Model {
         return $query->getResult();
     }
 
+    // get data CBM by jenis and result
+    public function getCBMByJenisnResult($item, $result) {
+        // tampilkan data by ID menggunakan query builder
+        $builder = $this->builder();
+        $array = ['jeniscbm' => $item, 'sample_result' => $result];
+        $builder->where($array);
+        //return $builder->getCompiledSelect();
+        $query = $builder->get();
+        return $query->getResult();
+    }    
+    
     // insert data
     public function insertCBM($data) {
         // tentukan tabel

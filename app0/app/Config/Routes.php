@@ -36,7 +36,8 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'AdminDashboard::index');
-$routes->get('/(:alphanum)', 'AdminDashboard::viewcbm/$1');
+$routes->get('cbm/(:alphanum)', 'AdminDashboard::viewcbm/$1');
+$routes->get('cbm/(:alphanum)/(:alphanum)', 'AdminDashboard::viewcbm_by_result/$1/$2');
 $routes->get('login', 'PublicDashboard::login');
 $routes->post('loginproses', 'PublicDashboard::loginproses');
 $routes->get('import_cbm', 'AdminDashboard::import_cbm');

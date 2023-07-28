@@ -19,17 +19,16 @@
                     </a>
                     <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <!--<a class="nav-link" href="<?= base_url('dashboard/data_jobsite') ?>">Jobsite</a>-->
-                            <a class="nav-link" href="<?= base_url('dashboard/PAP') ?>">Program Analisa Pelumas (PAP)</a>
-                            <a class="nav-link" href="<?= base_url('dashboard/PM') ?>">Program Pemeriksaan Mesin (PM)</a>
-                            <a class="nav-link" href="<?= base_url('dashboard/PPU') ?>">Program Pemeriksaan Undercarriage(PPU)</a>
-                            <a class="nav-link" href="<?= base_url('dashboard/CFM') ?>">Cutting Filter (CFM)</a>
-                            <a class="nav-link" href="<?= base_url('dashboard/MPI') ?>">Mag Plug Inspection (MPI)</a>
-                            <a class="nav-link" href="<?= base_url('dashboard/P2C') ?>">Program Pemeriksaan Cylinder (P2C)</a>
-                            <a class="nav-link" href="<?= base_url('dashboard/PAC') ?>">Program Analisa Coolant (PAC)</a>
-                            <a class="nav-link" href="<?= base_url('dashboard/VHMS') ?>">On Board Monitoring (OBM) VHMS</a>
-                            <a class="nav-link" href="<?= base_url('dashboard/PAF') ?>">Program Analisa Fuel (PAF)</a>
-                            <a class="nav-link" href="<?= base_url('dashboard/#') ?>">Follow Up CBM (FU CBM)</a>
+                            <a class="nav-link" href="<?= base_url('dashboard/cbm/PAP') ?>">Program Analisa Pelumas (PAP)</a>
+                            <a class="nav-link" href="<?= base_url('dashboard/cbm/PM') ?>">Program Pemeriksaan Mesin (PM)</a>
+                            <a class="nav-link" href="<?= base_url('dashboard/cbm/PPU') ?>">Program Pemeriksaan Undercarriage(PPU)</a>
+                            <a class="nav-link" href="<?= base_url('dashboard/cbm/CFM') ?>">Cutting Filter (CFM)</a>
+                            <a class="nav-link" href="<?= base_url('dashboard/cbm/MPI') ?>">Mag Plug Inspection (MPI)</a>
+                            <a class="nav-link" href="<?= base_url('dashboard/cbm/P2C') ?>">Program Pemeriksaan Cylinder (P2C)</a>
+                            <a class="nav-link" href="<?= base_url('dashboard/cbm/PAC') ?>">Program Analisa Coolant (PAC)</a>
+                            <a class="nav-link" href="<?= base_url('dashboard/cbm/VHMS') ?>">On Board Monitoring (OBM) VHMS</a>
+                            <a class="nav-link" href="<?= base_url('dashboard/cbm/PAF') ?>">Program Analisa Fuel (PAF)</a>
+                            <a class="nav-link" href="<?= base_url('dashboard/cbm/#') ?>">Follow Up CBM (FU CBM)</a>
                         </nav>
                     </div>
                     <a class="nav-link" href="<?= base_url('dashboard/import_cbm') ?>">

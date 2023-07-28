@@ -2,14 +2,14 @@
 
 <?= $this->section('isiHalaman') ?>
 
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary">
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
     <!-- Isi top navigation -->
     <?= $this->include('topnavbar') ?>
 </nav>
 <div id="layoutSidenav">
     <!-- Isi side navigation -->
     <?= $this->include('sidenav') ?>
-
+    
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
@@ -19,17 +19,28 @@
                     <li class="breadcrumb-item active">CBM Item (<?= $jenis_cbm ?>)</li>
                 </ol>
                 <div class="card mb-4">
-                    <div class="card-header">
+                    <div class="card-header form-inline">
                         <i class="fas fa-table me-1"></i>
                         Data CBM <?= $jenis_cbm ?>
                     </div>
                     <div class="card-body table-responsive">
+                        <ul class="nav nav-tabs nav-fill">
+                            <li class="nav-item">
+                                <a class="nav-link<?= $result == 'All' ? ' active' : '' ?>" <?= $result == 'All' ? 'aria-current="page"' : '' ?> href="<?= base_url('dashboard/cbm/'.$jenis_cbm) ?>">All</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link<?= $result == 'D' ? ' active' : '' ?>" <?= $result == 'D' ? 'aria-current="page"' : '' ?> href="<?= base_url('dashboard/cbm/'.$jenis_cbm.'/D') ?>">Danger</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link<?= $result == 'C' ? ' active' : '' ?>" <?= $result == 'C' ? 'aria-current="page"' : '' ?> href="<?= base_url('dashboard/cbm/'.$jenis_cbm.'/C') ?>">Urgent</a>
+                            </li>
+                        </ul>
                         <!-- Button trigger modal -->
-<!--                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Tambah Populasi
-                        </button>
-                        <br><br>-->
-                        <table class="table table-bordered" id="dataMaster">
+                        <!--                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                    Tambah Populasi
+                                                </button>
+                                                <br><br>-->
+                        <table class="table table-bordered table-striped" id="dataMaster">
                             <thead>
                                 <tr>
                                     <th>No.</th>
