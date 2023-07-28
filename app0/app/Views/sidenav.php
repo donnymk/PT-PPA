@@ -33,7 +33,7 @@
                     </div>
                     <a class="nav-link" href="<?= base_url('dashboard/import_cbm') ?>">
                         <div class="sb-nav-link-icon"><i class="fas fa-edit"></i></div>
-                        Import CBM Item
+                        Kelola CBM Item
                     </a>
                     
                     <div class="sb-sidenav-menu-heading">CLAIM WARRANTY</div>

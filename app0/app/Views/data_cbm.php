@@ -43,7 +43,7 @@
                         <table class="table table-bordered table-striped" id="dataMaster">
                             <thead>
                                 <tr>
-                                    <th>No.</th>
+                                    <th>#</th>
                                     <th>Workgroup</th>
                                     <th>Unit Code</th>
                                     <th>Model</th>
@@ -59,10 +59,12 @@
                             </thead>
                             <tbody>
                                 <?php
+                                $no = 0;
                                 foreach ($cbm_item as $key => $value):
+                                    $no++;
                                     ?>
                                     <tr>
-                                        <td><?= $value->id ?></td>
+                                        <td><?= $no ?></td>
                                         <td><?= $value->workgroup ?></td>
                                         <td><?= $value->unitcode ?></td>
                                         <td><?= $value->model ?></td>
@@ -73,7 +75,7 @@
                                         <td><?= $value->sample_result ?></td>
                                         <td><?= $value->analysis_lab ?></td>
                                         <td><?= $value->rekomendasi_lab ?></td>
-                                        <td><a class="btn btn-secondary btn-sm" href="followup/<?= $value->id ?>">Follow Up</a></td>
+                                        <td><a class="btn btn-secondary btn-sm" href="<?= base_url('dashboard/'.$value->workgroup) ?>">Follow Up</a></td>
                                     </tr>
                                     <?php
                                 endforeach

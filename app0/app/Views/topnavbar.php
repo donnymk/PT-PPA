@@ -19,15 +19,15 @@
             <?php
             if ($username != null) {
                 ?>
-                <li><a class="dropdown-item" href="<?= base_url('claim-warranty/changepwd') ?>">Ubah password</a></li>
+                <li><a class="dropdown-item" href="<?= base_url('dashboard/changepwd') ?>">Ubah password</a></li>
                 <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" href="<?= base_url('claim-warranty/logout') ?>">Logout</a></li>
+                <li><a class="dropdown-item" href="<?= base_url('dashboard/logout') ?>">Logout</a></li>
                 <?php
             }
             // jika belum login
             else {
                 ?>
-                <li><a class="dropdown-item" href="<?= base_url('claim-warranty/login') ?>">Login</a></li>
+                <li><a class="dropdown-item" href="<?= base_url('dashboard/login') ?>">Login</a></li>
                     <?php
                 }
                 ?>
