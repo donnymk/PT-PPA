@@ -19,7 +19,7 @@
                     <li class="breadcrumb-item active">CBM Item (<?= $jenis_cbm ?>)</li>
                 </ol>
                 <div class="card mb-4">
-                    <div class="card-header form-inline">
+                    <div class="card-header form-inline" style="font-weight: bold">
                         <i class="fas fa-table me-1"></i>
                         Data CBM <?= $jenis_cbm ?>
                     </div>
@@ -75,7 +75,7 @@
                                         <td><?= $value->sample_result ?></td>
                                         <td><?= $value->analysis_lab ?></td>
                                         <td><?= $value->rekomendasi_lab ?></td>
-                                        <td><a class="btn btn-secondary btn-sm" href="<?= base_url('dashboard/'.$value->workgroup) ?>">Follow Up</a></td>
+                                        <td><a class="btn btn-secondary btn-sm" href="#">Follow Up</a></td>
                                     </tr>
                                     <?php
                                 endforeach

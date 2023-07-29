@@ -42,7 +42,7 @@ $routes->get('login', 'PublicDashboard::login');
 $routes->post('loginproses', 'PublicDashboard::loginproses');
 $routes->get('import_cbm', 'AdminDashboard::import_cbm');
 //$routes->post('input_jobsite', 'AdminDashboard::input_jobsite');
-//$routes->get('delete_jobsite/(:num)', 'AdminDashboard::delete_jobsite/$1');
+$routes->get('truncate_data_cbm', 'AdminDashboard::empty_data_cbm');
 //$routes->get('data_populasi', 'AdminDashboard::data_populasi');
 //$routes->post('input_populasi', 'AdminDashboard::input_populasi');
 //$routes->get('delete_populasi/(:num)', 'AdminDashboard::delete_populasi/$1');

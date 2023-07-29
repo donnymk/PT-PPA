@@ -111,7 +111,7 @@
                     </div>
                     <!--CFM Urgent-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card bg-danger text-white mb-4">
+                        <div class="card <?= $cfm_urgent == '0' ? 'bg-light text-dark' : 'bg-danger text-white' ?> mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>

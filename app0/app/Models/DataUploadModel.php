@@ -28,7 +28,6 @@ class DataUploadModel extends Model {
         // tampilkan menggunakan query builder
         $builder = $this->builder();
         $builder->orderBy('timestamp', 'DESC');
-        $builder->limit(1);
         $query = $builder->get();
         return $query;
     }
@@ -41,11 +40,11 @@ class DataUploadModel extends Model {
         return $builder->insert($data);
     }
     
-    // delete Jobsite by ID
-/*    public function delJobsite($no) {
+    // kosongkan data upload
+    public function empty_data_up() {
+        // tentukan tabel
         $builder = $this->builder();
-        $builder->where('id', $no);
-        return $builder->delete();
-    } */
+        return $builder->truncate();
+    }
 
 }

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+
 //use CodeIgniter\Database\RawSql;
 
 class DashboardModel extends Model {
@@ -41,12 +42,12 @@ class DashboardModel extends Model {
       $query = $builder->get();
       return $query->getResult();
       } */
-    
+
     // count data CBM by jenis
     public function countCBMByJenis() {
         // tentukan tabel
         $builder = $this->builder();
-       $builder->select('COUNT(*),
+        $builder->select('COUNT(*),
     (SELECT 
             COUNT(*)
         FROM
@@ -106,8 +107,8 @@ class DashboardModel extends Model {
         //return $builder->getCompiledSelect();
         $query = $builder->get();
         return $query->getResult();
-    }    
-    
+    }
+
     // insert data
     public function insertCBM($data) {
         // tentukan tabel
@@ -127,13 +128,12 @@ class DashboardModel extends Model {
       return $builder->update();
       } */
 
-    // delete data by ID
-    /*    public function delCWP($noCWP) {
-      // tentukan tabel
-      $builder = $this->builder();
-      $builder->where('id', $noCWP);
-      return $builder->delete();
-      } */
+    // kosongkan data CBM
+    public function empty_data_cbm() {
+        // tentukan tabel
+        $builder = $this->builder();
+        return $builder->truncate();
+    }
 
     // count data CWP
 //    public function countCWP() {
@@ -144,7 +144,6 @@ class DashboardModel extends Model {
 //        $query = $builder->get();
 //        return $query->getResult();
 //    }
-
     // get jobsite in CWP data
     /*    public function getJobsiteData() {
       // tampilkan menggunakan query builder

@@ -77,40 +77,37 @@ class AdminDashboard extends BaseController {
         return view('form_import', $data);
     }
 
-    // input jobsite
-    /*    public function input_jobsite() {
-      // terima data dari form input
-      $inputJobsite = $this->request->getPost('inputJobsite');
+    // empty data from table
+    public function empty_data_cbm() {
+        // initialize the session
+        $session = \Config\Services::session();
 
-      // initialize the session
-      $session = \Config\Services::session();
+        // QUERY MELALUI MODEL
+        $model_dashboard = new DashboardModel();
+        $model_up = new DataUploadModel();
 
-      $data = [
-      'job_site' => $inputJobsite
-      ];
+        // get current data
+        // to check excel files uploaded to server to be deleted
+        $dataUpload = $model_up->getDataUpload()->getResult();
+        foreach ($dataUpload as $row) {
+            $file_excel = $row->lokasi;
+            // delete excel files
+            if (file_exists('uploads/' . $file_excel) && is_file('uploads/' . $file_excel)) {
+                unlink('uploads/' . $file_excel);
+            }
+        }
 
-      // QUERY MELALUI MODEL
-      $model = new DataUploadModel();
-      $insert = $model->insertJobsite($data);
-      if ($insert) {
-      // set flash data
-      $session->setFlashdata('inputJobsiteStatus', 'Jobsite berhasil ditambahkan');
-      // Go to specific URI
-      return redirect()->to(base_url('claim-warranty/data_jobsite'));
-      }
-      } */
+        // empty 2 tables
+        $truncate_data_cbm = $model_dashboard->empty_data_cbm();
+        $truncate_data_upload = $model_up->empty_data_up();
 
-    // delete jobsite
-    /*    public function delete_jobsite($no) {
-      // QUERY MELALUI MODEL
-      $model = new DataUploadModel();
-      $del = $model->delJobsite($no);
-
-      if ($del) {
-      // Go to specific URI
-      return redirect()->to(base_url('claim-warranty/data_jobsite'));
-      }
-      } */
+        if ($truncate_data_cbm && $truncate_data_upload) {
+            // set flash data
+            $session->setFlashdata('truncateStatus', 'Data CBM berhasil dikosongkan');
+            // Go to specific URI
+            return redirect()->to(base_url('dashboard/import_cbm'));
+        }
+    }
 
     // tampilkan semua data CBM sesuai jenis
     public function viewcbm($jenis) {
@@ -134,7 +131,7 @@ class AdminDashboard extends BaseController {
 
         return view('data_cbm', $data);
     }
-    
+
     // tampilkan data CBM sesuai jenis dan result
     public function viewcbm_by_result($jenis, $result) {
         // initialize the session
@@ -157,45 +154,6 @@ class AdminDashboard extends BaseController {
         //var_dump($data['cbm_item']); exit();
         return view('data_cbm', $data);
     }
-
-    // input populasi
-    /*    public function input_populasi() {
-      // terima data dari form input
-      $inputMachineMaker = $this->request->getPost('inputMachineMaker');
-      $inputModelUnit = $this->request->getPost('inputModelUnit');
-      $inputCodeUnit = $this->request->getPost('inputCodeUnit');
-
-      // initialize the session
-      $session = \Config\Services::session();
-
-      $data = [
-      'machine_maker' => $inputMachineMaker,
-      'model_unit' => $inputModelUnit,
-      'code_unit' => $inputCodeUnit
-      ];
-
-      // QUERY MELALUI MODEL
-      $model = new PopulasiModel();
-      $insert = $model->insertPopulasi($data);
-      if ($insert) {
-      // set flash data
-      $session->setFlashdata('inputPopulasiStatus', 'Populasi berhasil ditambahkan');
-      // Go to specific URI
-      return redirect()->to(base_url('claim-warranty/data_populasi'));
-      }
-      } */
-
-    // delete data populasi
-    /*    public function delete_populasi($no) {
-      // QUERY MELALUI MODEL
-      $model = new PopulasiModel();
-      $del = $model->delPopulasi($no);
-
-      if ($del) {
-      // Go to specific URI
-      return redirect()->to(base_url('claim-warranty/data_populasi'));
-      }
-      } */
 
     // change password
     public function changepwd() {
@@ -260,7 +218,7 @@ class AdminDashboard extends BaseController {
         }
 
         // go to previous page
-        return redirect()->to(base_url('claim-warranty/changepwd'));
+        return redirect()->to(base_url('dashboard/changepwd'));
     }
 
     public function buat_folder_tanggal() {
@@ -390,48 +348,5 @@ class AdminDashboard extends BaseController {
       $data['role'] = $session->role;
       }
       return view('resume', $data);
-      } */
-
-    // delete cwp
-    /*    public function delete_cwp($no) {
-      // QUERY MELALUI MODEL
-      $DashboardModel = new DashboardModel();
-
-      // get current data
-      // untuk cek foto yang diupload
-      $dataCWP = $DashboardModel->getDataCWPById($no);
-
-      foreach ($dataCWP as $row) {
-      $id = $row->id;
-      $follow_up_by = $row->follow_up_by;
-      $foto_unit_depan = $row->foto_unit_depan;
-      $foto_unit_samping = $row->foto_unit_samping;
-      $foto_sn_unit = $row->foto_sn_unit;
-      $foto_hmkm_unit = $row->{'foto_hm/km_unit'};
-      $foto_komponen_rusak = $row->foto_komponen_rusak;
-      }
-      // hapus foto lama
-      if (file_exists('uploads/' . $foto_unit_depan) && is_file('uploads/' . $foto_unit_depan)) {
-      unlink('uploads/' . $foto_unit_depan);
-      }
-      if (file_exists('uploads/' . $foto_unit_samping) && is_file('uploads/' . $foto_unit_samping)) {
-      unlink('uploads/' . $foto_unit_samping);
-      }
-      if (file_exists('uploads/' . $foto_sn_unit) && is_file('uploads/' . $foto_sn_unit)) {
-      unlink('uploads/' . $foto_sn_unit);
-      }
-      if (file_exists('uploads/' . $foto_hmkm_unit) && is_file('uploads/' . $foto_hmkm_unit)) {
-      unlink('uploads/' . $foto_hmkm_unit);
-      }
-      if (file_exists('uploads/' . $foto_komponen_rusak) && is_file('uploads/' . $foto_komponen_rusak)) {
-      unlink('uploads/' . $foto_komponen_rusak);
-      }
-
-      $del = $DashboardModel->delCWP($no);
-
-      if ($del) {
-      // Go to specific URI
-      return redirect()->to(base_url('claim-warranty/resume'));
-      }
       } */
 }
