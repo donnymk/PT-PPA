@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\DashboardModel;
 use App\Models\DataUploadModel;
+use App\Models\AuthModel;
 //use CodeIgniter\Files\File;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
@@ -184,7 +185,7 @@ class AdminDashboard extends BaseController {
         // CEK USERNAME
         $username = $session->username;
         // QUERY MELALUI MODEL
-        $model = new LoginModel();
+        $model = new AuthModel();
         $select_admin = $model->authAdmin($username);
 
         // jika data ditemukan

@@ -2,58 +2,58 @@
 
 namespace App\Controllers;
 
-use App\Models\DashboardModel;
-use App\Models\LoginModel;
+//use App\Models\DashboardModel;
+use App\Models\AuthModel;
 
 class PublicDashboard extends BaseController {
 
     public function index($jobsite) {
-/*        // initialize the session
-        $session = \Config\Services::session();
+        /*        // initialize the session
+          $session = \Config\Services::session();
 
-        // get current url
-        $uri = current_url(true);
-        // Disable throwing exceptions
-        $uri->setSilent();
+          // get current url
+          $uri = current_url(true);
+          // Disable throwing exceptions
+          $uri->setSilent();
 
-        // default value
-        $data['username'] = null;
-        // cek session login
-        if ($session->has('username')) {
-            $data['username'] = $session->username;
-            $data['role'] = $session->role;
-        }
+          // default value
+          $data['username'] = null;
+          // cek session login
+          if ($session->has('username')) {
+          $data['username'] = $session->username;
+          $data['role'] = $session->role;
+          }
 
-        // QUERY MELALUI MODEL
-        $model = new DashboardModel();
-        $data['jobsiteData'] = $model->getJobsiteData();
-		
-		$totalSegments = $uri->getTotalSegments();
-        //$data['currentJobsite'] = $uri->getSegment(4); // static
-		$data['currentJobsite'] = $uri->getSegment($totalSegments); // dynamic menyesuaikan URL
-		if($data['currentJobsite'] == 'index.php'){
-			$data['currentJobsite'] = '';
-		}
-		//var_dump($data['currentJobsite']); exit();
-		
-        $countCWP = $model->countCWPByJobsite($jobsite);
-        $data['countCWP'] = $countCWP;
+          // QUERY MELALUI MODEL
+          $model = new DashboardModel();
+          $data['jobsiteData'] = $model->getJobsiteData();
 
-        $rekap_cwp = [];
-        $total_cwp = 0;
-        foreach ($countCWP as $row) {
-            $baris = array();
-            $baris['warranty_decision'] = $row->warranty_decision;
-            $baris['jumlah_cwp'] = $row->jumlah_cwp;
-            // total
-            $total_cwp = $total_cwp + $row->jumlah_cwp;
-            $baris['total_cwp'] = $total_cwp;
-            
-            array_push($rekap_cwp, $baris);
-        }
-        //var_dump($rekap_cwp); exit();
+          $totalSegments = $uri->getTotalSegments();
+          //$data['currentJobsite'] = $uri->getSegment(4); // static
+          $data['currentJobsite'] = $uri->getSegment($totalSegments); // dynamic menyesuaikan URL
+          if($data['currentJobsite'] == 'index.php'){
+          $data['currentJobsite'] = '';
+          }
+          //var_dump($data['currentJobsite']); exit();
 
-        return view('dasborcwp', $data); */
+          $countCWP = $model->countCWPByJobsite($jobsite);
+          $data['countCWP'] = $countCWP;
+
+          $rekap_cwp = [];
+          $total_cwp = 0;
+          foreach ($countCWP as $row) {
+          $baris = array();
+          $baris['warranty_decision'] = $row->warranty_decision;
+          $baris['jumlah_cwp'] = $row->jumlah_cwp;
+          // total
+          $total_cwp = $total_cwp + $row->jumlah_cwp;
+          $baris['total_cwp'] = $total_cwp;
+
+          array_push($rekap_cwp, $baris);
+          }
+          //var_dump($rekap_cwp); exit();
+
+          return view('dasborcwp', $data); */
     }
 
     public function login() {
@@ -75,7 +75,7 @@ class PublicDashboard extends BaseController {
         $password_db = null;
 
         // QUERY MELALUI MODEL
-        $model = new LoginModel();
+        $model = new AuthModel();
         $select_admin = $model->authAdmin($inputUsername);
 
         // jika data ditemukan
@@ -109,10 +109,11 @@ class PublicDashboard extends BaseController {
     public function logout() {
         // initialize the session
         $session = \Config\Services::session();
-        $session->destroy();
+        //$session->destroy();
+        $array_items = ['username', 'role', 'logged_in'];
+        $session->remove($array_items);
 
         // Go to specific URI
-        return redirect()->to(base_url('dashboard/'));
+        return redirect()->to(base_url('dashboard/login'));
     }
-
 }

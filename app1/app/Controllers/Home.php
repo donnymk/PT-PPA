@@ -76,7 +76,9 @@ class Home extends BaseController {
     public function logout() {
         // initialize the session
         $session = \Config\Services::session();
-        $session->destroy();
+        //$session->destroy();
+        $array_items = ['username', 'role', 'logged_in'];
+        $session->remove($array_items);
 
         // Go to specific URI
         return redirect()->to(base_url('followup-cbm/'));

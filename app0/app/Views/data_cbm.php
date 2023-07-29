@@ -9,7 +9,7 @@
 <div id="layoutSidenav">
     <!-- Isi side navigation -->
     <?= $this->include('sidenav') ?>
-    
+
     <div id="layoutSidenav_content">
         <main>
             <div class="container-fluid px-4">
@@ -26,13 +26,13 @@
                     <div class="card-body table-responsive">
                         <ul class="nav nav-tabs nav-fill">
                             <li class="nav-item">
-                                <a class="nav-link<?= $result == 'All' ? ' active' : '' ?>" <?= $result == 'All' ? 'aria-current="page"' : '' ?> href="<?= base_url('dashboard/cbm/'.$jenis_cbm) ?>">All</a>
+                                <a class="nav-link<?= $result == 'All' ? ' active' : '' ?>" <?= $result == 'All' ? 'aria-current="page"' : '' ?> href="<?= base_url('dashboard/cbm/' . $jenis_cbm) ?>">All</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link<?= $result == 'D' ? ' active' : '' ?>" <?= $result == 'D' ? 'aria-current="page"' : '' ?> href="<?= base_url('dashboard/cbm/'.$jenis_cbm.'/D') ?>">Danger</a>
+                                <a class="nav-link<?= $result == 'D' ? ' active' : '' ?>" <?= $result == 'D' ? 'aria-current="page"' : '' ?> href="<?= base_url('dashboard/cbm/' . $jenis_cbm . '/D') ?>">Danger</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link<?= $result == 'C' ? ' active' : '' ?>" <?= $result == 'C' ? 'aria-current="page"' : '' ?> href="<?= base_url('dashboard/cbm/'.$jenis_cbm.'/C') ?>">Urgent</a>
+                                <a class="nav-link<?= $result == 'C' ? ' active' : '' ?>" <?= $result == 'C' ? 'aria-current="page"' : '' ?> href="<?= base_url('dashboard/cbm/' . $jenis_cbm . '/C') ?>">Urgent</a>
                             </li>
                         </ul>
                         <!-- Button trigger modal -->
@@ -62,6 +62,7 @@
                                 $no = 0;
                                 foreach ($cbm_item as $key => $value):
                                     $no++;
+                                    $need_followup = ['B', 'C', 'D'];
                                     ?>
                                     <tr>
                                         <td><?= $no ?></td>
@@ -75,7 +76,15 @@
                                         <td><?= $value->sample_result ?></td>
                                         <td><?= $value->analysis_lab ?></td>
                                         <td><?= $value->rekomendasi_lab ?></td>
-                                        <td><a class="btn btn-secondary btn-sm" href="#">Follow Up</a></td>
+                                        <td>
+                                            <?php
+                                            if (in_array($value->sample_result, $need_followup)) {
+                                                ?>
+                                                <a class="btn btn-secondary btn-sm" href="#">Follow Up</a>
+                                                <?php
+                                            }
+                                            ?>
+                                        </td>
                                     </tr>
                                     <?php
                                 endforeach

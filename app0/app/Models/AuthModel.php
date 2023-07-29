@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class LoginModel extends Model {
+class AuthModel extends Model {
 
 //protected $DBGroup = 'default';
 

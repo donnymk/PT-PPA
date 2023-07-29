@@ -53,9 +53,9 @@ $routes->post('submit_cbm', 'AdminDashboard::submit_cbm');
 //$routes->post('update_cwp', 'AdminDashboard::update_cwp');
 //$routes->get('resume', 'AdminDashboard::resume');
 //$routes->get('delete_cwp/(:num)', 'AdminDashboard::delete_cwp/$1');
-//$routes->get('changepwd', 'AdminDashboard::changepwd');
-//$routes->post('submit_changepwd', 'AdminDashboard::submit_changepwd');
-//$routes->get('logout', 'PublicDashboard::logout');
+$routes->get('changepwd', 'AdminDashboard::changepwd');
+$routes->post('submit_changepwd', 'AdminDashboard::changepwd_submit');
+$routes->get('logout', 'PublicDashboard::logout');
 //
 //$routes->post('get_model_unit', 'AjaxCWP::get_model_unit');
 //$routes->post('get_code_unit', 'AjaxCWP::get_code_unit');

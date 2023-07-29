@@ -59,7 +59,7 @@
                         <ul>
                             <li style="font-weight: bold">Import data akan menambahkan data ke database dan tidak akan menghapus data yang sudah ada.</li>
                             <li>Format file Excel harus .xlsx (Office 2007 ke atas)</li>
-                            <li>Isi file Excel yang harus diupload silahkan <a href="<?= base_url('assets/xlsx/sample-upload-data-cbm.xlsx') ?>" target="_blank">klik di sini</a>.</li>
+                            <li>Contoh isi file Excel yang harus diupload silahkan <a href="<?= base_url('assets/xlsx/sample-upload-data-cbm.xlsx') ?>" target="_blank">klik di sini</a>.</li>
                         </ul>
 
                         <form method="post" enctype="multipart/form-data" action="<?= base_url('dashboard/submit_cbm') ?>">

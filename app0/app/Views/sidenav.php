@@ -32,13 +32,13 @@
                         </nav>
                     </div>
                     <a class="nav-link" href="<?= base_url('dashboard/import_cbm') ?>">
-                        <div class="sb-nav-link-icon"><i class="fas fa-edit"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-file-export"></i></div>
                         Kelola CBM Item
                     </a>
                     
                     <div class="sb-sidenav-menu-heading">CLAIM WARRANTY</div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseCWP" aria-expanded="false" aria-controls="collapseCWP">
-                        <div class="sb-nav-link-icon"><i class="fas fa-database"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-file-pen"></i></div>
                         CWP Item
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
@@ -51,7 +51,7 @@
                     
                     <div class="sb-sidenav-menu-heading">FORM</div>
                     <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseForm" aria-expanded="false" aria-controls="collapseForm">
-                        <div class="sb-nav-link-icon"><i class="fas fa-form"></i></div>
+                        <div class="sb-nav-link-icon"><i class="fas fa-pen-to-square"></i></div>
                         List Form
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                     </a>
