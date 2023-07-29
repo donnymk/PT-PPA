@@ -45,7 +45,7 @@
                                                                                         </div>-->
                                             <?= $session->getFlashdata('login_gagal'); ?>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="<?= base_url('claim-warranty') ?>">Kembali ke halaman utama</a>
+                                                <a class="small" href="<?= base_url() ?>">Kembali ke halaman utama</a>
                                                 <button class="btn btn-primary" type="submit">Login</button>
                                             </div>
                                         </form>
