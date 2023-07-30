@@ -43,6 +43,8 @@ function get_timestamp() {
 // load data CBM
 function load_data_cbm() {
     $('#dataCbm').DataTable({
+		lengthMenu: [[5, 10], [5, 10]],
+        pageLength: 10,
         columnDefs: [
             {
                 targets: '_all',
