@@ -40,19 +40,35 @@
                                                     Tambah Populasi
                                                 </button>
                                                 <br><br>-->
-                        <table class="table table-bordered table-striped" id="dataMaster">
+                        <!-- Untuk filtering data, yang didefinisikan melalui javascript -->
+                        <div class="row g-3 mt-auto mb-2">
+                            <div class="col-auto">
+                                <label class="form-control-plaintext">Workgroup</label>
+                            </div>
+                            <div class="col-auto">
+                               <span id="filter1"></span>
+                            </div>
+                            <div class="col-auto">
+                                <label class="form-control-plaintext">Model</label>
+                            </div>
+                            <div class="col-auto">
+                                <span id="filter2"></span>
+                            </div>
+                        </div>
+                        <!--/ Untuk filtering data, yang didefinisikan melalui javascript -->
+
+                        <table class="table table-bordered table-striped" id="dataCbm">
                             <thead>
-                                <tr>
+                                <tr style="vertical-align: middle">
                                     <th>#</th>
                                     <th>Workgroup</th>
                                     <th>Unit Code</th>
                                     <th>Model</th>
                                     <th>Component</th>
-                                    <th>Sample Date</th>
-                                    <th>HM Sample</th>
-                                    <th>Oil Change</th>
-                                    <th>Sample Result</th>
-                                    <th>Analysis Lab</th>
+                                    <th>Date <?= $jenis_cbm ?></th>
+                                    <th>HM <?= $jenis_cbm ?></th>
+                                    <th><?= $jenis_cbm ?> Result</th>
+                                    <th>Analisis Lab</th>
                                     <th>Rekomendasi Lab</th>
                                     <th>Follow Up</th>
                                 </tr>
@@ -72,7 +88,6 @@
                                         <td><?= $value->component ?></td>
                                         <td><?= $value->date_pap ?></td>
                                         <td><?= $value->hm_pap ?></td>
-                                        <td><?= $value->oil_change ?></td>
                                         <td><?= $value->sample_result ?></td>
                                         <td><?= $value->analysis_lab ?></td>
                                         <td><?= $value->rekomendasi_lab ?></td>

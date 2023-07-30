@@ -126,11 +126,17 @@ class AdminDashboard extends BaseController {
 
         // QUERY MELALUI MODEL
         $model = new DashboardModel;
+        $data['cbm_item'] = $model->getCBMByJenis($jenis);
+        
         $data['jenis_cbm'] = $jenis;
         $data['result'] = 'All';
-        $data['cbm_item'] = $model->getCBMByJenis($jenis);
-
-        return view('data_cbm', $data);
+        
+        $view = 'data_cbm';
+        // view khusus CBM PAP
+        if($jenis == 'PAP'){
+            $view = 'data_cbm_pap';
+        }
+        return view($view, $data);
     }
 
     // tampilkan data CBM sesuai jenis dan result
@@ -153,7 +159,13 @@ class AdminDashboard extends BaseController {
         $data['result'] = $result;
         $data['cbm_item'] = $model->getCBMByJenisnResult($jenis, $result);
         //var_dump($data['cbm_item']); exit();
-        return view('data_cbm', $data);
+        
+        $view = 'data_cbm';
+        // view khusus CBM PAP
+        if($jenis == 'PAP'){
+            $view = 'data_cbm_pap';
+        }
+        return view($view, $data);
     }
 
     // change password
