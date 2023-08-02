@@ -57,7 +57,7 @@
                         </div>
                         <!--/ Untuk filtering data, yang didefinisikan melalui javascript -->
                         
-                        <table class="table table-bordered table-striped" id="dataCbm">
+                        <table class="table table-bordered" id="dataCbm">
                             <thead>
                                 <tr style="vertical-align: middle">
                                     <th>#</th>
@@ -80,6 +80,20 @@
                                 foreach ($cbm_item as $key => $value):
                                     $no++;
                                     $need_followup = ['B', 'C', 'D'];
+                                    $fontcolor = 'black';
+                                    switch($value->sample_result){
+                                        case 'D': $bgcolor = '#111'; //black lighter
+                                            $fontcolor = 'white';
+                                            break;
+                                        case 'C': $bgcolor = 'red';
+                                            $fontcolor = 'white';
+                                            break;
+                                        case 'B': $bgcolor = 'yellow';
+                                            break;
+                                        default: $bgcolor = 'green';
+                                            $fontcolor = 'white';
+                                            break;
+                                    }
                                     ?>
                                     <tr>
                                         <td><?= $no ?></td>
@@ -90,14 +104,14 @@
                                         <td><?= $value->date_pap ?></td>
                                         <td><?= $value->hm_pap ?></td>
                                         <td><?= $value->oil_change ?></td>
-                                        <td><?= $value->sample_result ?></td>
+                                        <td style="background-color: <?= $bgcolor ?>; color: <?= $fontcolor ?>; text-align: center"><?= $value->sample_result ?></td>
                                         <td><?= $value->analysis_lab ?></td>
                                         <td><?= $value->rekomendasi_lab ?></td>
                                         <td>
                                             <?php
                                             if (in_array($value->sample_result, $need_followup)) {
                                                 ?>
-                                                <a class="btn btn-secondary btn-sm" href="#">Follow Up</a>
+                                            <a href="<?= base_url('followup-cbm/input') ?>" target="_blank">Follow Up</a>
                                                 <?php
                                             }
                                             ?>

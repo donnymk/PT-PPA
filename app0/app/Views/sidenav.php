@@ -1,7 +1,7 @@
 <div id="layoutSidenav_nav">
     <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
-            <div class="nav">
+            <div class="nav" style="font-weight: bold">
 <!--                <div class="sb-sidenav-menu-heading">Umum</div>
                 <a class="nav-link" href="<?= base_url('dashboard') ?>">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -44,8 +44,8 @@
                     </a>
                     <div class="collapse" id="collapseCWP" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="<?= base_url('dashboard/') ?>">Input Claim Warranty</a>
-                            <a class="nav-link" href="<?= base_url('dashboard/') ?>">Resume Claim Warranty</a>
+                            <a class="nav-link" href="<?= base_url('claim-warranty/input_cwp') ?>" target="_blank">Input Claim Warranty</a>
+                            <a class="nav-link" href="<?= base_url('claim-warranty/resume') ?>" target="_blank">Resume Claim Warranty</a>
                         </nav>
                     </div>
                     
@@ -57,8 +57,8 @@
                     </a>
                     <div class="collapse" id="collapseForm" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="<?= base_url('dashboard/') ?>">Form CBM</a>
-                            <a class="nav-link" href="<?= base_url('dashboard/') ?>">Form Technical Analysis Report</a>
+                            <a class="nav-link" href="<?= base_url('followup-cbm/input') ?>" target="_blank">Form CBM</a>
+                            <a class="nav-link" href="<?= base_url('dashboard') ?>">Form Technical Analysis Report</a>
                         </nav>
                     </div>
                     <?php

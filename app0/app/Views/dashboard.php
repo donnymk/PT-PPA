@@ -12,7 +12,7 @@
 
     <div id="layoutSidenav_content">
         <main>
-            <div class="container-fluid px-4">
+            <div class="container-fluid px-4" style="font-weight: bold">
                 <h1 class="mt-4">DASHBOARD PLANT ENGINEER</h1>
                 <h2>PT. PPA - SITE MIP</h2>
                 <ol class="breadcrumb mb-4">
@@ -45,7 +45,7 @@
                 <div class="row">
                     <!--PAP Danger-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card <?= $pap_danger == '0' ? 'bg-light text-dark':'bg-dark text-white' ?> mb-4">
+                        <div class="card <?= $pap_danger == '0' ? 'bg-light text-dark':'bg-dark text-white' ?> border-dark mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -67,7 +67,7 @@
                     </div>
                     <!--PAP Urgent-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card <?= $pap_urgent == '0' ? 'bg-light text-dark':'bg-danger text-white' ?> mb-4">
+                        <div class="card <?= $pap_urgent == '0' ? 'bg-light text-dark':'bg-danger text-white' ?> border-dark mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -89,7 +89,7 @@
                     </div>
                     <!--CFM Danger-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card <?= $cfm_danger == '0' ? 'bg-light text-dark' : 'bg-danger text-white' ?> mb-4">
+                        <div class="card <?= $cfm_danger == '0' ? 'bg-light text-dark' : 'bg-danger text-white' ?> border-dark mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -111,7 +111,7 @@
                     </div>
                     <!--CFM Urgent-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card <?= $cfm_urgent == '0' ? 'bg-light text-dark' : 'bg-danger text-white' ?> mb-4">
+                        <div class="card <?= $cfm_urgent == '0' ? 'bg-light text-dark' : 'bg-danger text-white' ?> border-dark mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -136,7 +136,7 @@
                 <div class="row">
                     <!--MagPlug Danger-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card <?= $mpi_danger == '0' ? 'bg-light text-dark' : 'bg-dark text-white' ?> mb-4">
+                        <div class="card <?= $mpi_danger == '0' ? 'bg-light text-dark' : 'bg-dark text-white' ?> border-dark mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -158,7 +158,7 @@
                     </div>
                     <!--MagPlug Urgent-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card <?= $mpi_urgent == '0' ? 'bg-light text-dark' : 'bg-danger text-white' ?> mb-4">
+                        <div class="card <?= $mpi_urgent == '0' ? 'bg-light text-dark' : 'bg-danger text-white' ?> border-dark mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -180,7 +180,7 @@
                     </div>
                     <!--PPM Urgent-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card bg-danger text-white mb-4">
+                        <div class="card bg-danger text-white border-dark mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -202,7 +202,7 @@
                     </div>
                     <!--PPU Bad-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card bg-warning text-white mb-4">
+                        <div class="card bg-warning text-white border-dark mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -227,7 +227,7 @@
                 <div class="row">
                     <!--PAF Urgent-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card bg-success text-white mb-4">
+                        <div class="card bg-success text-white border-dark mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -249,7 +249,7 @@
                     </div>
                     <!--PAC Urgent-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card bg-primary text-white mb-4">
+                        <div class="card bg-primary text-white border-dark mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
