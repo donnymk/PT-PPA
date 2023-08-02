@@ -73,8 +73,17 @@ class AdminDashboard extends BaseController {
 
         // QUERY MELALUI MODEL
         $model = new DataUploadModel();
-        $data['data_excel'] = $model->getDataUpload()->getResult();
+        
+        // get the time diff
+        $timediff = $model->getTimeDiff()->getResult();
+        $timeDiff = $timediff[0]->time_diff;
+        // lakukan konversi time zone ke GMT+7
+        $from_timezone = '+'.substr($timeDiff, 0, 5);
+        $to_timezone = '+07:00';
+        
+        $data['data_excel'] = $model->getDataUpload($from_timezone, $to_timezone)->getResult();
 
+        //return var_dump($data['data_excel']);
         return view('form_import', $data);
     }
 

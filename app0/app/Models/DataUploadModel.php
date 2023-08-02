@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use CodeIgniter\Database\RawSql;
 
 class DataUploadModel extends Model {
 
@@ -22,12 +23,26 @@ class DataUploadModel extends Model {
     protected $validationRules = [];
     protected $validationMessages = [];
     protected $skipValidation = false;
+    
+    // get difference of the time zone from database server
+    public function getTimeDiff(){
+        $builder = $this->builder();
+        $builder->select('timediff(now(),convert_tz(now(),@@session.time_zone,\'+00:00\')) AS time_diff', false);
+        //return $builder->getCompiledSelect();
+        $query = $builder->get();
+        return $query;        
+    }
 
-    // get all jobsite
-    public function getDataUpload() {
+    // get all data upload
+    public function getDataUpload($from_timezone, $to_timezone) {
         // tampilkan menggunakan query builder
         $builder = $this->builder();
+        
+        // use raw sql
+        $sql = 'nama_file_ori, lokasi, DATE_FORMAT(CONVERT_TZ(timestamp,\''.$from_timezone.'\',\''.$to_timezone.'\'), \'%d %b %Y %H:%i:%s\') AS converted_time';
+        $builder->select(new RawSql($sql));
         $builder->orderBy('timestamp', 'DESC');
+        //return $builder->getCompiledSelect();
         $query = $builder->get();
         return $query;
     }

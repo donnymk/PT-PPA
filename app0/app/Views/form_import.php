@@ -43,7 +43,7 @@
                         foreach ($data_excel as $key => $value):
                             $line_count++;
                             ?>
-                            Waktu: <?= $value->timestamp ?><br>
+                            Waktu: <?= $value->converted_time ?><br>
                             File Excel: <a href="uploads/<?= $value->lokasi ?>"><?= $value->nama_file_ori ?></a>
                             <?php
                             if ($line_count != $upload_count) {
