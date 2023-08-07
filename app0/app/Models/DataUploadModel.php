@@ -33,7 +33,7 @@ class DataUploadModel extends Model {
         return $query;        
     }
 
-    // get all data upload
+    // get all data upload including including converted timezone from timestamp
     public function getDataUpload($from_timezone, $to_timezone) {
         // tampilkan menggunakan query builder
         $builder = $this->builder();
@@ -42,6 +42,16 @@ class DataUploadModel extends Model {
         $sql = 'nama_file_ori, lokasi, DATE_FORMAT(CONVERT_TZ(timestamp,\''.$from_timezone.'\',\''.$to_timezone.'\'), \'%d %b %Y %H:%i:%s\') AS converted_time';
         $builder->select(new RawSql($sql));
         $builder->orderBy('timestamp', 'DESC');
+        //return $builder->getCompiledSelect();
+        $query = $builder->get();
+        return $query;
+    }
+    
+    // get all data upload
+    public function getDataUploadSimple() {
+        // tampilkan menggunakan query builder
+        $builder = $this->builder();
+        
         //return $builder->getCompiledSelect();
         $query = $builder->get();
         return $query;

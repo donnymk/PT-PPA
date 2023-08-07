@@ -98,7 +98,7 @@ class AdminDashboard extends BaseController {
 
         // get current data
         // to check excel files uploaded to server to be deleted
-        $dataUpload = $model_up->getDataUpload()->getResult();
+        $dataUpload = $model_up->getDataUploadSimple()->getResult();
         foreach ($dataUpload as $row) {
             $file_excel = $row->lokasi;
             // delete excel files
