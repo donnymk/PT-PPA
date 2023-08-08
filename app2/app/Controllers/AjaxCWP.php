@@ -132,16 +132,16 @@ class AjaxCWP extends BaseController {
         echo json_encode($data_code_unit);
     }
 
-    // get jumlah follow up by CBM dengan status open
-    public function jumlah_followup_open() {
+    // get jumlah Claim Warranty Proposal berdasarkan status
+    public function count_cwp() {
         // Check for AJAX request
         if ($this->request->isAJAX()) {
             // QUERY MELALUI MODEL
-            $model = new FollowupModel();
+            $model = new CWPModel();
             //$get_data_cwp = $model->getdataCbm();
-            $get_jumlah_followup = $model->countFollowUpOpen();
+            $get_count_cwp = $model->countCWPByJobsite('All');
 
-            echo json_encode($get_jumlah_followup);
+            echo json_encode($get_count_cwp);
         }
         return false;
     }

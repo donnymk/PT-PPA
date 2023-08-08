@@ -120,6 +120,7 @@ class CWPModel extends Model {
         $builder = $this->builder();
         $builder->select('warranty_decision, COUNT(*) AS jumlah_cwp');
        
+        // Jika jobsite tertentu
         if($jobsite != 'All'){
             $builder->where('jobsite', $jobsite);
         }

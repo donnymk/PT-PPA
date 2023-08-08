@@ -59,7 +59,6 @@ $routes->get('logout', 'HomeCW::logout');
 $routes->post('get_model_unit', 'AjaxCWP::get_model_unit');
 $routes->post('get_code_unit', 'AjaxCWP::get_code_unit');
 $routes->get('resume_data', 'AjaxCWP::data_cwp');
-$routes->get('jumlah_followup_open', 'AjaxCWP::jumlah_followup_open');
 
 $routes->get('cetak_form/(:num)', 'PrintCWP::index/$1');
 

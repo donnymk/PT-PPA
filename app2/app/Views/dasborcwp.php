@@ -36,52 +36,49 @@
                 }
                 ?>
                 <br><br>
-                <div class="row">
-                    <div class="col-xl-5">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-chart-area me-1"></i>
-                                Statistik <?= $currentJobsite ?>
-                            </div>
-                            <div class="card-body">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-area me-1"></i>
+                        Statistik <?= $currentJobsite ?>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-4">
                                 <table class="table table-striped">
                                     <tr>
                                         <th>Status</th><th>Jumlah</th><th>Achievement CWP</th>
                                     </tr>
                                     <?php
-                                    if(count($countCWP) == 0){
+                                    if (count($countCWP) == 0) {
                                         ?>
                                         <tr>
                                             <td colspan="3">Tidak ada data pada Jobsite <?= $currentJobsite ?></td>
                                         </tr>
-                                        <?php                                        
+                                        <?php
                                     }
+                                    $warranty_decision = [];
+                                    $jumlah_cwp = [];
+                                    $i = 0;
                                     foreach ($countCWP as $row) {
-                                        $warranty_decision = $row->warranty_decision;
-                                        $jumlah_cwp = $row->jumlah_cwp;
+                                        $warranty_decision[$i] = $row->warranty_decision;
+                                        $jumlah_cwp[$i] = $row->jumlah_cwp;
                                         ?>
                                         <tr>
-                                            <td><?= $warranty_decision ?></td>
-                                            <td style="text-align: center"><?= $jumlah_cwp ?></td>
+                                            <td><?= $warranty_decision[$i] ?></td>
+                                            <td style="text-align: center"><?= $jumlah_cwp[$i] ?></td>
                                             <td></td>
                                         </tr>
                                         <?php
+                                        $i++;
                                     }
                                     ?>
                                 </table>
-
+                            </div>
+                            <div class="col-xl-8">
+                                <canvas id="myBarChart" width="100%" height="40"></canvas>
                             </div>
                         </div>
                     </div>
-<!--                    <div class="col-xl-7">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-chart-bar me-1"></i>
-                                Claim Warranty Graphic
-                            </div>
-                            <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                        </div>
-                    </div>-->
                 </div>
             </div>
         </main>
@@ -92,10 +89,57 @@
 </div>
 
 <!-- Chart.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-<script>
-// tampilkan grafik Claim Warranty
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+<script>
+    var warranty_decision = <?= json_encode($warranty_decision) ?>;
+    var jumlah_cwp = <?= json_encode($jumlah_cwp) ?>;
+
+
+// tampilkan grafik Claim Warranty
+    function chart_bar_cwp(label, value) {
+// Set new default font family and font color to mimic Bootstrap's default styling
+        //Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+        //Chart.defaults.global.defaultFontColor = '#292b2c';
+
+        const ctx = document.getElementById("myBarChart");
+        const options = {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        stepSize: 1
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                colors: {
+                    enabled: true
+                }
+            }
+        };
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                //labels: label,
+                labels: label,
+                datasets: [{
+                        label: 'Jumlah CWP',
+                        //backgroundColor: 'rgb(252, 116, 101)',
+                        data: value,
+                        borderWidth: 2
+                    }]
+            },
+            options: options
+        });
+    }
+
+    chart_bar_cwp(warranty_decision, jumlah_cwp);
 
 </script>
 
