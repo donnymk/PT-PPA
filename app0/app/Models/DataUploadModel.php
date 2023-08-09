@@ -23,40 +23,42 @@ class DataUploadModel extends Model {
     protected $validationRules = [];
     protected $validationMessages = [];
     protected $skipValidation = false;
-    
+
     // get difference of the time zone from database server
-    public function getTimeDiff(){
-        $builder = $this->builder();
-        $builder->select('timediff(now(),convert_tz(now(),@@session.time_zone,\'+00:00\')) AS time_diff', false);
-        //return $builder->getCompiledSelect();
-        $query = $builder->get();
-        return $query;        
+    public function getTimeDiff() {
+        // not using the query builder because on PHP 8 it doesn't work
+        //$builder = $this->builder();
+        //$query = $builder->get();
+        
+        $db = db_connect();
+        $query = $db->query('SELECT timediff(now(),convert_tz(now(),@@session.time_zone,\'+00:00\')) AS time_diff');
+        return $query;
     }
 
     // get all data upload including including converted timezone from timestamp
     public function getDataUpload($from_timezone, $to_timezone) {
         // tampilkan menggunakan query builder
         $builder = $this->builder();
-        
+
         // use raw sql
-        $sql = 'nama_file_ori, lokasi, DATE_FORMAT(CONVERT_TZ(timestamp,\''.$from_timezone.'\',\''.$to_timezone.'\'), \'%d %b %Y %H:%i:%s\') AS converted_time';
+        $sql = 'nama_file_ori, lokasi, DATE_FORMAT(CONVERT_TZ(timestamp,\'' . $from_timezone . '\',\'' . $to_timezone . '\'), \'%d %b %Y %H:%i:%s\') AS converted_time';
         $builder->select(new RawSql($sql));
         $builder->orderBy('timestamp', 'DESC');
         //return $builder->getCompiledSelect();
         $query = $builder->get();
         return $query;
     }
-    
+
     // get all data upload
     public function getDataUploadSimple() {
         // tampilkan menggunakan query builder
         $builder = $this->builder();
-        
+
         //return $builder->getCompiledSelect();
         $query = $builder->get();
         return $query;
     }
-    
+
     // insert data CBM items
     public function insertDataUpload($data) {
         $builder = $this->builder();
@@ -64,12 +66,11 @@ class DataUploadModel extends Model {
         //return $builder->set($data)->getCompiledInsert();
         return $builder->insert($data);
     }
-    
+
     // kosongkan data upload
     public function empty_data_up() {
         // tentukan tabel
         $builder = $this->builder();
         return $builder->truncate();
     }
-
 }

@@ -77,6 +77,7 @@ class AdminDashboard extends BaseController {
         // get the time diff
         $timediff = $model->getTimeDiff()->getResult();
         $timeDiff = $timediff[0]->time_diff;
+        
         // lakukan konversi time zone ke GMT+7
         $from_timezone = '+'.substr($timeDiff, 0, 5);
         $to_timezone = '+07:00';
