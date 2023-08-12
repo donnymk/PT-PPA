@@ -83,7 +83,31 @@ class DashboardModel extends Model {
         FROM
             cbm_item
         WHERE
-            jeniscbm = \'MPI\' AND sample_result = \'C\') AS mpi_urgent');
+            jeniscbm = \'MPI\' AND sample_result = \'C\') AS mpi_urgent,
+    (SELECT 
+            COUNT(*)
+        FROM
+            cbm_item
+        WHERE
+            jeniscbm = \'PPM\' AND sample_result = \'C\') AS ppm_urgent,
+    (SELECT 
+            COUNT(*)
+        FROM
+            cbm_item
+        WHERE
+            jeniscbm = \'PPU\' AND sample_result = \'B\') AS ppu_bad,
+    (SELECT 
+            COUNT(*)
+        FROM
+            cbm_item
+        WHERE
+            jeniscbm = \'PAF\' AND sample_result = \'C\') AS paf_urgent,
+    (SELECT 
+            COUNT(*)
+        FROM
+            cbm_item
+        WHERE
+            jeniscbm = \'PAC\' AND sample_result = \'C\') AS pac_urgent');
         $query = $builder->get();
 
         return $query;

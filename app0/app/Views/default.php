@@ -7,12 +7,25 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Dashboard Plant Engineer</title>
-        <link href="<?= base_url('css/styles.css') ?>" rel="stylesheet" />
+        <?php
+        // jika theme dipilih 'strong'
+        if ($session->theme == 'stronglight' || $session->theme == 'strongdark' || $session->theme == 'strongdarklight' || $session->theme == 'strongprimary') {
+            ?>
+            <link href="<?= base_url('css/styles-strong.css') ?>" rel="stylesheet" />
+            <?php
+        }
+        // default theme
+        else {
+            ?>
+            <link href="<?= base_url('css/styles.css') ?>" rel="stylesheet" />
+            <?php
+        }
+        ?>
         <!-- Font Awesome -->
         <link href="<?= base_url('fontawesome-free-6.1.0-web/css/fontawesome.min.css') ?>" rel="stylesheet" type="text/css"/>
         <link href="<?= base_url('fontawesome-free-6.1.0-web/css/brands.min.css') ?>" rel="stylesheet" type="text/css"/>
         <link href="<?= base_url('fontawesome-free-6.1.0-web/css/solid.min.css') ?>" rel="stylesheet" type="text/css"/>
-        
+
         <!-- DataTables -->
         <link href="<?= base_url('DataTables-1.13.4/css/dataTables.bootstrap5.min.css') ?>" rel="stylesheet" type="text/css"/>
         <!-- Export library for DataTables -->
@@ -25,7 +38,17 @@
             .wajib-diisi {
                 color:#ff0000;
                 font-weight: bold
-            }            
+            }
+            <?php
+            // jika theme dipilih 'strong'
+            if ($session->theme == 'stronglight' || $session->theme == 'strongdark' || $session->theme == 'strongdarklight' || $session->theme == 'strongprimary') {
+                ?>
+                .nav {
+                    font-weight: bold
+                }
+                <?php
+            }
+            ?>
         </style>        
     </head>
     <body class="sb-nav-fixed">
@@ -41,7 +64,7 @@
         <!-- DataTables library -->
         <script src="<?= base_url('DataTables-1.13.4/js/jquery.dataTables.min.js') ?>" type="text/javascript"></script>
         <script src="<?= base_url('DataTables-1.13.4/js/dataTables.bootstrap5.min.js') ?>" type="text/javascript"></script>
-        
+
         <!-- Export Library -->
         <script src="<?= base_url('Buttons-2.3.6/js/dataTables.buttons.min.js') ?>" type="text/javascript"></script>
         <script src="<?= base_url('JSZip-2.5.0/jszip.min.js') ?>" type="text/javascript"></script>
@@ -50,7 +73,7 @@
         <script src="<?= base_url('Buttons-2.3.6/js/buttons.html5.min.js') ?>" type="text/javascript"></script>
         <script src="<?= base_url('Buttons-2.3.6/js/buttons.bootstrap5.min.js') ?>" type="text/javascript"></script>
         <script src="<?= base_url('Buttons-2.3.6/js/buttons.print.min.js') ?>" type="text/javascript"></script>
-        
+
 
         <!-- Sidebar Navigasi -->
         <script src="<?= base_url('js/scripts.js') ?>"></script>

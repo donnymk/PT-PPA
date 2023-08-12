@@ -90,6 +90,7 @@ class PublicDashboard extends BaseController {
                 'username' => $inputUsername,
                 'role' => $role,
                 'logged_in' => true,
+                'theme' => 'orilight' // default theme
             ];
             $session->set($newdata);
 
@@ -110,7 +111,7 @@ class PublicDashboard extends BaseController {
         // initialize the session
         $session = \Config\Services::session();
         //$session->destroy();
-        $array_items = ['username', 'role', 'logged_in'];
+        $array_items = ['username', 'role', 'logged_in', 'theme'];
         $session->remove($array_items);
 
         // Go to specific URI

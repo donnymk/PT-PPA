@@ -2,10 +2,9 @@
 
 <?= $this->section('isiHalaman') ?>
 
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <!-- Isi top navigation -->
-    <?= $this->include('topnavbar') ?>
-</nav>
+<!-- Isi top navigation -->
+<?= $this->include('topnavbar') ?>
+
 <div id="layoutSidenav">
     <!-- Isi side navigation -->
     <?= $this->include('sidenav') ?>
@@ -17,10 +16,9 @@
                 <?php
                 // cek flash data untuk memberitahu status ubah password
                 if (isset($_SESSION['changePasswordStatus'])) {
-                    if($_SESSION['changePasswordStatus'] == 'Ubah Password baru berhasil'){
+                    if ($_SESSION['changePasswordStatus'] == 'Ubah Password baru berhasil') {
                         $background_color = 'bg-success';
-                    }
-                    else{
+                    } else {
                         $background_color = 'bg-danger';
                     }
                     ?>

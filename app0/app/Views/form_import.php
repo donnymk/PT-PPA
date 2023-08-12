@@ -2,10 +2,9 @@
 
 <?= $this->section('isiHalaman') ?>
 
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <!-- Isi top navigation -->
-    <?= $this->include('topnavbar') ?>
-</nav>
+<!-- Isi top navigation -->
+<?= $this->include('topnavbar') ?>
+
 <div id="layoutSidenav">
     <!-- Isi side navigation -->
     <?= $this->include('sidenav') ?>
@@ -60,7 +59,7 @@
                             <li style="font-weight: bold">Import data akan menambahkan data ke database dan tidak akan menghapus data yang sudah ada.</li>
                             <li>Format file Excel harus .xlsx (Office 2007 ke atas)</li>
                             <li>Contoh isi file Excel <b>untuk PAP</b> silahkan <a href="<?= base_url('assets/xlsx/sample-upload-pap.xlsx') ?>" target="_blank">klik di sini</a>.</li>
-							<li>Contoh isi file Excel <b>selain PAP</b> silahkan <a href="<?= base_url('assets/xlsx/sample-upload-non-pap.xlsx') ?>" target="_blank">klik di sini</a>.</li>
+                            <li>Contoh isi file Excel <b>selain PAP</b> silahkan <a href="<?= base_url('assets/xlsx/sample-upload-non-pap.xlsx') ?>" target="_blank">klik di sini</a>.</li>
                         </ul>
 
                         <form method="post" enctype="multipart/form-data" action="<?= base_url('dashboard/submit_cbm') ?>">

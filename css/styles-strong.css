@@ -595,7 +595,7 @@ progress {
   color: #6c757d;
 }
 .blockquote-footer::before {
-  content: "â€”Â ";
+  content: "— ";
 }
 
 .img-fluid {
@@ -4531,8 +4531,10 @@ textarea.form-control-lg {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  /*border: 1px solid rgba(0, 0, 0, 0.125);*/
+  border: 4px solid rgba(0, 0, 0, 0.125);
+  /*border-radius: 0.25rem;*/
+   border-radius: 1rem;
 }
 .card > hr {
   margin-right: 0;
@@ -11485,7 +11487,8 @@ body {
   color: rgba(255, 255, 255, 0.5);
 }
 .sb-sidenav-dark .sb-sidenav-menu .sb-sidenav-menu-heading {
-  color: rgba(255, 255, 255, 0.25);
+  /*color: rgba(255, 255, 255, 0.25);*/
+  color: #dc3545;
 }
 .sb-sidenav-dark .sb-sidenav-menu .nav-link {
   color: rgba(255, 255, 255, 0.5);
@@ -11514,7 +11517,8 @@ body {
   color: #212529;
 }
 .sb-sidenav-light .sb-sidenav-menu .sb-sidenav-menu-heading {
-  color: #adb5bd;
+  /*color: #adb5bd;*/
+  color: #dc3545;
 }
 .sb-sidenav-light .sb-sidenav-menu .nav-link {
   color: #212529;

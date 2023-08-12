@@ -1,3 +1,17 @@
+<?php
+// jika theme dipilih 'ori-light' atau 'strong-light'
+if ($session->theme == 'orilight' || $session->theme == 'stronglight') {
+    echo '<nav class="sb-topnav navbar navbar-expand navbar-light bg-light">';
+}
+// jika theme dipilih 'ori-dark' atau 'strong-dark' atau 'oridarklight' atau 'strongdarklight'
+elseif ($session->theme == 'oridark' || $session->theme == 'oridarklight' || $session->theme == 'strongdark' || $session->theme == 'strongdarklight') {
+    echo '<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">';
+}
+// jika theme dipilih 'oriprimary' atau 'strongprimary'
+elseif ($session->theme == 'oriprimary' || $session->theme == 'strongprimary') {
+    echo '<nav class="sb-topnav navbar navbar-expand navbar-dark bg-primary">';
+}
+?>
 <!-- Navbar Brand-->
 <a class="navbar-brand ps-3" href="<?= base_url('dashboard') ?>">
     <img src="<?= base_url() ?>/assets/img/ptppa.png" width="40" alt=""/> Dashboard PE
@@ -14,9 +28,23 @@
 <!-- Navbar-->
 <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
     <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-palette"></i> Theme</a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="<?= base_url('dashboard/theme/orilight') ?>">Default - Light</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('dashboard/theme/oridark') ?>">Default - Dark</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('dashboard/theme/oridarklight') ?>">Default - Dark n Light</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('dashboard/theme/oriprimary') ?>">Default - Primary</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('dashboard/theme/stronglight') ?>">Strong - Light</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('dashboard/theme/strongdark') ?>">Strong - Dark</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('dashboard/theme/strongdarklight') ?>">Strong - Dark n Light</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('dashboard/theme/strongprimary') ?>">Strong - Primary</a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
             <?php
+            // jika sudah login
             if ($username != null) {
                 ?>
                 <li><a class="dropdown-item" href="<?= base_url('dashboard/changepwd') ?>">Ubah password</a></li>
@@ -28,9 +56,10 @@
             else {
                 ?>
                 <li><a class="dropdown-item" href="<?= base_url('dashboard/login') ?>">Login</a></li>
-                    <?php
-                }
-                ?>
+                <?php
+            }
+            ?>
         </ul>
     </li>
 </ul>
+<?= '</nav>' ?>

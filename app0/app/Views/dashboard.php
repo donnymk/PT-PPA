@@ -2,10 +2,9 @@
 
 <?= $this->section('isiHalaman') ?>
 
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <!-- Isi top navigation -->
-    <?= $this->include('topnavbar') ?>
-</nav>
+<!-- Isi top navigation -->
+<?= $this->include('topnavbar') ?>
+
 <div id="layoutSidenav">
     <!-- Isi side navigation -->
     <?= $this->include('sidenav') ?>
@@ -39,13 +38,16 @@
                     $cfm_urgent = $value->cfm_urgent;
                     $mpi_danger = $value->mpi_danger;
                     $mpi_urgent = $value->mpi_urgent;
-                    
+                    $ppm_urgent = $value->ppm_urgent;
+                    $ppu_bad = $value->ppu_bad;
+                    $paf_urgent = $value->paf_urgent;
+                    $pac_urgent = $value->pac_urgent;
                 endforeach
                 ?>
                 <div class="row">
                     <!--PAP Danger-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card <?= $pap_danger == '0' ? 'bg-light text-dark':'bg-dark text-white' ?> border-dark mb-4">
+                        <div class="card <?= $pap_danger == '0' ? 'bg-light text-dark' : 'bg-dark text-white' ?> border-dark mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -60,14 +62,14 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small <?= $pap_danger == '0' ? 'text-dark':'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/PAP/D') ?>"><?= $pap_danger ?> Issue(s)</a>
-                                <div class="small <?= $pap_danger == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
+                                <a class="small <?= $pap_danger == '0' ? 'text-dark' : 'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/PAP/D') ?>"><?= $pap_danger ?> Issue(s)</a>
+                                <div class="small <?= $pap_danger == '0' ? 'text-dark' : 'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
                     <!--PAP Urgent-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card <?= $pap_urgent == '0' ? 'bg-light text-dark':'bg-danger text-white' ?> border-dark mb-4">
+                        <div class="card <?= $pap_urgent == '0' ? 'bg-light text-dark' : 'bg-danger text-white' ?> border-dark mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -82,8 +84,8 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small <?= $pap_urgent == '0' ? 'text-dark':'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/PAP/C') ?>"><?= $pap_urgent ?> Issue(s)</a>
-                                <div class="small <?= $pap_urgent == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
+                                <a class="small <?= $pap_urgent == '0' ? 'text-dark' : 'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/PAP/C') ?>"><?= $pap_urgent ?> Issue(s)</a>
+                                <div class="small <?= $pap_urgent == '0' ? 'text-dark' : 'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
@@ -104,8 +106,8 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small <?= $cfm_danger == '0' ? 'text-dark':'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/CFM/D') ?>"><?= $cfm_danger ?> Issue(s)</a>
-                                <div class="small <?= $cfm_danger == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
+                                <a class="small <?= $cfm_danger == '0' ? 'text-dark' : 'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/CFM/D') ?>"><?= $cfm_danger ?> Issue(s)</a>
+                                <div class="small <?= $cfm_danger == '0' ? 'text-dark' : 'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
@@ -126,8 +128,8 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small <?= $cfm_urgent == '0' ? 'text-dark':'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/CFM/C') ?>"><?= $cfm_urgent ?> Issue(s)</a>
-                                <div class="small <?= $cfm_urgent == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
+                                <a class="small <?= $cfm_urgent == '0' ? 'text-dark' : 'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/CFM/C') ?>"><?= $cfm_urgent ?> Issue(s)</a>
+                                <div class="small <?= $cfm_urgent == '0' ? 'text-dark' : 'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
@@ -151,8 +153,8 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small <?= $mpi_danger == '0' ? 'text-dark':'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/MPI/D') ?>"><?= $mpi_danger ?> Issue(s)</a>
-                                <div class="small  <?= $mpi_danger == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
+                                <a class="small <?= $mpi_danger == '0' ? 'text-dark' : 'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/MPI/D') ?>"><?= $mpi_danger ?> Issue(s)</a>
+                                <div class="small  <?= $mpi_danger == '0' ? 'text-dark' : 'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
@@ -173,14 +175,14 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small  <?= $mpi_urgent == '0' ? 'text-dark':'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/MPI/C') ?>"><?= $mpi_urgent ?> Issue(s)</a>
-                                <div class="small  <?= $mpi_urgent == '0' ? 'text-dark':'text-white' ?>"><i class="fas fa-angle-right"></i></div>
+                                <a class="small <?= $mpi_urgent == '0' ? 'text-dark' : 'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/MPI/C') ?>"><?= $mpi_urgent ?> Issue(s)</a>
+                                <div class="small <?= $mpi_urgent == '0' ? 'text-dark' : 'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
                     <!--PPM Urgent-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card bg-danger text-white border-dark mb-4">
+                        <div class="card <?= $ppm_urgent == '0' ? 'bg-light text-dark' : 'bg-danger text-white' ?> border-dark mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -195,14 +197,14 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">XX Issue(s)</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                <a class="small <?= $ppm_urgent == '0' ? 'text-dark' : 'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/PPM/C') ?>"><?= $ppm_urgent ?> Issue(s)</a>
+                                <div class="small <?= $ppm_urgent == '0' ? 'text-dark' : 'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
                     <!--PPU Bad-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card bg-warning text-white border-dark mb-4">
+                        <div class="card <?= $ppu_bad == '0' ? 'bg-light text-dark' : 'bg-danger text-white' ?> border-dark mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -217,8 +219,8 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">XX Issue(s)</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                <a class="small <?= $ppu_bad == '0' ? 'text-dark' : 'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/PPU/B') ?>"><?= $ppu_bad ?> Issue(s)</a>
+                                <div class="small <?= $ppu_bad == '0' ? 'text-dark' : 'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
@@ -227,7 +229,7 @@
                 <div class="row">
                     <!--PAF Urgent-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card bg-success text-white border-dark mb-4">
+                        <div class="card <?= $paf_urgent == '0' ? 'bg-light text-dark' : 'bg-success text-white' ?> border-dark mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -242,14 +244,14 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">XX Issue(s)</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                <a class="small <?= $paf_urgent == '0' ? 'text-dark' : 'text-white' ?> stretched-link" href="<?= base_url('dashboard/cbm/PAF/C') ?>"><?= $paf_urgent ?> Issue(s)</a>
+                                <div class="small <?= $paf_urgent == '0' ? 'text-dark' : 'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>
                     <!--PAC Urgent-->
                     <div class="col-xl-3 col-md-6">
-                        <div class="card bg-primary text-white border-dark mb-4">
+                        <div class="card <?= $pac_urgent == '0' ? 'bg-light text-dark' : 'bg-primary text-white' ?> border-dark mb-4">
                             <div class="card-body">
                                 <table>
                                     <tr>
@@ -264,8 +266,8 @@
                                 </table>
                             </div>
                             <div class="card-footer d-flex align-items-center justify-content-between">
-                                <a class="small text-white stretched-link" href="#">XX Issue(s)</a>
-                                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                <a class="small <?= $pac_urgent == '0' ? 'text-dark' : 'text-white' ?> stretched-link" href="#"><?= $pac_urgent ?> Issue(s)</a>
+                                <div class="small <?= $pac_urgent == '0' ? 'text-dark' : 'text-white' ?>"><i class="fas fa-angle-right"></i></div>
                             </div>
                         </div>
                     </div>

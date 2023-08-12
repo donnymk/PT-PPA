@@ -2,10 +2,9 @@
 
 <?= $this->section('isiHalaman') ?>
 
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <!-- Isi top navigation -->
-    <?= $this->include('topnavbar') ?>
-</nav>
+<!-- Isi top navigation -->
+<?= $this->include('topnavbar') ?>
+
 <div id="layoutSidenav">
     <!-- Isi side navigation -->
     <?= $this->include('sidenav') ?>
@@ -46,7 +45,7 @@
                                 <label class="form-control-plaintext">Workgroup</label>
                             </div>
                             <div class="col-auto">
-                               <span id="filter1"></span>
+                                <span id="filter1"></span>
                             </div>
                             <div class="col-auto">
                                 <label class="form-control-plaintext">Model</label>
@@ -80,7 +79,7 @@
                                     $no++;
                                     $need_followup = ['B', 'C', 'D'];
                                     $fontcolor = 'black';
-                                    switch($value->sample_result){
+                                    switch ($value->sample_result) {
                                         case 'D': $bgcolor = '#111'; //black lighter
                                             $fontcolor = 'white';
                                             break;
@@ -109,7 +108,7 @@
                                             <?php
                                             if (in_array($value->sample_result, $need_followup)) {
                                                 ?>
-                                            <a href="<?= base_url('followup-cbm/input') ?>" target="_blank">Follow Up</a>
+                                                <a href="<?= base_url('followup-cbm/input') ?>" target="_blank">Follow Up</a>
                                                 <?php
                                             }
                                             ?>

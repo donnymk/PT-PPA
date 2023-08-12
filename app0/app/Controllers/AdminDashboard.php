@@ -49,7 +49,7 @@ class AdminDashboard extends BaseController {
             $data['role'] = $session->role;
             $data['session'] = $session;
         }
-
+        //var_dump($session); exit();
         // QUERY MELALUI MODEL
         $model = new DashboardModel();
         $data['stat_dashboard'] = $model->countCBMByJenis()->getResult();
@@ -73,15 +73,15 @@ class AdminDashboard extends BaseController {
 
         // QUERY MELALUI MODEL
         $model = new DataUploadModel();
-        
+
         // get the time diff
         $timediff = $model->getTimeDiff()->getResult();
         $timeDiff = $timediff[0]->time_diff;
-        
+
         // lakukan konversi time zone ke GMT+7
-        $from_timezone = '+'.substr($timeDiff, 0, 5);
+        $from_timezone = '+' . substr($timeDiff, 0, 5);
         $to_timezone = '+07:00';
-        
+
         $data['data_excel'] = $model->getDataUpload($from_timezone, $to_timezone)->getResult();
 
         //return var_dump($data['data_excel']);
@@ -137,13 +137,13 @@ class AdminDashboard extends BaseController {
         // QUERY MELALUI MODEL
         $model = new DashboardModel;
         $data['cbm_item'] = $model->getCBMByJenis($jenis);
-        
+
         $data['jenis_cbm'] = $jenis;
         $data['result'] = 'All';
-        
+
         $view = 'data_cbm';
         // view khusus CBM PAP
-        if($jenis == 'PAP'){
+        if ($jenis == 'PAP') {
             $view = 'data_cbm_pap';
         }
         return view($view, $data);
@@ -169,10 +169,10 @@ class AdminDashboard extends BaseController {
         $data['result'] = $result;
         $data['cbm_item'] = $model->getCBMByJenisnResult($jenis, $result);
         //var_dump($data['cbm_item']); exit();
-        
+
         $view = 'data_cbm';
         // view khusus CBM PAP
-        if($jenis == 'PAP'){
+        if ($jenis == 'PAP') {
             $view = 'data_cbm_pap';
         }
         return view($view, $data);
@@ -358,18 +358,19 @@ class AdminDashboard extends BaseController {
         return var_dump($errors);
     }
 
-    /* public function resume() {
-      // initialize the session
-      $session = \Config\Services::session();
-      $data['session'] = $session;
+    // set theme (tampilan)
+    public function set_theme($theme) {
+        // initialize the session
+        $session = \Config\Services::session();
 
-      // default value
-      $data['username'] = null;
-      // cek session login
-      if ($session->has('username')) {
-      $data['username'] = $session->username;
-      $data['role'] = $session->role;
-      }
-      return view('resume', $data);
-      } */
+        $changedata = [
+            'theme' => $theme
+        ];
+        $session->set($changedata);
+
+        session_write_close();
+
+        // Go to specific URI
+        return redirect()->to(base_url('dashboard/'));
+    }
 }

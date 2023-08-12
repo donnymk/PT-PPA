@@ -41,28 +41,12 @@ $routes->get('cbm/(:alphanum)/(:alphanum)', 'AdminDashboard::viewcbm_by_result/$
 $routes->get('login', 'PublicDashboard::login');
 $routes->post('loginproses', 'PublicDashboard::loginproses');
 $routes->get('import_cbm', 'AdminDashboard::import_cbm');
-//$routes->post('input_jobsite', 'AdminDashboard::input_jobsite');
 $routes->get('truncate_data_cbm', 'AdminDashboard::empty_data_cbm');
-//$routes->get('data_populasi', 'AdminDashboard::data_populasi');
-//$routes->post('input_populasi', 'AdminDashboard::input_populasi');
-//$routes->get('delete_populasi/(:num)', 'AdminDashboard::delete_populasi/$1');
-////$routes->get('buat_folder_tanggal', 'AdminDashboard::buat_folder_tanggal');
-//$routes->get('input_cwp', 'AdminDashboard::input_cwp');
+$routes->get('theme/(:alphanum)', 'AdminDashboard::set_theme/$1');
 $routes->post('submit_cbm', 'AdminDashboard::submit_cbm');
-//$routes->get('update/(:num)', 'AdminDashboard::update/$1');
-//$routes->post('update_cwp', 'AdminDashboard::update_cwp');
-//$routes->get('resume', 'AdminDashboard::resume');
-//$routes->get('delete_cwp/(:num)', 'AdminDashboard::delete_cwp/$1');
 $routes->get('changepwd', 'AdminDashboard::changepwd');
 $routes->post('submit_changepwd', 'AdminDashboard::changepwd_submit');
 $routes->get('logout', 'PublicDashboard::logout');
-//
-//$routes->post('get_model_unit', 'AjaxCWP::get_model_unit');
-//$routes->post('get_code_unit', 'AjaxCWP::get_code_unit');
-//$routes->get('resume_data', 'AjaxCWP::data_cwp');
-//$routes->get('jumlah_followup_open', 'AjaxCWP::jumlah_followup_open');
-//
-//$routes->get('cetak_form/(:num)', 'PrintCWP::index/$1');
 
 /*
  * --------------------------------------------------------------------
