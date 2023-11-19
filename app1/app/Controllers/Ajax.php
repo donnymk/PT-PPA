@@ -38,7 +38,7 @@ class Ajax extends BaseController {
                 
                 // button update dan delete
                 $update_button = '<a class="btn btn-primary btn-sm" href="update/' . $value->no_follow_up . '">Update...</a>';
-                $delete_button = '<a class="btn btn-secondary btn-sm" href="delete/' . $value->no_follow_up . '" onclick="return confirm_del(' . $value->no_follow_up . ')"><span class="fa fa-trash"></span></a>';
+                $delete_button = '<a class="btn btn-secondary btn-sm" href="delete/' . $value->no_follow_up . '" onclick="return confirm_del(' . $value->no_follow_up . ')" title="Hapus data"><span class="fa fa-trash"></span></a>';
 
                 array_push($data_cbm,
                         array($value->no_follow_up,
@@ -49,6 +49,7 @@ class Ajax extends BaseController {
                             $value->deskripsi_problem,
                             $value->rekomendasi_follow_up,
                             $value->plan_date_follow_up,
+                            $value->remarks,
                             '<a class="btn btn-primary" href="cetak_form/' . $value->no_follow_up . '" target="_blank"><span class="fa fa-2x fa-file-pdf"></span></a>',
                             $has_executed,
                             $value->date_executed,

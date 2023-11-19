@@ -34,7 +34,7 @@
                         <table class="table table-bordered" id="datatablesSimple">
                             <thead>
                                 <tr>
-                                    <th class="dt-head-center" colspan="9">Data Follow Up</th>
+                                    <th class="dt-head-center" colspan="10">Data Follow Up</th>
                                     <th class="dt-head-center" colspan="6">Ekseksusi Follow Up</th>
                                     <th rowspan="2"></th>
                                 </tr>
@@ -47,6 +47,7 @@
                                     <th>Deskripsi Problem</th>
                                     <th>Rekomendasi Follow Up</th>
                                     <th>Plan Date Follow Up</th>
+                                    <th>Remarks</th>
                                     <th>Cetak form</th>
                                     <th>Has Follow Up Executed?</th>
                                     <th>Date Executed (if yes)</th>

@@ -108,6 +108,10 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" id="inputRemarks" name="inputRemarks" required=""></textarea>
+                                <label for="inputRemarks">Remarks or Note</label>
+                            </div>
                             <div class="mt-4 mb-0">
                                 <div class="d-grid"><button type="submit" class="btn btn-primary btn-block"><span class="fa fa-floppy-disk"></span> Simpan</button></div>
                             </div>

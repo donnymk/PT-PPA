@@ -42,6 +42,7 @@
                                 $rekomendasi_follow_up = $row->rekomendasi_follow_up;
                                 $input_timestamp = $row->input_timestamp;
                                 $plan_date_follow_up = $row->plan_date_follow_up;
+                                $remarks = $row->remarks;
                                 $executed = $row->executed;
                                 $date_executed = $row->date_executed;
                                 $pic = $row->pic;
@@ -99,6 +100,10 @@
                                         <label>Plan Date Follow Up</label>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <textarea class="form-control" disabled><?= $remarks ?></textarea>
+                                <label>Remarks or Note</label>
                             </div>
                             <div class="mb-3">
                                 <hr>

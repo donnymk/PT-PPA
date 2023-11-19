@@ -31,7 +31,7 @@ function load_data_cbm() {
                 extend: 'excelHtml5',
                 text: '<span class="fas fa-2x fa-file-excel"></span> Export Excel',
                 exportOptions: {
-                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13]
+                    columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14]
                 },
                 title: 'Resume Follow Up CBM',
                 messageBottom: 'Data ' + get_timestamp() + ' melalui App online PT. PPA'

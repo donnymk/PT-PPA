@@ -185,6 +185,7 @@ class Admin extends Controller {
         $selectRekomFollowUp = $this->request->getPost('selectRekomFollowUp');
         $inputRekomFollowUp = $this->request->getPost('inputRekomFollowUp');
         $inputPlanDate = $this->request->getPost('inputPlanDate');
+        $inputRemarks = $this->request->getPost('inputRemarks');
 
         if ($selectRekomFollowUp == 'Lainnya') {
             $selectRekomFollowUp = $inputRekomFollowUp;
@@ -197,7 +198,8 @@ class Admin extends Controller {
             'cbm' => $inputTemuanCbm,
             'deskripsi_problem' => $inputDeskripsiProblem,
             'rekomendasi_follow_up' => $selectRekomFollowUp,
-            'plan_date_follow_up' => $inputPlanDate
+            'plan_date_follow_up' => $inputPlanDate,
+            'remarks' => $inputRemarks
         ];
 
         // QUERY MELALUI MODEL
